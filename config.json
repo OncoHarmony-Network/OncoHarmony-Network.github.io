@@ -5,6 +5,14 @@
     "homeUrl":"https://OncoHarmony-Network.github.io",
     "avatarUrl":"http://meekdai.com/avatar.jpg",
     "faviconUrl":"http://meekdai.com/favicon.ico",
-    "singlePage":[],
+    "singlePage":["about"],
+    "email":"shixiang1994wang@gmail.com",
+    "startSite":"12/01/2023",
+    "filingNum":"",
+    "onePageListNum":15,
+    "commentLabelColor":"#006b75",
+    "yearColorList":["#bc4c00", "#0969da", "#1f883d", "#A333D0"],
+    "i18n":"CN",
+    "nightTheme":"dark_colorblind",
     "GMEEK_VERSION":"last"
 }
