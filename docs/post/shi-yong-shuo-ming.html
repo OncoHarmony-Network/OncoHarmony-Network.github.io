@@ -71,7 +71,7 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 <ul>
 <li>仅限团队成员创建和使用</li>
 <li>通过 issue 创建博客</li>
-<li>确保每一篇文章有且仅有一个Label</li>
+<li>确保每一篇文章有且仅有一个Label（标题不能存在空行）</li>
 <li>不要出现同名 issue</li>
 <li>对外学术交流尽量写英文博客；技术文章尽量写中文博客。</li>
 </ul>
@@ -131,7 +131,11 @@ console.log("\n %c Gmeek main %c https://github.com/Meekdai/Gmeek \n\n", "color:
 
 <script>
 
-
+cmButton=document.getElementById("cmButton");
+    span=document.createElement("span");
+    span.setAttribute("class","Counter");
+    span.innerHTML="1";
+    cmButton.appendChild(span);
 
 function openComments(){
     cm=document.getElementById("comments");
