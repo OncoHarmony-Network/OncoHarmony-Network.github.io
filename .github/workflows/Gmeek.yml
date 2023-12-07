@@ -10,7 +10,7 @@ jobs:
     name: Generate blog
     runs-on: ubuntu-22.04
     #if: github.event.repository.owner.id == github.event.sender.id
-    if: ${{ github.event.sender.author_association == 'CONTRIBUTOR' || github.event.sender.author_association == 'MEMBER' || github.event.sender.author_association == 'COLLABORATOR' || github.event.sender.author_association == 'OWNER' }}
+    if: ${{ github.event.author_association == 'CONTRIBUTOR' || github.event.author_association == 'MEMBER' || github.event.author_association == 'COLLABORATOR' || github.event.author_association == 'OWNER' }}
     permissions: write-all
     steps:
       - name: Checkout
