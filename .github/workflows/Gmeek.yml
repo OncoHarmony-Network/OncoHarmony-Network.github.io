@@ -8,12 +8,28 @@ on:
 jobs:
   build:
     name: Generate blog
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     #if: github.event.repository.owner.id == github.event.sender.id
     permissions: write-all
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+
+      - name: Check if sender is a repository member
+        uses: octokit/request-action@v2.x
+        id: check-member
+        with:
+          route: GET /repos/:owner/:repo/collaborators/:username
+          owner: ${{ github.event.repository.owner.login }}
+          repo: ${{ github.event.repository.name }}
+          username: ${{ github.event.sender.login }}
+
+      - name: Continue only if sender is a repository member
+        run: |
+          if [ "${{ steps.check-member.outputs.status }}" != "204" ]; then
+            echo "Sender is not a repository member. Exiting..."
+            exit 1
+          fi
 
       - name: Setup Pages
         id: pages
@@ -69,7 +85,7 @@ jobs:
           
   deploy:
     name: Deploy blog
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     needs: build
     permissions:
       contents: write
