@@ -7,3 +7,13 @@
 > -- 李剑峰
 
 
+## Shiny 推荐学习资源列表
+
+- https://github.com/Appsilon
+- https://github.com/daattali/advanced-shiny
+- https://jokergoo.github.io/simona/articles/v09_shiny.html
+
+## JS 等推荐学习资源列表
+
+- https://www.ruanyifeng.com/blog/2012/06/sass.html
+- https://chromoscope.bio/
