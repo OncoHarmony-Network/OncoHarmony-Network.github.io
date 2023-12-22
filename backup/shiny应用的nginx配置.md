@@ -11,7 +11,7 @@ server {
 	#listen [::]:80 default_server;
 	listen 443 ssl default_server;
 	listen [::]:443 ssl default_server;
-	ssl on;
+	#ssl on;
         ssl_certificate /home/deploy/gitea-docker/gitea/cert_zhou.txt;
         ssl_certificate_key /home/deploy/gitea-docker/gitea/key_zhou.txt;
 
