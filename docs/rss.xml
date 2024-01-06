@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>OncoHarmony Network</title><link>https://OncoHarmony-Network.github.io</link><description>OncoHarmony Network is a dynamic collaborative platform dedicated to advancing the frontier of cancer immunotherapy</description><copyright>OncoHarmony Network</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/152575161?s=200&amp;v=4</url><title>avatar</title><link>https://OncoHarmony-Network.github.io</link></image><lastBuildDate>Thu, 04 Jan 2024 09:48:54 +0000</lastBuildDate><managingEditor>OncoHarmony Network</managingEditor><ttl>60</ttl><webMaster>OncoHarmony Network</webMaster><item><title>网页路由和shiny.router使用方法</title><link>https://OncoHarmony-Network.github.io/post/wang-ye-lu-you-he-shiny.router-shi-yong-fang-fa.html</link><description>1、**什么是路由？**&#13;
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>OncoHarmony Network</title><link>https://OncoHarmony-Network.github.io</link><description>OncoHarmony Network is a dynamic collaborative platform dedicated to advancing the frontier of cancer immunotherapy</description><copyright>OncoHarmony Network</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/152575161?s=200&amp;v=4</url><title>avatar</title><link>https://OncoHarmony-Network.github.io</link></image><lastBuildDate>Sat, 06 Jan 2024 11:14:35 +0000</lastBuildDate><managingEditor>OncoHarmony Network</managingEditor><ttl>60</ttl><webMaster>OncoHarmony Network</webMaster><item><title>网页路由和shiny.router使用方法</title><link>https://OncoHarmony-Network.github.io/post/wang-ye-lu-you-he-shiny.router-shi-yong-fang-fa.html</link><description>1、**什么是路由？**&#13;
 &#13;
  &gt;   路由描述的是 URL 与 UI 之间的映射关系，这种映射是单向的，即 URL 变化引起 UI 更新（无需刷新页面）。</description><guid isPermaLink="true">https://OncoHarmony-Network.github.io/post/wang-ye-lu-you-he-shiny.router-shi-yong-fang-fa.html</guid><pubDate>Sun, 17 Dec 2023 17:29:54 +0000</pubDate></item><item><title>shiny-server安装和配置</title><link>https://OncoHarmony-Network.github.io/post/shiny-server-an-zhuang-he-pei-zhi.html</link><description>参考博文[在Ubuntu服务器上配置Shiny应用](https://www.jieandze1314.com/post/cnposts/256/)进行基本的安装和配置。</description><guid isPermaLink="true">https://OncoHarmony-Network.github.io/post/shiny-server-an-zhuang-he-pei-zhi.html</guid><pubDate>Sat, 09 Dec 2023 15:28:11 +0000</pubDate></item><item><title>Web专业开发学习路径</title><link>https://OncoHarmony-Network.github.io/post/Web-zhuan-ye-kai-fa-xue-xi-lu-jing.html</link><description>关于 Shiny，我之前写过一个博客：[Shiny 开发学习路径](https://shixiangwang.github.io/posts/2023-09-13-shiny-learning-path-for-bioinformatics/)&#13;
 &#13;
@@ -43,13 +43,14 @@
 &#13;
 ## 发表文章列表&#13;
 &#13;
-。</description><guid isPermaLink="true">https://OncoHarmony-Network.github.io/post/xiang-mu-cheng-guo-lie-biao.html</guid><pubDate>Wed, 06 Dec 2023 09:07:03 +0000</pubDate></item><item><title>团队架构</title><link>https://OncoHarmony-Network.github.io/post/tuan-dui-jia-gou.html</link><description>- 负责人1：周建国，负责计算平台、资金、文稿和监管&#13;
-- 负责人2：王诗翔，负责项目管理、技术路线、部署运维&#13;
+。</description><guid isPermaLink="true">https://OncoHarmony-Network.github.io/post/xiang-mu-cheng-guo-lie-biao.html</guid><pubDate>Wed, 06 Dec 2023 09:07:03 +0000</pubDate></item><item><title>团队架构</title><link>https://OncoHarmony-Network.github.io/post/tuan-dui-jia-gou.html</link><description>- 负责人1：周建国，主要负责计算平台、资金、文稿和监管&#13;
+- 负责人2：王诗翔，主要负责项目管理、技术路线、部署运维&#13;
 - 科学顾问：王海涛&#13;
 - 产业顾问：赵飞&#13;
 - 技术顾问：叶宁荣（深度学习与医学影像）、崔炎濡（基因编辑）&#13;
-- 技术成员：熊逸、张益浩、李申锁、赵彦昆&#13;
-- 其他参与和学习成员：谌泯均、谭傑尹、张驰&#13;
+- 全日制研究生：谌泯均、蔡颖&#13;
+- 技术成员：熊逸、张益浩、李申锁&#13;
+- 其他参与和学习成员：谭傑尹、赵彦昆、张驰&#13;
 - [Hiplot（ORG）](https://hiplot.org/)协作者：李剑峰&#13;
 - 未来需要进一步的了解和大家的参与&#13;
 &#13;
