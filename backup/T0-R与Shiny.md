@@ -13,6 +13,6 @@
 
 1. 利用 Shiny 模拟 [TCCIA](https://shiny.zhoulab.ac.cn/TCCIA/) 做一个网站，有不同的页面，图，表，基本的交互，段落文字。
   - 根据个人发挥，只要关键内容都有，无论美丑和多少。
-2. （互联网）学习基本的 Git 使用。代码提交到 [gitea](https://gitea.zhoulab.ac.cn/) 上（自己创建仓库）。
+2. （互联网）学习基本的 Git 使用。将任务 1 的代码提交到 [gitea](https://gitea.zhoulab.ac.cn/) 上（自己创建仓库）。
 
 
