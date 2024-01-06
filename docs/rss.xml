@@ -1,5 +1,18 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>OncoHarmony Network</title><link>https://OncoHarmony-Network.github.io</link><description>OncoHarmony Network is a dynamic collaborative platform dedicated to advancing the frontier of cancer immunotherapy</description><copyright>OncoHarmony Network</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/152575161?s=200&amp;v=4</url><title>avatar</title><link>https://OncoHarmony-Network.github.io</link></image><lastBuildDate>Sat, 06 Jan 2024 12:17:19 +0000</lastBuildDate><managingEditor>OncoHarmony Network</managingEditor><ttl>60</ttl><webMaster>OncoHarmony Network</webMaster><item><title>网页路由和shiny.router使用方法</title><link>https://OncoHarmony-Network.github.io/post/wang-ye-lu-you-he-shiny.router-shi-yong-fang-fa.html</link><description>1、**什么是路由？**&#13;
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>OncoHarmony Network</title><link>https://OncoHarmony-Network.github.io</link><description>OncoHarmony Network is a dynamic collaborative platform dedicated to advancing the frontier of cancer immunotherapy</description><copyright>OncoHarmony Network</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/152575161?s=200&amp;v=4</url><title>avatar</title><link>https://OncoHarmony-Network.github.io</link></image><lastBuildDate>Sat, 06 Jan 2024 16:20:18 +0000</lastBuildDate><managingEditor>OncoHarmony Network</managingEditor><ttl>60</ttl><webMaster>OncoHarmony Network</webMaster><item><title>T0-R与Shiny</title><link>https://OncoHarmony-Network.github.io/post/T0-R-yu-Shiny.html</link><description>全职学习时间：2 周&#13;
+&#13;
+## 学习材料&#13;
+&#13;
+- [R for Data Science](https://r4ds.hadley.nz/)&#13;
+- [Mastering Shiny](https://mastering-shiny.org/)&#13;
+&#13;
+## 补充阅读&#13;
+&#13;
+- [Shiny 开发学习路径](https://shixiangwang.github.io/posts/2023-09-13-shiny-learning-path-for-bioinformatics/)&#13;
+&#13;
+## 任务&#13;
+&#13;
+1. 利用 Shiny 模拟 [TCCIA](https://shiny.zhoulab.ac.cn/TCCIA/) 做一个网站，有不同的页面，图，表，基本的交互，段落文字。</description><guid isPermaLink="true">https://OncoHarmony-Network.github.io/post/T0-R-yu-Shiny.html</guid><pubDate>Sat, 06 Jan 2024 16:19:47 +0000</pubDate></item><item><title>网页路由和shiny.router使用方法</title><link>https://OncoHarmony-Network.github.io/post/wang-ye-lu-you-he-shiny.router-shi-yong-fang-fa.html</link><description>1、**什么是路由？**&#13;
 &#13;
  &gt;   路由描述的是 URL 与 UI 之间的映射关系，这种映射是单向的，即 URL 变化引起 UI 更新（无需刷新页面）。</description><guid isPermaLink="true">https://OncoHarmony-Network.github.io/post/wang-ye-lu-you-he-shiny.router-shi-yong-fang-fa.html</guid><pubDate>Sun, 17 Dec 2023 17:29:54 +0000</pubDate></item><item><title>shiny-server安装和配置</title><link>https://OncoHarmony-Network.github.io/post/shiny-server-an-zhuang-he-pei-zhi.html</link><description>参考博文[在Ubuntu服务器上配置Shiny应用](https://www.jieandze1314.com/post/cnposts/256/)进行基本的安装和配置。</description><guid isPermaLink="true">https://OncoHarmony-Network.github.io/post/shiny-server-an-zhuang-he-pei-zhi.html</guid><pubDate>Sat, 09 Dec 2023 15:28:11 +0000</pubDate></item><item><title>Web专业开发学习路径</title><link>https://OncoHarmony-Network.github.io/post/Web-zhuan-ye-kai-fa-xue-xi-lu-jing.html</link><description>关于 Shiny，我之前写过一个博客：[Shiny 开发学习路径](https://shixiangwang.github.io/posts/2023-09-13-shiny-learning-path-for-bioinformatics/)&#13;
 &#13;
