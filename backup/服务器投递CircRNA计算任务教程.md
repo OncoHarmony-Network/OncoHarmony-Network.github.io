@@ -93,6 +93,6 @@ $ ls /home/zhou/t12a/HRA000524/raw/*.gz
 
 ### 2.5 检查结果
 
-最后的结果会在 `/home/zhou/raid/IO_RNA/circRNA/ABC` 目录下面。联系诗翔或有经验的人导出以及载入 TCCIA 数据库。
+最后的结果会在 `/home/zhou/raid/IO_RNA/circRNA/ABC` 目录下面（zhou2 服务器是 `/home/data/IO_RNA/circRNA/ABC`）。联系诗翔或有经验的人导出以及载入 TCCIA 数据库。
 
 
