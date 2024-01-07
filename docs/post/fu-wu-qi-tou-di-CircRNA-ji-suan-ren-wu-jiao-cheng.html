@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html data-color-mode="light" data-dark-theme="dark_colorblind" data-light-theme="light" lang="zh-CN">
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="content-type" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="//cdn.staticfile.org/Primer/21.0.7/primer.css" rel="stylesheet" />
+    <link rel="icon" href="https://avatars.githubusercontent.com/u/152575161?s=200&v=4">
+    <script>
+        if(localStorage.getItem("meek_theme")==null){}
+        else if(localStorage.getItem("meek_theme")=="dark"){document.getElementsByTagName("html")[0].attributes.getNamedItem("data-color-mode").value="dark";}
+        else if(localStorage.getItem("meek_theme")=="light"){document.getElementsByTagName("html")[0].attributes.getNamedItem("data-color-mode").value="light";}
+    </script>
+    
+<meta name="description" content="服务器投递CircRNA计算任务教程">
+<title>服务器投递CircRNA计算任务教程</title>
+<link href="//unpkg.com/@wooorm/starry-night@2.1.1/style/both.css" rel="stylesheet" />
+
+</head>
+<style>
+body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;padding: 45px;font-size: 16px;font-family: sans-serif;line-height: 1.25;}
+#header{display:flex;padding-bottom:8px;border-bottom: 1px solid var(--borderColor-muted, var(--color-border-muted));margin-bottom: 16px;}
+#footer {margin-top:64px; text-align: center;font-size: small;}
+
+</style>
+
+<style>
+.postTitle{margin: auto 0;font-size:40px;font-weight:bold;}
+.title-right{display:flex;margin:auto 0 0 auto;}
+.title-right .circle{padding: 14px 16px;margin-right:8px;}
+#postBody{border-bottom: 1px solid var(--color-border-default);padding-bottom:36px;}
+#postBody hr{height:2px;}
+#cmButton{height:48px;margin-top:48px;}
+#comments{margin-top:64px;}
+.g-emoji{font-size:24px;}
+@media (max-width: 600px) {
+    body {padding: 8px;}
+    .postTitle{font-size:24px;}
+}
+</style>
+
+
+
+
+<body>
+    <div id="header">
+<h1 class="postTitle">服务器投递CircRNA计算任务教程</h1>
+<div class="title-right">
+
+    <a href="https://OncoHarmony-Network.github.io"><button id="buttonHome" class="btn btn-invisible circle" title="首页">
+        <svg class="octicon" width="16" height="16">
+            <path id="pathHome" fill-rule="evenodd" d="M6.906.664a1.749 1.749 0 0 1 2.187 0l5.25 4.2c.415.332.657.835.657 1.367v7.019A1.75 1.75 0 0 1 13.25 15h-3.5a.75.75 0 0 1-.75-.75V9H7v5.25a.75.75 0 0 1-.75.75h-3.5A1.75 1.75 0 0 1 1 13.25V6.23c0-.531.242-1.034.657-1.366l5.25-4.2Zm1.25 1.171a.25.25 0 0 0-.312 0l-5.25 4.2a.25.25 0 0 0-.094.196v7.019c0 .138.112.25.25.25H5.5V8.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v5.25h2.75a.25.25 0 0 0 .25-.25V6.23a.25.25 0 0 0-.094-.195Z"></path>
+        </svg>
+    </button></a>
+
+    <a href="https://github.com/OncoHarmony-Network/OncoHarmony-Network.github.io/issues/16" target="_blank"><button class="btn btn-invisible circle" title="Issue">
+        <svg class="octicon" width="16" height="16">
+            <path id="pathIssue" fill-rule="evenodd" d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path>
+        </svg>
+    </button></a>
+
+    <button class="btn btn-invisible circle" onclick="modeSwitch();" title="切换主题">
+        <svg class="octicon" width="16" height="16" >
+            <path id="themeSwitch" fill-rule="evenodd"></path>
+        </svg>
+    </button>
+
+</div>
+</div>
+    <div id="content">
+<div class="markdown-body" id="postBody">
+<p><strong>进行该任务需要基本掌握 Linux 操作</strong>。 <a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/JianGuoZhou3/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/JianGuoZhou3">@JianGuoZhou3</a></p>
+<blockquote>
+<p>问题反馈和交流请联系诗翔 <a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/ShixiangWang/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/ShixiangWang">@ShixiangWang</a> 。</p>
+<p>后续跟进实际问题进行补充 QA 和视频交流。</p>
+</blockquote>
+<h2>1. 准备</h2>
+<ol>
+<li>获取对应服务器的 CircRNA 账号：目前建国有 2 台服务器已经安装和配置过 circrna-pipeline 流程，使用者根据对应数据存储的服务器，获取相应的账号并利用 SSH 登陆，切换到 <code class="notranslate">~/circrna-pipeline</code> 目录。推荐使用 VS Code，利用 Remote SSH 直接连接到对应的文件目录，后续操作会更简单。成功后会看到左侧展示出 circrna-pipeline 的文件目录。</li>
+</ol>
+<p><a target="_blank" rel="noopener noreferrer" href="https://github.com/OncoHarmony-Network/OncoHarmony-Network.github.io/assets/25057508/a9c4bede-f274-4742-a765-eeb06a4e4cea"><img width="2000" alt="image" src="https://github.com/OncoHarmony-Network/OncoHarmony-Network.github.io/assets/25057508/a9c4bede-f274-4742-a765-eeb06a4e4cea" style="max-width: 100%;"></a></p>
+<ol start="2">
+<li>拉取下最新的代码，先确保代码目录已经是最新的版本，以避免以后的代码冲突问题。</li>
+</ol>
+<p><a target="_blank" rel="noopener noreferrer" href="https://github.com/OncoHarmony-Network/OncoHarmony-Network.github.io/assets/25057508/ec658d26-65c7-45f3-b1ec-41964fed7610"><img width="553" alt="image" src="https://github.com/OncoHarmony-Network/OncoHarmony-Network.github.io/assets/25057508/ec658d26-65c7-45f3-b1ec-41964fed7610" style="max-width: 100%;"></a></p>
+<ol start="3">
+<li>先确定原始数据 fastq 文件所在的目录，检查并记录路径，例如：<code class="notranslate">/home/zhou/t12a/HRA000524/raw</code></li>
+</ol>
+<div class="highlight highlight-source-shell"><pre class="notranslate">$ ls /home/zhou/t12a/HRA000524/raw/<span class="pl-k">*</span>.gz
+/home/zhou/t12a/HRA000524/raw/HRR179719_f1.fastq.gz  /home/zhou/t12a/HRA000524/raw/HRR179734_f1.fastq.gz  /home/zhou/t12a/HRA000524/raw/HRR179749_f1.fastq.gz  /home/zhou/t12a/HRA000524/raw/HRR179764_f1.fastq.gz
+/home/zhou/t12a/HRA000524/raw/HRR179719_r2.fastq.gz  /home/zhou/t12a/HRA000524/raw/HRR179734_r2.fastq.gz  /home/zhou/t12a/HRA000524/raw/HRR179749_r2.fastq.gz  /home/zhou/t12a/HRA000524/raw/HRR179764_r2.fastq.gz</pre></div>
+<ol start="4">
+<li>为要处理的队列创建一个新的目录。强烈推荐在<code class="notranslate">/home/circrna/circrna-pipeline/run_batch_from_qc</code>下创建一个与队列 ID 一致的目录名，例如 <code class="notranslate">/home/circrna/circrna-pipeline/run_batch_from_qc/HRA000524</code>。这里无论用鼠标或者 <code class="notranslate">mkdir</code> 都是一样的。</li>
+</ol>
+<p><a target="_blank" rel="noopener noreferrer" href="https://github.com/OncoHarmony-Network/OncoHarmony-Network.github.io/assets/25057508/aed003db-3996-4459-a718-459da7e2e056"><img width="396" alt="image" src="https://github.com/OncoHarmony-Network/OncoHarmony-Network.github.io/assets/25057508/aed003db-3996-4459-a718-459da7e2e056" style="max-width: 100%;"></a></p>
+<h2>2. 执行计算</h2>
+<p>执行计算需要分为 3 个独立的步骤，需要按顺序进行，分别对应一个 Shell 脚本。初次接触的人可以大致看下左侧栏已经处理过的队列的结构逻辑和代码。</p>
+<p>基本都是下面这个样子，3 个 Shell 脚本以及 3 个对应的日志文件（运行 Shell 脚本会自动生成），以及一个 txt 文件，它是 QC 脚本运行后会产生的队列样本 ID 列表。</p>
+<p><a target="_blank" rel="noopener noreferrer" href="https://github.com/OncoHarmony-Network/OncoHarmony-Network.github.io/assets/25057508/dddb527d-26a7-420b-aeec-c2b2d236288e"><img width="221" alt="image" src="https://github.com/OncoHarmony-Network/OncoHarmony-Network.github.io/assets/25057508/dddb527d-26a7-420b-aeec-c2b2d236288e" style="max-width: 100%;"></a></p>
+<h3>2.1. 创建脚本文件</h3>
+<p>创建上面提到的 3 个脚本文件，如果在 zhou 服务器上做计算，以 <code class="notranslate">HRA000524</code> 队列目录作为参考；如果是在 zhou2 服务器上做计算，以 <code class="notranslate">EGA_OAK</code> 队列目录作参考。</p>
+<blockquote>
+<p>不同参考的原因是不同服务器的运算和结果存储路径不同，尽量减少错误的路径设置。</p>
+</blockquote>
+<ol>
+<li>简单一点，就是先复制粘贴（ctrl c + ctrl v）参考目录：</li>
+</ol>
+<p><a target="_blank" rel="noopener noreferrer" href="https://github.com/OncoHarmony-Network/OncoHarmony-Network.github.io/assets/25057508/9a5bad2d-43da-4b9f-93b6-00eb302fbb60"><img width="293" alt="image" src="https://github.com/OncoHarmony-Network/OncoHarmony-Network.github.io/assets/25057508/9a5bad2d-43da-4b9f-93b6-00eb302fbb60" style="max-width: 100%;"></a></p>
+<ol start="2">
+<li>然后修改为新的队列名，将目录下的 log 文件和 txt 文件删除，并根据队列名修改脚本名。完成后目录如下，这里我用 ABC 作为新的要处理的队列作演示。</li>
+</ol>
+<p><a target="_blank" rel="noopener noreferrer" href="https://github.com/OncoHarmony-Network/OncoHarmony-Network.github.io/assets/25057508/8bb1219e-e83e-455e-9765-5a36bb6c95a8"><img width="322" alt="image" src="https://github.com/OncoHarmony-Network/OncoHarmony-Network.github.io/assets/25057508/8bb1219e-e83e-455e-9765-5a36bb6c95a8" style="max-width: 100%;"></a></p>
+<h3>2.2. QC</h3>
+<ol>
+<li>打开 <code class="notranslate">ABC_qc.sh</code> 文件进行编辑，修改 <code class="notranslate">indir</code> 路径。</li>
+</ol>
+<p><a target="_blank" rel="noopener noreferrer" href="https://github.com/OncoHarmony-Network/OncoHarmony-Network.github.io/assets/25057508/f073f500-aa8b-4873-a046-f924eb945016"><img width="1400" alt="image" src="https://github.com/OncoHarmony-Network/OncoHarmony-Network.github.io/assets/25057508/f073f500-aa8b-4873-a046-f924eb945016" style="max-width: 100%;"></a></p>
+<ol start="2">
+<li>替换参考队列名为处理队列名。</li>
+</ol>
+<p><a target="_blank" rel="noopener noreferrer" href="https://github.com/OncoHarmony-Network/OncoHarmony-Network.github.io/assets/25057508/d984b10d-20f2-48f1-8457-b733ea9d7803"><img width="2000" alt="image" src="https://github.com/OncoHarmony-Network/OncoHarmony-Network.github.io/assets/25057508/d984b10d-20f2-48f1-8457-b733ea9d7803" style="max-width: 100%;"></a></p>
+<p>替换后涉及的地方都会改变。</p>
+<p><a target="_blank" rel="noopener noreferrer" href="https://github.com/OncoHarmony-Network/OncoHarmony-Network.github.io/assets/25057508/136bb8a5-963b-45bd-8f50-8ce9983892de"><img width="1078" alt="image" src="https://github.com/OncoHarmony-Network/OncoHarmony-Network.github.io/assets/25057508/136bb8a5-963b-45bd-8f50-8ce9983892de" style="max-width: 100%;"></a></p>
+<ol start="3">
+<li>在脚本所在目录运行该脚本。</li>
+</ol>
+<p>可以以右键或 cd 的方式进入脚本目录。</p>
+<p><a target="_blank" rel="noopener noreferrer" href="https://github.com/OncoHarmony-Network/OncoHarmony-Network.github.io/assets/25057508/42b81fc9-ffe1-4076-b581-737c20271686"><img width="1139" alt="image" src="https://github.com/OncoHarmony-Network/OncoHarmony-Network.github.io/assets/25057508/42b81fc9-ffe1-4076-b581-737c20271686" style="max-width: 100%;"></a></p>
+<p>运行脚本</p>
+<p><a target="_blank" rel="noopener noreferrer" href="https://github.com/OncoHarmony-Network/OncoHarmony-Network.github.io/assets/25057508/1212de2e-566d-44c8-862a-38d0832d16d4"><img width="569" alt="image" src="https://github.com/OncoHarmony-Network/OncoHarmony-Network.github.io/assets/25057508/1212de2e-566d-44c8-862a-38d0832d16d4" style="max-width: 100%;"></a></p>
+<p>脚本会放到后台运行（可以关闭终端），日志文件也会生成。可以点击或者通过命令查看（命令会更新更快一些）。</p>
+<p><a target="_blank" rel="noopener noreferrer" href="https://github.com/OncoHarmony-Network/OncoHarmony-Network.github.io/assets/25057508/616b37be-f61d-44e9-8063-f13228a710e5"><img width="468" alt="image" src="https://github.com/OncoHarmony-Network/OncoHarmony-Network.github.io/assets/25057508/616b37be-f61d-44e9-8063-f13228a710e5" style="max-width: 100%;"></a></p>
+<ol start="4">
+<li>提交和推送（同步）代码/日志到远程仓库。（这个步骤可以根据自己的情况进行操作，不需要每次日志更新都操作一遍）</li>
+</ol>
+<p><a target="_blank" rel="noopener noreferrer" href="https://github.com/OncoHarmony-Network/OncoHarmony-Network.github.io/assets/25057508/e25209c7-c1fa-4e41-bec7-d04b8f59c0ec"><img width="398" alt="image" src="https://github.com/OncoHarmony-Network/OncoHarmony-Network.github.io/assets/25057508/e25209c7-c1fa-4e41-bec7-d04b8f59c0ec" style="max-width: 100%;"></a></p>
+<blockquote>
+<p>QC 一开始进行就会生成上述的样本 ID txt 文件，这个也可以检查下，如果 ID 有问题，那么后续肯定会出问题。</p>
+</blockquote>
+<h3>2.3 检测</h3>
+<p>针对 <code class="notranslate">ABC_call.sh</code> 脚本重复上面 2.2 的 2-4 步骤。</p>
+<h3>2.4 聚合结果</h3>
+<p>针对 <code class="notranslate">ABC_aggr.sh</code> 脚本重复上面 2.2 的 2-4 步骤。</p>
+<h3>2.5 检查结果</h3>
+<p>最后的结果会在 <code class="notranslate">/home/zhou/raid/IO_RNA/circRNA/ABC</code> 目录下面。联系诗翔或有经验的人导出以及载入 TCCIA 数据库。</p>
+</div>
+<button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>
+<div class="comments" id="comments"></div>
+</div>
+    <div id="footer">Copyright © <span id="year"></span><a href="https://OncoHarmony-Network.github.io"> OncoHarmony Network </a>
+<p>
+<span id="runday"></span>Powered by <a href="https://meekdai.com/Gmeek.html" target="_blank">Gmeek</a>
+</p>
+
+<script>
+if("12/01/2023"!=""){
+    var now=new Date();
+    var startSite=new Date("12/01/2023");
+    var diff=now.getTime()-startSite.getTime();
+    var diffDay=Math.floor(diff/(1000*60*60*24));
+    document.getElementById("year").innerHTML=now.getFullYear();
+    if(""!=""){document.getElementById("runday").innerHTML=" • "+"网站运行"+diffDay+"天"+" • ";}
+    else{document.getElementById("runday").innerHTML="网站运行"+diffDay+"天"+" • ";}
+}
+</script>
+</div>
+</body>
+<script>
+var IconList={'post': 'M0 3.75C0 2.784.784 2 1.75 2h12.5c.966 0 1.75.784 1.75 1.75v8.5A1.75 1.75 0 0 1 14.25 14H1.75A1.75 1.75 0 0 1 0 12.25Zm1.75-.25a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h12.5a.25.25 0 0 0 .25-.25v-8.5a.25.25 0 0 0-.25-.25ZM3.5 6.25a.75.75 0 0 1 .75-.75h7a.75.75 0 0 1 0 1.5h-7a.75.75 0 0 1-.75-.75Zm.75 2.25h4a.75.75 0 0 1 0 1.5h-4a.75.75 0 0 1 0-1.5Z', 'link': 'm7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z', 'about': 'M10.561 8.073a6.005 6.005 0 0 1 3.432 5.142.75.75 0 1 1-1.498.07 4.5 4.5 0 0 0-8.99 0 .75.75 0 0 1-1.498-.07 6.004 6.004 0 0 1 3.431-5.142 3.999 3.999 0 1 1 5.123 0ZM10.5 5a2.5 2.5 0 1 0-5 0 2.5 2.5 0 0 0 5 0Z', 'sun': 'M8 10.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5zM8 12a4 4 0 100-8 4 4 0 000 8zM8 0a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0V.75A.75.75 0 018 0zm0 13a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0v-1.5A.75.75 0 018 13zM2.343 2.343a.75.75 0 011.061 0l1.06 1.061a.75.75 0 01-1.06 1.06l-1.06-1.06a.75.75 0 010-1.06zm9.193 9.193a.75.75 0 011.06 0l1.061 1.06a.75.75 0 01-1.06 1.061l-1.061-1.06a.75.75 0 010-1.061zM16 8a.75.75 0 01-.75.75h-1.5a.75.75 0 010-1.5h1.5A.75.75 0 0116 8zM3 8a.75.75 0 01-.75.75H.75a.75.75 0 010-1.5h1.5A.75.75 0 013 8zm10.657-5.657a.75.75 0 010 1.061l-1.061 1.06a.75.75 0 11-1.06-1.06l1.06-1.06a.75.75 0 011.06 0zm-9.193 9.193a.75.75 0 010 1.06l-1.06 1.061a.75.75 0 11-1.061-1.06l1.06-1.061a.75.75 0 011.061 0z', 'moon': 'M9.598 1.591a.75.75 0 01.785-.175 7 7 0 11-8.967 8.967.75.75 0 01.961-.96 5.5 5.5 0 007.046-7.046.75.75 0 01.175-.786zm1.616 1.945a7 7 0 01-7.678 7.678 5.5 5.5 0 107.678-7.678z', 'search': 'M15.7 13.3l-3.81-3.83A5.93 5.93 0 0 0 13 6c0-3.31-2.69-6-6-6S1 2.69 1 6s2.69 6 6 6c1.3 0 2.48-.41 3.47-1.11l3.83 3.81c.19.2.45.3.7.3.25 0 .52-.09.7-.3a.996.996 0 0 0 0-1.41v.01zM7 10.7c-2.59 0-4.7-2.11-4.7-4.7 0-2.59 2.11-4.7 4.7-4.7 2.59 0 4.7 2.11 4.7 4.7 0 2.59-2.11 4.7-4.7 4.7z', 'rss': 'M2.002 2.725a.75.75 0 0 1 .797-.699C8.79 2.42 13.58 7.21 13.974 13.201a.75.75 0 0 1-1.497.098 10.502 10.502 0 0 0-9.776-9.776.747.747 0 0 1-.7-.798ZM2.84 7.05h-.002a7.002 7.002 0 0 1 6.113 6.111.75.75 0 0 1-1.49.178 5.503 5.503 0 0 0-4.8-4.8.75.75 0 0 1 .179-1.489ZM2 13a1 1 0 1 1 2 0 1 1 0 0 1-2 0Z', 'upload': 'M2.75 14A1.75 1.75 0 0 1 1 12.25v-2.5a.75.75 0 0 1 1.5 0v2.5c0 .138.112.25.25.25h10.5a.25.25 0 0 0 .25-.25v-2.5a.75.75 0 0 1 1.5 0v2.5A1.75 1.75 0 0 1 13.25 14Z M11.78 4.72a.749.749 0 1 1-1.06 1.06L8.75 3.811V9.5a.75.75 0 0 1-1.5 0V3.811L5.28 5.78a.749.749 0 1 1-1.06-1.06l3.25-3.25a.749.749 0 0 1 1.06 0l3.25 3.25Z', 'github': 'M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z', 'home': 'M6.906.664a1.749 1.749 0 0 1 2.187 0l5.25 4.2c.415.332.657.835.657 1.367v7.019A1.75 1.75 0 0 1 13.25 15h-3.5a.75.75 0 0 1-.75-.75V9H7v5.25a.75.75 0 0 1-.75.75h-3.5A1.75 1.75 0 0 1 1 13.25V6.23c0-.531.242-1.034.657-1.366l5.25-4.2Zm1.25 1.171a.25.25 0 0 0-.312 0l-5.25 4.2a.25.25 0 0 0-.094.196v7.019c0 .138.112.25.25.25H5.5V8.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v5.25h2.75a.25.25 0 0 0 .25-.25V6.23a.25.25 0 0 0-.094-.195Z'};
+var utterancesLoad=0;
+if(localStorage.getItem("meek_theme")==null){localStorage.setItem("meek_theme","light");changeLight();}
+else if(localStorage.getItem("meek_theme")=="dark"){changeDark();}
+else if(localStorage.getItem("meek_theme")=="light"){changeLight();}
+
+function changeDark(){
+    document.getElementsByTagName("html")[0].attributes.getNamedItem("data-color-mode").value="dark";
+    document.getElementById("themeSwitch").setAttribute("d",value=IconList["moon"]);
+    document.getElementById("themeSwitch").parentNode.style.color="#00f0ff";
+    if(utterancesLoad==1){utterancesTheme("dark-blue");}
+}
+function changeLight(){
+    document.getElementsByTagName("html")[0].attributes.getNamedItem("data-color-mode").value="light";
+    document.getElementById("themeSwitch").setAttribute("d",value=IconList["sun"]);
+    document.getElementById("themeSwitch").parentNode.style.color="#ff5000";
+    if(utterancesLoad==1){utterancesTheme("github-light");}
+}
+function modeSwitch(){
+    if(document.getElementsByTagName("html")[0].attributes[0].value=="light"){changeDark();localStorage.setItem("meek_theme","dark");}
+    else{changeLight();localStorage.setItem("meek_theme","light");}
+}
+function utterancesTheme(theme){
+    const message = {type: 'set-theme',theme: theme};
+    const iframe = document.getElementsByClassName('utterances-frame')[0];
+    iframe.contentWindow.postMessage(message, 'https://utteranc.es');
+}
+
+console.log("\n %c Gmeek main %c https://github.com/Meekdai/Gmeek \n\n", "color: #fff; background-image: linear-gradient(90deg, rgb(47, 172, 178) 0%, rgb(45, 190, 96) 100%); padding:5px 1px;", "background-image: linear-gradient(90deg, rgb(45, 190, 96) 0%, rgb(255, 255, 255) 100%); padding:5px 0;");
+</script>
+
+<script>
+
+
+
+function openComments(){
+    cm=document.getElementById("comments");
+    cmButton=document.getElementById("cmButton");
+    cmButton.innerHTML="loading";
+    span=document.createElement("span");
+    span.setAttribute("class","AnimatedEllipsis");
+    cmButton.appendChild(span);
+
+    script=document.createElement("script");
+    script.setAttribute("src","https://utteranc.es/client.js");
+    script.setAttribute("repo","OncoHarmony-Network/OncoHarmony-Network.github.io");
+    script.setAttribute("issue-term","title");
+    if(localStorage.getItem("meek_theme")=="dark"){script.setAttribute("theme","dark-blue");}
+    else{script.setAttribute("theme","github-light");}
+    script.setAttribute("crossorigin","anonymous");
+    script.setAttribute("async","");
+    cm.appendChild(script);
+
+    int=self.setInterval("iFrameLoading()",200);
+}
+
+function iFrameLoading(){
+    var utterances=document.getElementsByClassName('utterances');
+    if(utterances.length==1){
+        if(utterances[0].style.height!=""){
+            utterancesLoad=1;
+            int=window.clearInterval(int);
+            document.getElementById("cmButton").style.display="none";
+            console.log("utterances Load OK");
+        }
+    }
+}
+
+</script>
+
+
+
+
+</html>
