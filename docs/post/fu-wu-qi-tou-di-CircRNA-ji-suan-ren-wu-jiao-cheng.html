@@ -79,6 +79,13 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 <li>获取对应服务器的 CircRNA 账号：目前建国有 2 台服务器已经安装和配置过 circrna-pipeline 流程，使用者根据对应数据存储的服务器，获取相应的账号并利用 SSH 登陆，切换到 <code class="notranslate">~/circrna-pipeline</code> 目录。推荐使用 VS Code，利用 Remote SSH（插件）直接连接到对应的文件目录，后续操作会更简单。成功后会看到左侧展示出 circrna-pipeline 的文件目录。</li>
 </ol>
 <p><a target="_blank" rel="noopener noreferrer" href="https://github.com/OncoHarmony-Network/OncoHarmony-Network.github.io/assets/25057508/a9c4bede-f274-4742-a765-eeb06a4e4cea"><img width="2000" alt="image" src="https://github.com/OncoHarmony-Network/OncoHarmony-Network.github.io/assets/25057508/a9c4bede-f274-4742-a765-eeb06a4e4cea" style="max-width: 100%;"></a></p>
+<p>建议配置 SSH config 文件，参考格式（网上自行搜索）：</p>
+<pre class="notranslate"><code class="notranslate">Host circrna-zhou
+  HostName biotrainee.cn
+  User circrna
+  Port xxx
+</code></pre>
+<p>并可以考虑配置 SSH 免密登陆，避免每一次都要输入密码。很简单，比如针对上述的主机，在本地运行 <code class="notranslate">ssh-copy-id circrna-zhou</code> 即可（解决不了自行搜索或反馈）。</p>
 <ol start="2">
 <li>拉取下最新的代码，先确保代码目录已经是最新的版本，以避免以后的代码冲突问题。</li>
 </ol>
@@ -202,7 +209,7 @@ console.log("\n %c Gmeek main %c https://github.com/Meekdai/Gmeek \n\n", "color:
 cmButton=document.getElementById("cmButton");
     span=document.createElement("span");
     span.setAttribute("class","Counter");
-    span.innerHTML="1";
+    span.innerHTML="2";
     cmButton.appendChild(span);
 
 function openComments(){

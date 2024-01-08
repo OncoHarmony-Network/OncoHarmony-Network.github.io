@@ -10,6 +10,17 @@
 
 <img width="2560" alt="image" src="https://github.com/OncoHarmony-Network/OncoHarmony-Network.github.io/assets/25057508/a9c4bede-f274-4742-a765-eeb06a4e4cea">
 
+建议配置 SSH config 文件，参考格式（网上自行搜索）：
+
+```
+Host circrna-zhou
+  HostName biotrainee.cn
+  User circrna
+  Port xxx
+```
+
+并可以考虑配置 SSH 免密登陆，避免每一次都要输入密码。很简单，比如针对上述的主机，在本地运行 `ssh-copy-id circrna-zhou` 即可（解决不了自行搜索或反馈）。
+
 2. 拉取下最新的代码，先确保代码目录已经是最新的版本，以避免以后的代码冲突问题。
 
 <img width="553" alt="image" src="https://github.com/OncoHarmony-Network/OncoHarmony-Network.github.io/assets/25057508/ec658d26-65c7-45f3-b1ec-41964fed7610">
