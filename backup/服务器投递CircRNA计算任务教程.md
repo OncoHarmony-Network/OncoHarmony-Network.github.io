@@ -6,7 +6,7 @@
 
 ## 1. 准备
 
-1. 获取对应服务器的 CircRNA 账号：目前建国有 2 台服务器已经安装和配置过 circrna-pipeline 流程，使用者根据对应数据存储的服务器，获取相应的账号并利用 SSH 登陆，切换到 `~/circrna-pipeline` 目录。推荐使用 VS Code，利用 Remote SSH 直接连接到对应的文件目录，后续操作会更简单。成功后会看到左侧展示出 circrna-pipeline 的文件目录。
+1. 获取对应服务器的 CircRNA 账号：目前建国有 2 台服务器已经安装和配置过 circrna-pipeline 流程，使用者根据对应数据存储的服务器，获取相应的账号并利用 SSH 登陆，切换到 `~/circrna-pipeline` 目录。推荐使用 VS Code，利用 Remote SSH（插件）直接连接到对应的文件目录，后续操作会更简单。成功后会看到左侧展示出 circrna-pipeline 的文件目录。
 
 <img width="2560" alt="image" src="https://github.com/OncoHarmony-Network/OncoHarmony-Network.github.io/assets/25057508/a9c4bede-f274-4742-a765-eeb06a4e4cea">
 
