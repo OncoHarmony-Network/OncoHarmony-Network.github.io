@@ -20,7 +20,7 @@ TCCIA数据库链接： <https://shiny.hiplot.cn/TCCIA/>
 
 ### 我们是谁
 
-> 我们是由王诗翔和周建国博士创建的在线协作科研团队 [OncoHarmony Network](https://github.com/OncoHarmony-Network "OncoHarmony Network")，致力于肿瘤免疫方向的资源平台构建和数据挖掘。我们通过项目导向、贡献优先、成果贡献的协作原则一起工作。今天推送的文章就是我们的第一个协作成果，后续我们有更多的项目计划需要有能力、负责任的同行朋友参与。
+> 我们是由王诗翔和周建国博士创建的在线协作科研团队 [OncoHarmony Network](https://github.com/OncoHarmony-Network "OncoHarmony Network")，致力于肿瘤免疫方向的资源平台构建和数据挖掘。我们通过项目导向、贡献优先、成果共享的协作原则一起工作。今天推送的文章就是我们的第一个协作成果，后续我们有更多的项目计划需要有能力、负责任的同行朋友参与。
 > 
 >OncoHarmony Network is a dynamic collaborative platform dedicated to advancing the frontier of cancer immunotherapy. Bringing together diverse teams from leading universities and research institutions, our network is committed to the exploration, mining, and integration of multi-omics data in the realm of cancer research. With a focus on fostering synergy among experts in the field, OncoHarmony Network aims to construct a comprehensive resource hub and cutting-edge tools for unraveling the complexities of tumor-immune interactions. Through collective knowledge and interdisciplinary collaboration, we strive to accelerate breakthroughs in the understanding and development of effective cancer therapies.
 >
