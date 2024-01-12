@@ -107,3 +107,15 @@ $ ls /home/zhou/t12a/HRA000524/raw/*.gz
 最后的结果会在 `/home/zhou/raid/IO_RNA/circRNA/ABC` 目录下面（zhou2 服务器是 `/home/data/IO_RNA/circRNA/ABC`）。联系诗翔或有经验的人导出以及载入 TCCIA 数据库。
 
 
+## 3. QA
+
+### Kill 任务
+
+有时任务存在错误配置、出错，需要 Kill 的情况，这种情况可以调用已准备的 [bkill.sh](https://github.com/OncoHarmony-Network/circrna-pipeline/blob/main/bkill.sh) 脚本（在流程代码库的主目录下面）
+
+
+```sh
+/path/to/bkill.sh 队列目录ID
+```
+
+建议以上面的方式情况计算任务的清除。因为我们的运行目录包含队列ID，所以通过队列目录ID可以完全匹配到所有相关的计算任务。

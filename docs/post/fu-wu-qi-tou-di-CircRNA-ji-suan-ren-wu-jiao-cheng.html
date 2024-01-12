@@ -150,6 +150,11 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 <p>针对 <code class="notranslate">ABC_aggr.sh</code> 脚本重复上面 2.2 的 2-4 步骤。</p>
 <h3>2.5 检查结果</h3>
 <p>最后的结果会在 <code class="notranslate">/home/zhou/raid/IO_RNA/circRNA/ABC</code> 目录下面（zhou2 服务器是 <code class="notranslate">/home/data/IO_RNA/circRNA/ABC</code>）。联系诗翔或有经验的人导出以及载入 TCCIA 数据库。</p>
+<h2>3. QA</h2>
+<h3>Kill 任务</h3>
+<p>有时任务存在错误配置、出错，需要 Kill 的情况，这种情况可以调用已准备的 <a href="https://github.com/OncoHarmony-Network/circrna-pipeline/blob/main/bkill.sh">bkill.sh</a> 脚本（在流程代码库的主目录下面）</p>
+<div class="highlight highlight-source-shell"><pre class="notranslate">/path/to/bkill.sh 队列目录ID</pre></div>
+<p>建议以上面的方式情况计算任务的清除。因为我们的运行目录包含队列ID，所以通过队列目录ID可以完全匹配到所有相关的计算任务。</p>
 </div>
 <button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>
 <div class="comments" id="comments"></div>
@@ -209,7 +214,7 @@ console.log("\n %c Gmeek main %c https://github.com/Meekdai/Gmeek \n\n", "color:
 cmButton=document.getElementById("cmButton");
     span=document.createElement("span");
     span.setAttribute("class","Counter");
-    span.innerHTML="2";
+    span.innerHTML="4";
     cmButton.appendChild(span);
 
 function openComments(){
