@@ -15,7 +15,7 @@
 0. 自己搜索准备 Linux 本地环境：Windows 安装 Linux 子系统（Ubuntu），MacOS 下直接使用系统自带的终端。
 
 1. 阅读学习材料，根据 [Linux Practice](https://github.com/ShixiangWang/Linux_Practice/tree/master?tab=readme-ov-file) 提供的习题进行训练并完成相应的练习。
-2. 阅读补充阅读材料1和2，写一篇文档总结下 ggplot2 可视化的逻辑和相应代码实现，谈谈自己的想法（评价）。扫读阅读材料2，了解基本的展示方法和可视化图的函数代码（不需要写文档）。
+2. 阅读补充阅读材料1和2，写一篇文档总结下 ggplot2 可视化的逻辑和相应代码实现，谈谈自己的想法（评价）。扫读补充阅读材料2，了解基本的展示方法和可视化图的函数代码（不需要写文档）。
 3. 存储上述步骤每一个操作/理解的代码和文档，整理成规范的 Markdown 格式文件（需要掌握一些基本的代码或文本编辑器，这里重点推荐 [VS Code](https://code.visualstudio.com/)），记录到你的 [Git 仓库](https://gitea.zhoulab.ac.cn/)中并提交。
 
 ---
