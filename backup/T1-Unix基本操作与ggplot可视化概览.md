@@ -7,7 +7,7 @@
 
 ## 补充阅读
 
-- ~~[A Gentle Guide to the Grammar of Graphics with ggplot2](https://pkg.garrickadenbuie.com/gentle-ggplot2/#1)~~
+- [A Gentle Guide to the Grammar of Graphics with ggplot2](https://pkg.garrickadenbuie.com/gentle-ggplot2/#1)
 - [庄闪闪可视化手册](https://liangliangzhuang.github.io/R-tutorial/causal.html)
 
 ## 任务
