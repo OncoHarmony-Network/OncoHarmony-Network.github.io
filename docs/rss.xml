@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>OncoHarmony Network</title><link>https://OncoHarmony-Network.github.io</link><description>OncoHarmony Network is a dynamic collaborative platform dedicated to advancing the frontier of cancer immunotherapy</description><copyright>OncoHarmony Network</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/152575161?s=200&amp;v=4</url><title>avatar</title><link>https://OncoHarmony-Network.github.io</link></image><lastBuildDate>Sun, 21 Jan 2024 13:27:42 +0000</lastBuildDate><managingEditor>OncoHarmony Network</managingEditor><ttl>60</ttl><webMaster>OncoHarmony Network</webMaster><item><title>T1-Unix基本操作与ggplot可视化概览</title><link>https://OncoHarmony-Network.github.io/post/T1-Unix-ji-ben-cao-zuo-yu-ggplot-ke-shi-hua-gai-lan.html</link><description>全职学习时间：2 周&#13;
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>OncoHarmony Network</title><link>https://OncoHarmony-Network.github.io</link><description>OncoHarmony Network is a dynamic collaborative platform dedicated to advancing the frontier of cancer immunotherapy</description><copyright>OncoHarmony Network</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/152575161?s=200&amp;v=4</url><title>avatar</title><link>https://OncoHarmony-Network.github.io</link></image><lastBuildDate>Wed, 24 Jan 2024 06:59:20 +0000</lastBuildDate><managingEditor>OncoHarmony Network</managingEditor><ttl>60</ttl><webMaster>OncoHarmony Network</webMaster><item><title>T1-Unix基本操作与ggplot可视化概览</title><link>https://OncoHarmony-Network.github.io/post/T1-Unix-ji-ben-cao-zuo-yu-ggplot-ke-shi-hua-gai-lan.html</link><description>全职学习时间：2 周&#13;
 &#13;
 ## 学习材料&#13;
 &#13;
@@ -77,23 +77,19 @@
 ## 软件著作权&#13;
 &#13;
 - 肿瘤环状RNA鉴定计算流程系统 V1.0&#13;
-- 肿瘤免疫治疗环状RNA查询平台 V1.0。</description><guid isPermaLink="true">https://OncoHarmony-Network.github.io/post/xiang-mu-cheng-guo-lie-biao.html</guid><pubDate>Wed, 06 Dec 2023 09:07:03 +0000</pubDate></item><item><title>团队架构</title><link>https://OncoHarmony-Network.github.io/post/tuan-dui-jia-gou.html</link><description>- 负责人1：周建国，主要负责计算平台、资金、文稿和监管&#13;
+- 肿瘤免疫治疗环状RNA查询平台 V1.0。</description><guid isPermaLink="true">https://OncoHarmony-Network.github.io/post/xiang-mu-cheng-guo-lie-biao.html</guid><pubDate>Wed, 06 Dec 2023 09:07:03 +0000</pubDate></item><item><title>团队架构</title><link>https://OncoHarmony-Network.github.io/post/tuan-dui-jia-gou.html</link><description>## 团队结构&#13;
+&#13;
+- 负责人1：周建国，主要负责计算平台、资金、文稿和监管&#13;
 - 负责人2：王诗翔，主要负责项目管理、技术路线、部署运维&#13;
-- 科学顾问：王海涛&#13;
+- 科学顾问：王海涛、罗鹏&#13;
 - 产业顾问：赵飞&#13;
 - 技术顾问：叶宁荣（深度学习与医学影像）、崔炎濡（基因编辑）&#13;
+- 技术成员：熊逸、张益浩、李申锁、赵彦昆、李金辉、张娟、赵加栋&#13;
 - 全日制研究生：谌泯均、蔡颖&#13;
-- 技术成员：熊逸、张益浩、李申锁、赵彦昆&#13;
 - 其他参与和学习成员：谭傑尹、张驰&#13;
 - [Hiplot（ORG）](https://hiplot.org/)协作者：李剑峰&#13;
-- 未来需要进一步的了解和大家的参与&#13;
 &#13;
----&#13;
-&#13;
-协作原则：&#13;
-&#13;
-- 成果分配贡献优先，作者列表团队讨论&#13;
-- 组织保持统一的管理框架，人员根据项目需求/个人意愿进行分配和组队，工作/任务根据自己的时间妥善安排和接受，接受的工作分配必须按要求推进/完成。</description><guid isPermaLink="true">https://OncoHarmony-Network.github.io/post/tuan-dui-jia-gou.html</guid><pubDate>Wed, 06 Dec 2023 07:08:42 +0000</pubDate></item><item><title>部署zhoulab.ac.cn页面</title><link>https://OncoHarmony-Network.github.io/post/bu-shu-zhoulab.ac.cn-ye-mian.html</link><description>&gt; 这篇文章记录的是怎么将单页面的主页同步上传到展示网站的 FTP 服务器上。</description><guid isPermaLink="true">https://OncoHarmony-Network.github.io/post/bu-shu-zhoulab.ac.cn-ye-mian.html</guid><pubDate>Wed, 06 Dec 2023 06:37:43 +0000</pubDate></item><item><title>博客使用说明</title><link>https://OncoHarmony-Network.github.io/post/bo-ke-shi-yong-shuo-ming.html</link><description>- 仅限团队成员创建和使用&#13;
+**以上只是对团队全部成员角色的一个基本定位，不涉及任何科研工作、实际参与项目贡献的限制。</description><guid isPermaLink="true">https://OncoHarmony-Network.github.io/post/tuan-dui-jia-gou.html</guid><pubDate>Wed, 06 Dec 2023 07:08:42 +0000</pubDate></item><item><title>部署zhoulab.ac.cn页面</title><link>https://OncoHarmony-Network.github.io/post/bu-shu-zhoulab.ac.cn-ye-mian.html</link><description>&gt; 这篇文章记录的是怎么将单页面的主页同步上传到展示网站的 FTP 服务器上。</description><guid isPermaLink="true">https://OncoHarmony-Network.github.io/post/bu-shu-zhoulab.ac.cn-ye-mian.html</guid><pubDate>Wed, 06 Dec 2023 06:37:43 +0000</pubDate></item><item><title>博客使用说明</title><link>https://OncoHarmony-Network.github.io/post/bo-ke-shi-yong-shuo-ming.html</link><description>- 仅限团队成员创建和使用&#13;
 - 通过 issue 创建博客&#13;
 - 确保每一篇文章有且仅有一个Label（标题不能存在空行，以及影响文档路径访问，比如`/`符号）&#13;
 - 不要出现同名 issue&#13;
