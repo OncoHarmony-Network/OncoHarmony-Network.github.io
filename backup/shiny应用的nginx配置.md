@@ -28,6 +28,9 @@ server {
 
 ```
 
+
+`sites-available/shiny` 需要软链接到 `sites-enabled/shiny` 以激活。
+
 目前主要是让整个架构可以工作，后续可以考虑学习和进行自定义配置。
 
 这里列一下学习文档：
