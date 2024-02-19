@@ -46,18 +46,14 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
     <div id="header">
 <h1 class="postTitle">网页路由和shiny.router使用方法</h1>
 <div class="title-right">
-
+    
     <a href="https://OncoHarmony-Network.github.io"><button id="buttonHome" class="btn btn-invisible circle" title="首页">
         <svg class="octicon" width="16" height="16">
             <path id="pathHome" fill-rule="evenodd" d="M6.906.664a1.749 1.749 0 0 1 2.187 0l5.25 4.2c.415.332.657.835.657 1.367v7.019A1.75 1.75 0 0 1 13.25 15h-3.5a.75.75 0 0 1-.75-.75V9H7v5.25a.75.75 0 0 1-.75.75h-3.5A1.75 1.75 0 0 1 1 13.25V6.23c0-.531.242-1.034.657-1.366l5.25-4.2Zm1.25 1.171a.25.25 0 0 0-.312 0l-5.25 4.2a.25.25 0 0 0-.094.196v7.019c0 .138.112.25.25.25H5.5V8.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v5.25h2.75a.25.25 0 0 0 .25-.25V6.23a.25.25 0 0 0-.094-.195Z"></path>
         </svg>
     </button></a>
 
-    <a href="https://github.com/OncoHarmony-Network/OncoHarmony-Network.github.io/issues/13" target="_blank"><button class="btn btn-invisible circle" title="Issue">
-        <svg class="octicon" width="16" height="16">
-            <path id="pathIssue" fill-rule="evenodd" d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path>
-        </svg>
-    </button></a>
+    
 
     <button class="btn btn-invisible circle" onclick="modeSwitch();" title="切换主题">
         <svg class="octicon" width="16" height="16" >
@@ -68,12 +64,78 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 </div>
 </div>
     <div id="content">
-<div class="markdown-body" id="postBody">
-<p>1、<strong>什么是路由？</strong></p>
+<div class="markdown-body" id="postBody"><ul>
+<li><a href="#%E4%BB%80%E4%B9%88%E6%98%AF%E8%B7%AF%E7%94%B1">什么是路由？</a>
+<ul>
+<li><a href="#%E5%AE%9E%E7%8E%B0%E9%9C%80%E8%A6%81%E8%A7%A3%E5%86%B3%E7%9A%84%E7%9A%84%E4%BF%A9%E4%B8%AA%E6%A0%B8%E5%BF%83%E9%97%AE%E9%A2%98">实现需要解决的的俩个核心问题？</a></li>
+<li><a href="#route-%E5%92%8Crouter%E5%8C%BA%E5%88%AB">route 和router区别</a></li>
+<li><a href="#%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AB%AF%E8%B7%AF%E7%94%B1">服务器端路由</a></li>
+<li><a href="#%E5%AE%A2%E6%88%B7%E7%AB%AF%E8%B7%AF%E7%94%B1%E6%B5%8F%E8%A7%88%E5%99%A8">客户端路由（浏览器）</a>
+<ul>
+<li><a href="#%E5%8A%A8%E6%80%81%E8%B7%AF%E7%94%B1%E5%8D%8F%E8%AE%AE">动态路由协议：</a></li>
+<li><a href="#1%E8%B7%AF%E7%94%B1%E5%99%A8%E4%B9%8B%E9%97%B4%E9%9C%80%E8%A6%81%E5%AE%9E%E6%97%B6%E5%9C%B0%E4%BA%A4%E6%8D%A2%E8%B7%AF%E7%94%B1%E4%BF%A1%E6%81%AF">（1）路由器之间需要实时地交换路由信息</a></li>
+<li><a href="#2%E8%B7%AF%E7%94%B1%E5%99%A8%E6%A0%B9%E6%8D%AE%E8%B7%AF%E7%94%B1%E7%AE%97%E6%B3%95%E6%8A%8A%E6%94%B6%E9%9B%86%E5%88%B0%E7%9A%84%E8%B7%AF%E7%94%B1%E4%BF%A1%E6%81%AF%E5%8A%A0%E5%B7%A5%E6%88%90%E8%B7%AF%E7%94%B1%E8%A1%A8%E4%BE%9B%E8%B7%AF%E7%94%B1%E5%99%A8%E5%9C%A8%E8%BD%AC%E5%8F%91ip%E6%8A%A5%E6%96%87%E6%97%B6%E6%9F%A5%E9%98%85">（2）路由器根据路由算法把收集到的路由信息加工成路由表，供路由器在转发IP报文时查阅。</a></li>
+</ul>
+</li>
+<li><a href="#%E5%8A%A8%E6%80%81%E8%B7%AF%E7%94%B1%E4%B8%8E%E9%9D%99%E6%80%81%E8%B7%AF%E7%94%B1%E5%8C%BA%E5%88%AB">动态路由与静态路由区别</a></li>
+</ul>
+</li>
+<li><a href="#shiny%E4%B8%AD%E7%9A%84%E8%B7%AF%E7%94%B1%E5%8C%85shinyrouter">shiny中的路由包shiny.router</a>
+<ul>
+<li><a href="#%E4%B8%8B%E8%BD%BD">下载</a></li>
+<li><a href="#%E5%87%BD%E6%95%B0">函数</a>
+<ul>
+<li><a href="#1change_page">（1）change_page</a></li>
+<li><a href="#2disable_bootstrap_on_bookmark">（2）disable_bootstrap_on_bookmark</a></li>
+<li><a href="#3get_page">（3）get_page</a></li>
+<li><a href="#4get_query_param">（4）get_query_param</a></li>
+<li><a href="#5is_page">（5）is_page</a></li>
+<li><a href="#6route_link">（6）route_link</a></li>
+<li><a href="#7router_ui">（7）router_ui</a></li>
+<li><a href="#8router_server">（8）router_server</a></li>
+<li><a href="#9route">（9）route</a></li>
+<li><a href="#10parse_url_path">（10）parse_url_path</a></li>
+<li><a href="#11page_404_route">（11）PAGE_404_ROUTE</a></li>
+<li><a href="#12page404">（12）page404</a></li>
+<li><a href="#13make_router">（13）make_router</a></li>
+</ul>
+</li>
+<li><a href="#%E7%A4%BA%E4%BE%8B">示例</a>
+<ul>
+<li><a href="#1%E5%88%9B%E5%BB%BA%E5%88%9D%E5%A7%8B%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F">（1）创建初始应用程序</a></li>
+<li><a href="#2%E5%AE%89%E8%A3%85%E5%B9%B6%E6%B7%BB%E5%8A%A0%E4%BE%9D%E8%B5%96%E9%A1%B9%E5%90%8C%E6%97%B6%E6%9B%B4%E6%96%B0dependenciesr%E6%96%87%E4%BB%B6">（2）安装并添加依赖项，同时更新dependencies.R文件</a></li>
+<li><a href="#3%E5%A1%AB%E5%85%85%E5%86%85%E5%AE%B9">（3）填充内容</a>
+<ul>
+<li><a href="#%E4%BB%8Eucscxena%E4%B8%8B%E8%BD%BDlung-cancer-raponi-2006%E7%9A%84phenotype%E6%95%B0%E6%8D%AE%E9%9B%86%E5%A4%84%E7%90%86%E5%90%8E%E8%BD%AC%E6%8D%A2%E4%B8%BArdata%E6%96%87%E4%BB%B6%E4%BF%9D%E5%AD%98%E4%BA%8Eapplogiclung-cancerrdata">从UCSCXena下载Lung Cancer (Raponi 2006)的phenotype数据集，处理后转换为RData文件，保存于app/logic/Lung Cancer.RData</a></li>
+<li><a href="#%E5%88%9B%E5%BB%BA%E9%A6%96%E9%A1%B5">创建首页</a></li>
+<li><a href="#cohort%E9%A1%B5%E9%9D%A2%E4%BD%BF%E7%94%A8a2%E5%87%BD%E6%95%B0%E8%AF%BB%E5%8F%96%E6%95%B0%E6%8D%AE">cohort页面，使用a2函数读取数据</a></li>
+</ul>
+</li>
+<li><a href="#4%E6%B7%BB%E5%8A%A0404%E9%A1%B5">（4）添加404页</a></li>
+<li><a href="#5%E5%B0%86-ui-%E6%A8%A1%E5%9D%97%E5%8C%85%E8%A3%85%E5%9C%A8router_ui">（5）将 UI 模块包装在：router_ui</a></li>
+<li><a href="#6%E6%B7%BB%E5%8A%A0%E6%8C%89%E9%92%AE%E8%B7%B3%E8%BD%AC%E5%AF%BC%E8%88%AA">（6）添加按钮跳转导航</a></li>
+<li><a href="#7%E8%AF%BB%E5%8F%96%E5%B9%B6%E6%98%BE%E7%A4%BA%E5%8F%82%E6%95%B0">（7）读取并显示参数</a>
+<ul>
+<li><a href="#%E5%9C%A8%E8%AF%A5%E9%A1%B5%E9%9D%A2%E5%A6%82%E4%BD%95change_page%E9%83%BD%E8%BF%94%E5%9B%9Ecohort">在该页面如何change_page都返回"cohort"</a></li>
+</ul>
+</li>
+<li><a href="#8%E5%9C%A8url%E6%94%B9%E5%8F%98%E5%8F%82%E6%95%B0%E6%97%B6%E6%94%B9%E5%8F%98selectinput">（8）在url改变参数时改变selectinput</a></li>
+<li><a href="#9%E5%87%8F%E5%B0%91%E8%BE%93%E5%87%BA">（9）减少输出</a>
+<ul>
+<li><a href="#%E8%AF%A5%E6%83%85%E5%86%B5%E4%B8%8B%E5%A4%84%E4%BA%8Ehome%E9%A1%B5%E9%9D%A2%E6%97%B6%E4%B9%9F%E4%BC%9A%E6%89%A7%E8%A1%8C%E8%AF%A5%E5%87%BD%E6%95%B0%E5%B9%B6%E8%BE%93%E5%87%BA">该情况下，处于home页面时也会执行该函数并输出</a></li>
+<li><a href="#%E6%B7%BB%E5%8A%A0is_page%E5%90%8E%E5%9C%A8cohort%E9%A1%B5%E9%9D%A2%E6%89%8D%E6%89%A7%E8%A1%8C%E8%AF%A5%E5%87%BD%E6%95%B0%E5%B9%B6%E8%BE%93%E5%87%BA">添加is_page后在cohort页面才执行该函数并输出</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h1>什么是路由？</h1>
 <blockquote>
 <p>路由描述的是 URL 与 UI 之间的映射关系，这种映射是单向的，即 URL 变化引起 UI 更新（无需刷新页面）。</p>
 </blockquote>
-<p>2、<strong>实现需要解决的的俩个核心问题？</strong></p>
+<h2>实现需要解决的的俩个核心问题？</h2>
 <table role="table">
 <thead>
 <tr>
@@ -89,7 +151,7 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 </tr>
 </tbody>
 </table>
-<p>3、<strong>route 和router区别</strong></p>
+<h2>route 和router区别</h2>
 <ul>
 <li>
 <pre class="notranslate"><code class="notranslate">   route就是一条路由，它将一个URL路径和一个函数进行映射，例如
@@ -105,7 +167,7 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 </code></pre>
 </li>
 </ul>
-<p>4、<strong>服务器端路由</strong></p>
+<h2>服务器端路由</h2>
 <ul>
 <li>
 <pre class="notranslate"><code class="notranslate">  对于服务器来说，当接收到客户端发来的HTTP请求，会根据请求的URL，来找到相应的映射函数，然后执行该函数，  
@@ -125,11 +187,11 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 </code></pre>
 </li>
 </ul>
-<h2>5、<strong>客户端路由（浏览器）</strong></h2>
-<p>动态路由<br>
---  动态路由协议：<br>
-**  1、路由器之间需要实时地交换路由信息<br>
-**  2、路由器根据路由算法把收集到的路由信息加工成路由表，供路由器在转发IP报文时查阅。</p>
+<h2>客户端路由（浏览器）</h2>
+<h3>动态路由协议：</h3>
+<h3>（1）路由器之间需要实时地交换路由信息</h3>
+<h3>（2）路由器根据路由算法把收集到的路由信息加工成路由表，供路由器在转发IP报文时查阅。</h3>
+<h2>动态路由与静态路由区别</h2>
 <table role="table">
 <thead>
 <tr>
@@ -176,14 +238,12 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 </tr>
 </tbody>
 </table>
-<p><a id="user-content-1下载"></a></p>
-<h2>1、下载</h2>
+<h1>shiny中的路由包shiny.router</h1>
+<h2>下载</h2>
 <pre class="notranslate"><code class="notranslate"> install.packages("shiny.router").  
 </code></pre>
-<p><a id="user-content-2函数"></a></p>
-<h2>2、函数</h2>
-<p><a id="user-content-1change_page"></a></p>
-<h3>（1）、change_page</h3>
+<h2>函数</h2>
+<h3>（1）change_page</h3>
 <p>注释</p>
 <pre class="notranslate"><code class="notranslate">向客户端reactive input binding发送一条消息，告诉page.js相应地更新窗口URL，然后告诉客户端shiny的reactive input binding已经更改，router会收到这个变化的通知，get_page()等相似函数也会收到该通知。
 在链接中添加 "/#!/" 前缀
@@ -198,20 +258,18 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
       change_page("table")
     })
 </code></pre>
-<p><a id="user-content-2disable_bootstrap_on_bookmark"></a></p>
-<h3>（2）、disable_bootstrap_on_bookmark</h3>
+<h3>（2）disable_bootstrap_on_bookmark</h3>
 <pre class="notranslate"><code class="notranslate">注释
 当用户打开指定的书签时，此函数会动态删除引导依赖项。 它应该插入到引导页面的头部。
 </code></pre>
 <pre class="notranslate"><code class="notranslate">用法
 disable_bootstrap_on_bookmark(bookmark)
-# 在哪个书签上抑制 Bootstrap 依赖项。
+# 在书签上抑制 Bootstrap 依赖项。
 </code></pre>
 <pre class="notranslate"><code class="notranslate">示例
 disable_bootstrap_on_bookmark("home_page")
 </code></pre>
-<p><a id="user-content-3get_page"></a></p>
-<h3>（3）、get_page</h3>
+<h3>（3）get_page</h3>
 <pre class="notranslate"><code class="notranslate">注释
 # 该函数提取的是哈希后面的虚拟路径（virtual path）部分。如果输入没有值，即当前页面信息不可用，函数将返回 FALSE。
 </code></pre>
@@ -221,11 +279,11 @@ get_page(session = shiny::getDefaultReactiveDomain())
 <pre class="notranslate"><code class="notranslate">示例
 get_page(session)
 </code></pre>
-<p><a id="user-content-4get_query_param"></a></p>
-<h3>（4）、get_query_param</h3>
+<h3>（4）get_query_param</h3>
 <pre class="notranslate"><code class="notranslate">注释
 检索作为请求页面一部分的任何参数的便利函数。返回的参数值来自[http::parse_url()] 
 (https://www.php.net/manual/zh/function.parse-url.php)
+也正由于这个原因，只有在url变化后，该函数才能查询在url上变化的参数
 </code></pre>
 <pre class="notranslate"><code class="notranslate">用法
 get_query_param(field = NULL, session = shiny::getDefaultReactiveDomain())
@@ -235,8 +293,7 @@ get_query_param(field = NULL, session = shiny::getDefaultReactiveDomain())
 <pre class="notranslate"><code class="notranslate">示例
 page_size &lt;- get_query_param("pageSize")
 </code></pre>
-<p><a id="user-content-5route_link"></a></p>
-<p>###（5）、is_page</p>
+<h3>（5）is_page</h3>
 <pre class="notranslate"><code class="notranslate">注释
 如果我们不在指定的页面上，告诉反应链停止。这会帮助我们确保不会浪费时间为当前未显示的页面重新渲染UI。
 </code></pre>
@@ -247,8 +304,7 @@ is_page(page, session = shiny::getDefaultReactiveDomain(), ...)
 <pre class="notranslate"><code class="notranslate">示例
 is_page("home", session)
 </code></pre>
-<p><a id="user-content-6route_link"></a></p>
-<h3>（6）、route_link</h3>
+<h3>（6）route_link</h3>
 <pre class="notranslate"><code class="notranslate">注释
 在链接中添加 "/#!/" 前缀
 </code></pre>
@@ -261,8 +317,7 @@ menu &lt;- tags$ul(
     tags$li(a(class = "item", href = route_link("another"), "Another page")),
 )
 </code></pre>
-<p><a id="user-content-7router_ui"></a></p>
-<h3>（7）、router_ui</h3>
+<h3>（7）router_ui</h3>
 <pre class="notranslate"><code class="notranslate">注释
 创建shiny的ui
 </code></pre>
@@ -277,8 +332,7 @@ router_ui(default, ..., page_404 = page404(), env = parent.frame())
       page_404 = page_404$ui(ns("page_404"))
 )
 </code></pre>
-<p><a id="user-content-8outer_server"></a></p>
-<h3>（8）、router_server</h3>
+<h3>（8）router_server</h3>
 <pre class="notranslate"><code class="notranslate">注释
 设置shiny的主页面和环境
 </code></pre>
@@ -288,8 +342,7 @@ router_server(root_page = "/", env = parent.frame())
 <pre class="notranslate"><code class="notranslate">示例
  router_server("/")
 </code></pre>
-<p><a id="user-content-9route"></a></p>
-<h3>（9）、route</h3>
+<h3>（9）route</h3>
 <pre class="notranslate"><code class="notranslate">注释
 创建单独路由
 </code></pre>
@@ -299,8 +352,7 @@ route(path, ui, server = NA)
 <pre class="notranslate"><code class="notranslate">示例
  route("/", intro$ui(ns("intro")))
 </code></pre>
-<p><a id="user-content-10parse_url_path"></a></p>
-<h3>（10）、parse_url_path</h3>
+<h3>（10）parse_url_path</h3>
 <pre class="notranslate"><code class="notranslate">注释
 提取有关URL路径和跟在问号（?）符号后面的参数的信息。
 </code></pre>
@@ -418,8 +470,7 @@ $query$b$`1`
 $query$b$`2`
 [1] "bar"
 </code></pre>
-<p><a id="user-content-11page_404_route"></a></p>
-<h3>（11）、PAGE_404_ROUTE</h3>
+<h3>（11）PAGE_404_ROUTE</h3>
 <pre class="notranslate"><code class="notranslate">注释
 默认的404页面
 </code></pre>
@@ -440,8 +491,7 @@ router_ui(
       page_404 = PAGE_404_ROUTE
     )
 </code></pre>
-<p><a id="user-content-12page404"></a></p>
-<h3>（12）、page404</h3>
+<h3>（12）page404</h3>
 <pre class="notranslate"><code class="notranslate">注释
 router_ui里的404页面
 </code></pre>
@@ -474,55 +524,31 @@ ui &lt;- function(id) {
   )
 }
 </code></pre>
-<p><a id="user-content-13make_router"></a></p>
-<h3>（13）、make_router</h3>
+<h3>（13）make_router</h3>
 <pre class="notranslate"><code class="notranslate">[Deprecated] Creates router.
 </code></pre>
-<p><a id="user-content-3示例"></a></p>
-<h2>3、示例</h2>
-<p><a id="user-content-示例一"></a></p>
-<h3>示例一</h3>
-<p><a id="user-content-1创建初始应用程序"></a></p>
-<h4>1、创建初始应用程序</h4>
+<h2>示例</h2>
+<h3>（1）创建初始应用程序</h3>
 <pre class="notranslate"><code class="notranslate">install.packages("rhino")
 rhino::init("show")
 </code></pre>
-<p><a id="user-content-2安装依赖"></a></p>
-<h4>2、安装依赖</h4>
-<pre class="notranslate"><code class="notranslate">renv::install("shiny.router","shiny","UCSCXenaTools","shinyjs","data.table") 
+<h3>（2）安装并添加依赖项，同时更新dependencies.R文件</h3>
+<pre class="notranslate"><code class="notranslate">rhino::pkg_install(c("shiny.router","shiny","UCSCXenaTools","shinyjs","data.table")) 
+#rhino::pkg_remove()删除包与依赖
 </code></pre>
-<p><a id="user-content-3更改dependencies.r文件，添加新的依赖项"></a></p>
-<h4>3、更改dependencies.R文件，添加新的依赖项</h4>
-<pre class="notranslate"><code class="notranslate"># dependencies.R
-
-library(shiny)
-library(rhino)
-library(shiny.router)
-library(UCSCXenaTools)
-library(shinyjs)
-library(data.table)
-library(shiny.blueprint)
-</code></pre>
-<p><a id="user-content-4更新文件：renv.lock"></a></p>
-<h4>4、更新文件：renv.lock</h4>
-<pre class="notranslate"><code class="notranslate">renv::snapshot()
-</code></pre>
-<p><a id="user-content-5填充内容"></a></p>
-<h4>5、填充内容</h4>
-<p><a id="user-content-1从ucscxena下载了target-aml的数据，下载并处理后位于"></a></p>
-<h5>1、从UCSCXena下载了TARGET-AML的数据，下载并处理后位于</h5>
-<p>(C:\Users\PC\AppData\Roaming\Typora\typora-user-images\image-20240105223543065.png)</p>
+<h3>（3）填充内容</h3>
+<h4>从UCSCXena下载Lung Cancer (Raponi 2006)的phenotype数据集，处理后转换为RData文件，保存于app/logic/Lung Cancer.RData</h4>
 <pre class="notranslate"><code class="notranslate">app/logic/aml
 # 加载数据文件
 
 a2 &lt;- function() {
-  load("C:/Users/PC/Desktop/123456/show/app/logic/aml.RData")
-  loaded_data &lt;- get("a1")  # 请替换为实际的变量名
+  name_data &lt;- paste0(getwd(),"/app/logic/Lung Cancer.RData")
+  load(name_data)
+  loaded_data &lt;- get("public_clinical")  # 请替换为实际的变量名
   return(loaded_data)
 }
 </code></pre>
-<p><a id="user-content-2创建首页"></a></p>
-<h5>2、创建首页</h5>
+<h4>创建首页</h4>
 <pre class="notranslate"><code class="notranslate"># app/view/home.R
 
 box::use(
@@ -554,13 +580,7 @@ ui &lt;- function(id) {
                                  style = "font-size: 1.2em;"),
                                  align = "left"),
                     wellPanel(h5("Citation",
-                          style = "font-size: 1.2em;"), align = "left")))),
-
-             
-
-
-
-
+                          style = "font-size: 1.2em;"), align = "left"))))),            
 }
 #' @export
 server &lt;- function(id) {
@@ -569,22 +589,22 @@ server &lt;- function(id) {
   })}
 
 </code></pre>
-<p><a id="user-content-3cohort页面，使用a2函数读取数据"></a></p>
-<h5>3、cohort页面，使用a2函数读取数据</h5>
+<h4>cohort页面，使用a2函数读取数据</h4>
 <pre class="notranslate"><code class="notranslate"># app/view/cohort.R
 
+# app/view/cohort.R
 box::use(
-  shiny[moduleServer, NS, fluidRow, column, tags, observeEvent, observe,tableOutput,renderTable,tagList,h3, wellPanel, br, selectInput, h5, p, reactive, updateSelectInput],
-  shiny.router[route_link, get_query_param, change_page],
-  reactable,
+  shiny[moduleServer, NS, fluidRow,column, tags, observeEvent,actionButton, observe,tagList,h3, wellPanel, br, selectInput, h5, p, reactive],
+  shiny.router[route_link, get_query_param, parse_url_path,change_page,router_server,get_page,is_page],
 )
-
 box::use(
   app/logic/aml1[a2]
 )
+
 #' @export
 ui &lt;- function(id) {
-  a3 &lt;- a2()
+  ns &lt;- NS(id)
+  public_clinical &lt;- a2()
   fluidRow(
     column(3,
            wellPanel(
@@ -593,12 +613,23 @@ ui &lt;- function(id) {
              p("Select dataset:"),
              p("Analysis Type"),
              selectInput(
-               "analysis_type1",
+               ns("analysis_type1"),
+               selected = "IIb",
                label = NULL,
-               choices = a3$Ensembl_ID
+               choices = public_clinical$Age
              ),
+             selectInput(
+               ns("analysis_type2"),
+               label = NULL,
+               choices = public_clinical$OS.time
+             ),
+
+             actionButton(inputId = ns("caretdown7"), label = "Change query path"),
+
+
            )
     ))
+
 }
 
 #' @export
@@ -607,8 +638,7 @@ server &lt;- function(id) {
     ns &lt;- session$ns
       })}
 </code></pre>
-<p><a id="user-content-6添加添加404页"></a></p>
-<h4>6、添加添加404页</h4>
+<h3>（4）添加404页</h3>
 <pre class="notranslate"><code class="notranslate"># app/view/page_404.R
 
 box::use(
@@ -627,8 +657,7 @@ ui &lt;- function(id) {
 }
 
 </code></pre>
-<p><a id="user-content-7将 ui 模块包装在：router_ui"></a></p>
-<h4>7、将 UI 模块包装在：router_ui</h4>
+<h3>（5）将 UI 模块包装在：router_ui</h3>
 <pre class="notranslate"><code class="notranslate"># app/main.R
 
 box::use(
@@ -675,8 +704,7 @@ server &lt;- function(id) {
   })
 }
 </code></pre>
-<p><a id="user-content-8添加按钮跳转导航"></a></p>
-<h4>8、添加按钮跳转导航</h4>
+<h3>（6）添加按钮跳转导航</h3>
 <pre class="notranslate"><code class="notranslate"># app/view/Home.R
 
 box::use(
@@ -732,7 +760,203 @@ server &lt;- function(id) {
   })}
 
 </code></pre>
-</div>
+<h3>（7）读取并显示参数</h3>
+<pre class="notranslate"><code class="notranslate"># app/view/cohort.R
+box::use(
+  shiny[moduleServer, NS, fluidRow, textOutput,column, renderText,tags, observeEvent,actionButton, observe,tagList,h3, wellPanel, br, selectInput, h5, p, reactive, updateSelectInput],
+  shiny.router[route_link, get_query_param, parse_url_path,change_page,router_server,get_page,is_page],
+)
+box::use(
+  app/logic/aml1[a2]
+)
+
+
+#' @export
+ui &lt;- function(id) {
+  ns &lt;- NS(id)
+  public_clinical &lt;- a2()
+  fluidRow(
+    column(3,
+           wellPanel(
+             h5("Analysis Controls"),
+             br(),
+             p("Select dataset:"),
+             p("Analysis Type"),
+             selectInput(
+               ns("analysis_type1"),
+               selected = "IIb",
+               label = NULL,
+               choices = public_clinical$Age
+             ),
+             selectInput(
+               ns("analysis_type2"),
+               label = NULL,
+               choices = public_clinical$OS.time
+             ),
+
+             actionButton(inputId = ns("caretdown7"), label = "Change query path"),
+           )
+    ))
+
+}
+
+#' @export
+server &lt;- function(id) {
+  moduleServer(id, function(input, output, session) {
+    ns &lt;- session$ns
+
+    router_server()
+
+    observeEvent(input$caretdown7, {
+
+      url_name &lt;- paste0("#!/cohort?","Age=",input$analysis_type1,"&amp;OS.time=",input$analysis_type2)
+      change_page(page = url_name)
+      
+      print(parse_url_path(url_name))
+      print(get_page())
+      output$text2 &lt;- renderText({ parse_url_path(url_name)$query$Age })
+      #parse_url_path必须有一个"url_path"
+      output$text3 &lt;- renderText({ get_query_param("Age")})
+
+      output$text4 &lt;- renderText({ get_query_param()[[1]]})
+
+
+    })
+  }
+    )}
+</code></pre>
+<h4>在该页面如何change_page都返回"cohort"</h4>
+<h3>（8）在url改变参数时改变selectinput</h3>
+<pre class="notranslate"><code class="notranslate"># app/view/cohort.R
+
+box::use(
+  shiny[moduleServer, NS, fluidRow, textOutput,column, renderText,tags, observeEvent,actionButton, observe,tagList,h3, wellPanel, br, selectInput, h5, p, reactive, updateSelectInput],
+  shiny.router[route_link, get_query_param, parse_url_path,change_page,router_server,get_page,is_page],
+)
+box::use(
+  app/logic/aml1[a2]
+)
+#' @export
+ui &lt;- function(id) {
+  ns &lt;- NS(id)
+  public_clinical &lt;- a2()
+  fluidRow(
+    column(3,
+           wellPanel(
+             h5("Analysis Controls"),
+             br(),
+             p("Select dataset:"),
+             p("Analysis Type"),
+             selectInput(
+               ns("analysis_type1"),
+               selected = "IIb",
+               label = NULL,
+               choices = public_clinical$Age
+             ),
+             selectInput(
+               ns("analysis_type2"),
+               label = NULL,
+               choices = public_clinical$OS.time
+             ),
+
+             actionButton(inputId = ns("caretdown7"), label = "Change query path"),
+
+
+           )
+
+
+
+
+    ))
+
+}
+
+#' @export
+server &lt;- function(id) {
+  moduleServer(id, function(input, output, session) {
+    ns &lt;- session$ns
+
+    router_server()
+
+    observeEvent(input$caretdown7, {
+      age_data &lt;- input$analysis_type1
+      OS.time_data &lt;- input$analysis_type2
+      url_name &lt;- paste0("#!/cohort?","Age=",age_data,"&amp;OS.time=",OS.time_data)
+      change_page(page = url_name)
+       print(parse_url_path(url_name))
+       print(get_page())
+      output$text2 &lt;- renderText({ parse_url_path(url_name)$query$Age })
+      #parse_url_path必须有一个"url_path"
+      output$text3 &lt;- renderText({ get_query_param("Age")})
+
+      output$text4 &lt;- renderText({ get_query_param()[[1]]})
+
+    })
+
+    observe({
+      age_1 &lt;- get_query_param("Age")
+      print(age_1)
+      updateSelectInput(session, "analysis_type1", selected = age_1)
+    })
+
+
+
+
+
+  }
+    )}
+
+</code></pre>
+<h3>（9）减少输出</h3>
+<h4>该情况下，处于home页面时也会执行该函数并输出</h4>
+<pre class="notranslate"><code class="notranslate"># app/view/cohort.R
+
+observe({
+        age_1 &lt;- get_query_param("Age")
+       updateSelectInput(session,"analysis_type1", selected = age_1)
+    })
+    
+</code></pre>
+<h4>添加is_page后在cohort页面才执行该函数并输出</h4>
+<pre class="notranslate"><code class="notranslate"># app/view/cohort.R
+
+#' @export
+server &lt;- function(id) {
+  moduleServer(id, function(input, output, session) {
+    ns &lt;- session$ns
+
+    router_server()
+
+    observeEvent(input$caretdown7, {
+      age_data &lt;- input$analysis_type1
+      OS.time_data &lt;- input$analysis_type2
+      url_name &lt;- paste0("#!/cohort?","Age=",age_data,"&amp;OS.time=",OS.time_data)
+
+      change_page(page = url_name)
+
+      print(parse_url_path(url_name))
+      print(get_page())
+      output$text2 &lt;- renderText({ parse_url_path(url_name)$query$Age })
+      #parse_url_path必须有一个"url_path"
+      output$text3 &lt;- renderText({ get_query_param("Age")})
+
+      output$text4 &lt;- renderText({ get_query_param()[[1]]})
+
+
+
+    })
+    observe({
+      if(is_page("cohort")){
+        age_1 &lt;- get_query_param("Age")
+        print(age_1)
+        updateSelectInput(session, "analysis_type1", selected = age_1)}
+
+    })
+
+  }
+    )}
+</code></pre></div>
+<div style="font-size:small;margin-top:8px;float:right;"></div>
 <button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>
 <div class="comments" id="comments"></div>
 </div>
