@@ -486,6 +486,8 @@ rhino::pkg_install(c("shiny.router","shiny","UCSCXenaTools","shinyjs","data.tabl
 ### （3）填充内容
 
 #### 从UCSCXena下载Lung Cancer (Raponi 2006)的phenotype数据集，处理后转换为RData文件，保存于app/logic/Lung Cancer.RData
+![屏幕截图 2024-02-19 205523](https://github.com/OncoHarmony-Network/OncoHarmony-Network.github.io/assets/136106051/3c8aa903-6b4a-4de3-b99b-056e70ef604a)
+
 ```
 app/logic/aml
 # 加载数据文件
@@ -794,6 +796,9 @@ server <- function(id) {
   }
     )}
 ```
+![1 4](https://github.com/OncoHarmony-Network/OncoHarmony-Network.github.io/assets/136106051/d7c1544f-7707-4017-bf43-61b06ac054d5)
+![image](https://github.com/OncoHarmony-Network/OncoHarmony-Network.github.io/assets/136106051/3ddf5772-c723-495f-aa79-65bf56cb0ae5)
+
 #### 在该页面如何change_page都返回"cohort"
 
 
@@ -831,15 +836,8 @@ ui <- function(id) {
                label = NULL,
                choices = public_clinical$OS.time
              ),
-
              actionButton(inputId = ns("caretdown7"), label = "Change query path"),
-
-
            )
-
-
-
-
     ))
 
 }
@@ -871,20 +869,20 @@ server <- function(id) {
       print(age_1)
       updateSelectInput(session, "analysis_type1", selected = age_1)
     })
-
-
-
-
-
   }
     )}
 
 ```
 
+https://github.com/OncoHarmony-Network/OncoHarmony-Network.github.io/assets/136106051/4276e760-0896-4e6d-9a35-6159111faaa0
+
+
 
 
 ### （9）减少输出
 #### 该情况下，处于home页面时也会执行该函数并输出
+![image](https://github.com/OncoHarmony-Network/OncoHarmony-Network.github.io/assets/136106051/9a2d2124-69f9-4b79-89dc-6a3cc321bdf4)
+
 ```
 # app/view/cohort.R
 
