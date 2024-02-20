@@ -135,7 +135,7 @@ disable_bootstrap_on_bookmark(<span class="pl-s"><span class="pl-pds">"</span>ho
 <h3>（4）get_query_param</h3>
 <ul>
 <li>
-<p>说明：检索作为请求页面一部分的任何参数的便利函数。返回的参数值来自[http::parse_url()] (<a href="https://www.php.net/manual/zh/function.parse-url.php)%E4%B9%9F%E6%AD%A3%E7%94%B1%E4%BA%8E%E8%BF%99%E4%B8%AA%E5%8E%9F%E5%9B%A0%EF%BC%8C%E5%8F%AA%E6%9C%89%E5%9C%A8url%E5%8F%98%E5%8C%96%E5%90%8E%EF%BC%8C%E8%AF%A5%E5%87%BD%E6%95%B0%E6%89%8D%E8%83%BD%E6%9F%A5%E8%AF%A2%E5%9C%A8url%E4%B8%8A%E5%8F%98%E5%8C%96%E7%9A%84%E5%8F%82%E6%95%B0" rel="nofollow">https://www.php.net/manual/zh/function.parse-url.php)也正由于这个原因，只有在url变化后，该函数才能查询在url上变化的参数</a></p>
+<p>说明：检索作为请求页面一部分的任何参数的便利函数。返回的参数值来自<a href="https://www.php.net/manual/zh/function.parse-url.php" rel="nofollow">http::parse_url()</a>也正由于这个原因，只有在url变化后，该函数才能查询在url上变化的参数</p>
 </li>
 <li>
 <p>用法：</p>
@@ -295,21 +295,20 @@ $<span class="pl-smi">query</span>
 
 <span class="pl-k">$</span><span class="pl-smi">query</span>
 <span class="pl-c1">NULL</span></pre></div>
-<pre class="notranslate"><code class="notranslate">parse_url_path("www.foo.bar?a=1&amp;b[1]=foo&amp;b[2]=bar/#!/other")
-$path
-[1] "other"
+<div class="highlight highlight-source-r"><pre class="notranslate">parse_url_path(<span class="pl-s"><span class="pl-pds">"</span>www.foo.bar?a=1&amp;b[1]=foo&amp;b[2]=bar/#!/other<span class="pl-pds">"</span></span>)
+<span class="pl-k">$</span><span class="pl-smi">path</span>
+[<span class="pl-c1">1</span>] <span class="pl-s"><span class="pl-pds">"</span>other<span class="pl-pds">"</span></span>
 
-$query
-$query$a
-[1] "1"
+<span class="pl-k">$</span><span class="pl-smi">query</span>
+<span class="pl-k">$</span><span class="pl-smi">query</span><span class="pl-k">$</span><span class="pl-smi">a</span>
+[<span class="pl-c1">1</span>] <span class="pl-s"><span class="pl-pds">"</span>1<span class="pl-pds">"</span></span>
 
-$query$b
-$query$b$`1`
-[1] "foo"
+<span class="pl-k">$</span><span class="pl-smi">query</span><span class="pl-k">$</span><span class="pl-smi">b</span>
+<span class="pl-k">$</span><span class="pl-smi">query</span><span class="pl-k">$</span><span class="pl-smi">b</span><span class="pl-k">$</span><span class="pl-smi">`1`</span>
+[<span class="pl-c1">1</span>] <span class="pl-s"><span class="pl-pds">"</span>foo<span class="pl-pds">"</span></span>
 
-$query$b$`2`
-[1] "bar"
-</code></pre>
+<span class="pl-k">$</span><span class="pl-smi">query</span><span class="pl-k">$</span><span class="pl-smi">b</span><span class="pl-k">$</span><span class="pl-smi">`2`</span>
+[<span class="pl-c1">1</span>] <span class="pl-s"><span class="pl-pds">"</span>bar<span class="pl-pds">"</span></span></pre></div>
 <div class="highlight highlight-source-r"><pre class="notranslate">parse_url_path(<span class="pl-s"><span class="pl-pds">"</span>#!/?a=1&amp;b[1]=foo&amp;b[2]=bar<span class="pl-pds">"</span></span>)
 <span class="pl-k">$</span><span class="pl-smi">path</span>
 [<span class="pl-c1">1</span>] <span class="pl-s"><span class="pl-pds">"</span><span class="pl-pds">"</span></span>
@@ -379,7 +378,6 @@ router_ui(
 <div class="highlight highlight-source-r"><pre class="notranslate">router_ui(
       route(<span class="pl-s"><span class="pl-pds">"</span>table<span class="pl-pds">"</span></span>, <span class="pl-smi">table</span><span class="pl-k">$</span>ui(ns(<span class="pl-s"><span class="pl-pds">"</span>table<span class="pl-pds">"</span></span>))),
       route(<span class="pl-s"><span class="pl-pds">"</span>chart<span class="pl-pds">"</span></span>, <span class="pl-smi">chart</span><span class="pl-k">$</span>ui(ns(<span class="pl-s"><span class="pl-pds">"</span>chart<span class="pl-pds">"</span></span>))),
-      route(<span class="pl-s"><span class="pl-pds">"</span>chart<span class="pl-pds">"</span></span>, <span class="pl-smi">chart</span><span class="pl-k">$</span>ui(ns(<span class="pl-s"><span class="pl-pds">"</span>chart<span class="pl-pds">"</span></span>)))，
       <span class="pl-v">page_404</span> <span class="pl-k">=</span> <span class="pl-smi">page_404</span><span class="pl-k">$</span>ui(ns(<span class="pl-s"><span class="pl-pds">"</span>page_404<span class="pl-pds">"</span></span>))
 )
 
@@ -399,10 +397,6 @@ u<span class="pl-en">i</span> <span class="pl-k">&lt;-</span> <span class="pl-k"
     a(<span class="pl-s"><span class="pl-pds">"</span>Back to home page<span class="pl-pds">"</span></span>, <span class="pl-v">href</span> <span class="pl-k">=</span> route_link(<span class="pl-s"><span class="pl-pds">"</span>/<span class="pl-pds">"</span></span>), <span class="pl-v">class</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>btn btn-primary btn-lg<span class="pl-pds">"</span></span>)
   )
 }</pre></div>
-<h3>（13）make_router</h3>
-<ul>
-<li>说明：[Deprecated] Creates router.</li>
-</ul>
 <h2>实例</h2>
 <h3>（1）创建初始应用程序</h3>
 <div class="highlight highlight-source-r"><pre class="notranslate">install.packages(<span class="pl-s"><span class="pl-pds">"</span>rhino<span class="pl-pds">"</span></span>)
