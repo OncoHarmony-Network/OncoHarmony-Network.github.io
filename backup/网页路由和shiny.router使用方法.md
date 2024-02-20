@@ -1,83 +1,43 @@
 # 什么是路由？
 
- >   路由描述的是 URL 与 UI 之间的映射关系，这种映射是单向的，即 URL 变化引起 UI 更新（无需刷新页面）。
-
-## 实现需要解决的的俩个核心问题？
-| Core |
-| --- |
-| 如何改变 URL 却不引起页面刷新？ |
-| 如何检测 URL 变化了？|
+路由描述的是 URL 与 UI 之间的映射关系，这种映射是单向的，即 URL 变化引起 UI 更新（无需刷新页面）。
 
 ## route 和router区别
--        route就是一条路由，它将一个URL路径和一个函数进行映射，例如
-         /users        ->  getAllUsers()
-         /users/count  ->  getUsersCount()
-         当访问 /users 的时候，会执行 getAllUsers() 函数；当访问 /users/count 的时候，会执行 getUsersCount() 函数。
--       [The router routes you to a route]
-        router 可以理解为一个容器，或者说一种机制，它管理了一组 route。简单来说，route 只是进行了URL和函数的映射。
-        而在当接收到一个URL之后，去路由映射表中查找相应的函数，这个过程是由 router 来处理的。 
+
+- route就是一条路由，它将一个URL路径和一个函数进行映射，例如 `/users  ->  getAllUsers()` `/users/count  ->  getUsersCount()`，当访问 `/users` 的时候，会执行 `getAllUsers()` 函数；当访问 `/users/count` 的时候，会执行 `getUsersCount()` 函数。
+- router 可以理解为一个容器，或者说一种机制，它管理了一组 route。简单来说，route 只是进行了URL和函数的映射。而在当接收到一个URL之后，去路由映射表中查找相应的函数，这个过程是由 router 来处理的。 
 
 ## 服务器端路由
--       对于服务器来说，当接收到客户端发来的HTTP请求，会根据请求的URL，来找到相应的映射函数，然后执行该函数，  
-        并将函数的返回值发送给客户端。
--       对于最简单的静态资源服务器，可以认为，所有URL的映射函数就是一个文件读取操作。
-        对于动态资源，映射函数可能是一个数据库读取操作，也可能是进行一些数据的处理。
--       route("/", shiny::tags$div(shiny::tags$span("Hello world")))
-        route("main", shiny::tags$div(h1("Main page"), p("Lorem ipsum.")))
-        这里定义了两条路由：当访问 / 的时候，会返回一个包含 "Hello world" 文本，当访问main时，返回一个包含一个主标题
-        和一个段落的 <div> 元素。
 
-## 客户端路由（浏览器）
+- 对于服务器来说，当接收到客户端发来的HTTP请求，会根据请求的URL，来找到相应的映射函数，然后执行该函数，并将函数的返回值发送给客户端。
+- 对于最简单的静态资源服务器，可以认为，所有URL的映射函数就是一个文件读取操作。对于动态资源，映射函数可能是一个数据库读取操作，也可能是进行一些数据的处理。
+- `route("/", shiny::tags$div(shiny::tags$span("Hello world")))`和`route("main", shiny::tags$div(h1("Main page"), p("Lorem ipsum.")))`这里定义了两条路由：当访问 `/` 的时候，会返回一个包含 `"Hello world"` 文本，当访问`main`时，返回一个包含一个主标题和一个段落的 `<div>` 元素。
 
-###  动态路由协议：
+# 实现shiny的路由包shiny.router
 
-###  （1）路由器之间需要实时地交换路由信息
+## 下载和安装
 
-
-
-###  （2）路由器根据路由算法把收集到的路由信息加工成路由表，供路由器在转发IP报文时查阅。
-
-
-
-## 动态路由与静态路由区别
-|  | 静态路由 | 动态路由 |
-| --- | --- | --- |
-| 配置复杂性 | 随着网络规模的增大而越趋复杂 | 通常不受网络规模限制 |
-| 管理员所需知识 | 不需要额外的专业知识 | 需要了解动态路由协议和技能 |
-| 拓扑结构变化 | 需要管理员参与 | 自动根据拓扑变化进行调整 |
-| 可扩展性 | 适合简单的网络拓扑结构 | 简单拓扑结构和复杂拓扑结构都适合 |
-| 安全性 | 更安全 | 没有静态路由安全 |
-| 资源占用 | 不需要额外的资源 | 占用CPU、内存和链路带宽 |
-| 可预测性 | 总是通过同一路径到达目的地 | 根据当前网络拓扑结构确定路径 | 
-
-
-# shiny中的路由包shiny.router
-## 下载
-
-```
- install.packages("shiny.router").  
+```r
+install.packages("shiny.router")
 ```
 
-
-
-## 函数
-
-
+## 常用函数
 
 ### （1）change_page
-注释
-```
-向客户端reactive input binding发送一条消息，告诉page.js相应地更新窗口URL，然后告诉客户端shiny的reactive input binding已经更改，router会收到这个变化的通知，get_page()等相似函数也会收到该通知。
-在链接中添加 "/#!/" 前缀
-```
-用法
-```
+
+- 说明：向客户端reactive input binding发送一条消息，告诉page.js相应地更新窗口URL，然后告诉客户端shiny的reactive input binding已经更改，router会收到这个变化的通知，`get_page()`等相似函数也会收到该通知。在链接中添加 `"/#!/"` 前缀
+
+- 用法：
+
+```r
 change_page(page, session = shiny::getDefaultReactiveDomain(), mode = "push")
 # mode ("replace" or "push")
 # session指shiny的用户参数
 ```
-示例
-```
+
+- 示例：
+
+```r
 observeEvent(input$go_to_table, {
       change_page("table")
     })
@@ -422,32 +382,31 @@ ui <- function(id) {
 ```
 
 
-
-## 示例
-
- 
+## 实例
 
 ### （1）创建初始应用程序
-```
+
+```R
 install.packages("rhino")
 rhino::init("show")
 ```
 
 
-### （2）安装并添加依赖项，同时更新dependencies.R文件
-```
+### （2）安装并添加依赖项
+
+```R
 rhino::pkg_install(c("shiny.router","shiny","UCSCXenaTools","shinyjs","data.table")) 
 #rhino::pkg_remove()删除包与依赖
 ```
 
-
 ### （3）填充内容
 
-#### 从UCSCXena下载Lung Cancer (Raponi 2006)的phenotype数据集，处理后转换为RData文件，保存于app/logic/Lung Cancer.RData
+#### 从UCSCXena下载Lung Cancer (Raponi 2006)的phenotype数据集，处理后转换为RData文件，保存于`app/logic/Lung Cancer.RData`
+
 ![屏幕截图 2024-02-19 205523](https://github.com/OncoHarmony-Network/OncoHarmony-Network.github.io/assets/136106051/3c8aa903-6b4a-4de3-b99b-056e70ef604a)
 
-```
-app/logic/aml
+```R
+# app/logic/aml
 # 加载数据文件
 
 a2 <- function() {
@@ -459,7 +418,8 @@ a2 <- function() {
 ```
 
 ####  创建首页
-```
+
+```R
 # app/view/home.R
 
 box::use(
@@ -502,7 +462,8 @@ server <- function(id) {
 ```
 
 #### cohort页面，使用a2函数读取数据
-```
+
+```R
 # app/view/cohort.R
 
 # app/view/cohort.R
@@ -555,7 +516,8 @@ server <- function(id) {
 
 
 ### （4）添加404页
-```
+
+```R
 # app/view/page_404.R
 
 box::use(
@@ -576,9 +538,9 @@ ui <- function(id) {
 ```
 
 
+### （5）将 UI 模块包装
 
-### （5）将 UI 模块包装在：router_ui
-```
+```R
 # app/main.R
 
 box::use(
@@ -627,9 +589,9 @@ server <- function(id) {
 ```
 
 
-
 ### （6）添加按钮跳转导航
-```
+
+```R
 # app/view/Home.R
 
 box::use(
@@ -687,9 +649,9 @@ server <- function(id) {
 ```
 
 
-
 ### （7）读取并显示参数
-```
+
+```R
 # app/view/cohort.R
 box::use(
   shiny[moduleServer, NS, fluidRow, textOutput,column, renderText,tags, observeEvent,actionButton, observe,tagList,h3, wellPanel, br, selectInput, h5, p, reactive, updateSelectInput],
@@ -754,15 +716,16 @@ server <- function(id) {
   }
     )}
 ```
+
 ![1 4](https://github.com/OncoHarmony-Network/OncoHarmony-Network.github.io/assets/136106051/d7c1544f-7707-4017-bf43-61b06ac054d5)
+
 ![image](https://github.com/OncoHarmony-Network/OncoHarmony-Network.github.io/assets/136106051/3ddf5772-c723-495f-aa79-65bf56cb0ae5)
 
 #### 在该页面如何change_page都返回"cohort"
 
-
-
 ### （8）在url改变参数时改变selectinput
-```
+
+```R
 # app/view/cohort.R
 
 box::use(
@@ -832,16 +795,15 @@ server <- function(id) {
 
 ```
 
-https://github.com/OncoHarmony-Network/OncoHarmony-Network.github.io/assets/136106051/4276e760-0896-4e6d-9a35-6159111faaa0
-
-
-
+![](https://github.com/OncoHarmony-Network/OncoHarmony-Network.github.io/assets/136106051/4276e760-0896-4e6d-9a35-6159111faaa0)
 
 ### （9）减少输出
+
 #### 该情况下，处于home页面时也会执行该函数并输出
+
 ![image](https://github.com/OncoHarmony-Network/OncoHarmony-Network.github.io/assets/136106051/9a2d2124-69f9-4b79-89dc-6a3cc321bdf4)
 
-```
+```R
 # app/view/cohort.R
 
 observe({
@@ -850,8 +812,10 @@ observe({
     })
     
 ```
+
 #### 添加is_page后在cohort页面才执行该函数并输出
-```
+
+```R
 # app/view/cohort.R
 
 #' @export
@@ -890,8 +854,3 @@ server <- function(id) {
   }
     )}
 ```
-
-
-
-
-

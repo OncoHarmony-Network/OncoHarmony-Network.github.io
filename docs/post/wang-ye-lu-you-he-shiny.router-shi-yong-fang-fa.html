@@ -14,7 +14,7 @@
     
 <meta name="description" content="网页路由和shiny.router使用方法">
 <title>网页路由和shiny.router使用方法</title>
-
+<link href="//unpkg.com/@wooorm/starry-night@2.1.1/style/both.css" rel="stylesheet" />
 
 </head>
 <style>
@@ -65,132 +65,40 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 </div>
     <div id="content">
 <div class="markdown-body" id="postBody"><h1>什么是路由？</h1>
-<blockquote>
 <p>路由描述的是 URL 与 UI 之间的映射关系，这种映射是单向的，即 URL 变化引起 UI 更新（无需刷新页面）。</p>
-</blockquote>
-<h2>实现需要解决的的俩个核心问题？</h2>
-<table role="table">
-<thead>
-<tr>
-<th>Core</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>如何改变 URL 却不引起页面刷新？</td>
-</tr>
-<tr>
-<td>如何检测 URL 变化了？</td>
-</tr>
-</tbody>
-</table>
 <h2>route 和router区别</h2>
 <ul>
-<li>
-<pre class="notranslate"><code class="notranslate">   route就是一条路由，它将一个URL路径和一个函数进行映射，例如
-   /users        -&gt;  getAllUsers()
-   /users/count  -&gt;  getUsersCount()
-   当访问 /users 的时候，会执行 getAllUsers() 函数；当访问 /users/count 的时候，会执行 getUsersCount() 函数。
-</code></pre>
-</li>
-<li>
-<pre class="notranslate"><code class="notranslate">  [The router routes you to a route]
-  router 可以理解为一个容器，或者说一种机制，它管理了一组 route。简单来说，route 只是进行了URL和函数的映射。
-  而在当接收到一个URL之后，去路由映射表中查找相应的函数，这个过程是由 router 来处理的。 
-</code></pre>
-</li>
+<li>route就是一条路由，它将一个URL路径和一个函数进行映射，例如 <code class="notranslate">/users  -&gt;  getAllUsers()</code> <code class="notranslate">/users/count  -&gt;  getUsersCount()</code>，当访问 <code class="notranslate">/users</code> 的时候，会执行 <code class="notranslate">getAllUsers()</code> 函数；当访问 <code class="notranslate">/users/count</code> 的时候，会执行 <code class="notranslate">getUsersCount()</code> 函数。</li>
+<li>router 可以理解为一个容器，或者说一种机制，它管理了一组 route。简单来说，route 只是进行了URL和函数的映射。而在当接收到一个URL之后，去路由映射表中查找相应的函数，这个过程是由 router 来处理的。</li>
 </ul>
 <h2>服务器端路由</h2>
 <ul>
+<li>对于服务器来说，当接收到客户端发来的HTTP请求，会根据请求的URL，来找到相应的映射函数，然后执行该函数，并将函数的返回值发送给客户端。</li>
+<li>对于最简单的静态资源服务器，可以认为，所有URL的映射函数就是一个文件读取操作。对于动态资源，映射函数可能是一个数据库读取操作，也可能是进行一些数据的处理。</li>
+<li><code class="notranslate">route("/", shiny::tags$div(shiny::tags$span("Hello world")))</code>和<code class="notranslate">route("main", shiny::tags$div(h1("Main page"), p("Lorem ipsum.")))</code>这里定义了两条路由：当访问 <code class="notranslate">/</code> 的时候，会返回一个包含 <code class="notranslate">"Hello world"</code> 文本，当访问<code class="notranslate">main</code>时，返回一个包含一个主标题和一个段落的 <code class="notranslate">&lt;div&gt;</code> 元素。</li>
+</ul>
+<h1>实现shiny的路由包shiny.router</h1>
+<h2>下载和安装</h2>
+<div class="highlight highlight-source-r"><pre class="notranslate">install.packages(<span class="pl-s"><span class="pl-pds">"</span>shiny.router<span class="pl-pds">"</span></span>)</pre></div>
+<h2>常用函数</h2>
+<h3>（1）change_page</h3>
+<ul>
 <li>
-<pre class="notranslate"><code class="notranslate">  对于服务器来说，当接收到客户端发来的HTTP请求，会根据请求的URL，来找到相应的映射函数，然后执行该函数，  
-  并将函数的返回值发送给客户端。
-</code></pre>
+<p>说明：向客户端reactive input binding发送一条消息，告诉page.js相应地更新窗口URL，然后告诉客户端shiny的reactive input binding已经更改，router会收到这个变化的通知，<code class="notranslate">get_page()</code>等相似函数也会收到该通知。在链接中添加 <code class="notranslate">"/#!/"</code> 前缀</p>
 </li>
 <li>
-<pre class="notranslate"><code class="notranslate">  对于最简单的静态资源服务器，可以认为，所有URL的映射函数就是一个文件读取操作。
-  对于动态资源，映射函数可能是一个数据库读取操作，也可能是进行一些数据的处理。
-</code></pre>
-</li>
-<li>
-<pre class="notranslate"><code class="notranslate">  route("/", shiny::tags$div(shiny::tags$span("Hello world")))
-  route("main", shiny::tags$div(h1("Main page"), p("Lorem ipsum.")))
-  这里定义了两条路由：当访问 / 的时候，会返回一个包含 "Hello world" 文本，当访问main时，返回一个包含一个主标题
-  和一个段落的 &lt;div&gt; 元素。
-</code></pre>
+<p>用法：</p>
 </li>
 </ul>
-<h2>客户端路由（浏览器）</h2>
-<h3>动态路由协议：</h3>
-<h3>（1）路由器之间需要实时地交换路由信息</h3>
-<h3>（2）路由器根据路由算法把收集到的路由信息加工成路由表，供路由器在转发IP报文时查阅。</h3>
-<h2>动态路由与静态路由区别</h2>
-<table role="table">
-<thead>
-<tr>
-<th></th>
-<th>静态路由</th>
-<th>动态路由</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>配置复杂性</td>
-<td>随着网络规模的增大而越趋复杂</td>
-<td>通常不受网络规模限制</td>
-</tr>
-<tr>
-<td>管理员所需知识</td>
-<td>不需要额外的专业知识</td>
-<td>需要了解动态路由协议和技能</td>
-</tr>
-<tr>
-<td>拓扑结构变化</td>
-<td>需要管理员参与</td>
-<td>自动根据拓扑变化进行调整</td>
-</tr>
-<tr>
-<td>可扩展性</td>
-<td>适合简单的网络拓扑结构</td>
-<td>简单拓扑结构和复杂拓扑结构都适合</td>
-</tr>
-<tr>
-<td>安全性</td>
-<td>更安全</td>
-<td>没有静态路由安全</td>
-</tr>
-<tr>
-<td>资源占用</td>
-<td>不需要额外的资源</td>
-<td>占用CPU、内存和链路带宽</td>
-</tr>
-<tr>
-<td>可预测性</td>
-<td>总是通过同一路径到达目的地</td>
-<td>根据当前网络拓扑结构确定路径</td>
-</tr>
-</tbody>
-</table>
-<h1>shiny中的路由包shiny.router</h1>
-<h2>下载</h2>
-<pre class="notranslate"><code class="notranslate"> install.packages("shiny.router").  
-</code></pre>
-<h2>函数</h2>
-<h3>（1）change_page</h3>
-<p>注释</p>
-<pre class="notranslate"><code class="notranslate">向客户端reactive input binding发送一条消息，告诉page.js相应地更新窗口URL，然后告诉客户端shiny的reactive input binding已经更改，router会收到这个变化的通知，get_page()等相似函数也会收到该通知。
-在链接中添加 "/#!/" 前缀
-</code></pre>
-<p>用法</p>
-<pre class="notranslate"><code class="notranslate">change_page(page, session = shiny::getDefaultReactiveDomain(), mode = "push")
-# mode ("replace" or "push")
-# session指shiny的用户参数
-</code></pre>
-<p>示例</p>
-<pre class="notranslate"><code class="notranslate">observeEvent(input$go_to_table, {
-      change_page("table")
-    })
-</code></pre>
+<div class="highlight highlight-source-r"><pre class="notranslate">change_page(<span class="pl-smi">page</span>, <span class="pl-v">session</span> <span class="pl-k">=</span> <span class="pl-e">shiny</span><span class="pl-k">::</span>getDefaultReactiveDomain(), <span class="pl-v">mode</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>push<span class="pl-pds">"</span></span>)
+<span class="pl-c"><span class="pl-c">#</span> mode ("replace" or "push")</span>
+<span class="pl-c"><span class="pl-c">#</span> session指shiny的用户参数</span></pre></div>
+<ul>
+<li>示例：</li>
+</ul>
+<div class="highlight highlight-source-r"><pre class="notranslate">observeEvent(<span class="pl-smi">input</span><span class="pl-k">$</span><span class="pl-smi">go_to_table</span>, {
+      change_page(<span class="pl-s"><span class="pl-pds">"</span>table<span class="pl-pds">"</span></span>)
+    })</pre></div>
 <h3>（2）disable_bootstrap_on_bookmark</h3>
 <pre class="notranslate"><code class="notranslate">注释
 当用户打开指定的书签时，此函数会动态删除引导依赖项。 它应该插入到引导页面的头部。
@@ -460,105 +368,101 @@ ui &lt;- function(id) {
 <h3>（13）make_router</h3>
 <pre class="notranslate"><code class="notranslate">[Deprecated] Creates router.
 </code></pre>
-<h2>示例</h2>
+<h2>实例</h2>
 <h3>（1）创建初始应用程序</h3>
-<pre class="notranslate"><code class="notranslate">install.packages("rhino")
-rhino::init("show")
-</code></pre>
-<h3>（2）安装并添加依赖项，同时更新dependencies.R文件</h3>
-<pre class="notranslate"><code class="notranslate">rhino::pkg_install(c("shiny.router","shiny","UCSCXenaTools","shinyjs","data.table")) 
-#rhino::pkg_remove()删除包与依赖
-</code></pre>
+<div class="highlight highlight-source-r"><pre class="notranslate">install.packages(<span class="pl-s"><span class="pl-pds">"</span>rhino<span class="pl-pds">"</span></span>)
+<span class="pl-e">rhino</span><span class="pl-k">::</span>init(<span class="pl-s"><span class="pl-pds">"</span>show<span class="pl-pds">"</span></span>)</pre></div>
+<h3>（2）安装并添加依赖项</h3>
+<div class="highlight highlight-source-r"><pre class="notranslate"><span class="pl-e">rhino</span><span class="pl-k">::</span>pkg_install(c(<span class="pl-s"><span class="pl-pds">"</span>shiny.router<span class="pl-pds">"</span></span>,<span class="pl-s"><span class="pl-pds">"</span>shiny<span class="pl-pds">"</span></span>,<span class="pl-s"><span class="pl-pds">"</span>UCSCXenaTools<span class="pl-pds">"</span></span>,<span class="pl-s"><span class="pl-pds">"</span>shinyjs<span class="pl-pds">"</span></span>,<span class="pl-s"><span class="pl-pds">"</span>data.table<span class="pl-pds">"</span></span>)) 
+<span class="pl-c"><span class="pl-c">#</span>rhino::pkg_remove()删除包与依赖</span></pre></div>
 <h3>（3）填充内容</h3>
-<h4>从UCSCXena下载Lung Cancer (Raponi 2006)的phenotype数据集，处理后转换为RData文件，保存于app/logic/Lung Cancer.RData</h4>
+<h4>从UCSCXena下载Lung Cancer (Raponi 2006)的phenotype数据集，处理后转换为RData文件，保存于<code class="notranslate">app/logic/Lung Cancer.RData</code></h4>
 <p><a target="_blank" rel="noopener noreferrer" href="https://github.com/OncoHarmony-Network/OncoHarmony-Network.github.io/assets/136106051/3c8aa903-6b4a-4de3-b99b-056e70ef604a"><img src="https://github.com/OncoHarmony-Network/OncoHarmony-Network.github.io/assets/136106051/3c8aa903-6b4a-4de3-b99b-056e70ef604a" alt="屏幕截图 2024-02-19 205523" style="max-width: 100%;"></a></p>
-<pre class="notranslate"><code class="notranslate">app/logic/aml
-# 加载数据文件
+<div class="highlight highlight-source-r"><pre class="notranslate"><span class="pl-c"><span class="pl-c">#</span> app/logic/aml</span>
+<span class="pl-c"><span class="pl-c">#</span> 加载数据文件</span>
 
-a2 &lt;- function() {
-  name_data &lt;- paste0(getwd(),"/app/logic/Lung Cancer.RData")
-  load(name_data)
-  loaded_data &lt;- get("public_clinical")  # 请替换为实际的变量名
-  return(loaded_data)
-}
-</code></pre>
+<span class="pl-en">a2</span> <span class="pl-k">&lt;-</span> <span class="pl-k">function</span>() {
+  <span class="pl-smi">name_data</span> <span class="pl-k">&lt;-</span> paste0(getwd(),<span class="pl-s"><span class="pl-pds">"</span>/app/logic/Lung Cancer.RData<span class="pl-pds">"</span></span>)
+  load(<span class="pl-smi">name_data</span>)
+  <span class="pl-smi">loaded_data</span> <span class="pl-k">&lt;-</span> get(<span class="pl-s"><span class="pl-pds">"</span>public_clinical<span class="pl-pds">"</span></span>)  <span class="pl-c"><span class="pl-c">#</span> 请替换为实际的变量名</span>
+  <span class="pl-k">return</span>(<span class="pl-smi">loaded_data</span>)
+}</pre></div>
 <h4>创建首页</h4>
-<pre class="notranslate"><code class="notranslate"># app/view/home.R
+<div class="highlight highlight-source-r"><pre class="notranslate"><span class="pl-c"><span class="pl-c">#</span> app/view/home.R</span>
 
-box::use(
-  shiny[moduleServer, NS,tags,icon,tabPanel,br,column,div, tagList,wellPanel,fluidRow,h2,strong,h5],
-  shiny.router[route_link,change_page],
+<span class="pl-e">box</span><span class="pl-k">::</span>use(
+  <span class="pl-smi">shiny</span>[<span class="pl-smi">moduleServer</span>, <span class="pl-smi">NS</span>,<span class="pl-smi">tags</span>,<span class="pl-smi">icon</span>,<span class="pl-smi">tabPanel</span>,<span class="pl-smi">br</span>,<span class="pl-smi">column</span>,<span class="pl-smi">div</span>, <span class="pl-smi">tagList</span>,<span class="pl-smi">wellPanel</span>,<span class="pl-smi">fluidRow</span>,<span class="pl-smi">h2</span>,<span class="pl-smi">strong</span>,<span class="pl-smi">h5</span>],
+  <span class="pl-smi">shiny.router</span>[<span class="pl-smi">route_link</span>,<span class="pl-smi">change_page</span>],
 )
 
 
-#' @export
-ui &lt;- function(id) {
-   ns &lt;- NS(id)
-   tabPanel("Home1", icon = icon("house"),
-           column(2),
-           column(8, tags$h2(
-             strong("Welcome to the Show!", style = "font-size: 1.5em;")
+<span class="pl-c"><span class="pl-c">#</span>' @export</span>
+u<span class="pl-en">i</span> <span class="pl-k">&lt;-</span> <span class="pl-k">function</span>(<span class="pl-smi">id</span>) {
+   <span class="pl-smi">ns</span> <span class="pl-k">&lt;-</span> NS(<span class="pl-smi">id</span>)
+   tabPanel(<span class="pl-s"><span class="pl-pds">"</span>Home1<span class="pl-pds">"</span></span>, <span class="pl-v">icon</span> <span class="pl-k">=</span> icon(<span class="pl-s"><span class="pl-pds">"</span>house<span class="pl-pds">"</span></span>),
+           column(<span class="pl-c1">2</span>),
+           column(<span class="pl-c1">8</span>, <span class="pl-smi">tags</span><span class="pl-k">$</span>h2(
+             strong(<span class="pl-s"><span class="pl-pds">"</span>Welcome to the Show!<span class="pl-pds">"</span></span>, <span class="pl-v">style</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>font-size: 1.5em;<span class="pl-pds">"</span></span>)
            )),
-           column(2),
+           column(<span class="pl-c1">2</span>),
            br(),
            fluidRow(
              br(),
              br(),
              br(),
-             column(2),
-             column(6, tagList(
-                    wellPanel(h5("Guide",
-                                    style = "font-size: 1.2em;"),
-                                    align = "left"),
-                    wellPanel(h5("RECENT CONTENTS",
-                                 style = "font-size: 1.2em;"),
-                                 align = "left"),
-                    wellPanel(h5("Citation",
-                          style = "font-size: 1.2em;"), align = "left"))))),            
+             column(<span class="pl-c1">2</span>),
+             column(<span class="pl-c1">6</span>, tagList(
+                    wellPanel(h5(<span class="pl-s"><span class="pl-pds">"</span>Guide<span class="pl-pds">"</span></span>,
+                                    <span class="pl-v">style</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>font-size: 1.2em;<span class="pl-pds">"</span></span>),
+                                    <span class="pl-v">align</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>left<span class="pl-pds">"</span></span>),
+                    wellPanel(h5(<span class="pl-s"><span class="pl-pds">"</span>RECENT CONTENTS<span class="pl-pds">"</span></span>,
+                                 <span class="pl-v">style</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>font-size: 1.2em;<span class="pl-pds">"</span></span>),
+                                 <span class="pl-v">align</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>left<span class="pl-pds">"</span></span>),
+                    wellPanel(h5(<span class="pl-s"><span class="pl-pds">"</span>Citation<span class="pl-pds">"</span></span>,
+                          <span class="pl-v">style</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>font-size: 1.2em;<span class="pl-pds">"</span></span>), <span class="pl-v">align</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>left<span class="pl-pds">"</span></span>))))),            
 }
-#' @export
-server &lt;- function(id) {
-  moduleServer(id, function(input, output, session) {
-    ns &lt;- session$ns
+<span class="pl-c"><span class="pl-c">#</span>' @export</span>
+s<span class="pl-en">erver</span> <span class="pl-k">&lt;-</span> <span class="pl-k">function</span>(<span class="pl-smi">id</span>) {
+  moduleServer(<span class="pl-smi">id</span>, <span class="pl-k">function</span>(<span class="pl-smi">input</span>, <span class="pl-smi">output</span>, <span class="pl-smi">session</span>) {
+    <span class="pl-smi">ns</span> <span class="pl-k">&lt;-</span> <span class="pl-smi">session</span><span class="pl-k">$</span><span class="pl-smi">ns</span>
   })}
-
-</code></pre>
+</pre></div>
 <h4>cohort页面，使用a2函数读取数据</h4>
-<pre class="notranslate"><code class="notranslate"># app/view/cohort.R
+<div class="highlight highlight-source-r"><pre class="notranslate"><span class="pl-c"><span class="pl-c">#</span> app/view/cohort.R</span>
 
-# app/view/cohort.R
-box::use(
-  shiny[moduleServer, NS, fluidRow,column, tags, observeEvent,actionButton, observe,tagList,h3, wellPanel, br, selectInput, h5, p, reactive],
-  shiny.router[route_link, get_query_param, parse_url_path,change_page,router_server,get_page,is_page],
+<span class="pl-c"><span class="pl-c">#</span> app/view/cohort.R</span>
+b<span class="pl-smi">ox</span><span class="pl-k">::</span>use(
+  <span class="pl-smi">shiny</span>[<span class="pl-smi">moduleServer</span>, <span class="pl-smi">NS</span>, <span class="pl-smi">fluidRow</span>,<span class="pl-smi">column</span>, <span class="pl-smi">tags</span>, <span class="pl-smi">observeEvent</span>,<span class="pl-smi">actionButton</span>, <span class="pl-smi">observe</span>,<span class="pl-smi">tagList</span>,<span class="pl-smi">h3</span>, <span class="pl-smi">wellPanel</span>, <span class="pl-smi">br</span>, <span class="pl-smi">selectInput</span>, <span class="pl-smi">h5</span>, <span class="pl-smi">p</span>, <span class="pl-smi">reactive</span>],
+  <span class="pl-smi">shiny.router</span>[<span class="pl-smi">route_link</span>, <span class="pl-smi">get_query_param</span>, <span class="pl-smi">parse_url_path</span>,<span class="pl-smi">change_page</span>,<span class="pl-smi">router_server</span>,<span class="pl-smi">get_page</span>,<span class="pl-smi">is_page</span>],
 )
-box::use(
-  app/logic/aml1[a2]
+<span class="pl-e">box</span><span class="pl-k">::</span>use(
+  <span class="pl-smi">app</span><span class="pl-k">/</span><span class="pl-smi">logic</span><span class="pl-k">/</span><span class="pl-smi">aml1</span>[<span class="pl-smi">a2</span>]
 )
 
-#' @export
-ui &lt;- function(id) {
-  ns &lt;- NS(id)
-  public_clinical &lt;- a2()
+<span class="pl-c"><span class="pl-c">#</span>' @export</span>
+u<span class="pl-en">i</span> <span class="pl-k">&lt;-</span> <span class="pl-k">function</span>(<span class="pl-smi">id</span>) {
+  <span class="pl-smi">ns</span> <span class="pl-k">&lt;-</span> NS(<span class="pl-smi">id</span>)
+  <span class="pl-smi">public_clinical</span> <span class="pl-k">&lt;-</span> a2()
   fluidRow(
-    column(3,
+    column(<span class="pl-c1">3</span>,
            wellPanel(
-             h5("Analysis Controls"),
+             h5(<span class="pl-s"><span class="pl-pds">"</span>Analysis Controls<span class="pl-pds">"</span></span>),
              br(),
-             p("Select dataset:"),
-             p("Analysis Type"),
+             p(<span class="pl-s"><span class="pl-pds">"</span>Select dataset:<span class="pl-pds">"</span></span>),
+             p(<span class="pl-s"><span class="pl-pds">"</span>Analysis Type<span class="pl-pds">"</span></span>),
              selectInput(
-               ns("analysis_type1"),
-               selected = "IIb",
-               label = NULL,
-               choices = public_clinical$Age
+               ns(<span class="pl-s"><span class="pl-pds">"</span>analysis_type1<span class="pl-pds">"</span></span>),
+               <span class="pl-v">selected</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>IIb<span class="pl-pds">"</span></span>,
+               <span class="pl-v">label</span> <span class="pl-k">=</span> <span class="pl-c1">NULL</span>,
+               <span class="pl-v">choices</span> <span class="pl-k">=</span> <span class="pl-smi">public_clinical</span><span class="pl-k">$</span><span class="pl-smi">Age</span>
              ),
              selectInput(
-               ns("analysis_type2"),
-               label = NULL,
-               choices = public_clinical$OS.time
+               ns(<span class="pl-s"><span class="pl-pds">"</span>analysis_type2<span class="pl-pds">"</span></span>),
+               <span class="pl-v">label</span> <span class="pl-k">=</span> <span class="pl-c1">NULL</span>,
+               <span class="pl-v">choices</span> <span class="pl-k">=</span> <span class="pl-smi">public_clinical</span><span class="pl-k">$</span><span class="pl-smi">OS.time</span>
              ),
 
-             actionButton(inputId = ns("caretdown7"), label = "Change query path"),
+             actionButton(<span class="pl-v">inputId</span> <span class="pl-k">=</span> ns(<span class="pl-s"><span class="pl-pds">"</span>caretdown7<span class="pl-pds">"</span></span>), <span class="pl-v">label</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>Change query path<span class="pl-pds">"</span></span>),
 
 
            )
@@ -566,322 +470,314 @@ ui &lt;- function(id) {
 
 }
 
-#' @export
-server &lt;- function(id) {
-  moduleServer(id, function(input, output, session) {
-    ns &lt;- session$ns
-      })}
-</code></pre>
+<span class="pl-c"><span class="pl-c">#</span>' @export</span>
+s<span class="pl-en">erver</span> <span class="pl-k">&lt;-</span> <span class="pl-k">function</span>(<span class="pl-smi">id</span>) {
+  moduleServer(<span class="pl-smi">id</span>, <span class="pl-k">function</span>(<span class="pl-smi">input</span>, <span class="pl-smi">output</span>, <span class="pl-smi">session</span>) {
+    <span class="pl-smi">ns</span> <span class="pl-k">&lt;-</span> <span class="pl-smi">session</span><span class="pl-k">$</span><span class="pl-smi">ns</span>
+      })}</pre></div>
 <h3>（4）添加404页</h3>
-<pre class="notranslate"><code class="notranslate"># app/view/page_404.R
+<div class="highlight highlight-source-r"><pre class="notranslate"><span class="pl-c"><span class="pl-c">#</span> app/view/page_404.R</span>
 
-box::use(
-  shiny[a, div, h1, moduleServer, NS],
-  shiny.router[route_link],
+<span class="pl-e">box</span><span class="pl-k">::</span>use(
+  <span class="pl-smi">shiny</span>[<span class="pl-smi">a</span>, <span class="pl-smi">div</span>, <span class="pl-smi">h1</span>, <span class="pl-smi">moduleServer</span>, <span class="pl-smi">NS</span>],
+  <span class="pl-smi">shiny.router</span>[<span class="pl-smi">route_link</span>],
 )
 
-#' @export
-ui &lt;- function(id) {
-  ns &lt;- NS(id)
+<span class="pl-c"><span class="pl-c">#</span>' @export</span>
+u<span class="pl-en">i</span> <span class="pl-k">&lt;-</span> <span class="pl-k">function</span>(<span class="pl-smi">id</span>) {
+  <span class="pl-smi">ns</span> <span class="pl-k">&lt;-</span> NS(<span class="pl-smi">id</span>)
   
   div(
-    h1("Whoops! Something went wrong!"),
-    a("Back to home page", href = route_link("/"), class = "btn btn-primary btn-lg")
+    h1(<span class="pl-s"><span class="pl-pds">"</span>Whoops! Something went wrong!<span class="pl-pds">"</span></span>),
+    a(<span class="pl-s"><span class="pl-pds">"</span>Back to home page<span class="pl-pds">"</span></span>, <span class="pl-v">href</span> <span class="pl-k">=</span> route_link(<span class="pl-s"><span class="pl-pds">"</span>/<span class="pl-pds">"</span></span>), <span class="pl-v">class</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>btn btn-primary btn-lg<span class="pl-pds">"</span></span>)
   )
 }
+</pre></div>
+<h3>（5）将 UI 模块包装</h3>
+<div class="highlight highlight-source-r"><pre class="notranslate"><span class="pl-c"><span class="pl-c">#</span> app/main.R</span>
 
-</code></pre>
-<h3>（5）将 UI 模块包装在：router_ui</h3>
-<pre class="notranslate"><code class="notranslate"># app/main.R
-
-box::use(
-  shiny[moduleServer, tagList, sidebarLayout, NS, tabPanel,bootstrapPage,tags,HTML,icon,mainPanel, sidebarPanel,fluidPage],
-  shiny.router[route_link, router_ui,route,router_server]
+<span class="pl-e">box</span><span class="pl-k">::</span>use(
+  <span class="pl-smi">shiny</span>[<span class="pl-smi">moduleServer</span>, <span class="pl-smi">tagList</span>, <span class="pl-smi">sidebarLayout</span>, <span class="pl-smi">NS</span>, <span class="pl-smi">tabPanel</span>,<span class="pl-smi">bootstrapPage</span>,<span class="pl-smi">tags</span>,<span class="pl-smi">HTML</span>,<span class="pl-smi">icon</span>,<span class="pl-smi">mainPanel</span>, <span class="pl-smi">sidebarPanel</span>,<span class="pl-smi">fluidPage</span>],
+  <span class="pl-smi">shiny.router</span>[<span class="pl-smi">route_link</span>, <span class="pl-smi">router_ui</span>,<span class="pl-smi">route</span>,<span class="pl-smi">router_server</span>]
 )
 
-box::use(
-  app/view/Home,
-  app/view/page_404,
-  app/view/cohort
+<span class="pl-e">box</span><span class="pl-k">::</span>use(
+  <span class="pl-smi">app</span><span class="pl-k">/</span><span class="pl-smi">view</span><span class="pl-k">/</span><span class="pl-smi">Home</span>,
+  <span class="pl-smi">app</span><span class="pl-k">/</span><span class="pl-smi">view</span><span class="pl-k">/</span><span class="pl-smi">page_404</span>,
+  <span class="pl-smi">app</span><span class="pl-k">/</span><span class="pl-smi">view</span><span class="pl-k">/</span><span class="pl-smi">cohort</span>
 )
 
-#' @export
-ui &lt;- function(id) {
-  ns &lt;- NS(id)
+<span class="pl-c"><span class="pl-c">#</span>' @export</span>
+u<span class="pl-en">i</span> <span class="pl-k">&lt;-</span> <span class="pl-k">function</span>(<span class="pl-smi">id</span>) {
+  <span class="pl-smi">ns</span> <span class="pl-k">&lt;-</span> NS(<span class="pl-smi">id</span>)
   fluidPage(
     sidebarLayout(
       sidebarPanel(
-        tags$nav(
-          class = "navbar",
-    tags$ul(
-      class = "nav navbar-nav",
-    tags$a(href = route_link("/"), HTML(paste0(icon("home"), "Home"))),
-    tags$a(href = route_link("cohort"), HTML(paste0(icon("people-group"), "cohort")))
+        <span class="pl-smi">tags</span><span class="pl-k">$</span>nav(
+          <span class="pl-v">class</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>navbar<span class="pl-pds">"</span></span>,
+    <span class="pl-smi">tags</span><span class="pl-k">$</span>ul(
+      <span class="pl-v">class</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>nav navbar-nav<span class="pl-pds">"</span></span>,
+    <span class="pl-smi">tags</span><span class="pl-k">$</span>a(<span class="pl-v">href</span> <span class="pl-k">=</span> route_link(<span class="pl-s"><span class="pl-pds">"</span>/<span class="pl-pds">"</span></span>), HTML(paste0(icon(<span class="pl-s"><span class="pl-pds">"</span>home<span class="pl-pds">"</span></span>), <span class="pl-s"><span class="pl-pds">"</span>Home<span class="pl-pds">"</span></span>))),
+    <span class="pl-smi">tags</span><span class="pl-k">$</span>a(<span class="pl-v">href</span> <span class="pl-k">=</span> route_link(<span class="pl-s"><span class="pl-pds">"</span>cohort<span class="pl-pds">"</span></span>), HTML(paste0(icon(<span class="pl-s"><span class="pl-pds">"</span>people-group<span class="pl-pds">"</span></span>), <span class="pl-s"><span class="pl-pds">"</span>cohort<span class="pl-pds">"</span></span>)))
     )),
     ),
     mainPanel(
-      width = 7.5,
+      <span class="pl-v">width</span> <span class="pl-k">=</span> <span class="pl-c1">7.5</span>,
       router_ui(
-        route("Home", Home$ui(ns("Home"))),
-        route("cohort", cohort$ui(ns("cohort")))
+        route(<span class="pl-s"><span class="pl-pds">"</span>Home<span class="pl-pds">"</span></span>, <span class="pl-smi">Home</span><span class="pl-k">$</span>ui(ns(<span class="pl-s"><span class="pl-pds">"</span>Home<span class="pl-pds">"</span></span>))),
+        route(<span class="pl-s"><span class="pl-pds">"</span>cohort<span class="pl-pds">"</span></span>, <span class="pl-smi">cohort</span><span class="pl-k">$</span>ui(ns(<span class="pl-s"><span class="pl-pds">"</span>cohort<span class="pl-pds">"</span></span>)))
       ),
       )
     ))
 }
 
-#' @export
-server &lt;- function(id) {
-  moduleServer(id, function(input, output, session) {
-    router_server("Home") # 主页面
-    Home$server("Home")
-    cohort$server("cohort")
+<span class="pl-c"><span class="pl-c">#</span>' @export</span>
+s<span class="pl-en">erver</span> <span class="pl-k">&lt;-</span> <span class="pl-k">function</span>(<span class="pl-smi">id</span>) {
+  moduleServer(<span class="pl-smi">id</span>, <span class="pl-k">function</span>(<span class="pl-smi">input</span>, <span class="pl-smi">output</span>, <span class="pl-smi">session</span>) {
+    router_server(<span class="pl-s"><span class="pl-pds">"</span>Home<span class="pl-pds">"</span></span>) <span class="pl-c"><span class="pl-c">#</span> 主页面</span>
+    <span class="pl-smi">Home</span><span class="pl-k">$</span>server(<span class="pl-s"><span class="pl-pds">"</span>Home<span class="pl-pds">"</span></span>)
+    <span class="pl-smi">cohort</span><span class="pl-k">$</span>server(<span class="pl-s"><span class="pl-pds">"</span>cohort<span class="pl-pds">"</span></span>)
   })
-}
-</code></pre>
+}</pre></div>
 <h3>（6）添加按钮跳转导航</h3>
-<pre class="notranslate"><code class="notranslate"># app/view/Home.R
+<div class="highlight highlight-source-r"><pre class="notranslate"><span class="pl-c"><span class="pl-c">#</span> app/view/Home.R</span>
 
-box::use(
-  shiny[moduleServer, NS,tags,icon,tabPanel,br,column,div,tagList,observeEvent,actionButton,wellPanel,fluidRow,h2,strong,h5,selectInput],
-  shiny.router[route_link,change_page],
+<span class="pl-e">box</span><span class="pl-k">::</span>use(
+  <span class="pl-smi">shiny</span>[<span class="pl-smi">moduleServer</span>, <span class="pl-smi">NS</span>,<span class="pl-smi">tags</span>,<span class="pl-smi">icon</span>,<span class="pl-smi">tabPanel</span>,<span class="pl-smi">br</span>,<span class="pl-smi">column</span>,<span class="pl-smi">div</span>,<span class="pl-smi">tagList</span>,<span class="pl-smi">observeEvent</span>,<span class="pl-smi">actionButton</span>,<span class="pl-smi">wellPanel</span>,<span class="pl-smi">fluidRow</span>,<span class="pl-smi">h2</span>,<span class="pl-smi">strong</span>,<span class="pl-smi">h5</span>,<span class="pl-smi">selectInput</span>],
+  <span class="pl-smi">shiny.router</span>[<span class="pl-smi">route_link</span>,<span class="pl-smi">change_page</span>],
 )
 
 
-#' @export
-ui &lt;- function(id) {
-   ns &lt;- NS(id)
-   tabPanel("Home1", icon = icon("house"),
-           column(2),
-           column(8, tags$h2(
-             strong("Welcome to the Show!", style = "font-size: 1.5em;")
+<span class="pl-c"><span class="pl-c">#</span>' @export</span>
+u<span class="pl-en">i</span> <span class="pl-k">&lt;-</span> <span class="pl-k">function</span>(<span class="pl-smi">id</span>) {
+   <span class="pl-smi">ns</span> <span class="pl-k">&lt;-</span> NS(<span class="pl-smi">id</span>)
+   tabPanel(<span class="pl-s"><span class="pl-pds">"</span>Home1<span class="pl-pds">"</span></span>, <span class="pl-v">icon</span> <span class="pl-k">=</span> icon(<span class="pl-s"><span class="pl-pds">"</span>house<span class="pl-pds">"</span></span>),
+           column(<span class="pl-c1">2</span>),
+           column(<span class="pl-c1">8</span>, <span class="pl-smi">tags</span><span class="pl-k">$</span>h2(
+             strong(<span class="pl-s"><span class="pl-pds">"</span>Welcome to the Show!<span class="pl-pds">"</span></span>, <span class="pl-v">style</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>font-size: 1.5em;<span class="pl-pds">"</span></span>)
            )),
-           column(2),
+           column(<span class="pl-c1">2</span>),
            br(),
            fluidRow(
              br(),
              br(),
              br(),
-             column(2),
-             column(6, tagList(
-                    wellPanel(h5("Guide",
-                                    style = "font-size: 1.2em;"),
-                                    align = "left"),
-                    wellPanel(h5("RECENT CONTENTS",
-                                 style = "font-size: 1.2em;"),
-                                 align = "left"),
-                    wellPanel(h5("Citation",
-                          style = "font-size: 1.2em;"), align = "left")))),
+             column(<span class="pl-c1">2</span>),
+             column(<span class="pl-c1">6</span>, tagList(
+                    wellPanel(h5(<span class="pl-s"><span class="pl-pds">"</span>Guide<span class="pl-pds">"</span></span>,
+                                    <span class="pl-v">style</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>font-size: 1.2em;<span class="pl-pds">"</span></span>),
+                                    <span class="pl-v">align</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>left<span class="pl-pds">"</span></span>),
+                    wellPanel(h5(<span class="pl-s"><span class="pl-pds">"</span>RECENT CONTENTS<span class="pl-pds">"</span></span>,
+                                 <span class="pl-v">style</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>font-size: 1.2em;<span class="pl-pds">"</span></span>),
+                                 <span class="pl-v">align</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>left<span class="pl-pds">"</span></span>),
+                    wellPanel(h5(<span class="pl-s"><span class="pl-pds">"</span>Citation<span class="pl-pds">"</span></span>,
+                          <span class="pl-v">style</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>font-size: 1.2em;<span class="pl-pds">"</span></span>), <span class="pl-v">align</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>left<span class="pl-pds">"</span></span>)))),
 
              fluidRow(
              div(
-                 class = "jumbotron",
-                 h2("Click this button to check out the table:"),
+                 <span class="pl-v">class</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>jumbotron<span class="pl-pds">"</span></span>,
+                 h2(<span class="pl-s"><span class="pl-pds">"</span>Click this button to check out the table:<span class="pl-pds">"</span></span>),
                  actionButton(
-                   inputId = ns("go_to_table"),
-                   label = "cohort",
-                   class = "btn-primary btn-lg"
+                   <span class="pl-v">inputId</span> <span class="pl-k">=</span> ns(<span class="pl-s"><span class="pl-pds">"</span>go_to_table<span class="pl-pds">"</span></span>),
+                   <span class="pl-v">label</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>cohort<span class="pl-pds">"</span></span>,
+                   <span class="pl-v">class</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>btn-primary btn-lg<span class="pl-pds">"</span></span>
                )
                )
                ))
 }
-#' @export
-server &lt;- function(id) {
-  moduleServer(id, function(input, output, session) {
-    ns &lt;- session$ns
-    observeEvent(input$go_to_table, {
-      change_page("cohort")
+<span class="pl-c"><span class="pl-c">#</span>' @export</span>
+s<span class="pl-en">erver</span> <span class="pl-k">&lt;-</span> <span class="pl-k">function</span>(<span class="pl-smi">id</span>) {
+  moduleServer(<span class="pl-smi">id</span>, <span class="pl-k">function</span>(<span class="pl-smi">input</span>, <span class="pl-smi">output</span>, <span class="pl-smi">session</span>) {
+    <span class="pl-smi">ns</span> <span class="pl-k">&lt;-</span> <span class="pl-smi">session</span><span class="pl-k">$</span><span class="pl-smi">ns</span>
+    observeEvent(<span class="pl-smi">input</span><span class="pl-k">$</span><span class="pl-smi">go_to_table</span>, {
+      change_page(<span class="pl-s"><span class="pl-pds">"</span>cohort<span class="pl-pds">"</span></span>)
     })
   })}
-
-</code></pre>
+</pre></div>
 <h3>（7）读取并显示参数</h3>
-<pre class="notranslate"><code class="notranslate"># app/view/cohort.R
-box::use(
-  shiny[moduleServer, NS, fluidRow, textOutput,column, renderText,tags, observeEvent,actionButton, observe,tagList,h3, wellPanel, br, selectInput, h5, p, reactive, updateSelectInput],
-  shiny.router[route_link, get_query_param, parse_url_path,change_page,router_server,get_page,is_page],
+<div class="highlight highlight-source-r"><pre class="notranslate"><span class="pl-c"><span class="pl-c">#</span> app/view/cohort.R</span>
+b<span class="pl-smi">ox</span><span class="pl-k">::</span>use(
+  <span class="pl-smi">shiny</span>[<span class="pl-smi">moduleServer</span>, <span class="pl-smi">NS</span>, <span class="pl-smi">fluidRow</span>, <span class="pl-smi">textOutput</span>,<span class="pl-smi">column</span>, <span class="pl-smi">renderText</span>,<span class="pl-smi">tags</span>, <span class="pl-smi">observeEvent</span>,<span class="pl-smi">actionButton</span>, <span class="pl-smi">observe</span>,<span class="pl-smi">tagList</span>,<span class="pl-smi">h3</span>, <span class="pl-smi">wellPanel</span>, <span class="pl-smi">br</span>, <span class="pl-smi">selectInput</span>, <span class="pl-smi">h5</span>, <span class="pl-smi">p</span>, <span class="pl-smi">reactive</span>, <span class="pl-smi">updateSelectInput</span>],
+  <span class="pl-smi">shiny.router</span>[<span class="pl-smi">route_link</span>, <span class="pl-smi">get_query_param</span>, <span class="pl-smi">parse_url_path</span>,<span class="pl-smi">change_page</span>,<span class="pl-smi">router_server</span>,<span class="pl-smi">get_page</span>,<span class="pl-smi">is_page</span>],
 )
-box::use(
-  app/logic/aml1[a2]
+<span class="pl-e">box</span><span class="pl-k">::</span>use(
+  <span class="pl-smi">app</span><span class="pl-k">/</span><span class="pl-smi">logic</span><span class="pl-k">/</span><span class="pl-smi">aml1</span>[<span class="pl-smi">a2</span>]
 )
 
 
-#' @export
-ui &lt;- function(id) {
-  ns &lt;- NS(id)
-  public_clinical &lt;- a2()
+<span class="pl-c"><span class="pl-c">#</span>' @export</span>
+u<span class="pl-en">i</span> <span class="pl-k">&lt;-</span> <span class="pl-k">function</span>(<span class="pl-smi">id</span>) {
+  <span class="pl-smi">ns</span> <span class="pl-k">&lt;-</span> NS(<span class="pl-smi">id</span>)
+  <span class="pl-smi">public_clinical</span> <span class="pl-k">&lt;-</span> a2()
   fluidRow(
-    column(3,
+    column(<span class="pl-c1">3</span>,
            wellPanel(
-             h5("Analysis Controls"),
+             h5(<span class="pl-s"><span class="pl-pds">"</span>Analysis Controls<span class="pl-pds">"</span></span>),
              br(),
-             p("Select dataset:"),
-             p("Analysis Type"),
+             p(<span class="pl-s"><span class="pl-pds">"</span>Select dataset:<span class="pl-pds">"</span></span>),
+             p(<span class="pl-s"><span class="pl-pds">"</span>Analysis Type<span class="pl-pds">"</span></span>),
              selectInput(
-               ns("analysis_type1"),
-               selected = "IIb",
-               label = NULL,
-               choices = public_clinical$Age
+               ns(<span class="pl-s"><span class="pl-pds">"</span>analysis_type1<span class="pl-pds">"</span></span>),
+               <span class="pl-v">selected</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>IIb<span class="pl-pds">"</span></span>,
+               <span class="pl-v">label</span> <span class="pl-k">=</span> <span class="pl-c1">NULL</span>,
+               <span class="pl-v">choices</span> <span class="pl-k">=</span> <span class="pl-smi">public_clinical</span><span class="pl-k">$</span><span class="pl-smi">Age</span>
              ),
              selectInput(
-               ns("analysis_type2"),
-               label = NULL,
-               choices = public_clinical$OS.time
+               ns(<span class="pl-s"><span class="pl-pds">"</span>analysis_type2<span class="pl-pds">"</span></span>),
+               <span class="pl-v">label</span> <span class="pl-k">=</span> <span class="pl-c1">NULL</span>,
+               <span class="pl-v">choices</span> <span class="pl-k">=</span> <span class="pl-smi">public_clinical</span><span class="pl-k">$</span><span class="pl-smi">OS.time</span>
              ),
 
-             actionButton(inputId = ns("caretdown7"), label = "Change query path"),
+             actionButton(<span class="pl-v">inputId</span> <span class="pl-k">=</span> ns(<span class="pl-s"><span class="pl-pds">"</span>caretdown7<span class="pl-pds">"</span></span>), <span class="pl-v">label</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>Change query path<span class="pl-pds">"</span></span>),
            )
     ))
 
 }
 
-#' @export
-server &lt;- function(id) {
-  moduleServer(id, function(input, output, session) {
-    ns &lt;- session$ns
+<span class="pl-c"><span class="pl-c">#</span>' @export</span>
+s<span class="pl-en">erver</span> <span class="pl-k">&lt;-</span> <span class="pl-k">function</span>(<span class="pl-smi">id</span>) {
+  moduleServer(<span class="pl-smi">id</span>, <span class="pl-k">function</span>(<span class="pl-smi">input</span>, <span class="pl-smi">output</span>, <span class="pl-smi">session</span>) {
+    <span class="pl-smi">ns</span> <span class="pl-k">&lt;-</span> <span class="pl-smi">session</span><span class="pl-k">$</span><span class="pl-smi">ns</span>
 
     router_server()
 
-    observeEvent(input$caretdown7, {
+    observeEvent(<span class="pl-smi">input</span><span class="pl-k">$</span><span class="pl-smi">caretdown7</span>, {
 
-      url_name &lt;- paste0("#!/cohort?","Age=",input$analysis_type1,"&amp;OS.time=",input$analysis_type2)
-      change_page(page = url_name)
+      <span class="pl-smi">url_name</span> <span class="pl-k">&lt;-</span> paste0(<span class="pl-s"><span class="pl-pds">"</span>#!/cohort?<span class="pl-pds">"</span></span>,<span class="pl-s"><span class="pl-pds">"</span>Age=<span class="pl-pds">"</span></span>,<span class="pl-smi">input</span><span class="pl-k">$</span><span class="pl-smi">analysis_type1</span>,<span class="pl-s"><span class="pl-pds">"</span>&amp;OS.time=<span class="pl-pds">"</span></span>,<span class="pl-smi">input</span><span class="pl-k">$</span><span class="pl-smi">analysis_type2</span>)
+      change_page(<span class="pl-v">page</span> <span class="pl-k">=</span> <span class="pl-smi">url_name</span>)
       
-      print(parse_url_path(url_name))
+      print(parse_url_path(<span class="pl-smi">url_name</span>))
       print(get_page())
-      output$text2 &lt;- renderText({ parse_url_path(url_name)$query$Age })
-      #parse_url_path必须有一个"url_path"
-      output$text3 &lt;- renderText({ get_query_param("Age")})
+      <span class="pl-smi">output</span><span class="pl-k">$</span><span class="pl-smi">text2</span> <span class="pl-k">&lt;-</span> renderText({ parse_url_path(<span class="pl-smi">url_name</span>)<span class="pl-k">$</span><span class="pl-smi">query</span><span class="pl-k">$</span><span class="pl-smi">Age</span> })
+      <span class="pl-c"><span class="pl-c">#</span>parse_url_path必须有一个"url_path"</span>
+      <span class="pl-smi">output</span><span class="pl-k">$</span><span class="pl-smi">text3</span> <span class="pl-k">&lt;-</span> renderText({ get_query_param(<span class="pl-s"><span class="pl-pds">"</span>Age<span class="pl-pds">"</span></span>)})
 
-      output$text4 &lt;- renderText({ get_query_param()[[1]]})
+      <span class="pl-smi">output</span><span class="pl-k">$</span><span class="pl-smi">text4</span> <span class="pl-k">&lt;-</span> renderText({ get_query_param()[[<span class="pl-c1">1</span>]]})
 
 
     })
   }
-    )}
-</code></pre>
-<p><a target="_blank" rel="noopener noreferrer" href="https://github.com/OncoHarmony-Network/OncoHarmony-Network.github.io/assets/136106051/d7c1544f-7707-4017-bf43-61b06ac054d5"><img src="https://github.com/OncoHarmony-Network/OncoHarmony-Network.github.io/assets/136106051/d7c1544f-7707-4017-bf43-61b06ac054d5" alt="1 4" style="max-width: 100%;"></a><br>
-<a target="_blank" rel="noopener noreferrer" href="https://github.com/OncoHarmony-Network/OncoHarmony-Network.github.io/assets/136106051/3ddf5772-c723-495f-aa79-65bf56cb0ae5"><img src="https://github.com/OncoHarmony-Network/OncoHarmony-Network.github.io/assets/136106051/3ddf5772-c723-495f-aa79-65bf56cb0ae5" alt="image" style="max-width: 100%;"></a></p>
+    )}</pre></div>
+<p><a target="_blank" rel="noopener noreferrer" href="https://github.com/OncoHarmony-Network/OncoHarmony-Network.github.io/assets/136106051/d7c1544f-7707-4017-bf43-61b06ac054d5"><img src="https://github.com/OncoHarmony-Network/OncoHarmony-Network.github.io/assets/136106051/d7c1544f-7707-4017-bf43-61b06ac054d5" alt="1 4" style="max-width: 100%;"></a></p>
+<p><a target="_blank" rel="noopener noreferrer" href="https://github.com/OncoHarmony-Network/OncoHarmony-Network.github.io/assets/136106051/3ddf5772-c723-495f-aa79-65bf56cb0ae5"><img src="https://github.com/OncoHarmony-Network/OncoHarmony-Network.github.io/assets/136106051/3ddf5772-c723-495f-aa79-65bf56cb0ae5" alt="image" style="max-width: 100%;"></a></p>
 <h4>在该页面如何change_page都返回"cohort"</h4>
 <h3>（8）在url改变参数时改变selectinput</h3>
-<pre class="notranslate"><code class="notranslate"># app/view/cohort.R
+<div class="highlight highlight-source-r"><pre class="notranslate"><span class="pl-c"><span class="pl-c">#</span> app/view/cohort.R</span>
 
-box::use(
-  shiny[moduleServer, NS, fluidRow, textOutput,column, renderText,tags, observeEvent,actionButton, observe,tagList,h3, wellPanel, br, selectInput, h5, p, reactive, updateSelectInput],
-  shiny.router[route_link, get_query_param, parse_url_path,change_page,router_server,get_page,is_page],
+<span class="pl-e">box</span><span class="pl-k">::</span>use(
+  <span class="pl-smi">shiny</span>[<span class="pl-smi">moduleServer</span>, <span class="pl-smi">NS</span>, <span class="pl-smi">fluidRow</span>, <span class="pl-smi">textOutput</span>,<span class="pl-smi">column</span>, <span class="pl-smi">renderText</span>,<span class="pl-smi">tags</span>, <span class="pl-smi">observeEvent</span>,<span class="pl-smi">actionButton</span>, <span class="pl-smi">observe</span>,<span class="pl-smi">tagList</span>,<span class="pl-smi">h3</span>, <span class="pl-smi">wellPanel</span>, <span class="pl-smi">br</span>, <span class="pl-smi">selectInput</span>, <span class="pl-smi">h5</span>, <span class="pl-smi">p</span>, <span class="pl-smi">reactive</span>, <span class="pl-smi">updateSelectInput</span>],
+  <span class="pl-smi">shiny.router</span>[<span class="pl-smi">route_link</span>, <span class="pl-smi">get_query_param</span>, <span class="pl-smi">parse_url_path</span>,<span class="pl-smi">change_page</span>,<span class="pl-smi">router_server</span>,<span class="pl-smi">get_page</span>,<span class="pl-smi">is_page</span>],
 )
-box::use(
-  app/logic/aml1[a2]
+<span class="pl-e">box</span><span class="pl-k">::</span>use(
+  <span class="pl-smi">app</span><span class="pl-k">/</span><span class="pl-smi">logic</span><span class="pl-k">/</span><span class="pl-smi">aml1</span>[<span class="pl-smi">a2</span>]
 )
-#' @export
-ui &lt;- function(id) {
-  ns &lt;- NS(id)
-  public_clinical &lt;- a2()
+<span class="pl-c"><span class="pl-c">#</span>' @export</span>
+u<span class="pl-en">i</span> <span class="pl-k">&lt;-</span> <span class="pl-k">function</span>(<span class="pl-smi">id</span>) {
+  <span class="pl-smi">ns</span> <span class="pl-k">&lt;-</span> NS(<span class="pl-smi">id</span>)
+  <span class="pl-smi">public_clinical</span> <span class="pl-k">&lt;-</span> a2()
   fluidRow(
-    column(3,
+    column(<span class="pl-c1">3</span>,
            wellPanel(
-             h5("Analysis Controls"),
+             h5(<span class="pl-s"><span class="pl-pds">"</span>Analysis Controls<span class="pl-pds">"</span></span>),
              br(),
-             p("Select dataset:"),
-             p("Analysis Type"),
+             p(<span class="pl-s"><span class="pl-pds">"</span>Select dataset:<span class="pl-pds">"</span></span>),
+             p(<span class="pl-s"><span class="pl-pds">"</span>Analysis Type<span class="pl-pds">"</span></span>),
              selectInput(
-               ns("analysis_type1"),
-               selected = "IIb",
-               label = NULL,
-               choices = public_clinical$Age
+               ns(<span class="pl-s"><span class="pl-pds">"</span>analysis_type1<span class="pl-pds">"</span></span>),
+               <span class="pl-v">selected</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>IIb<span class="pl-pds">"</span></span>,
+               <span class="pl-v">label</span> <span class="pl-k">=</span> <span class="pl-c1">NULL</span>,
+               <span class="pl-v">choices</span> <span class="pl-k">=</span> <span class="pl-smi">public_clinical</span><span class="pl-k">$</span><span class="pl-smi">Age</span>
              ),
              selectInput(
-               ns("analysis_type2"),
-               label = NULL,
-               choices = public_clinical$OS.time
+               ns(<span class="pl-s"><span class="pl-pds">"</span>analysis_type2<span class="pl-pds">"</span></span>),
+               <span class="pl-v">label</span> <span class="pl-k">=</span> <span class="pl-c1">NULL</span>,
+               <span class="pl-v">choices</span> <span class="pl-k">=</span> <span class="pl-smi">public_clinical</span><span class="pl-k">$</span><span class="pl-smi">OS.time</span>
              ),
-             actionButton(inputId = ns("caretdown7"), label = "Change query path"),
+             actionButton(<span class="pl-v">inputId</span> <span class="pl-k">=</span> ns(<span class="pl-s"><span class="pl-pds">"</span>caretdown7<span class="pl-pds">"</span></span>), <span class="pl-v">label</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>Change query path<span class="pl-pds">"</span></span>),
            )
     ))
 
 }
 
-#' @export
-server &lt;- function(id) {
-  moduleServer(id, function(input, output, session) {
-    ns &lt;- session$ns
+<span class="pl-c"><span class="pl-c">#</span>' @export</span>
+s<span class="pl-en">erver</span> <span class="pl-k">&lt;-</span> <span class="pl-k">function</span>(<span class="pl-smi">id</span>) {
+  moduleServer(<span class="pl-smi">id</span>, <span class="pl-k">function</span>(<span class="pl-smi">input</span>, <span class="pl-smi">output</span>, <span class="pl-smi">session</span>) {
+    <span class="pl-smi">ns</span> <span class="pl-k">&lt;-</span> <span class="pl-smi">session</span><span class="pl-k">$</span><span class="pl-smi">ns</span>
 
     router_server()
 
-    observeEvent(input$caretdown7, {
-      age_data &lt;- input$analysis_type1
-      OS.time_data &lt;- input$analysis_type2
-      url_name &lt;- paste0("#!/cohort?","Age=",age_data,"&amp;OS.time=",OS.time_data)
-      change_page(page = url_name)
-       print(parse_url_path(url_name))
+    observeEvent(<span class="pl-smi">input</span><span class="pl-k">$</span><span class="pl-smi">caretdown7</span>, {
+      <span class="pl-smi">age_data</span> <span class="pl-k">&lt;-</span> <span class="pl-smi">input</span><span class="pl-k">$</span><span class="pl-smi">analysis_type1</span>
+      <span class="pl-smi">OS.time_data</span> <span class="pl-k">&lt;-</span> <span class="pl-smi">input</span><span class="pl-k">$</span><span class="pl-smi">analysis_type2</span>
+      <span class="pl-smi">url_name</span> <span class="pl-k">&lt;-</span> paste0(<span class="pl-s"><span class="pl-pds">"</span>#!/cohort?<span class="pl-pds">"</span></span>,<span class="pl-s"><span class="pl-pds">"</span>Age=<span class="pl-pds">"</span></span>,<span class="pl-smi">age_data</span>,<span class="pl-s"><span class="pl-pds">"</span>&amp;OS.time=<span class="pl-pds">"</span></span>,<span class="pl-smi">OS.time_data</span>)
+      change_page(<span class="pl-v">page</span> <span class="pl-k">=</span> <span class="pl-smi">url_name</span>)
+       print(parse_url_path(<span class="pl-smi">url_name</span>))
        print(get_page())
-      output$text2 &lt;- renderText({ parse_url_path(url_name)$query$Age })
-      #parse_url_path必须有一个"url_path"
-      output$text3 &lt;- renderText({ get_query_param("Age")})
+      <span class="pl-smi">output</span><span class="pl-k">$</span><span class="pl-smi">text2</span> <span class="pl-k">&lt;-</span> renderText({ parse_url_path(<span class="pl-smi">url_name</span>)<span class="pl-k">$</span><span class="pl-smi">query</span><span class="pl-k">$</span><span class="pl-smi">Age</span> })
+      <span class="pl-c"><span class="pl-c">#</span>parse_url_path必须有一个"url_path"</span>
+      <span class="pl-smi">output</span><span class="pl-k">$</span><span class="pl-smi">text3</span> <span class="pl-k">&lt;-</span> renderText({ get_query_param(<span class="pl-s"><span class="pl-pds">"</span>Age<span class="pl-pds">"</span></span>)})
 
-      output$text4 &lt;- renderText({ get_query_param()[[1]]})
+      <span class="pl-smi">output</span><span class="pl-k">$</span><span class="pl-smi">text4</span> <span class="pl-k">&lt;-</span> renderText({ get_query_param()[[<span class="pl-c1">1</span>]]})
 
     })
 
     observe({
-      age_1 &lt;- get_query_param("Age")
-      print(age_1)
-      updateSelectInput(session, "analysis_type1", selected = age_1)
+      <span class="pl-smi">age_1</span> <span class="pl-k">&lt;-</span> get_query_param(<span class="pl-s"><span class="pl-pds">"</span>Age<span class="pl-pds">"</span></span>)
+      print(<span class="pl-smi">age_1</span>)
+      updateSelectInput(<span class="pl-smi">session</span>, <span class="pl-s"><span class="pl-pds">"</span>analysis_type1<span class="pl-pds">"</span></span>, <span class="pl-v">selected</span> <span class="pl-k">=</span> <span class="pl-smi">age_1</span>)
     })
   }
     )}
-
-</code></pre>
-<p><a href="https://github.com/OncoHarmony-Network/OncoHarmony-Network.github.io/assets/136106051/4276e760-0896-4e6d-9a35-6159111faaa0">https://github.com/OncoHarmony-Network/OncoHarmony-Network.github.io/assets/136106051/4276e760-0896-4e6d-9a35-6159111faaa0</a></p>
+</pre></div>
+<p><a target="_blank" rel="noopener noreferrer" href="https://github.com/OncoHarmony-Network/OncoHarmony-Network.github.io/assets/136106051/4276e760-0896-4e6d-9a35-6159111faaa0"><img src="https://github.com/OncoHarmony-Network/OncoHarmony-Network.github.io/assets/136106051/4276e760-0896-4e6d-9a35-6159111faaa0" alt="" style="max-width: 100%;"></a></p>
 <h3>（9）减少输出</h3>
 <h4>该情况下，处于home页面时也会执行该函数并输出</h4>
 <p><a target="_blank" rel="noopener noreferrer" href="https://github.com/OncoHarmony-Network/OncoHarmony-Network.github.io/assets/136106051/9a2d2124-69f9-4b79-89dc-6a3cc321bdf4"><img src="https://github.com/OncoHarmony-Network/OncoHarmony-Network.github.io/assets/136106051/9a2d2124-69f9-4b79-89dc-6a3cc321bdf4" alt="image" style="max-width: 100%;"></a></p>
-<pre class="notranslate"><code class="notranslate"># app/view/cohort.R
+<div class="highlight highlight-source-r"><pre class="notranslate"><span class="pl-c"><span class="pl-c">#</span> app/view/cohort.R</span>
 
 observe({
-        age_1 &lt;- get_query_param("Age")
-       updateSelectInput(session,"analysis_type1", selected = age_1)
+        <span class="pl-smi">age_1</span> <span class="pl-k">&lt;-</span> get_query_param(<span class="pl-s"><span class="pl-pds">"</span>Age<span class="pl-pds">"</span></span>)
+       updateSelectInput(<span class="pl-smi">session</span>,<span class="pl-s"><span class="pl-pds">"</span>analysis_type1<span class="pl-pds">"</span></span>, <span class="pl-v">selected</span> <span class="pl-k">=</span> <span class="pl-smi">age_1</span>)
     })
-    
-</code></pre>
+    </pre></div>
 <h4>添加is_page后在cohort页面才执行该函数并输出</h4>
-<pre class="notranslate"><code class="notranslate"># app/view/cohort.R
+<div class="highlight highlight-source-r"><pre class="notranslate"><span class="pl-c"><span class="pl-c">#</span> app/view/cohort.R</span>
 
-#' @export
-server &lt;- function(id) {
-  moduleServer(id, function(input, output, session) {
-    ns &lt;- session$ns
+<span class="pl-c"><span class="pl-c">#</span>' @export</span>
+s<span class="pl-en">erver</span> <span class="pl-k">&lt;-</span> <span class="pl-k">function</span>(<span class="pl-smi">id</span>) {
+  moduleServer(<span class="pl-smi">id</span>, <span class="pl-k">function</span>(<span class="pl-smi">input</span>, <span class="pl-smi">output</span>, <span class="pl-smi">session</span>) {
+    <span class="pl-smi">ns</span> <span class="pl-k">&lt;-</span> <span class="pl-smi">session</span><span class="pl-k">$</span><span class="pl-smi">ns</span>
 
     router_server()
 
-    observeEvent(input$caretdown7, {
-      age_data &lt;- input$analysis_type1
-      OS.time_data &lt;- input$analysis_type2
-      url_name &lt;- paste0("#!/cohort?","Age=",age_data,"&amp;OS.time=",OS.time_data)
+    observeEvent(<span class="pl-smi">input</span><span class="pl-k">$</span><span class="pl-smi">caretdown7</span>, {
+      <span class="pl-smi">age_data</span> <span class="pl-k">&lt;-</span> <span class="pl-smi">input</span><span class="pl-k">$</span><span class="pl-smi">analysis_type1</span>
+      <span class="pl-smi">OS.time_data</span> <span class="pl-k">&lt;-</span> <span class="pl-smi">input</span><span class="pl-k">$</span><span class="pl-smi">analysis_type2</span>
+      <span class="pl-smi">url_name</span> <span class="pl-k">&lt;-</span> paste0(<span class="pl-s"><span class="pl-pds">"</span>#!/cohort?<span class="pl-pds">"</span></span>,<span class="pl-s"><span class="pl-pds">"</span>Age=<span class="pl-pds">"</span></span>,<span class="pl-smi">age_data</span>,<span class="pl-s"><span class="pl-pds">"</span>&amp;OS.time=<span class="pl-pds">"</span></span>,<span class="pl-smi">OS.time_data</span>)
 
-      change_page(page = url_name)
+      change_page(<span class="pl-v">page</span> <span class="pl-k">=</span> <span class="pl-smi">url_name</span>)
 
-      print(parse_url_path(url_name))
+      print(parse_url_path(<span class="pl-smi">url_name</span>))
       print(get_page())
-      output$text2 &lt;- renderText({ parse_url_path(url_name)$query$Age })
-      #parse_url_path必须有一个"url_path"
-      output$text3 &lt;- renderText({ get_query_param("Age")})
+      <span class="pl-smi">output</span><span class="pl-k">$</span><span class="pl-smi">text2</span> <span class="pl-k">&lt;-</span> renderText({ parse_url_path(<span class="pl-smi">url_name</span>)<span class="pl-k">$</span><span class="pl-smi">query</span><span class="pl-k">$</span><span class="pl-smi">Age</span> })
+      <span class="pl-c"><span class="pl-c">#</span>parse_url_path必须有一个"url_path"</span>
+      <span class="pl-smi">output</span><span class="pl-k">$</span><span class="pl-smi">text3</span> <span class="pl-k">&lt;-</span> renderText({ get_query_param(<span class="pl-s"><span class="pl-pds">"</span>Age<span class="pl-pds">"</span></span>)})
 
-      output$text4 &lt;- renderText({ get_query_param()[[1]]})
+      <span class="pl-smi">output</span><span class="pl-k">$</span><span class="pl-smi">text4</span> <span class="pl-k">&lt;-</span> renderText({ get_query_param()[[<span class="pl-c1">1</span>]]})
 
 
 
     })
     observe({
-      if(is_page("cohort")){
-        age_1 &lt;- get_query_param("Age")
-        print(age_1)
-        updateSelectInput(session, "analysis_type1", selected = age_1)}
+      <span class="pl-k">if</span>(is_page(<span class="pl-s"><span class="pl-pds">"</span>cohort<span class="pl-pds">"</span></span>)){
+        <span class="pl-smi">age_1</span> <span class="pl-k">&lt;-</span> get_query_param(<span class="pl-s"><span class="pl-pds">"</span>Age<span class="pl-pds">"</span></span>)
+        print(<span class="pl-smi">age_1</span>)
+        updateSelectInput(<span class="pl-smi">session</span>, <span class="pl-s"><span class="pl-pds">"</span>analysis_type1<span class="pl-pds">"</span></span>, <span class="pl-v">selected</span> <span class="pl-k">=</span> <span class="pl-smi">age_1</span>)}
 
     })
 
   }
-    )}
-</code></pre></div>
+    )}</pre></div></div>
 <div style="font-size:small;margin-top:8px;float:right;"></div>
 <button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>
 <div class="comments" id="comments"></div>
