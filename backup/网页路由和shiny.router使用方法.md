@@ -43,104 +43,112 @@ observeEvent(input$go_to_table, {
     })
 ```
 
-
 ### （2）disable_bootstrap_on_bookmark
-```
-注释
-当用户打开指定的书签时，此函数会动态删除引导依赖项。 它应该插入到引导页面的头部。
-```
-```
-用法
+
+- 说明：当用户打开指定的书签时，此函数会动态删除引导依赖项。 它应该插入到引导页面的头部。
+  
+- 用法：
+```r
 disable_bootstrap_on_bookmark(bookmark)
 # 在书签上抑制 Bootstrap 依赖项。
 ```
-```
-示例
-disable_bootstrap_on_bookmark("home_page")
-```
 
+- 示例：
+
+```r
+observe({
+disable_bootstrap_on_bookmark("home_page")
+})
+```
 
 ### （3）get_page
-```
-注释
-# 该函数提取的是哈希后面的虚拟路径（virtual path）部分。如果输入没有值，即当前页面信息不可用，函数将返回 FALSE。
-```
-```
-用法
+
+- 说明：该函数提取的是哈希后面的虚拟路径（virtual path）部分。如果输入没有值，即当前页面信息不可用，函数将返回 FALSE。
+ 
+- 用法：
+```r
 get_page(session = shiny::getDefaultReactiveDomain())
 ```
-```
-示例
-get_page(session)
-```
 
+- 示例：
+
+```r
+ observe({
+        get_page(session)
+        })
+```
 
 ### （4）get_query_param
-```
-注释
-检索作为请求页面一部分的任何参数的便利函数。返回的参数值来自[http::parse_url()] 
-(https://www.php.net/manual/zh/function.parse-url.php)
-也正由于这个原因，只有在url变化后，该函数才能查询在url上变化的参数
-```
-```
-用法
+
+- 说明：检索作为请求页面一部分的任何参数的便利函数。返回的参数值来自[http::parse_url()] (https://www.php.net/manual/zh/function.parse-url.php)也正由于这个原因，只有在url变化后，该函数才能查询在url上变化的参数
+
+
+- 用法：
+```r
 get_query_param(field = NULL, session = shiny::getDefaultReactiveDomain())
 # field | If provided, retrieve only a param with this name. (Otherwise, return all params)
 # session | The Shiny session
 ```
-```
-示例
+
+- 示例：
+
+```r
+observe({
 page_size <- get_query_param("pageSize")
+})
 ```
-
-
-
 
 ### （5）is_page
-```
-注释
-如果我们不在指定的页面上，告诉反应链停止。这会帮助我们确保不会浪费时间为当前未显示的页面重新渲染UI。
-```
-```
-用法
+
+- 说明：如果我们不在指定的页面上，告诉反应链停止。这会帮助我们确保不会浪费时间为当前未显示的页面重新渲染UI。
+ 
+- 用法：
+```r
 is_page(page, session = shiny::getDefaultReactiveDomain(), ...)
 # page 参数： 检查当前页面是否为该页面
 ```
-```
-示例
-is_page("home", session)
-```
 
+- 示例：
+
+```r
+observe({
+      if(is_page("cohort")){
+         age_1 <- get_query_param("Age")
+      }
+
+      })
+```
 
 ### （6）route_link
-```
-注释
-在链接中添加 "/#!/" 前缀
-```
-```
-用法
+
+- 说明：链接中添加 "/#!/" 前缀
+
+- 用法：
+```r
 route_link(path)
 ```
-```
-示例
+
+- 示例：
+
+```r
 menu <- tags$ul(
     tags$li(a(class = "item", href = route_link("/"), "Main")),
     tags$li(a(class = "item", href = route_link("another"), "Another page")),
 )
 ```
 
-
 ### （7）router_ui
-```
-注释
-创建shiny的ui
-```
-```
-用法
+
+- 说明：创建shiny的ui
+
+- 用法：
+```r
 router_ui(default, ..., page_404 = page404(), env = parent.frame())
 ```
-```
-示例
+
+- 示例：
+
+```r
  router_ui(
       route("table", table$ui(ns("table"))),
       route("chart", chart$ui(ns("chart"))),
@@ -149,50 +157,52 @@ router_ui(default, ..., page_404 = page404(), env = parent.frame())
 )
 ```
 
-
 ### （8）router_server
-```
-注释
-设置shiny的主页面和环境
-```
-```
-用法
+
+- 说明：设置shiny的主页面的server和环境
+
+- 用法：
+```r
 router_server(root_page = "/", env = parent.frame())
 ```
-```
-示例
- router_server("/")
-```
 
+- 示例：
+
+```r
+ router_server("Home") # 主页面
+    Home$server("Home")
+    cohort$server("cohort")
+```
 
 ### （9）route
-```
-注释
-创建单独路由
-```
-```
-用法
+
+- 说明：创建单独路由
+
+- 用法：
+```r
 route(path, ui, server = NA)
 ```
-```
-示例
- route("/", intro$ui(ns("intro")))
-```
 
+- 示例：
+
+```r
+ route("Home", Home$ui(ns("Home")))
+```
 
 ### （10）parse_url_path
-```
-注释
-提取有关URL路径和跟在问号（?）符号后面的参数的信息。
-```
-```
-用法
+
+- 说明：提取有关URL路径和跟在问号（?）符号后面的参数的信息。
+
+- 用法：
+```r
 parse_url_path(url_path)
 # 查询的出现在#!的参数可能会导致浏览器刷新
 # 返回结果是一个列表，其中包含两个元素：path 和 query。
 ```
-```
-示例
+
+- 示例：
+
+```r
 parse_url_path("?a=1&b=foo")
 # $path：这里是一个空字符串，因为在输入的 URL 中没有指定路径部分
 $path
@@ -204,7 +214,8 @@ $query$a
 $query$b
 [1] "foo"
 ```
-```
+
+```r
 parse_url_path("?a=1&b[1]=foo&b[2]=bar/#!/")
 $path
 [1] ""
@@ -220,7 +231,8 @@ $query$b$`1`
 $query$b$`2`
 [1] "bar"
 ```
-```
+
+```r
 parse_url_path("?a=1&b[1]=foo&b[2]=bar/#!/other_page")
 $path
 [1] "other_page"
@@ -236,7 +248,8 @@ $query$b$`1`
 $query$b$`2`
 [1] "bar"
 ```
-```
+
+```r
 parse_url_path("www.foo.bar/#!/other_page")
 $path
 [1] "other_page"
@@ -260,7 +273,8 @@ $query$b$`1`
 $query$b$`2`
 [1] "bar"
 ```
-```
+
+```r
 parse_url_path("#!/?a=1&b[1]=foo&b[2]=bar")
 $path
 [1] ""
@@ -276,23 +290,8 @@ $query$b$`1`
 $query$b$`2`
 [1] "bar"
 ```
-```
-parse_url_path("#!/other_page?a=1&b[1]=foo&b[2]=bar")
-$path
-[1] "other_page"
 
-$query
-$query$a
-[1] "1"
-
-$query$b
-$query$b$`1`
-[1] "foo"
-
-$query$b$`2`
-[1] "bar"
-```
-```
+```r
 parse_url_path("www.foo.bar/#!/other?a=1&b[1]=foo&b[2]=bar")
 $path
 [1] "other"
@@ -309,19 +308,18 @@ $query$b$`2`
 [1] "bar"
 ```
 
-
-
 ### （11）PAGE_404_ROUTE
-```
-注释
-默认的404页面
-```
-```
-用法
+
+- 说明：默认的404页面
+
+- 用法：
+```r
 PAGE_404_ROUTE
 ```
-```
-示例
+
+- 示例：
+
+```r
 # app/main.R
 box::use(
   shiny[a, fluidPage, moduleServer, tags, NS],
@@ -336,20 +334,18 @@ router_ui(
     )
 ```
 
-
-
 ### （12）page404
-```
-注释
-router_ui里的404页面
-```
-```
-用法
+
+- 说明：router_ui里的404页面
+
+- 用法：
+```r
 page404(page = NULL, message404 = NULL)
 ```
-```
-示例
- 
+
+- 示例：
+
+```r
 router_ui(
       route("table", table$ui(ns("table"))),
       route("chart", chart$ui(ns("chart"))),
@@ -375,12 +371,9 @@ ui <- function(id) {
 }
 ```
 
-
 ### （13）make_router
-```
-[Deprecated] Creates router.
-```
 
+- 说明：[Deprecated] Creates router.
 
 ## 实例
 
@@ -390,7 +383,6 @@ ui <- function(id) {
 install.packages("rhino")
 rhino::init("show")
 ```
-
 
 ### （2）安装并添加依赖项
 
@@ -497,13 +489,9 @@ ui <- function(id) {
                label = NULL,
                choices = public_clinical$OS.time
              ),
-
              actionButton(inputId = ns("caretdown7"), label = "Change query path"),
-
-
            )
     ))
-
 }
 
 #' @export
@@ -512,8 +500,6 @@ server <- function(id) {
     ns <- session$ns
       })}
 ```
-
-
 
 ### （4）添加404页
 
@@ -536,7 +522,6 @@ ui <- function(id) {
 }
 
 ```
-
 
 ### （5）将 UI 模块包装
 
@@ -587,7 +572,6 @@ server <- function(id) {
   })
 }
 ```
-
 
 ### （6）添加按钮跳转导航
 
@@ -645,9 +629,7 @@ server <- function(id) {
       change_page("cohort")
     })
   })}
-
 ```
-
 
 ### （7）读取并显示参数
 
@@ -684,11 +666,9 @@ ui <- function(id) {
                label = NULL,
                choices = public_clinical$OS.time
              ),
-
              actionButton(inputId = ns("caretdown7"), label = "Change query path"),
            )
     ))
-
 }
 
 #' @export
@@ -708,10 +688,7 @@ server <- function(id) {
       output$text2 <- renderText({ parse_url_path(url_name)$query$Age })
       #parse_url_path必须有一个"url_path"
       output$text3 <- renderText({ get_query_param("Age")})
-
       output$text4 <- renderText({ get_query_param()[[1]]})
-
-
     })
   }
     )}
@@ -760,7 +737,6 @@ ui <- function(id) {
              actionButton(inputId = ns("caretdown7"), label = "Change query path"),
            )
     ))
-
 }
 
 #' @export
@@ -837,20 +813,14 @@ server <- function(id) {
       output$text2 <- renderText({ parse_url_path(url_name)$query$Age })
       #parse_url_path必须有一个"url_path"
       output$text3 <- renderText({ get_query_param("Age")})
-
       output$text4 <- renderText({ get_query_param()[[1]]})
-
-
-
     })
     observe({
       if(is_page("cohort")){
         age_1 <- get_query_param("Age")
         print(age_1)
         updateSelectInput(session, "analysis_type1", selected = age_1)}
-
     })
-
   }
     )}
 ```

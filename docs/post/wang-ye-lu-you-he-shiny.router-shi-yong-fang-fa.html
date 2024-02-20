@@ -100,157 +100,201 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
       change_page(<span class="pl-s"><span class="pl-pds">"</span>table<span class="pl-pds">"</span></span>)
     })</pre></div>
 <h3>（2）disable_bootstrap_on_bookmark</h3>
-<pre class="notranslate"><code class="notranslate">注释
-当用户打开指定的书签时，此函数会动态删除引导依赖项。 它应该插入到引导页面的头部。
-</code></pre>
-<pre class="notranslate"><code class="notranslate">用法
-disable_bootstrap_on_bookmark(bookmark)
-# 在书签上抑制 Bootstrap 依赖项。
-</code></pre>
-<pre class="notranslate"><code class="notranslate">示例
-disable_bootstrap_on_bookmark("home_page")
-</code></pre>
+<ul>
+<li>
+<p>说明：当用户打开指定的书签时，此函数会动态删除引导依赖项。 它应该插入到引导页面的头部。</p>
+</li>
+<li>
+<p>用法：</p>
+</li>
+</ul>
+<div class="highlight highlight-source-r"><pre class="notranslate">disable_bootstrap_on_bookmark(<span class="pl-smi">bookmark</span>)
+<span class="pl-c"><span class="pl-c">#</span> 在书签上抑制 Bootstrap 依赖项。</span></pre></div>
+<ul>
+<li>示例：</li>
+</ul>
+<div class="highlight highlight-source-r"><pre class="notranslate">observe({
+disable_bootstrap_on_bookmark(<span class="pl-s"><span class="pl-pds">"</span>home_page<span class="pl-pds">"</span></span>)
+})</pre></div>
 <h3>（3）get_page</h3>
-<pre class="notranslate"><code class="notranslate">注释
-# 该函数提取的是哈希后面的虚拟路径（virtual path）部分。如果输入没有值，即当前页面信息不可用，函数将返回 FALSE。
-</code></pre>
-<pre class="notranslate"><code class="notranslate">用法
-get_page(session = shiny::getDefaultReactiveDomain())
-</code></pre>
-<pre class="notranslate"><code class="notranslate">示例
-get_page(session)
-</code></pre>
+<ul>
+<li>
+<p>说明：该函数提取的是哈希后面的虚拟路径（virtual path）部分。如果输入没有值，即当前页面信息不可用，函数将返回 FALSE。</p>
+</li>
+<li>
+<p>用法：</p>
+</li>
+</ul>
+<div class="highlight highlight-source-r"><pre class="notranslate">get_page(<span class="pl-v">session</span> <span class="pl-k">=</span> <span class="pl-e">shiny</span><span class="pl-k">::</span>getDefaultReactiveDomain())</pre></div>
+<ul>
+<li>示例：</li>
+</ul>
+<div class="highlight highlight-source-r"><pre class="notranslate"> observe({
+        get_page(<span class="pl-smi">session</span>)
+        })</pre></div>
 <h3>（4）get_query_param</h3>
-<pre class="notranslate"><code class="notranslate">注释
-检索作为请求页面一部分的任何参数的便利函数。返回的参数值来自[http::parse_url()] 
-(https://www.php.net/manual/zh/function.parse-url.php)
-也正由于这个原因，只有在url变化后，该函数才能查询在url上变化的参数
-</code></pre>
-<pre class="notranslate"><code class="notranslate">用法
-get_query_param(field = NULL, session = shiny::getDefaultReactiveDomain())
-# field | If provided, retrieve only a param with this name. (Otherwise, return all params)
-# session | The Shiny session
-</code></pre>
-<pre class="notranslate"><code class="notranslate">示例
-page_size &lt;- get_query_param("pageSize")
-</code></pre>
+<ul>
+<li>
+<p>说明：检索作为请求页面一部分的任何参数的便利函数。返回的参数值来自[http::parse_url()] (<a href="https://www.php.net/manual/zh/function.parse-url.php)%E4%B9%9F%E6%AD%A3%E7%94%B1%E4%BA%8E%E8%BF%99%E4%B8%AA%E5%8E%9F%E5%9B%A0%EF%BC%8C%E5%8F%AA%E6%9C%89%E5%9C%A8url%E5%8F%98%E5%8C%96%E5%90%8E%EF%BC%8C%E8%AF%A5%E5%87%BD%E6%95%B0%E6%89%8D%E8%83%BD%E6%9F%A5%E8%AF%A2%E5%9C%A8url%E4%B8%8A%E5%8F%98%E5%8C%96%E7%9A%84%E5%8F%82%E6%95%B0" rel="nofollow">https://www.php.net/manual/zh/function.parse-url.php)也正由于这个原因，只有在url变化后，该函数才能查询在url上变化的参数</a></p>
+</li>
+<li>
+<p>用法：</p>
+</li>
+</ul>
+<div class="highlight highlight-source-r"><pre class="notranslate">get_query_param(<span class="pl-v">field</span> <span class="pl-k">=</span> <span class="pl-c1">NULL</span>, <span class="pl-v">session</span> <span class="pl-k">=</span> <span class="pl-e">shiny</span><span class="pl-k">::</span>getDefaultReactiveDomain())
+<span class="pl-c"><span class="pl-c">#</span> field | If provided, retrieve only a param with this name. (Otherwise, return all params)</span>
+<span class="pl-c"><span class="pl-c">#</span> session | The Shiny session</span></pre></div>
+<ul>
+<li>示例：</li>
+</ul>
+<div class="highlight highlight-source-r"><pre class="notranslate">observe({
+<span class="pl-smi">page_size</span> <span class="pl-k">&lt;-</span> get_query_param(<span class="pl-s"><span class="pl-pds">"</span>pageSize<span class="pl-pds">"</span></span>)
+})</pre></div>
 <h3>（5）is_page</h3>
-<pre class="notranslate"><code class="notranslate">注释
-如果我们不在指定的页面上，告诉反应链停止。这会帮助我们确保不会浪费时间为当前未显示的页面重新渲染UI。
-</code></pre>
-<pre class="notranslate"><code class="notranslate">用法
-is_page(page, session = shiny::getDefaultReactiveDomain(), ...)
-# page 参数： 检查当前页面是否为该页面
-</code></pre>
-<pre class="notranslate"><code class="notranslate">示例
-is_page("home", session)
-</code></pre>
+<ul>
+<li>
+<p>说明：如果我们不在指定的页面上，告诉反应链停止。这会帮助我们确保不会浪费时间为当前未显示的页面重新渲染UI。</p>
+</li>
+<li>
+<p>用法：</p>
+</li>
+</ul>
+<div class="highlight highlight-source-r"><pre class="notranslate">is_page(<span class="pl-smi">page</span>, <span class="pl-v">session</span> <span class="pl-k">=</span> <span class="pl-e">shiny</span><span class="pl-k">::</span>getDefaultReactiveDomain(), <span class="pl-k">...</span>)
+<span class="pl-c"><span class="pl-c">#</span> page 参数： 检查当前页面是否为该页面</span></pre></div>
+<ul>
+<li>示例：</li>
+</ul>
+<div class="highlight highlight-source-r"><pre class="notranslate">observe({
+      <span class="pl-k">if</span>(is_page(<span class="pl-s"><span class="pl-pds">"</span>cohort<span class="pl-pds">"</span></span>)){
+         <span class="pl-smi">age_1</span> <span class="pl-k">&lt;-</span> get_query_param(<span class="pl-s"><span class="pl-pds">"</span>Age<span class="pl-pds">"</span></span>)
+      }
+
+      })</pre></div>
 <h3>（6）route_link</h3>
-<pre class="notranslate"><code class="notranslate">注释
-在链接中添加 "/#!/" 前缀
-</code></pre>
-<pre class="notranslate"><code class="notranslate">用法
-route_link(path)
-</code></pre>
-<pre class="notranslate"><code class="notranslate">示例
-menu &lt;- tags$ul(
-    tags$li(a(class = "item", href = route_link("/"), "Main")),
-    tags$li(a(class = "item", href = route_link("another"), "Another page")),
-)
-</code></pre>
+<ul>
+<li>
+<p>说明：链接中添加 "/#!/" 前缀</p>
+</li>
+<li>
+<p>用法：</p>
+</li>
+</ul>
+<div class="highlight highlight-source-r"><pre class="notranslate">route_link(<span class="pl-smi">path</span>)</pre></div>
+<ul>
+<li>示例：</li>
+</ul>
+<div class="highlight highlight-source-r"><pre class="notranslate"><span class="pl-smi">menu</span> <span class="pl-k">&lt;-</span> <span class="pl-smi">tags</span><span class="pl-k">$</span>ul(
+    <span class="pl-smi">tags</span><span class="pl-k">$</span>li(a(<span class="pl-v">class</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>item<span class="pl-pds">"</span></span>, <span class="pl-v">href</span> <span class="pl-k">=</span> route_link(<span class="pl-s"><span class="pl-pds">"</span>/<span class="pl-pds">"</span></span>), <span class="pl-s"><span class="pl-pds">"</span>Main<span class="pl-pds">"</span></span>)),
+    <span class="pl-smi">tags</span><span class="pl-k">$</span>li(a(<span class="pl-v">class</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>item<span class="pl-pds">"</span></span>, <span class="pl-v">href</span> <span class="pl-k">=</span> route_link(<span class="pl-s"><span class="pl-pds">"</span>another<span class="pl-pds">"</span></span>), <span class="pl-s"><span class="pl-pds">"</span>Another page<span class="pl-pds">"</span></span>)),
+)</pre></div>
 <h3>（7）router_ui</h3>
-<pre class="notranslate"><code class="notranslate">注释
-创建shiny的ui
-</code></pre>
-<pre class="notranslate"><code class="notranslate">用法
-router_ui(default, ..., page_404 = page404(), env = parent.frame())
-</code></pre>
-<pre class="notranslate"><code class="notranslate">示例
- router_ui(
-      route("table", table$ui(ns("table"))),
-      route("chart", chart$ui(ns("chart"))),
-      route("chart", chart$ui(ns("chart")))，
-      page_404 = page_404$ui(ns("page_404"))
-)
-</code></pre>
+<ul>
+<li>
+<p>说明：创建shiny的ui</p>
+</li>
+<li>
+<p>用法：</p>
+</li>
+</ul>
+<div class="highlight highlight-source-r"><pre class="notranslate">router_ui(<span class="pl-smi">default</span>, <span class="pl-k">...</span>, <span class="pl-v">page_404</span> <span class="pl-k">=</span> page404(), <span class="pl-v">env</span> <span class="pl-k">=</span> parent.frame())</pre></div>
+<ul>
+<li>示例：</li>
+</ul>
+<div class="highlight highlight-source-r"><pre class="notranslate"> router_ui(
+      route(<span class="pl-s"><span class="pl-pds">"</span>table<span class="pl-pds">"</span></span>, <span class="pl-smi">table</span><span class="pl-k">$</span>ui(ns(<span class="pl-s"><span class="pl-pds">"</span>table<span class="pl-pds">"</span></span>))),
+      route(<span class="pl-s"><span class="pl-pds">"</span>chart<span class="pl-pds">"</span></span>, <span class="pl-smi">chart</span><span class="pl-k">$</span>ui(ns(<span class="pl-s"><span class="pl-pds">"</span>chart<span class="pl-pds">"</span></span>))),
+      route(<span class="pl-s"><span class="pl-pds">"</span>chart<span class="pl-pds">"</span></span>, <span class="pl-smi">chart</span><span class="pl-k">$</span>ui(ns(<span class="pl-s"><span class="pl-pds">"</span>chart<span class="pl-pds">"</span></span>)))，
+      <span class="pl-v">page_404</span> <span class="pl-k">=</span> <span class="pl-smi">page_404</span><span class="pl-k">$</span>ui(ns(<span class="pl-s"><span class="pl-pds">"</span>page_404<span class="pl-pds">"</span></span>))
+)</pre></div>
 <h3>（8）router_server</h3>
-<pre class="notranslate"><code class="notranslate">注释
-设置shiny的主页面和环境
-</code></pre>
-<pre class="notranslate"><code class="notranslate">用法
-router_server(root_page = "/", env = parent.frame())
-</code></pre>
-<pre class="notranslate"><code class="notranslate">示例
- router_server("/")
-</code></pre>
+<ul>
+<li>
+<p>说明：设置shiny的主页面的server和环境</p>
+</li>
+<li>
+<p>用法：</p>
+</li>
+</ul>
+<div class="highlight highlight-source-r"><pre class="notranslate">router_server(<span class="pl-v">root_page</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>/<span class="pl-pds">"</span></span>, <span class="pl-v">env</span> <span class="pl-k">=</span> parent.frame())</pre></div>
+<ul>
+<li>示例：</li>
+</ul>
+<div class="highlight highlight-source-r"><pre class="notranslate"> router_server(<span class="pl-s"><span class="pl-pds">"</span>Home<span class="pl-pds">"</span></span>) <span class="pl-c"><span class="pl-c">#</span> 主页面</span>
+    <span class="pl-smi">Home</span><span class="pl-k">$</span>server(<span class="pl-s"><span class="pl-pds">"</span>Home<span class="pl-pds">"</span></span>)
+    <span class="pl-smi">cohort</span><span class="pl-k">$</span>server(<span class="pl-s"><span class="pl-pds">"</span>cohort<span class="pl-pds">"</span></span>)</pre></div>
 <h3>（9）route</h3>
-<pre class="notranslate"><code class="notranslate">注释
-创建单独路由
-</code></pre>
-<pre class="notranslate"><code class="notranslate">用法
-route(path, ui, server = NA)
-</code></pre>
-<pre class="notranslate"><code class="notranslate">示例
- route("/", intro$ui(ns("intro")))
-</code></pre>
+<ul>
+<li>
+<p>说明：创建单独路由</p>
+</li>
+<li>
+<p>用法：</p>
+</li>
+</ul>
+<div class="highlight highlight-source-r"><pre class="notranslate">route(<span class="pl-smi">path</span>, <span class="pl-smi">ui</span>, <span class="pl-v">server</span> <span class="pl-k">=</span> <span class="pl-c1">NA</span>)</pre></div>
+<ul>
+<li>示例：</li>
+</ul>
+<div class="highlight highlight-source-r"><pre class="notranslate"> route(<span class="pl-s"><span class="pl-pds">"</span>Home<span class="pl-pds">"</span></span>, <span class="pl-smi">Home</span><span class="pl-k">$</span>ui(ns(<span class="pl-s"><span class="pl-pds">"</span>Home<span class="pl-pds">"</span></span>)))</pre></div>
 <h3>（10）parse_url_path</h3>
-<pre class="notranslate"><code class="notranslate">注释
-提取有关URL路径和跟在问号（?）符号后面的参数的信息。
-</code></pre>
-<pre class="notranslate"><code class="notranslate">用法
-parse_url_path(url_path)
-# 查询的出现在#!的参数可能会导致浏览器刷新
-# 返回结果是一个列表，其中包含两个元素：path 和 query。
-</code></pre>
-<pre class="notranslate"><code class="notranslate">示例
-parse_url_path("?a=1&amp;b=foo")
-# $path：这里是一个空字符串，因为在输入的 URL 中没有指定路径部分
-$path
-[1] ""
-# $query：是一个包含参数的列表。在这个例子中，有两个参数：a 和 b。
-$query
-$query$a
-[1] "1"
-$query$b
-[1] "foo"
-</code></pre>
-<pre class="notranslate"><code class="notranslate">parse_url_path("?a=1&amp;b[1]=foo&amp;b[2]=bar/#!/")
-$path
-[1] ""
+<ul>
+<li>
+<p>说明：提取有关URL路径和跟在问号（?）符号后面的参数的信息。</p>
+</li>
+<li>
+<p>用法：</p>
+</li>
+</ul>
+<div class="highlight highlight-source-r"><pre class="notranslate">parse_url_path(<span class="pl-smi">url_path</span>)
+<span class="pl-c"><span class="pl-c">#</span> 查询的出现在#!的参数可能会导致浏览器刷新</span>
+<span class="pl-c"><span class="pl-c">#</span> 返回结果是一个列表，其中包含两个元素：path 和 query。</span></pre></div>
+<ul>
+<li>示例：</li>
+</ul>
+<div class="highlight highlight-source-r"><pre class="notranslate">parse_url_path(<span class="pl-s"><span class="pl-pds">"</span>?a=1&amp;b=foo<span class="pl-pds">"</span></span>)
+<span class="pl-c"><span class="pl-c">#</span> $path：这里是一个空字符串，因为在输入的 URL 中没有指定路径部分</span>
+$<span class="pl-smi">path</span>
+[<span class="pl-c1">1</span>] <span class="pl-s"><span class="pl-pds">"</span><span class="pl-pds">"</span></span>
+<span class="pl-c"><span class="pl-c">#</span> $query：是一个包含参数的列表。在这个例子中，有两个参数：a 和 b。</span>
+$<span class="pl-smi">query</span>
+<span class="pl-k">$</span><span class="pl-smi">query</span><span class="pl-k">$</span><span class="pl-smi">a</span>
+[<span class="pl-c1">1</span>] <span class="pl-s"><span class="pl-pds">"</span>1<span class="pl-pds">"</span></span>
+<span class="pl-k">$</span><span class="pl-smi">query</span><span class="pl-k">$</span><span class="pl-smi">b</span>
+[<span class="pl-c1">1</span>] <span class="pl-s"><span class="pl-pds">"</span>foo<span class="pl-pds">"</span></span></pre></div>
+<div class="highlight highlight-source-r"><pre class="notranslate">parse_url_path(<span class="pl-s"><span class="pl-pds">"</span>?a=1&amp;b[1]=foo&amp;b[2]=bar/#!/<span class="pl-pds">"</span></span>)
+<span class="pl-k">$</span><span class="pl-smi">path</span>
+[<span class="pl-c1">1</span>] <span class="pl-s"><span class="pl-pds">"</span><span class="pl-pds">"</span></span>
 
-$query
-$query$a
-[1] "1"
+<span class="pl-k">$</span><span class="pl-smi">query</span>
+<span class="pl-k">$</span><span class="pl-smi">query</span><span class="pl-k">$</span><span class="pl-smi">a</span>
+[<span class="pl-c1">1</span>] <span class="pl-s"><span class="pl-pds">"</span>1<span class="pl-pds">"</span></span>
 
-$query$b
-$query$b$`1`
-[1] "foo"
+<span class="pl-k">$</span><span class="pl-smi">query</span><span class="pl-k">$</span><span class="pl-smi">b</span>
+<span class="pl-k">$</span><span class="pl-smi">query</span><span class="pl-k">$</span><span class="pl-smi">b</span><span class="pl-k">$</span><span class="pl-smi">`1`</span>
+[<span class="pl-c1">1</span>] <span class="pl-s"><span class="pl-pds">"</span>foo<span class="pl-pds">"</span></span>
 
-$query$b$`2`
-[1] "bar"
-</code></pre>
-<pre class="notranslate"><code class="notranslate">parse_url_path("?a=1&amp;b[1]=foo&amp;b[2]=bar/#!/other_page")
-$path
-[1] "other_page"
+<span class="pl-k">$</span><span class="pl-smi">query</span><span class="pl-k">$</span><span class="pl-smi">b</span><span class="pl-k">$</span><span class="pl-smi">`2`</span>
+[<span class="pl-c1">1</span>] <span class="pl-s"><span class="pl-pds">"</span>bar<span class="pl-pds">"</span></span></pre></div>
+<div class="highlight highlight-source-r"><pre class="notranslate">parse_url_path(<span class="pl-s"><span class="pl-pds">"</span>?a=1&amp;b[1]=foo&amp;b[2]=bar/#!/other_page<span class="pl-pds">"</span></span>)
+<span class="pl-k">$</span><span class="pl-smi">path</span>
+[<span class="pl-c1">1</span>] <span class="pl-s"><span class="pl-pds">"</span>other_page<span class="pl-pds">"</span></span>
 
-$query
-$query$a
-[1] "1"
+<span class="pl-k">$</span><span class="pl-smi">query</span>
+<span class="pl-k">$</span><span class="pl-smi">query</span><span class="pl-k">$</span><span class="pl-smi">a</span>
+[<span class="pl-c1">1</span>] <span class="pl-s"><span class="pl-pds">"</span>1<span class="pl-pds">"</span></span>
 
-$query$b
-$query$b$`1`
-[1] "foo"
+<span class="pl-k">$</span><span class="pl-smi">query</span><span class="pl-k">$</span><span class="pl-smi">b</span>
+<span class="pl-k">$</span><span class="pl-smi">query</span><span class="pl-k">$</span><span class="pl-smi">b</span><span class="pl-k">$</span><span class="pl-smi">`1`</span>
+[<span class="pl-c1">1</span>] <span class="pl-s"><span class="pl-pds">"</span>foo<span class="pl-pds">"</span></span>
 
-$query$b$`2`
-[1] "bar"
-</code></pre>
-<pre class="notranslate"><code class="notranslate">parse_url_path("www.foo.bar/#!/other_page")
-$path
-[1] "other_page"
+<span class="pl-k">$</span><span class="pl-smi">query</span><span class="pl-k">$</span><span class="pl-smi">b</span><span class="pl-k">$</span><span class="pl-smi">`2`</span>
+[<span class="pl-c1">1</span>] <span class="pl-s"><span class="pl-pds">"</span>bar<span class="pl-pds">"</span></span></pre></div>
+<div class="highlight highlight-source-r"><pre class="notranslate">parse_url_path(<span class="pl-s"><span class="pl-pds">"</span>www.foo.bar/#!/other_page<span class="pl-pds">"</span></span>)
+<span class="pl-k">$</span><span class="pl-smi">path</span>
+[<span class="pl-c1">1</span>] <span class="pl-s"><span class="pl-pds">"</span>other_page<span class="pl-pds">"</span></span>
 
-$query
-NULL
-</code></pre>
+<span class="pl-k">$</span><span class="pl-smi">query</span>
+<span class="pl-c1">NULL</span></pre></div>
 <pre class="notranslate"><code class="notranslate">parse_url_path("www.foo.bar?a=1&amp;b[1]=foo&amp;b[2]=bar/#!/other")
 $path
 [1] "other"
@@ -266,108 +310,99 @@ $query$b$`1`
 $query$b$`2`
 [1] "bar"
 </code></pre>
-<pre class="notranslate"><code class="notranslate">parse_url_path("#!/?a=1&amp;b[1]=foo&amp;b[2]=bar")
-$path
-[1] ""
+<div class="highlight highlight-source-r"><pre class="notranslate">parse_url_path(<span class="pl-s"><span class="pl-pds">"</span>#!/?a=1&amp;b[1]=foo&amp;b[2]=bar<span class="pl-pds">"</span></span>)
+<span class="pl-k">$</span><span class="pl-smi">path</span>
+[<span class="pl-c1">1</span>] <span class="pl-s"><span class="pl-pds">"</span><span class="pl-pds">"</span></span>
 
-$query
-$query$a
-[1] "1"
+<span class="pl-k">$</span><span class="pl-smi">query</span>
+<span class="pl-k">$</span><span class="pl-smi">query</span><span class="pl-k">$</span><span class="pl-smi">a</span>
+[<span class="pl-c1">1</span>] <span class="pl-s"><span class="pl-pds">"</span>1<span class="pl-pds">"</span></span>
 
-$query$b
-$query$b$`1`
-[1] "foo"
+<span class="pl-k">$</span><span class="pl-smi">query</span><span class="pl-k">$</span><span class="pl-smi">b</span>
+<span class="pl-k">$</span><span class="pl-smi">query</span><span class="pl-k">$</span><span class="pl-smi">b</span><span class="pl-k">$</span><span class="pl-smi">`1`</span>
+[<span class="pl-c1">1</span>] <span class="pl-s"><span class="pl-pds">"</span>foo<span class="pl-pds">"</span></span>
 
-$query$b$`2`
-[1] "bar"
-</code></pre>
-<pre class="notranslate"><code class="notranslate">parse_url_path("#!/other_page?a=1&amp;b[1]=foo&amp;b[2]=bar")
-$path
-[1] "other_page"
+<span class="pl-k">$</span><span class="pl-smi">query</span><span class="pl-k">$</span><span class="pl-smi">b</span><span class="pl-k">$</span><span class="pl-smi">`2`</span>
+[<span class="pl-c1">1</span>] <span class="pl-s"><span class="pl-pds">"</span>bar<span class="pl-pds">"</span></span></pre></div>
+<div class="highlight highlight-source-r"><pre class="notranslate">parse_url_path(<span class="pl-s"><span class="pl-pds">"</span>www.foo.bar/#!/other?a=1&amp;b[1]=foo&amp;b[2]=bar<span class="pl-pds">"</span></span>)
+<span class="pl-k">$</span><span class="pl-smi">path</span>
+[<span class="pl-c1">1</span>] <span class="pl-s"><span class="pl-pds">"</span>other<span class="pl-pds">"</span></span>
 
-$query
-$query$a
-[1] "1"
+<span class="pl-k">$</span><span class="pl-smi">query</span>
+<span class="pl-k">$</span><span class="pl-smi">query</span><span class="pl-k">$</span><span class="pl-smi">a</span>
+[<span class="pl-c1">1</span>] <span class="pl-s"><span class="pl-pds">"</span>1<span class="pl-pds">"</span></span>
 
-$query$b
-$query$b$`1`
-[1] "foo"
+<span class="pl-k">$</span><span class="pl-smi">query</span><span class="pl-k">$</span><span class="pl-smi">b</span>
+<span class="pl-k">$</span><span class="pl-smi">query</span><span class="pl-k">$</span><span class="pl-smi">b</span><span class="pl-k">$</span><span class="pl-smi">`1`</span>
+[<span class="pl-c1">1</span>] <span class="pl-s"><span class="pl-pds">"</span>foo<span class="pl-pds">"</span></span>
 
-$query$b$`2`
-[1] "bar"
-</code></pre>
-<pre class="notranslate"><code class="notranslate">parse_url_path("www.foo.bar/#!/other?a=1&amp;b[1]=foo&amp;b[2]=bar")
-$path
-[1] "other"
-
-$query
-$query$a
-[1] "1"
-
-$query$b
-$query$b$`1`
-[1] "foo"
-
-$query$b$`2`
-[1] "bar"
-</code></pre>
+<span class="pl-k">$</span><span class="pl-smi">query</span><span class="pl-k">$</span><span class="pl-smi">b</span><span class="pl-k">$</span><span class="pl-smi">`2`</span>
+[<span class="pl-c1">1</span>] <span class="pl-s"><span class="pl-pds">"</span>bar<span class="pl-pds">"</span></span></pre></div>
 <h3>（11）PAGE_404_ROUTE</h3>
-<pre class="notranslate"><code class="notranslate">注释
-默认的404页面
-</code></pre>
-<pre class="notranslate"><code class="notranslate">用法
-PAGE_404_ROUTE
-</code></pre>
-<pre class="notranslate"><code class="notranslate">示例
-# app/main.R
-box::use(
-  shiny[a, fluidPage, moduleServer, tags, NS],
-  shiny.router[router_ui, router_server, route, route_link, PAGE_404_ROUTE ],
+<ul>
+<li>
+<p>说明：默认的404页面</p>
+</li>
+<li>
+<p>用法：</p>
+</li>
+</ul>
+<div class="highlight highlight-source-r"><pre class="notranslate"><span class="pl-smi">PAGE_404_ROUTE</span></pre></div>
+<ul>
+<li>示例：</li>
+</ul>
+<div class="highlight highlight-source-r"><pre class="notranslate"><span class="pl-c"><span class="pl-c">#</span> app/main.R</span>
+b<span class="pl-smi">ox</span><span class="pl-k">::</span>use(
+  <span class="pl-smi">shiny</span>[<span class="pl-smi">a</span>, <span class="pl-smi">fluidPage</span>, <span class="pl-smi">moduleServer</span>, <span class="pl-smi">tags</span>, <span class="pl-smi">NS</span>],
+  <span class="pl-smi">shiny.router</span>[<span class="pl-smi">router_ui</span>, <span class="pl-smi">router_server</span>, <span class="pl-smi">route</span>, <span class="pl-smi">route_link</span>, <span class="pl-smi">PAGE_404_ROUTE</span> ],
 )
 
 router_ui(
-      route("/", intro$ui(ns("intro"))),
-      route("table", table$ui(ns("table"))),
-      route("chart", chart$ui(ns("chart"))),
-      page_404 = PAGE_404_ROUTE
-    )
-</code></pre>
+      route(<span class="pl-s"><span class="pl-pds">"</span>/<span class="pl-pds">"</span></span>, <span class="pl-smi">intro</span><span class="pl-k">$</span>ui(ns(<span class="pl-s"><span class="pl-pds">"</span>intro<span class="pl-pds">"</span></span>))),
+      route(<span class="pl-s"><span class="pl-pds">"</span>table<span class="pl-pds">"</span></span>, <span class="pl-smi">table</span><span class="pl-k">$</span>ui(ns(<span class="pl-s"><span class="pl-pds">"</span>table<span class="pl-pds">"</span></span>))),
+      route(<span class="pl-s"><span class="pl-pds">"</span>chart<span class="pl-pds">"</span></span>, <span class="pl-smi">chart</span><span class="pl-k">$</span>ui(ns(<span class="pl-s"><span class="pl-pds">"</span>chart<span class="pl-pds">"</span></span>))),
+      <span class="pl-v">page_404</span> <span class="pl-k">=</span> <span class="pl-smi">PAGE_404_ROUTE</span>
+    )</pre></div>
 <h3>（12）page404</h3>
-<pre class="notranslate"><code class="notranslate">注释
-router_ui里的404页面
-</code></pre>
-<pre class="notranslate"><code class="notranslate">用法
-page404(page = NULL, message404 = NULL)
-</code></pre>
-<pre class="notranslate"><code class="notranslate">示例
- 
-router_ui(
-      route("table", table$ui(ns("table"))),
-      route("chart", chart$ui(ns("chart"))),
-      route("chart", chart$ui(ns("chart")))，
-      page_404 = page_404$ui(ns("page_404"))
+<ul>
+<li>
+<p>说明：router_ui里的404页面</p>
+</li>
+<li>
+<p>用法：</p>
+</li>
+</ul>
+<div class="highlight highlight-source-r"><pre class="notranslate">page404(<span class="pl-v">page</span> <span class="pl-k">=</span> <span class="pl-c1">NULL</span>, <span class="pl-v">message404</span> <span class="pl-k">=</span> <span class="pl-c1">NULL</span>)</pre></div>
+<ul>
+<li>示例：</li>
+</ul>
+<div class="highlight highlight-source-r"><pre class="notranslate">router_ui(
+      route(<span class="pl-s"><span class="pl-pds">"</span>table<span class="pl-pds">"</span></span>, <span class="pl-smi">table</span><span class="pl-k">$</span>ui(ns(<span class="pl-s"><span class="pl-pds">"</span>table<span class="pl-pds">"</span></span>))),
+      route(<span class="pl-s"><span class="pl-pds">"</span>chart<span class="pl-pds">"</span></span>, <span class="pl-smi">chart</span><span class="pl-k">$</span>ui(ns(<span class="pl-s"><span class="pl-pds">"</span>chart<span class="pl-pds">"</span></span>))),
+      route(<span class="pl-s"><span class="pl-pds">"</span>chart<span class="pl-pds">"</span></span>, <span class="pl-smi">chart</span><span class="pl-k">$</span>ui(ns(<span class="pl-s"><span class="pl-pds">"</span>chart<span class="pl-pds">"</span></span>)))，
+      <span class="pl-v">page_404</span> <span class="pl-k">=</span> <span class="pl-smi">page_404</span><span class="pl-k">$</span>ui(ns(<span class="pl-s"><span class="pl-pds">"</span>page_404<span class="pl-pds">"</span></span>))
 )
 
-# app/view/page_404.R
+<span class="pl-c"><span class="pl-c">#</span> app/view/page_404.R</span>
 
-box::use(
-  shiny[a, div, h1, moduleServer, NS],
-  shiny.router[route_link],
+<span class="pl-e">box</span><span class="pl-k">::</span>use(
+  <span class="pl-smi">shiny</span>[<span class="pl-smi">a</span>, <span class="pl-smi">div</span>, <span class="pl-smi">h1</span>, <span class="pl-smi">moduleServer</span>, <span class="pl-smi">NS</span>],
+  <span class="pl-smi">shiny.router</span>[<span class="pl-smi">route_link</span>],
 )
 
-#' @export
-ui &lt;- function(id) {
-  ns &lt;- NS(id)
+<span class="pl-c"><span class="pl-c">#</span>' @export</span>
+u<span class="pl-en">i</span> <span class="pl-k">&lt;-</span> <span class="pl-k">function</span>(<span class="pl-smi">id</span>) {
+  <span class="pl-smi">ns</span> <span class="pl-k">&lt;-</span> NS(<span class="pl-smi">id</span>)
 
   div(
-    h1("Whoops! Something went wrong!"),
-    a("Back to home page", href = route_link("/"), class = "btn btn-primary btn-lg")
+    h1(<span class="pl-s"><span class="pl-pds">"</span>Whoops! Something went wrong!<span class="pl-pds">"</span></span>),
+    a(<span class="pl-s"><span class="pl-pds">"</span>Back to home page<span class="pl-pds">"</span></span>, <span class="pl-v">href</span> <span class="pl-k">=</span> route_link(<span class="pl-s"><span class="pl-pds">"</span>/<span class="pl-pds">"</span></span>), <span class="pl-v">class</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>btn btn-primary btn-lg<span class="pl-pds">"</span></span>)
   )
-}
-</code></pre>
+}</pre></div>
 <h3>（13）make_router</h3>
-<pre class="notranslate"><code class="notranslate">[Deprecated] Creates router.
-</code></pre>
+<ul>
+<li>说明：[Deprecated] Creates router.</li>
+</ul>
 <h2>实例</h2>
 <h3>（1）创建初始应用程序</h3>
 <div class="highlight highlight-source-r"><pre class="notranslate">install.packages(<span class="pl-s"><span class="pl-pds">"</span>rhino<span class="pl-pds">"</span></span>)
@@ -461,13 +496,9 @@ u<span class="pl-en">i</span> <span class="pl-k">&lt;-</span> <span class="pl-k"
                <span class="pl-v">label</span> <span class="pl-k">=</span> <span class="pl-c1">NULL</span>,
                <span class="pl-v">choices</span> <span class="pl-k">=</span> <span class="pl-smi">public_clinical</span><span class="pl-k">$</span><span class="pl-smi">OS.time</span>
              ),
-
              actionButton(<span class="pl-v">inputId</span> <span class="pl-k">=</span> ns(<span class="pl-s"><span class="pl-pds">"</span>caretdown7<span class="pl-pds">"</span></span>), <span class="pl-v">label</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>Change query path<span class="pl-pds">"</span></span>),
-
-
            )
     ))
-
 }
 
 <span class="pl-c"><span class="pl-c">#</span>' @export</span>
@@ -592,8 +623,7 @@ s<span class="pl-en">erver</span> <span class="pl-k">&lt;-</span> <span class="p
     observeEvent(<span class="pl-smi">input</span><span class="pl-k">$</span><span class="pl-smi">go_to_table</span>, {
       change_page(<span class="pl-s"><span class="pl-pds">"</span>cohort<span class="pl-pds">"</span></span>)
     })
-  })}
-</pre></div>
+  })}</pre></div>
 <h3>（7）读取并显示参数</h3>
 <div class="highlight highlight-source-r"><pre class="notranslate"><span class="pl-c"><span class="pl-c">#</span> app/view/cohort.R</span>
 b<span class="pl-smi">ox</span><span class="pl-k">::</span>use(
@@ -627,11 +657,9 @@ u<span class="pl-en">i</span> <span class="pl-k">&lt;-</span> <span class="pl-k"
                <span class="pl-v">label</span> <span class="pl-k">=</span> <span class="pl-c1">NULL</span>,
                <span class="pl-v">choices</span> <span class="pl-k">=</span> <span class="pl-smi">public_clinical</span><span class="pl-k">$</span><span class="pl-smi">OS.time</span>
              ),
-
              actionButton(<span class="pl-v">inputId</span> <span class="pl-k">=</span> ns(<span class="pl-s"><span class="pl-pds">"</span>caretdown7<span class="pl-pds">"</span></span>), <span class="pl-v">label</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>Change query path<span class="pl-pds">"</span></span>),
            )
     ))
-
 }
 
 <span class="pl-c"><span class="pl-c">#</span>' @export</span>
@@ -651,10 +679,7 @@ s<span class="pl-en">erver</span> <span class="pl-k">&lt;-</span> <span class="p
       <span class="pl-smi">output</span><span class="pl-k">$</span><span class="pl-smi">text2</span> <span class="pl-k">&lt;-</span> renderText({ parse_url_path(<span class="pl-smi">url_name</span>)<span class="pl-k">$</span><span class="pl-smi">query</span><span class="pl-k">$</span><span class="pl-smi">Age</span> })
       <span class="pl-c"><span class="pl-c">#</span>parse_url_path必须有一个"url_path"</span>
       <span class="pl-smi">output</span><span class="pl-k">$</span><span class="pl-smi">text3</span> <span class="pl-k">&lt;-</span> renderText({ get_query_param(<span class="pl-s"><span class="pl-pds">"</span>Age<span class="pl-pds">"</span></span>)})
-
       <span class="pl-smi">output</span><span class="pl-k">$</span><span class="pl-smi">text4</span> <span class="pl-k">&lt;-</span> renderText({ get_query_param()[[<span class="pl-c1">1</span>]]})
-
-
     })
   }
     )}</pre></div>
@@ -696,7 +721,6 @@ u<span class="pl-en">i</span> <span class="pl-k">&lt;-</span> <span class="pl-k"
              actionButton(<span class="pl-v">inputId</span> <span class="pl-k">=</span> ns(<span class="pl-s"><span class="pl-pds">"</span>caretdown7<span class="pl-pds">"</span></span>), <span class="pl-v">label</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>Change query path<span class="pl-pds">"</span></span>),
            )
     ))
-
 }
 
 <span class="pl-c"><span class="pl-c">#</span>' @export</span>
@@ -762,20 +786,14 @@ s<span class="pl-en">erver</span> <span class="pl-k">&lt;-</span> <span class="p
       <span class="pl-smi">output</span><span class="pl-k">$</span><span class="pl-smi">text2</span> <span class="pl-k">&lt;-</span> renderText({ parse_url_path(<span class="pl-smi">url_name</span>)<span class="pl-k">$</span><span class="pl-smi">query</span><span class="pl-k">$</span><span class="pl-smi">Age</span> })
       <span class="pl-c"><span class="pl-c">#</span>parse_url_path必须有一个"url_path"</span>
       <span class="pl-smi">output</span><span class="pl-k">$</span><span class="pl-smi">text3</span> <span class="pl-k">&lt;-</span> renderText({ get_query_param(<span class="pl-s"><span class="pl-pds">"</span>Age<span class="pl-pds">"</span></span>)})
-
       <span class="pl-smi">output</span><span class="pl-k">$</span><span class="pl-smi">text4</span> <span class="pl-k">&lt;-</span> renderText({ get_query_param()[[<span class="pl-c1">1</span>]]})
-
-
-
     })
     observe({
       <span class="pl-k">if</span>(is_page(<span class="pl-s"><span class="pl-pds">"</span>cohort<span class="pl-pds">"</span></span>)){
         <span class="pl-smi">age_1</span> <span class="pl-k">&lt;-</span> get_query_param(<span class="pl-s"><span class="pl-pds">"</span>Age<span class="pl-pds">"</span></span>)
         print(<span class="pl-smi">age_1</span>)
         updateSelectInput(<span class="pl-smi">session</span>, <span class="pl-s"><span class="pl-pds">"</span>analysis_type1<span class="pl-pds">"</span></span>, <span class="pl-v">selected</span> <span class="pl-k">=</span> <span class="pl-smi">age_1</span>)}
-
     })
-
   }
     )}</pre></div></div>
 <div style="font-size:small;margin-top:8px;float:right;"></div>
