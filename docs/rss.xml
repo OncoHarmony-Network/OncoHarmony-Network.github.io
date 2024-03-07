@@ -1,5 +1,17 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>OncoHarmony Network</title><link>https://OncoHarmony-Network.github.io</link><description>OncoHarmony Network is a dynamic collaborative platform dedicated to advancing the frontier of cancer immunotherapy</description><copyright>OncoHarmony Network</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/152575161?s=200&amp;v=4</url><title>avatar</title><link>https://OncoHarmony-Network.github.io</link></image><lastBuildDate>Sun, 03 Mar 2024 14:14:46 +0000</lastBuildDate><managingEditor>OncoHarmony Network</managingEditor><ttl>60</ttl><webMaster>OncoHarmony Network</webMaster><item><title>T2-snakemake</title><link>https://OncoHarmony-Network.github.io/post/T2-snakemake.html</link><description>TODO。</description><guid isPermaLink="true">https://OncoHarmony-Network.github.io/post/T2-snakemake.html</guid><pubDate>Sun, 03 Mar 2024 14:13:27 +0000</pubDate></item><item><title>T1-Unix基本操作与ggplot可视化概览</title><link>https://OncoHarmony-Network.github.io/post/T1-Unix-ji-ben-cao-zuo-yu-ggplot-ke-shi-hua-gai-lan.html</link><description>全职学习时间：2 周&#13;
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>OncoHarmony Network</title><link>https://OncoHarmony-Network.github.io</link><description>OncoHarmony Network is a dynamic collaborative platform dedicated to advancing the frontier of cancer immunotherapy</description><copyright>OncoHarmony Network</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/152575161?s=200&amp;v=4</url><title>avatar</title><link>https://OncoHarmony-Network.github.io</link></image><lastBuildDate>Thu, 07 Mar 2024 03:17:05 +0000</lastBuildDate><managingEditor>OncoHarmony Network</managingEditor><ttl>60</ttl><webMaster>OncoHarmony Network</webMaster><item><title>T2-snakemake</title><link>https://OncoHarmony-Network.github.io/post/T2-snakemake.html</link><description>全职学习时间：1-2 周&#13;
+&#13;
+## 学习材料&#13;
+&#13;
+- [Snakemake教程](https://snakemake.readthedocs.io/en/stable/tutorial/tutorial.html)&#13;
+&#13;
+## 补充阅读笔记&#13;
+&#13;
+- [snakemake 教程精要](https://shixiangwang.github.io/posts/2024-02-28-snakemake-basics/)&#13;
+&#13;
+## 任务&#13;
+&#13;
+1. 阅读学习材料，并在本地或者利用[免费的 GitPod](https://snakemake.readthedocs.io/en/stable/tutorial/setup.html#run-tutorial-for-free-in-the-cloud-via-gitpod)在云端按照教程一步步学习和实践 snakemake 流程软件的操作与脚本的书写。</description><guid isPermaLink="true">https://OncoHarmony-Network.github.io/post/T2-snakemake.html</guid><pubDate>Sun, 03 Mar 2024 14:13:27 +0000</pubDate></item><item><title>T1-Unix基本操作与ggplot可视化概览</title><link>https://OncoHarmony-Network.github.io/post/T1-Unix-ji-ben-cao-zuo-yu-ggplot-ke-shi-hua-gai-lan.html</link><description>全职学习时间：2 周&#13;
 &#13;
 ## 学习材料&#13;
 &#13;
