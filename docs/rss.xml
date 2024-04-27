@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>OncoHarmony Network</title><link>https://OncoHarmony-Network.github.io</link><description>OncoHarmony Network is a dynamic collaborative platform dedicated to advancing the frontier of cancer immunotherapy</description><copyright>OncoHarmony Network</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/152575161?s=200&amp;v=4</url><title>avatar</title><link>https://OncoHarmony-Network.github.io</link></image><lastBuildDate>Sat, 27 Apr 2024 04:51:56 +0000</lastBuildDate><managingEditor>OncoHarmony Network</managingEditor><ttl>60</ttl><webMaster>OncoHarmony Network</webMaster><item><title>Shiny-Apps</title><link>https://OncoHarmony-Network.github.io/post/Shiny-Apps.html</link><description>## Apps&#13;
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>OncoHarmony Network</title><link>https://OncoHarmony-Network.github.io</link><description>OncoHarmony Network is a dynamic collaborative platform dedicated to advancing the frontier of cancer immunotherapy</description><copyright>OncoHarmony Network</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/152575161?s=200&amp;v=4</url><title>avatar</title><link>https://OncoHarmony-Network.github.io</link></image><lastBuildDate>Sat, 27 Apr 2024 10:06:10 +0000</lastBuildDate><managingEditor>OncoHarmony Network</managingEditor><ttl>60</ttl><webMaster>OncoHarmony Network</webMaster><item><title>Shiny-Apps</title><link>https://OncoHarmony-Network.github.io/post/Shiny-Apps.html</link><description>## Apps&#13;
 &#13;
 - TCCIA: http://shiny.zhoulab.ac.cn/TCCIA&#13;
 - UCSCXenaShiny: https://shiny.zhoulab.ac.cn/UCSCXenaShiny&#13;
@@ -86,9 +86,13 @@
 &#13;
 - https://www.webpagetest.org/&#13;
 &#13;
-## 范例&#13;
+## Web 范例&#13;
 &#13;
-- https://github.com/scRNA-tools/scRNA-tools 基于 R 和 HTML 的静态设计（一些交互动态通过JS实现）。</description><guid isPermaLink="true">https://OncoHarmony-Network.github.io/post/tuan-dui-zi-yuan-lie-biao.html</guid><pubDate>Thu, 07 Dec 2023 06:14:42 +0000</pubDate></item><item><title>项目成果列表</title><link>https://OncoHarmony-Network.github.io/post/xiang-mu-cheng-guo-lie-biao.html</link><description>## 数据库&#13;
+- https://github.com/scRNA-tools/scRNA-tools 基于 R 和 HTML 的静态设计（一些交互动态通过JS实现）&#13;
+&#13;
+## 生信教程&#13;
+&#13;
+- https://book.ncrnalab.org/teaching。</description><guid isPermaLink="true">https://OncoHarmony-Network.github.io/post/tuan-dui-zi-yuan-lie-biao.html</guid><pubDate>Thu, 07 Dec 2023 06:14:42 +0000</pubDate></item><item><title>项目成果列表</title><link>https://OncoHarmony-Network.github.io/post/xiang-mu-cheng-guo-lie-biao.html</link><description>## 数据库&#13;
 &#13;
 - TCCIA: &lt;https://shiny.hiplot.cn/TCCIA/&gt; (&lt;http://shiny.zhoulab.ac.cn/TCCIA/&gt;, &lt;http://biotrainee.vip:18888/TCCIA/&gt;)&#13;
 - UCSCXenaShiny V2: &lt;https://shiny.hiplot.cn/ucsc-xena-shiny/&gt;&#13;
