@@ -4,8 +4,8 @@
 home:
   mission:
     title: "Our Mission"
-    description: "OncoHarmony Network is a dynamic collaborative platform dedicated to advancing the frontier of Immuno-oncology. We bring together diverse teams from leading universities and research institutions to explore, mine, and integrate multi-omics data in cancer research."
-    description2: "Our focus is on fostering synergy among experts to construct comprehensive resource hubs and cutting-edge tools for unraveling the complexities of tumor-immune interactions."
+    description: "OncoHarmony Network is a dynamic collaborative platform dedicated to advancing the frontier of Immuno-oncology. Our initial heart is 'Collaborative contribution, mutual growth, everyone benefits.'"
+    description2: "We bring together diverse teams from leading universities and research institutions to explore, mine, and integrate multi-omics data in cancer research. Our shared vision is to harness data, decipher tumor molecular patterns, and spearhead advanced therapies."
     description3: "Through collective knowledge and interdisciplinary collaboration, we strive to accelerate breakthroughs in the understanding and development of effective cancer therapies."
   stats:
     institutions: "10+"
@@ -18,8 +18,18 @@ about:
   vision:
     title: "Our Vision"
     description: "OncoHarmony Network envisions a world where Immuno-oncology is personalized, effective, and accessible to all patients. We believe that the key to unlocking breakthroughs in cancer treatment lies in the integration of multi-omics data and collaborative research across disciplines."
-    description2: "By bringing together experts from diverse fields including genomics, immunology, computational biology, and clinical oncology, we aim to develop comprehensive models of tumor-immune interactions that can guide the development of next-generation cancer therapies."
-    description3: "Our network fosters an environment of open science and knowledge sharing, enabling researchers to build upon each other's work and accelerate the translation of basic research into clinical applications."
+    description2: "Our shared vision is to harness data, decipher tumor molecular patterns, and spearhead advanced therapies (驾驭数据，解读肿瘤分子模式，引领先进治疗)."
+    description3: "By bringing together experts from diverse fields including genomics, immunology, computational biology, and clinical oncology, we aim to develop comprehensive models of tumor-immune interactions that can guide the development of next-generation cancer therapies."
+  values:
+    title: "Scientific Cultural Values"
+    description: "At OncoHarmony Network, we adhere to the following core values that guide our research and collaboration:"
+    items:
+      - "Scientific integrity is our fundamental principle"
+      - "Focus on high-quality research work"
+      - "Strive to ensure reproducibility of research findings"
+      - "Follow the principle of shared contributions and shared results"
+      - "Think first, then act"
+      - "Provide timely feedback and communication"
   focus_areas:
     - "Multi-omics data integration"
     - "Tumor-immune interaction modeling"
