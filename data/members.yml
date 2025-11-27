@@ -1,9 +1,9 @@
 # Leadership Team
 leadership_team:
-  - name: "Dr. Shixiang Wang"
-    role: "Co-Founder & Co-Director"
-    institution: "Leading University"
-    description: "Dr. Wang is a leading expert in cancer genomics and computational biology. His research focuses on developing innovative computational methods to analyze multi-omics data for Immuno-oncology."
+  - name: "周建国 (Jian-Guo Zhou)"
+    role: "负责人"
+    institution: "Zhou Lab, <a href=\"https://zhoulab.ac.cn/\" class=\"text-purple-600 hover:underline\">zhoulab.ac.cn</a>"
+    description: "主要负责计算平台、资金、文稿和监管"
     avatar: "user-md"
     links:
       google_scholar: "#"
@@ -11,10 +11,10 @@ leadership_team:
       orcid: "#"
       github: "#"
 
-  - name: "Dr. Jian-Guo Zhou"
-    role: "Co-Founder & Co-Director"
-    institution: "Zhou Lab, <a href=\"https://zhoulab.ac.cn/\" class=\"text-purple-600 hover:underline\">zhoulab.ac.cn</a>"
-    description: "Dr. Zhou is a renowned immunologist with extensive experience in tumor immunology and immunotherapy. His research focuses on understanding the mechanisms of tumor immune evasion and developing novel immunotherapeutic strategies."
+  - name: "王诗翔 (Shixiang Wang)"
+    role: "负责人"
+    institution: "Leading University"
+    description: "主要负责项目管理、技术路线、部署运维"
     avatar: "user-md"
     links:
       google_scholar: "#"
@@ -24,28 +24,64 @@ leadership_team:
 
 # Advisory Board
 advisory_board:
-  - name: "Dr. Alice Chen"
-    role: "Senior Researcher"
-    institution: "Partner Institution 1"
-    field: "Immunology & Tumor Biology"
+  - name: "王海涛 (Haitao Wang)"
+    role: "科学顾问"
+    institution: "Partner Institution"
+    field: "Immuno-oncology"
     avatar: "user-graduate"
     links:
       google_scholar: "#"
       researchgate: "#"
 
-  - name: "Dr. Bob Johnson"
-    role: "Senior Researcher"
-    institution: "Partner Institution 2"
-    field: "Computational Biology & Bioinformatics"
+  - name: "罗鹏 (Peng Luo)"
+    role: "科学顾问"
+    institution: "Partner Institution"
+    field: "Immuno-oncology"
     avatar: "user-graduate"
     links:
       google_scholar: "#"
       researchgate: "#"
 
-  - name: "Dr. Charlie Davis"
-    role: "Senior Researcher"
-    institution: "Partner Institution 3"
-    field: "Clinical Oncology & Immunotherapy"
+  - name: "赵飞 (Fei Zhao)"
+    role: "产业顾问"
+    institution: "Industry Partner"
+    field: "Biotechnology"
+    avatar: "user-graduate"
+    links:
+      google_scholar: "#"
+      researchgate: "#"
+
+  - name: "叶宁荣 (Ningrong Ye)"
+    role: "技术顾问"
+    institution: "Partner Institution"
+    field: "深度学习与医学影像"
+    avatar: "user-graduate"
+    links:
+      google_scholar: "#"
+      researchgate: "#"
+
+  - name: "崔炎濡 (Yanru Cui)"
+    role: "技术顾问"
+    institution: "Partner Institution"
+    field: "基因编辑"
+    avatar: "user-graduate"
+    links:
+      google_scholar: "#"
+      researchgate: "#"
+
+  - name: "熊逸 (Yi Xiong)"
+    role: "技术顾问"
+    institution: "Partner Institution"
+    field: "生信"
+    avatar: "user-graduate"
+    links:
+      google_scholar: "#"
+      researchgate: "#"
+
+  - name: "刘尊鹏 (Zunpeng Liu)"
+    role: "技术顾问"
+    institution: "Partner Institution"
+    field: "ERV、生物学"
     avatar: "user-graduate"
     links:
       google_scholar: "#"
@@ -53,47 +89,102 @@ advisory_board:
 
 # Students
 students:
-  - name: "Ms. Helen Kim"
-    role: "PhD Student"
-    field: "Cancer Genomics"
-    avatar: "user-graduate"
-
-  - name: "Mr. Isaac Lee"
-    role: "Master's Student"
-    field: "Computational Immunology"
-    avatar: "user-graduate"
-
-  - name: "Ms. Julia Martinez"
-    role: "Undergraduate Research Assistant"
+  - name: "徐俊祝 (Junzhu Xu)"
+    role: "学生"
     field: "Immuno-oncology"
     avatar: "user-graduate"
 
-  - name: "Mr. Kevin Nguyen"
-    role: "PhD Student"
-    field: "Tumor Immunology"
+  - name: "张益浩 (Yihao Zhang)"
+    role: "学生"
+    field: "Immuno-oncology"
+    avatar: "user-graduate"
+
+  - name: "李申锁 (Shensuo Li)"
+    role: "学生"
+    field: "Immuno-oncology"
+    avatar: "user-graduate"
+
+  - name: "李金辉 (Jinhui Li)"
+    role: "学生"
+    field: "Immuno-oncology"
+    avatar: "user-graduate"
+
+  - name: "赵加栋 (Jiadong Zhao)"
+    role: "学生"
+    field: "Immuno-oncology"
+    avatar: "user-graduate"
+
+  - name: "谌泯均 (Minjun Chen)"
+    role: "全日制研究生"
+    field: "Immuno-oncology"
+    avatar: "user-graduate"
+
+  - name: "蔡颖 (Ying Cai)"
+    role: "全日制研究生"
+    field: "Immuno-oncology"
+    avatar: "user-graduate"
+
+  - name: "李新 (Xin Li)"
+    role: "全日制研究生"
+    field: "Immuno-oncology"
+    avatar: "user-graduate"
+
+  - name: "王琰 (Yan Wang)"
+    role: "全日制研究生"
+    field: "Immuno-oncology"
+    avatar: "user-graduate"
+
+  - name: "王春阳 (Chunyang Wang)"
+    role: "全日制研究生"
+    field: "Immuno-oncology"
+    avatar: "user-graduate"
+
+  - name: "舒晨阳 (Chenyang Shu)"
+    role: "全日制研究生"
+    field: "Immuno-oncology"
+    avatar: "user-graduate"
+
+  - name: "赵彦昆 (Yankun Zhao)"
+    role: "本科生"
+    field: "Immuno-oncology"
+    avatar: "user-graduate"
+
+  - name: "阳钰熙 (Yuxi Yang)"
+    role: "本科生"
+    field: "Immuno-oncology"
+    avatar: "user-graduate"
+
+  - name: "严彬 (Bin Yan)"
+    role: "本科生"
+    field: "Immuno-oncology"
+    avatar: "user-graduate"
+
+  - name: "王章宇 (Zhangyu Wang)"
+    role: "本科生"
+    field: "Immuno-oncology"
     avatar: "user-graduate"
 
 # Others
 others:
   research_fellows:
-    - name: "Dr. Diana Evans"
-      role: "Postdoctoral Fellow"
-      field: "Multi-omics Integration"
+    - name: "李剑峰 (Jianfeng Li)"
+      role: "Hiplot（ORG）协作者"
+      field: "Bioinformatics"
       avatar: "user-tie"
 
-    - name: "Dr. Edward Foster"
-      role: "Research Fellow"
-      field: "Tumor Immunology"
+    - name: "谭傑尹 (Jieyin Tan)"
+      role: "其他参与和学习成员"
+      field: "Immuno-oncology"
       avatar: "user-tie"
 
-    - name: "Dr. Fiona Green"
-      role: "Postdoctoral Fellow"
-      field: "Computational Modeling"
+    - name: "张驰 (Chi Zhang)"
+      role: "其他参与和学习成员"
+      field: "Immuno-oncology"
       avatar: "user-tie"
 
-    - name: "Dr. George Hill"
-      role: "Research Fellow"
-      field: "Clinical Bioinformatics"
+    - name: "赵加栋 (Jiadong Zhao)"
+      role: "其他参与和学习成员"
+      field: "Immuno-oncology"
       avatar: "user-tie"
 
   collaborators:
