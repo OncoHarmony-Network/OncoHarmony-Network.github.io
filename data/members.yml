@@ -1,0 +1,114 @@
+# Leadership Team
+leadership_team:
+  - name: "Dr. Shixiang Wang"
+    role: "Co-Founder & Co-Director"
+    institution: "Leading University"
+    description: "Dr. Wang is a leading expert in cancer genomics and computational biology. His research focuses on developing innovative computational methods to analyze multi-omics data for Immuno-oncology."
+    avatar: "user-md"
+    links:
+      google_scholar: "#"
+      researchgate: "#"
+      orcid: "#"
+      github: "#"
+
+  - name: "Dr. Jian-Guo Zhou"
+    role: "Co-Founder & Co-Director"
+    institution: "Zhou Lab, <a href=\"https://zhoulab.ac.cn/\" class=\"text-purple-600 hover:underline\">zhoulab.ac.cn</a>"
+    description: "Dr. Zhou is a renowned immunologist with extensive experience in tumor immunology and immunotherapy. His research focuses on understanding the mechanisms of tumor immune evasion and developing novel immunotherapeutic strategies."
+    avatar: "user-md"
+    links:
+      google_scholar: "#"
+      researchgate: "#"
+      orcid: "#"
+      github: "#"
+
+# Advisory Board
+advisory_board:
+  - name: "Dr. Alice Chen"
+    role: "Senior Researcher"
+    institution: "Partner Institution 1"
+    field: "Immunology & Tumor Biology"
+    avatar: "user-graduate"
+    links:
+      google_scholar: "#"
+      researchgate: "#"
+
+  - name: "Dr. Bob Johnson"
+    role: "Senior Researcher"
+    institution: "Partner Institution 2"
+    field: "Computational Biology & Bioinformatics"
+    avatar: "user-graduate"
+    links:
+      google_scholar: "#"
+      researchgate: "#"
+
+  - name: "Dr. Charlie Davis"
+    role: "Senior Researcher"
+    institution: "Partner Institution 3"
+    field: "Clinical Oncology & Immunotherapy"
+    avatar: "user-graduate"
+    links:
+      google_scholar: "#"
+      researchgate: "#"
+
+# Students
+students:
+  - name: "Ms. Helen Kim"
+    role: "PhD Student"
+    field: "Cancer Genomics"
+    avatar: "user-graduate"
+
+  - name: "Mr. Isaac Lee"
+    role: "Master's Student"
+    field: "Computational Immunology"
+    avatar: "user-graduate"
+
+  - name: "Ms. Julia Martinez"
+    role: "Undergraduate Research Assistant"
+    field: "Immuno-oncology"
+    avatar: "user-graduate"
+
+  - name: "Mr. Kevin Nguyen"
+    role: "PhD Student"
+    field: "Tumor Immunology"
+    avatar: "user-graduate"
+
+# Others
+others:
+  research_fellows:
+    - name: "Dr. Diana Evans"
+      role: "Postdoctoral Fellow"
+      field: "Multi-omics Integration"
+      avatar: "user-tie"
+
+    - name: "Dr. Edward Foster"
+      role: "Research Fellow"
+      field: "Tumor Immunology"
+      avatar: "user-tie"
+
+    - name: "Dr. Fiona Green"
+      role: "Postdoctoral Fellow"
+      field: "Computational Modeling"
+      avatar: "user-tie"
+
+    - name: "Dr. George Hill"
+      role: "Research Fellow"
+      field: "Clinical Bioinformatics"
+      avatar: "user-tie"
+
+  collaborators:
+    academic_institutions:
+      - "Leading University A"
+      - "Leading University B"
+      - "Leading University C"
+      - "Leading University D"
+
+    research_centers:
+      - "Cancer Research Institute A"
+      - "Immunology Center B"
+      - "Bioinformatics Institute C"
+
+    industry_partners:
+      - "Biotech Company A"
+      - "Pharmaceutical Company B"
+      - "Healthcare Technology C"

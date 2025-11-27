@@ -1,0 +1,48 @@
+# Publications by Year
+publications:
+  2025:
+    - title: "Multi-omics Integration Reveals Novel Biomarkers for Immunotherapy Response in Melanoma"
+      authors: "Wang S, Zhou J-G, Chen A, Johnson B, Davis C, et al."
+      journal: "Nature Immunology"
+      month: "Jan 2025"
+      type: "Original Research"
+      description: "We integrated genomics, transcriptomics, and proteomics data to identify novel biomarkers that predict response to immune checkpoint inhibitors in melanoma patients."
+      doi: "10.1038/s41590-024-01789-x"
+      links:
+        pdf: "#"
+        code: "#"
+        data: "#"
+
+    - title: "The Role of Tumor Microenvironment in Immuno-oncology: A Multi-omics Perspective"
+      authors: "Zhou J-G, Wang S, Evans D, Foster E, Green F, et al."
+      journal: "Cell Reviews"
+      month: "Feb 2025"
+      type: "Review Article"
+      description: "This review summarizes the latest advances in understanding the tumor microenvironment using multi-omics approaches and their implications for Immuno-oncology."
+      doi: "10.1016/j.cell.2024.12.015"
+      links:
+        pdf: "#"
+
+  2024:
+    - title: "OncoHarmony: A Computational Framework for Integrating Multi-omics Data in Immuno-oncology"
+      authors: "Chen A, Johnson B, Wang S, Zhou J-G, et al."
+      journal: "Nature Methods"
+      month: "Jun 2024"
+      type: "Methodology"
+      description: "We developed OncoHarmony, a comprehensive computational framework that integrates multi-omics data to model tumor-immune interactions and predict immunotherapy response."
+      doi: "10.1038/s41592-024-02012-7"
+      links:
+        pdf: "#"
+        github: "https://github.com/OncoHarmony-Network"
+        documentation: "#"
+
+    - title: "Single-Cell Multi-omics Analysis Identifies Tumor-Infiltrating Lymphocyte Subsets Associated with Immunotherapy Resistance"
+      authors: "Davis C, Green F, Hill G, Wang S, Zhou J-G, et al."
+      journal: "Science Translational Medicine"
+      month: "Sep 2024"
+      type: "Original Research"
+      description: "Using single-cell RNA-seq and ATAC-seq, we identified specific T cell subsets that are associated with resistance to immune checkpoint inhibitors in non-small cell lung cancer."
+      doi: "10.1126/scitranslmed.adg8923"
+      links:
+        pdf: "#"
+        data: "#"

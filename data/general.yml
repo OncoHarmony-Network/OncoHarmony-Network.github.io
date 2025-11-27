@@ -1,0 +1,103 @@
+# General website data
+
+# Home page data
+home:
+  mission:
+    title: "Our Mission"
+    description: "OncoHarmony Network is a dynamic collaborative platform dedicated to advancing the frontier of Immuno-oncology. We bring together diverse teams from leading universities and research institutions to explore, mine, and integrate multi-omics data in cancer research."
+    description2: "Our focus is on fostering synergy among experts to construct comprehensive resource hubs and cutting-edge tools for unraveling the complexities of tumor-immune interactions."
+    description3: "Through collective knowledge and interdisciplinary collaboration, we strive to accelerate breakthroughs in the understanding and development of effective cancer therapies."
+  stats:
+    institutions: "10+"
+    researchers: "50+"
+    publications: "100+"
+    projects: "20+"
+
+# About page data
+about:
+  vision:
+    title: "Our Vision"
+    description: "OncoHarmony Network envisions a world where Immuno-oncology is personalized, effective, and accessible to all patients. We believe that the key to unlocking breakthroughs in cancer treatment lies in the integration of multi-omics data and collaborative research across disciplines."
+    description2: "By bringing together experts from diverse fields including genomics, immunology, computational biology, and clinical oncology, we aim to develop comprehensive models of tumor-immune interactions that can guide the development of next-generation cancer therapies."
+    description3: "Our network fosters an environment of open science and knowledge sharing, enabling researchers to build upon each other's work and accelerate the translation of basic research into clinical applications."
+  focus_areas:
+    - "Multi-omics data integration"
+    - "Tumor-immune interaction modeling"
+    - "Immunotherapy response prediction"
+    - "Biomarker discovery"
+    - "Computational tool development"
+    - "Clinical translation"
+  leadership:
+    - name: "Dr. Shixiang Wang"
+      role: "Co-Founder & Co-Director"
+      description: "Dr. Wang is a leading expert in cancer genomics and computational biology. His research focuses on developing innovative computational methods to analyze multi-omics data for cancer immunotherapy."
+    - name: "Dr. Jian-Guo Zhou"
+      role: "Co-Founder & Co-Director"
+      description: "Dr. Zhou is a renowned immunologist with extensive experience in tumor immunology and immunotherapy. His research focuses on understanding the mechanisms of tumor immune evasion and developing novel immunotherapeutic strategies."
+  collaboration:
+    - icon: "university"
+      title: "Leading Universities"
+      description: "Partnering with top academic institutions worldwide"
+    - icon: "flask"
+      title: "Research Institutes"
+      description: "Collaborating with premier research organizations"
+    - icon: "hospital"
+      title: "Clinical Centers"
+      description: "Working with leading clinical institutions"
+    - icon: "industry"
+      title: "Industry Partners"
+      description: "Collaborating with biotech and pharmaceutical companies"
+
+# Contact page data
+contact:
+  get_in_touch:
+    title: "Get in Touch"
+    description: "We welcome collaborations with researchers, institutions, and industry partners. Whether you're interested in joining our network, contributing to our projects, or learning more about our work in Immuno-oncology, we'd love to hear from you."
+  contact_info:
+    - type: "email"
+      icon: "envelope"
+      title: "Email"
+      value: "contact@oncoharmony.org"
+      link: "mailto:contact@oncoharmony.org"
+    - type: "github"
+      icon: "github"
+      title: "GitHub"
+      value: "github.com/OncoHarmony-Network"
+      link: "https://github.com/OncoHarmony-Network"
+    - type: "lab"
+      icon: "university"
+      title: "Main Lab"
+      value: "Zhou Lab"
+      link: "https://zhoulab.ac.cn/"
+  social_media:
+    - platform: "github"
+      link: "https://github.com/OncoHarmony-Network"
+    - platform: "twitter"
+      link: "#"
+    - platform: "linkedin"
+      link: "#"
+    - platform: "researchgate"
+      link: "#"
+    - platform: "google-scholar"
+      link: "#"
+  collaboration_opportunities:
+    - icon: "users"
+      title: "Research Collaborations"
+      description: "We welcome collaborative research projects with other institutions and researchers in the field of Immuno-oncology."
+    - icon: "industry"
+      title: "Industry Partnerships"
+      description: "We collaborate with biotech and pharmaceutical companies to translate our research into clinical applications."
+    - icon: "graduation-cap"
+      title: "Student Opportunities"
+      description: "We offer research opportunities for graduate students and postdoctoral fellows interested in Immuno-oncology."
+  footer:
+    description: "Advancing Immuno-oncology through collaborative multi-omics research."
+    institutions:
+      - name: "Zhou Lab"
+        link: "https://zhoulab.ac.cn/"
+      - name: "Partner Institution 1"
+        link: "#"
+      - name: "Partner Institution 2"
+        link: "#"
+      - name: "Partner Institution 3"
+        link: "#"

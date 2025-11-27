@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Team - OncoHarmony Network</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/academicons@1.9.1/css/academicons.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/js-yaml@4.1.0/dist/js-yaml.min.js"></script>
+    <script src="js/data-loader.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: #667eea;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .member-card {
+            transition: all 0.3s ease;
+        }
+        
+        .member-card:hover {
+            transform: translateY(-8px);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-900">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md fixed w-full z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="index.html" class="flex items-center space-x-2">
+                <i class="fas fa-dna text-2xl text-purple-600"></i>
+                <span class="text-xl font-bold text-gray-800">OncoHarmony</span>
+            </a>
+            
+            <!-- Desktop Navigation -->
+            <div class="hidden md:flex space-x-8">
+                <a href="index.html" class="nav-link text-gray-700 hover:text-purple-600 font-medium">Home</a>
+                <a href="about.html" class="nav-link text-gray-700 hover:text-purple-600 font-medium">About</a>
+                <a href="members.html" class="nav-link text-purple-600 font-medium">Members</a>
+                <a href="publications.html" class="nav-link text-gray-700 hover:text-purple-600 font-medium">Publications</a>
+                <a href="projects.html" class="nav-link text-gray-700 hover:text-purple-600 font-medium">Projects</a>
+                <a href="news.html" class="nav-link text-gray-700 hover:text-purple-600 font-medium">News</a>
+                <a href="contact.html" class="nav-link text-gray-700 hover:text-purple-600 font-medium">Contact</a>
+            </div>
+            
+            <!-- Mobile Menu Button -->
+            <button class="md:hidden text-gray-700" id="mobile-menu-button">
+                <i class="fas fa-bars text-xl"></i>
+            </button>
+        </div>
+        
+        <!-- Mobile Navigation -->
+        <div class="md:hidden hidden bg-white border-t" id="mobile-menu">
+            <div class="container mx-auto px-4 py-3 space-y-3">
+                <a href="index.html" class="block py-2 text-gray-700 hover:text-purple-600 font-medium">Home</a>
+                <a href="about.html" class="block py-2 text-gray-700 hover:text-purple-600 font-medium">About</a>
+                <a href="members.html" class="block py-2 text-purple-600 font-medium">Members</a>
+                <a href="publications.html" class="block py-2 text-gray-700 hover:text-purple-600 font-medium">Publications</a>
+                <a href="projects.html" class="block py-2 text-gray-700 hover:text-purple-600 font-medium">Projects</a>
+                <a href="news.html" class="block py-2 text-gray-700 hover:text-purple-600 font-medium">News</a>
+                <a href="contact.html" class="block py-2 text-gray-700 hover:text-purple-600 font-medium">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="hero-gradient pt-24 pb-16 md:pt-32 md:pb-24">
+        <div class="container mx-auto px-4">
+            <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">Our Team</h1>
+            <p class="text-xl text-white/90">
+                Meet the talented researchers and collaborators driving our mission
+            </p>
+        </div>
+    </header>
+
+    <!-- Leadership Team Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">Leadership Team</h2>
+            
+            <div id="leadership-team" class="grid md:grid-cols-2 gap-8">
+                <!-- Leadership team members will be inserted here by JavaScript -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden member-card">
+                    <div class="p-6">
+                        <div class="flex flex-col items-center text-center">
+                            <div class="w-32 h-32 bg-gray-200 rounded-full flex items-center justify-center mb-4">
+                                <i class="fas fa-user-md text-5xl text-purple-600"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold text-gray-800">Loading...</h3>
+                            <p class="text-purple-600 font-semibold mb-2">Loading...</p>
+                            <p class="text-gray-600 mb-4">Loading...</p>
+                            <p class="text-gray-600 mb-4 max-w-md">
+                                Loading member information...
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Advisory Board Section -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">Advisory Board</h2>
+            
+            <div id="advisory-board" class="grid md:grid-cols-3 gap-8">
+                <!-- Advisory board members will be inserted here by JavaScript -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden member-card">
+                    <div class="p-6">
+                        <div class="flex flex-col items-center text-center">
+                            <div class="w-28 h-28 bg-gray-200 rounded-full flex items-center justify-center mb-4">
+                                <i class="fas fa-user-graduate text-4xl text-purple-600"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-800">Loading...</h3>
+                            <p class="text-purple-600 font-semibold mb-2">Loading...</p>
+                            <p class="text-gray-600 mb-3">Loading...</p>
+                            <p class="text-gray-600 mb-4 text-sm">
+                                Loading...
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Students Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">Students</h2>
+            
+            <div id="students" class="grid md:grid-cols-4 gap-6">
+                <!-- Students will be inserted here by JavaScript -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden member-card">
+                    <div class="p-5">
+                        <div class="flex flex-col items-center text-center">
+                            <div class="w-24 h-24 bg-gray-200 rounded-full flex items-center justify-center mb-3">
+                                <i class="fas fa-user-graduate text-3xl text-purple-600"></i>
+                            </div>
+                            <h3 class="text-lg font-bold text-gray-800">Loading...</h3>
+                            <p class="text-purple-600 font-semibold mb-1 text-sm">Loading...</p>
+                            <p class="text-gray-600 text-sm">
+                                Loading...
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Others Section -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">Others</h2>
+            
+            <div id="others" class="grid md:grid-cols-3 gap-8">
+                <!-- Others will be inserted here by JavaScript -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden card-hover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-4">Loading...</h3>
+                        <ul class="space-y-2">
+                            <li class="flex items-center">
+                                <i class="fas fa-university text-purple-600 mr-3"></i>
+                                <span class="text-gray-700">Loading...</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <i class="fas fa-dna text-2xl text-purple-400"></i>
+                        <span class="text-xl font-bold">OncoHarmony</span>
+                    </div>
+                    <p class="text-gray-400 mb-4">
+                        Advancing Immuno-oncology through collaborative multi-omics research.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="https://github.com/OncoHarmony-Network" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-github text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-twitter text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-linkedin text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-researchgate text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-400 hover:text-white transition-colors">Home</a></li>
+                        <li><a href="about.html" class="text-gray-400 hover:text-white transition-colors">About</a></li>
+                        <li><a href="members.html" class="text-gray-400 hover:text-white transition-colors">Members</a></li>
+                        <li><a href="publications.html" class="text-gray-400 hover:text-white transition-colors">Publications</a></li>
+                        <li><a href="projects.html" class="text-gray-400 hover:text-white transition-colors">Projects</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Contact</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-start">
+                            <i class="fas fa-envelope text-purple-400 mr-3 mt-1"></i>
+                            <span class="text-gray-400">contact@oncoharmony.org</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt text-purple-400 mr-3 mt-1"></i>
+                            <span class="text-gray-400">Collaborative Network</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Institutions</h3>
+                    <ul class="space-y-2">
+                        <li><a href="https://zhoulab.ac.cn/" class="text-gray-400 hover:text-white transition-colors">Zhou Lab</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Partner Institution 1</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Partner Institution 2</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Partner Institution 3</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-500">
+                <p>&copy; 2025 OncoHarmony Network. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Load members data
+        async function loadMembers() {
+            await dataLoader.load();
+            const membersData = dataLoader.getMembers();
+            
+            // Load leadership team
+            const leadershipTeamContainer = document.getElementById('leadership-team');
+            leadershipTeamContainer.innerHTML = membersData.leadership_team.map(member => `
+                <div class="bg-white rounded-xl shadow-md overflow-hidden member-card">
+                    <div class="p-6">
+                        <div class="flex flex-col items-center text-center">
+                            <div class="w-32 h-32 bg-gray-200 rounded-full flex items-center justify-center mb-4">
+                                <i class="fas fa-${member.avatar} text-5xl text-purple-600"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold text-gray-800">${member.name}</h3>
+                            <p class="text-purple-600 font-semibold mb-2">${member.role}</p>
+                            <p class="text-gray-600 mb-4">${member.institution}</p>
+                            <p class="text-gray-600 mb-4 max-w-md">
+                                ${member.description}
+                            </p>
+                            <div class="flex space-x-4">
+                                <a href="${member.links.google_scholar}" class="text-gray-500 hover:text-purple-600 transition-colors">
+                                    <i class="ai ai-google-scholar text-xl"></i>
+                                </a>
+                                <a href="${member.links.researchgate}" class="text-gray-500 hover:text-purple-600 transition-colors">
+                                    <i class="fab fa-researchgate text-xl"></i>
+                                </a>
+                                <a href="${member.links.orcid}" class="text-gray-500 hover:text-purple-600 transition-colors">
+                                    <i class="fab fa-orcid text-xl"></i>
+                                </a>
+                                <a href="${member.links.github}" class="text-gray-500 hover:text-purple-600 transition-colors">
+                                    <i class="fab fa-github text-xl"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+            
+            // Load advisory board
+            const advisoryBoardContainer = document.getElementById('advisory-board');
+            advisoryBoardContainer.innerHTML = membersData.advisory_board.map(member => `
+                <div class="bg-white rounded-xl shadow-md overflow-hidden member-card">
+                    <div class="p-6">
+                        <div class="flex flex-col items-center text-center">
+                            <div class="w-28 h-28 bg-gray-200 rounded-full flex items-center justify-center mb-4">
+                                <i class="fas fa-${member.avatar} text-4xl text-purple-600"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-800">${member.name}</h3>
+                            <p class="text-purple-600 font-semibold mb-2">${member.role}</p>
+                            <p class="text-gray-600 mb-3">${member.institution}</p>
+                            <p class="text-gray-600 mb-4 text-sm">
+                                ${member.field}
+                            </p>
+                            <div class="flex space-x-3">
+                                ${member.links.google_scholar ? `<a href="${member.links.google_scholar}" class="text-gray-500 hover:text-purple-600 transition-colors">
+                                    <i class="ai ai-google-scholar"></i>
+                                </a>` : ''}
+                                ${member.links.researchgate ? `<a href="${member.links.researchgate}" class="text-gray-500 hover:text-purple-600 transition-colors">
+                                    <i class="fab fa-researchgate"></i>
+                                </a>` : ''}
+                                ${member.links.orcid ? `<a href="${member.links.orcid}" class="text-gray-500 hover:text-purple-600 transition-colors">
+                                    <i class="fab fa-orcid"></i>
+                                </a>` : ''}
+                                ${member.links.github ? `<a href="${member.links.github}" class="text-gray-500 hover:text-purple-600 transition-colors">
+                                    <i class="fab fa-github"></i>
+                                </a>` : ''}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+            
+            // Load students
+            const studentsContainer = document.getElementById('students');
+            studentsContainer.innerHTML = membersData.students.map(member => `
+                <div class="bg-white rounded-xl shadow-md overflow-hidden member-card">
+                    <div class="p-5">
+                        <div class="flex flex-col items-center text-center">
+                            <div class="w-24 h-24 bg-gray-200 rounded-full flex items-center justify-center mb-3">
+                                <i class="fas fa-${member.avatar} text-3xl text-purple-600"></i>
+                            </div>
+                            <h3 class="text-lg font-bold text-gray-800">${member.name}</h3>
+                            <p class="text-purple-600 font-semibold mb-1 text-sm">${member.role}</p>
+                            <p class="text-gray-600 text-sm">
+                                ${member.field}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+            
+            // Load others - collaborators only
+            const othersContainer = document.getElementById('others');
+            othersContainer.innerHTML = `
+                <div class="bg-white rounded-xl shadow-md overflow-hidden card-hover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-4">Academic Institutions</h3>
+                        <ul class="space-y-2">
+                            ${membersData.others.collaborators.academic_institutions.map(institution => `
+                                <li class="flex items-center">
+                                    <i class="fas fa-university text-purple-600 mr-3"></i>
+                                    <span class="text-gray-700">${institution}</span>
+                                </li>
+                            `).join('')}
+                        </ul>
+                    </div>
+                </div>
+                <div class="bg-white rounded-xl shadow-md overflow-hidden card-hover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-4">Research Centers</h3>
+                        <ul class="space-y-2">
+                            ${membersData.others.collaborators.research_centers.map(center => `
+                                <li class="flex items-center">
+                                    <i class="fas fa-flask text-purple-600 mr-3"></i>
+                                    <span class="text-gray-700">${center}</span>
+                                </li>
+                            `).join('')}
+                        </ul>
+                    </div>
+                </div>
+                <div class="bg-white rounded-xl shadow-md overflow-hidden card-hover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-4">Industry Partners</h3>
+                        <ul class="space-y-2">
+                            ${membersData.others.collaborators.industry_partners.map(partner => `
+                                <li class="flex items-center">
+                                    <i class="fas fa-industry text-purple-600 mr-3"></i>
+                                    <span class="text-gray-700">${partner}</span>
+                                </li>
+                            `).join('')}
+                        </ul>
+                    </div>
+                </div>
+            `;
+        }
+        
+        // Initialize
+        loadMembers();
+    </script>
+</body>
+</html>

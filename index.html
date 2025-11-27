@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OncoHarmony Network - Advancing Immuno-oncology</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/academicons@1.9.1/css/academicons.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/js-yaml@4.1.0/dist/js-yaml.min.js"></script>
+    <script src="js/data-loader.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: #667eea;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .member-card {
+            transition: all 0.3s ease;
+        }
+        
+        .member-card:hover {
+            transform: translateY(-8px);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-900">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md fixed w-full z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="index.html" class="flex items-center space-x-2">
+                <i class="fas fa-dna text-2xl text-purple-600"></i>
+                <span class="text-xl font-bold text-gray-800">OncoHarmony</span>
+            </a>
+            
+            <!-- Desktop Navigation -->
+            <div class="hidden md:flex space-x-8">
+                <a href="index.html" class="nav-link text-gray-700 hover:text-purple-600 font-medium">Home</a>
+                <a href="about.html" class="nav-link text-gray-700 hover:text-purple-600 font-medium">About</a>
+                <a href="members.html" class="nav-link text-gray-700 hover:text-purple-600 font-medium">Members</a>
+                <a href="publications.html" class="nav-link text-gray-700 hover:text-purple-600 font-medium">Publications</a>
+                <a href="projects.html" class="nav-link text-gray-700 hover:text-purple-600 font-medium">Projects</a>
+                <a href="news.html" class="nav-link text-gray-700 hover:text-purple-600 font-medium">News</a>
+                <a href="contact.html" class="nav-link text-gray-700 hover:text-purple-600 font-medium">Contact</a>
+            </div>
+            
+            <!-- Mobile Menu Button -->
+            <button class="md:hidden text-gray-700" id="mobile-menu-button">
+                <i class="fas fa-bars text-xl"></i>
+            </button>
+        </div>
+        
+        <!-- Mobile Navigation -->
+            <div class="md:hidden hidden bg-white border-t" id="mobile-menu">
+                <div class="container mx-auto px-4 py-3 space-y-3">
+                    <a href="index.html" class="block py-2 text-gray-700 hover:text-purple-600 font-medium">Home</a>
+                    <a href="about.html" class="block py-2 text-gray-700 hover:text-purple-600 font-medium">About</a>
+                    <a href="members.html" class="block py-2 text-gray-700 hover:text-purple-600 font-medium">Members</a>
+                    <a href="publications.html" class="block py-2 text-gray-700 hover:text-purple-600 font-medium">Publications</a>
+                    <a href="projects.html" class="block py-2 text-gray-700 hover:text-purple-600 font-medium">Projects</a>
+                    <a href="news.html" class="block py-2 text-gray-700 hover:text-purple-600 font-medium">News</a>
+                    <a href="contact.html" class="block py-2 text-gray-700 hover:text-purple-600 font-medium">Contact</a>
+                </div>
+            </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero-gradient pt-24 pb-16 md:pt-32 md:pb-24">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-6xl font-bold text-white mb-6">OncoHarmony Network</h1>
+            <p class="text-xl md:text-2xl text-white/90 mb-8 max-w-3xl mx-auto">
+                Advancing the frontier of Immuno-oncology through collaborative multi-omics research
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="about.html" class="bg-white text-purple-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors shadow-lg">
+                    Learn More
+                </a>
+                <a href="members.html" class="bg-transparent border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white/10 transition-colors">
+                    Meet Our Team
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Introduction Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 id="home-mission-title" class="text-3xl font-bold text-gray-800 mb-6">Loading...</h2>
+                    <p id="home-mission-desc1" class="text-gray-600 mb-4">Loading...</p>
+                    <p id="home-mission-desc2" class="text-gray-600 mb-4">Loading...</p>
+                    <p id="home-mission-desc3" class="text-gray-600">Loading...</p>
+                </div>
+                <div class="bg-gray-100 rounded-xl p-6">
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="bg-white p-4 rounded-lg shadow-sm text-center">
+                            <div id="home-stats-institutions" class="text-3xl font-bold text-purple-600 mb-1">Loading...</div>
+                            <div class="text-gray-600">Institutions</div>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg shadow-sm text-center">
+                            <div id="home-stats-researchers" class="text-3xl font-bold text-purple-600 mb-1">Loading...</div>
+                            <div class="text-gray-600">Researchers</div>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg shadow-sm text-center">
+                            <div id="home-stats-publications" class="text-3xl font-bold text-purple-600 mb-1">Loading...</div>
+                            <div class="text-gray-600">Publications</div>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg shadow-sm text-center">
+                            <div id="home-stats-projects" class="text-3xl font-bold text-purple-600 mb-1">Loading...</div>
+                            <div class="text-gray-600">Projects</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- News & Highlights Section -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">Latest Highlights</h2>
+            
+            <div id="latest-highlights" class="grid md:grid-cols-3 gap-8">
+                <!-- News highlights will be inserted here by JavaScript -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden card-hover">
+                    <div class="p-6">
+                        <div class="text-sm text-purple-600 font-semibold mb-2">
+                            <i class="fas fa-newspaper mr-2"></i> Loading...
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Loading...</h3>
+                        <p class="text-gray-600 mb-4">Loading...</p>
+                        <a href="#" class="text-purple-600 font-medium hover:underline">
+                            Read More <i class="fas fa-arrow-right ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="bg-white rounded-xl shadow-md overflow-hidden card-hover">
+                    <div class="p-6">
+                        <div class="text-sm text-purple-600 font-semibold mb-2">
+                            <i class="fas fa-newspaper mr-2"></i> Loading...
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Loading...</h3>
+                        <p class="text-gray-600 mb-4">Loading...</p>
+                        <a href="#" class="text-purple-600 font-medium hover:underline">
+                            Read More <i class="fas fa-arrow-right ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="bg-white rounded-xl shadow-md overflow-hidden card-hover">
+                    <div class="p-6">
+                        <div class="text-sm text-purple-600 font-semibold mb-2">
+                            <i class="fas fa-newspaper mr-2"></i> Loading...
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Loading...</h3>
+                        <p class="text-gray-600 mb-4">Loading...</p>
+                        <a href="#" class="text-purple-600 font-medium hover:underline">
+                            Read More <i class="fas fa-arrow-right ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <i class="fas fa-dna text-2xl text-purple-400"></i>
+                        <span class="text-xl font-bold">OncoHarmony</span>
+                    </div>
+                    <p class="text-gray-400 mb-4">
+                        Advancing Immuno-oncology through collaborative multi-omics research.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="https://github.com/OncoHarmony-Network" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-github text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-twitter text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-linkedin text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-researchgate text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-400 hover:text-white transition-colors">Home</a></li>
+                        <li><a href="about.html" class="text-gray-400 hover:text-white transition-colors">About</a></li>
+                        <li><a href="members.html" class="text-gray-400 hover:text-white transition-colors">Members</a></li>
+                        <li><a href="publications.html" class="text-gray-400 hover:text-white transition-colors">Publications</a></li>
+                        <li><a href="projects.html" class="text-gray-400 hover:text-white transition-colors">Projects</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Contact</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-start">
+                            <i class="fas fa-envelope text-purple-400 mr-3 mt-1"></i>
+                            <span class="text-gray-400">contact@oncoharmony.org</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt text-purple-400 mr-3 mt-1"></i>
+                            <span class="text-gray-400">Collaborative Network</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Institutions</h3>
+                    <ul class="space-y-2">
+                        <li><a href="https://zhoulab.ac.cn/" class="text-gray-400 hover:text-white transition-colors">Zhou Lab</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Partner Institution 1</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Partner Institution 2</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Partner Institution 3</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-500">
+                <p>&copy; 2025 OncoHarmony Network. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Load home page data
+        async function loadHomeData() {
+            await dataLoader.load();
+            const generalData = dataLoader.getGeneral();
+            const newsData = dataLoader.getNews();
+            
+            // Load mission data
+            const homeData = generalData.home;
+            document.getElementById('home-mission-title').textContent = homeData.mission.title;
+            document.getElementById('home-mission-desc1').textContent = homeData.mission.description;
+            document.getElementById('home-mission-desc2').textContent = homeData.mission.description2;
+            document.getElementById('home-mission-desc3').textContent = homeData.mission.description3;
+            
+            // Load stats
+            document.getElementById('home-stats-institutions').textContent = homeData.stats.institutions;
+            document.getElementById('home-stats-researchers').textContent = homeData.stats.researchers;
+            document.getElementById('home-stats-publications').textContent = homeData.stats.publications;
+            document.getElementById('home-stats-projects').textContent = homeData.stats.projects;
+            
+            // Load latest highlights
+            const latestHighlights = newsData.news.slice(0, 3);
+            const highlightsContainer = document.getElementById('latest-highlights');
+            
+            highlightsContainer.innerHTML = latestHighlights.map(news => `
+                <div class="bg-white rounded-xl shadow-md overflow-hidden card-hover">
+                    <div class="p-6">
+                        <div class="text-sm text-purple-600 font-semibold mb-2">
+                            <i class="fas fa-${news.category.toLowerCase() === 'news' ? 'newspaper' : news.category.toLowerCase() === 'achievement' ? 'award' : 'users'} mr-2"></i> ${news.category}
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">${news.title}</h3>
+                        <p class="text-gray-600 mb-4">
+                            ${news.description}
+                        </p>
+                        <a href="news.html?id=${news.id}" class="text-purple-600 font-medium hover:underline">
+                            Read More <i class="fas fa-arrow-right ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+            `).join('');
+        }
+        
+        // Initialize
+        loadHomeData();
+    </script>
+</body>
+</html>
