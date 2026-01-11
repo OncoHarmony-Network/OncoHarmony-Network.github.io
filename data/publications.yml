@@ -4,112 +4,112 @@ publications:
   - title: CircRNA signature predicts immunotherapy response in advanced non-small cell lung cancer
     authors: Li X, Wang S, Cui Y, Jin S, Xu J, Zhang C, Shen J, Ma H, Zhou J
     journal: Therapeutic Advances in Medical Oncology
-    month: '11'
+    month: 11
     type: journal-article
     description: ''
     doi: 10.1177/17588359251395920
   - title: Human Endogenous Retroviruses and Diseases
     authors: Chen C, Cui Y, Wang S, Yang Y, Liu Z, Jin S, Shen F, Gaipl U, Ma H, Zhou J
     journal: MedComm
-    month: '11'
+    month: 11
     type: journal-article
     description: ''
     doi: 10.1002/mco2.70452
   - title: 'ggalign: Bridging the Grammar of Graphics and Biological Multilayered Complexity'
     authors: Peng Y, Jiang S, Song Y, Luo P, Li J, Hu D, Zhou J, Yu G, Xu T, Wang S
     journal: Advanced Science
-    month: '11'
+    month: 11
     type: journal-article
     description: ''
     doi: 10.1002/advs.202507799
   - title: 'Integrated Multi-Omics Analysis for Molecular Subtyping in NSCLC: A Cohort Study'
     authors: Yan B, Wang Z, Peng Y, Liu K, Zhou J, Wang S
     journal: ''
-    month: 09
+    month: 9
     type: preprint
     description: ''
     doi: 10.1101/2025.09.05.674586
   - title: 'Awareness, Needs, and Curriculum Preferences Regarding Artificial Intelligence and Medical Big Data among Clinical Medical Undergraduates in China: A Cross-Sectional Study (Preprint)'
     authors: Li Q, Zhou J, Ma H, Ma H, Yang W, Li X, Li X, Li Y, Cai Y, Jin S
     journal: ''
-    month: 09
+    month: 9
     type: preprint
     description: ''
     doi: 10.2196/preprints.83441
   - title: 'Association between pretreatment emotional distress and survival outcomes in patients with advanced non–small-cell lung cancer: an individual patient data meta-analysis of 4632 patients in seven trials'
     authors: Li X, Li Q, Jin S, Chen X, Shen J, Ma H, Zhou J
     journal: Therapeutic Advances in Medical Oncology
-    month: 09
+    month: 9
     type: journal-article
     description: ''
     doi: 10.1177/17588359251371826
   - title: 'ImmunoFusion: A Unified Platform for Investigating RNA-seq-Derived Gene Fusions in Cancer and Immunotherapy'
     authors: Zhao Y, Wang S, Li S, Chen M, Jin S, Gaipl U, Ma H, Zhou J
     journal: ''
-    month: '06'
+    month: 6
     type: preprint
     description: ''
     doi: 10.1101/2025.06.05.658082
   - title: Orosomucoid 1 is a Potential Prognostic Biomarker for Uterine Sarcoma
     authors: Yuan D, Huang Y, Cai Y, Zhang C, Wang J, Zhou J
     journal: Technology in Cancer Research & Treatment
-    month: '06'
+    month: 6
     type: journal-article
     description: ''
     doi: 10.1177/15330338251343487
   - title: '<i>iMeta</i> Conference 2025: Creating high‐impact international journals'
     authors: Zhu Z, Zhang L, Yao X, Zeng M, Wang Y, Luo H, Zhou Y, Zhang T, Xun J, Bai D
     journal: iMeta
-    month: '10'
+    month: 10
     type: journal-article
     description: ''
     doi: 10.1002/imt2.70086
   - title: 'bregr: An R Package for Streamlined Batch Processing and Visualization of Biomedical Regression Models'
     authors: Wang S, Peng Y, Shu C, Wang C, Yang Y, Zhao Y, Cui Y, Hu D, Zhou J
     journal: Med Research
-    month: 09
+    month: 9
     type: journal-article
     description: ''
     doi: 10.1002/mdr2.70028
   - title: A synthetic cohort analysis of postoperative management of primary cardiac angiosarcoma and a case report
     authors: Cai Y, Yang H, Yuan D, Jin S, Xu J, Hu W, Bai Y, Li X, Wang Z, Zhang D
     journal: Frontiers in Oncology
-    month: 09
+    month: 9
     type: journal-article
     description: ''
     doi: 10.3389/fonc.2025.1625049
   - title: 'CircRNAs: functions and emerging roles in cancer and immunotherapy'
     authors: Wang Y, Cui Y, Li X, Jin S, Wang H, Gaipl U, Ma H, Wang S, Zhou J
     journal: BMC Medicine
-    month: 08
+    month: 8
     type: journal-article
     description: ''
     doi: 10.1186/s12916-025-04306-5
   - title: 'ImmunoCheckDB: A Comprehensive Platform for Evaluating Cancer Immunotherapy Biomarkers Through Meta‐Analyses and Multiomic Profiling'
     authors: Lu C, Li M, Yang H, Liu Z, Zhang J, Cheng Q, Lin A, Wang S, Luo P
     journal: MedComm – Future Medicine
-    month: '06'
+    month: 6
     type: journal-article
     description: ''
     doi: 10.1002/mef2.70025
   - title: 'Individualized metagenomic network model for colorectal cancer diagnosis: insights into viral regulation of gut microecology'
     authors: Qian L, Wang S, Zhou W, Qin Z, Wang Y, Zhao Q, Xu R
     journal: Briefings in Bioinformatics
-    month: '05'
+    month: 5
     type: journal-article
     description: ''
     doi: 10.1093/bib/bbaf208
   - title: 'Sintilimab + Nab-PP Combined with Recombinant Human Vascular Endothelial Inhibitor for Locally Advanced/Advanced and Recurrent Metastatic Squamous Non-Small Cell Lung Cancer: Study Protocol for a Single-Arm, Multi-Centre Phase II Clinical Study'
     authors: Xu J, Meng M, He S, Wang S, Peng J, Yao B, Li Y, Hu Y, Qian X, Wang T
     journal: Technology in Cancer Research &amp; Treatment
-    month: '05'
+    month: 5
     type: journal-article
     description: ''
     doi: 10.1177/15330338251345913
   - title: 'Bizard: A Community-Driven Platform for Accelerating and Enhancing Biomedical Data Visualization'
     authors: ''
     journal: ''
-    month: ''
+    month: 
     type: preprint
     description: ''
     doi: 10.48550/ARXIV.2503.06845
@@ -117,21 +117,21 @@ publications:
   - title: 'Association Between Pretreatment Emotional Distress and Survival Outcomes in Patients With Advanced Non-Small-Cell Lung Cancer: an individual patient data meta-analysis of 4632 patients in 7 trials'
     authors: Zhou J, Li X, Li Q, Jin S, Chen X, Shen J, Ma H
     journal: ''
-    month: '12'
+    month: 12
     type: preprint
     description: ''
     doi: 10.21203/rs.3.rs-5448848/v1
   - title: Machine learning based on blood test biomarkers predicts fast progression in advanced NSCLC patients treated with immunotherapy
     authors: Zhou J, Yang J, Wang H, Wong A, Tan F, Chen X, He S, Shen G, Wang Y, Frey B
     journal: BMJ Oncology
-    month: '02'
+    month: 02
     type: journal-article
     description: ''
     doi: 10.1136/bmjonc-2023-000128
   - title: A Single-Arm Multi-Center Phase II Clinical Trial of Cadonilimab (anti-PD-1/CTLA-4) in Combination with or without Conventional Second-Line Treatment for Patients with Extensive Stage Small Cell Lung Cancer
     authors: Chen C, Chen M, Bai Y, Li Y, Peng J, Yao B, Feng J, Zhou J, Ma H
     journal: Technology in Cancer Research & Treatment
-    month: '01'
+    month: 01
     type: journal-article
     description: ''
     doi: 10.1177/15330338241249690
@@ -245,7 +245,7 @@ publications:
   - title: Quantification of Neoantigen-Mediated Immunoediting in Cancer Evolution
     authors: Wu T, Wang G, Wang X, Wang S, Zhao X, Wu C, Ning W, Tao Z, Chen F, Liu X
     journal: Cancer Research
-    month: '06'
+    month: 6
     type: journal-article
     description: ''
     doi: 10.1158/0008-5472.CAN-21-3717
@@ -323,7 +323,7 @@ publications:
   - title: Essential role for Ggct in erythrocyte antioxidant defense
     authors: He Z, Sun X, Wang S, Bai D, Zhao X, Han Y, Hao P, Liu X
     journal: ''
-    month: '06'
+    month: 6
     type: other
     description: ''
     doi: 10.1101/2021.06.21.449332

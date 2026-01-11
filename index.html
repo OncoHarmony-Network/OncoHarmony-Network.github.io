@@ -137,7 +137,7 @@
     <nav class="bg-white shadow-md fixed w-full z-50">
         <div class="container mx-auto px-4 py-3 flex justify-between items-center">
             <a href="index.html" class="flex items-center space-x-2" style="text-decoration: none;">
-                <i class="fas fa-dna text-2xl" style="color: var(--primary-color);"></i>
+                <img src="images/logo-nav.png" alt="OncoHarmony Logo" class="h-12 w-12 object-contain">
                 <span class="text-xl font-bold" style="color: var(--text-dark);">OncoHarmony</span>
             </a>
             
@@ -272,74 +272,17 @@
     </section>
 
     <!-- Footer -->
-    <footer style="background-color: #1a202c; color: white; padding: 3rem 0;">
-        <div class="container mx-auto px-4">
-            <div class="grid md:grid-cols-4 gap-8">
-                <div>
-                    <div class="flex items-center space-x-2 mb-4">
-                        <i class="fas fa-dna text-2xl" style="color: var(--primary-color);"></i>
-                        <span class="text-xl font-bold">OncoHarmony</span>
-                    </div>
-                    <p class="mb-4" style="color: #a0aec0;">
-                        Advancing Immuno-oncology through collaborative multi-omics research.
-                    </p>
-                    <div class="flex space-x-4">
-                        <a href="https://github.com/OncoHarmony-Network" style="color: #a0aec0; text-decoration: none; transition: color 0.3s ease;">
-                            <i class="fab fa-github text-xl"></i>
-                        </a>
-                        <a href="#" style="color: #a0aec0; text-decoration: none; transition: color 0.3s ease;">
-                            <i class="fab fa-twitter text-xl"></i>
-                        </a>
-                        <a href="#" style="color: #a0aec0; text-decoration: none; transition: color 0.3s ease;">
-                            <i class="fab fa-linkedin text-xl"></i>
-                        </a>
-                        <a href="#" style="color: #a0aec0; text-decoration: none; transition: color 0.3s ease;">
-                            <i class="fab fa-researchgate text-xl"></i>
-                        </a>
-                    </div>
-                </div>
-                
-                <div>
-                    <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
-                    <ul class="space-y-2">
-                        <li><a href="index.html" style="color: #a0aec0; text-decoration: none; transition: color 0.3s ease;">Home</a></li>
-                        <li><a href="about.html" style="color: #a0aec0; text-decoration: none; transition: color 0.3s ease;">About</a></li>
-                        <li><a href="members.html" style="color: #a0aec0; text-decoration: none; transition: color 0.3s ease;">Members</a></li>
-                        <li><a href="publications.html" style="color: #a0aec0; text-decoration: none; transition: color 0.3s ease;">Publications</a></li>
-                        <li><a href="projects.html" style="color: #a0aec0; text-decoration: none; transition: color 0.3s ease;">Projects</a></li>
-                    </ul>
-                </div>
-                
-                <div>
-                    <h3 class="text-lg font-semibold mb-4">Contact</h3>
-                    <ul class="space-y-2">
-                        <li class="flex items-start">
-                            <i class="fas fa-envelope mt-1 mr-3" style="color: var(--primary-color);"></i>
-                            <span style="color: #a0aec0;">contact@oncoharmony.org</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-map-marker-alt mt-1 mr-3" style="color: var(--primary-color);"></i>
-                            <span style="color: #a0aec0;">Collaborative Network</span>
-                        </li>
-                    </ul>
-                </div>
-                
-                <div>
-                    <h3 class="text-lg font-semibold mb-4">Institutions</h3>
-                    <ul class="space-y-2">
-                        <li><a href="https://zhoulab.ac.cn/" style="color: #a0aec0; text-decoration: none; transition: color 0.3s ease;">Zhou Lab</a></li>
-                        <li><a href="#" style="color: #a0aec0; text-decoration: none; transition: color 0.3s ease;">Partner Institution 1</a></li>
-                        <li><a href="#" style="color: #a0aec0; text-decoration: none; transition: color 0.3s ease;">Partner Institution 2</a></li>
-                        <li><a href="#" style="color: #a0aec0; text-decoration: none; transition: color 0.3s ease;">Partner Institution 3</a></li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="border-t mt-8 pt-8 text-center" style="border-color: #2d3748;">
-                <p style="color: #718096;">&copy; 2025 OncoHarmony Network. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
+    <div id="footer-container"></div>
+
+    <script>
+        // Load footer component
+        fetch('components/footer.html')
+            .then(response => response.text())
+            .then(html => {
+                document.getElementById('footer-container').innerHTML = html;
+            })
+            .catch(error => console.error('Error loading footer:', error));
+    </script>
 
     <script>
         // Mobile menu toggle
