@@ -4,7 +4,8 @@ leadership_team:
     role: "负责人"
     institution: "Zhou Lab, <a href=\"https://zhoulab.ac.cn/\" class=\"text-purple-600 hover:underline\">zhoulab.ac.cn</a>"
     description: "主要负责计算平台、资金、文稿和监管"
-    avatar: "user-md"
+    avatar: "images/members/Jian-Guo-Zhou.webp"
+    avatar_type: "image"
     links:
       google_scholar: "#"
       researchgate: "#"
@@ -15,7 +16,8 @@ leadership_team:
     role: "负责人"
     institution: "Leading University"
     description: "主要负责项目管理、技术路线、部署运维"
-    avatar: "user-md"
+    avatar: "images/members/shixiangwang.jpg"
+    avatar_type: "image"
     links:
       google_scholar: "#"
       researchgate: "#"

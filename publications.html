@@ -272,9 +272,12 @@
                                     <h3 class="text-xl font-bold text-gray-800 mb-2">
                                         ${publication.title}
                                     </h3>
-                                    <p class="text-gray-700 mb-3">
-                                        ${publication.authors}
-                                    </p>
+                                    <div class="mb-3">
+                                        <p class="text-gray-700" id="authors-${publication.doi.replace(/\./g, '-')}" data-full-authors="${publication.authors}">
+                                            ${publication.authors.includes('et al') ? publication.authors.replace(/, et al\.$/, ', <em>et al.</em>') : publication.authors}
+                                        </p>
+                                        ${publication.authors.includes('et al') ? `<button onclick="toggleAuthors('${publication.doi.replace(/\./g, '-')}')" class="text-purple-600 hover:text-purple-800 text-sm font-medium mt-1 focus:outline-none" id="btn-authors-${publication.doi.replace(/\./g, '-')}">Show all authors</button>` : ''}
+                                    </div>
                                     <p class="text-gray-600 mb-4">
                                         ${publication.description}
                                     </p>
@@ -282,19 +285,19 @@
                                         <a href="https://doi.org/${publication.doi}" class="flex items-center text-purple-600 hover:text-purple-800 transition-colors">
                                             <i class="fas fa-link mr-1"></i> DOI: ${publication.doi}
                                         </a>
-                                        ${publication.links.pdf ? `<a href="${publication.links.pdf}" class="flex items-center text-gray-600 hover:text-purple-600 transition-colors">
+                                        ${publication.links && publication.links.pdf ? `<a href="${publication.links.pdf}" class="flex items-center text-gray-600 hover:text-purple-600 transition-colors">
                                             <i class="fas fa-paperclip mr-1"></i> PDF
                                         </a>` : ''}
-                                        ${publication.links.code ? `<a href="${publication.links.code}" class="flex items-center text-gray-600 hover:text-purple-600 transition-colors">
+                                        ${publication.links && publication.links.code ? `<a href="${publication.links.code}" class="flex items-center text-gray-600 hover:text-purple-600 transition-colors">
                                             <i class="fab fa-github mr-1"></i> Code
                                         </a>` : ''}
-                                        ${publication.links.data ? `<a href="${publication.links.data}" class="flex items-center text-gray-600 hover:text-purple-600 transition-colors">
+                                        ${publication.links && publication.links.data ? `<a href="${publication.links.data}" class="flex items-center text-gray-600 hover:text-purple-600 transition-colors">
                                             <i class="fas fa-database mr-1"></i> Data
                                         </a>` : ''}
-                                        ${publication.links.github ? `<a href="${publication.links.github}" class="flex items-center text-gray-600 hover:text-purple-600 transition-colors">
+                                        ${publication.links && publication.links.github ? `<a href="${publication.links.github}" class="flex items-center text-gray-600 hover:text-purple-600 transition-colors">
                                             <i class="fab fa-github mr-1"></i> GitHub
                                         </a>` : ''}
-                                        ${publication.links.documentation ? `<a href="${publication.links.documentation}" class="flex items-center text-gray-600 hover:text-purple-600 transition-colors">
+                                        ${publication.links && publication.links.documentation ? `<a href="${publication.links.documentation}" class="flex items-center text-gray-600 hover:text-purple-600 transition-colors">
                                             <i class="fas fa-book mr-1"></i> Documentation
                                         </a>` : ''}
                                     </div>
@@ -308,6 +311,31 @@
         
         // Initialize
         loadPublications();
+        
+        // Toggle authors display
+        window.toggleAuthors = function(doiId) {
+            const authorsElement = document.getElementById(`authors-${doiId}`);
+            const buttonElement = document.getElementById(`btn-authors-${doiId}`);
+            
+            if (authorsElement && buttonElement) {
+                const isExpanded = authorsElement.classList.contains('expanded');
+                
+                if (isExpanded) {
+                    // Collapse: show first 5 authors
+                    const fullAuthors = authorsElement.getAttribute('data-full-authors');
+                    const shortAuthors = fullAuthors.split(', ').slice(0, 5).join(', ');
+                    authorsElement.textContent = shortAuthors + ', et al.';
+                    authorsElement.classList.remove('expanded');
+                    buttonElement.textContent = 'Show all authors';
+                } else {
+                    // Expand: show all authors
+                    const fullAuthors = authorsElement.getAttribute('data-full-authors');
+                    authorsElement.textContent = fullAuthors;
+                    authorsElement.classList.add('expanded');
+                    buttonElement.textContent = 'Show fewer authors';
+                }
+            }
+        };
     </script>
 </body>
 </html>

@@ -185,4 +185,4 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 ## Contact
 
-For questions or support, please contact the OncoHarmony Network team at contact@oncoharmony.org.
+For questions or support, please contact the OncoHarmony Network team.

@@ -1,48 +1,400 @@
 # Publications by Year
 publications:
-  2025:
-    - title: "Multi-omics Integration Reveals Novel Biomarkers for Immunotherapy Response in Melanoma"
-      authors: "Wang S, Zhou J-G, Chen A, Johnson B, Davis C, et al."
-      journal: "Nature Immunology"
-      month: "Jan 2025"
-      type: "Original Research"
-      description: "We integrated genomics, transcriptomics, and proteomics data to identify novel biomarkers that predict response to immune checkpoint inhibitors in melanoma patients."
-      doi: "10.1038/s41590-024-01789-x"
-      links:
-        pdf: "#"
-        code: "#"
-        data: "#"
-
-    - title: "The Role of Tumor Microenvironment in Immuno-oncology: A Multi-omics Perspective"
-      authors: "Zhou J-G, Wang S, Evans D, Foster E, Green F, et al."
-      journal: "Cell Reviews"
-      month: "Feb 2025"
-      type: "Review Article"
-      description: "This review summarizes the latest advances in understanding the tumor microenvironment using multi-omics approaches and their implications for Immuno-oncology."
-      doi: "10.1016/j.cell.2024.12.015"
-      links:
-        pdf: "#"
-
-  2024:
-    - title: "OncoHarmony: A Computational Framework for Integrating Multi-omics Data in Immuno-oncology"
-      authors: "Chen A, Johnson B, Wang S, Zhou J-G, et al."
-      journal: "Nature Methods"
-      month: "Jun 2024"
-      type: "Methodology"
-      description: "We developed OncoHarmony, a comprehensive computational framework that integrates multi-omics data to model tumor-immune interactions and predict immunotherapy response."
-      doi: "10.1038/s41592-024-02012-7"
-      links:
-        pdf: "#"
-        github: "https://github.com/OncoHarmony-Network"
-        documentation: "#"
-
-    - title: "Single-Cell Multi-omics Analysis Identifies Tumor-Infiltrating Lymphocyte Subsets Associated with Immunotherapy Resistance"
-      authors: "Davis C, Green F, Hill G, Wang S, Zhou J-G, et al."
-      journal: "Science Translational Medicine"
-      month: "Sep 2024"
-      type: "Original Research"
-      description: "Using single-cell RNA-seq and ATAC-seq, we identified specific T cell subsets that are associated with resistance to immune checkpoint inhibitors in non-small cell lung cancer."
-      doi: "10.1126/scitranslmed.adg8923"
-      links:
-        pdf: "#"
-        data: "#"
+  '2025':
+  - title: CircRNA signature predicts immunotherapy response in advanced non-small cell lung cancer
+    authors: Li X, Wang S, Cui Y, Jin S, Xu J, Zhang C, Shen J, Ma H, Zhou J
+    journal: Therapeutic Advances in Medical Oncology
+    month: '11'
+    type: journal-article
+    description: ''
+    doi: 10.1177/17588359251395920
+  - title: Human Endogenous Retroviruses and Diseases
+    authors: Chen C, Cui Y, Wang S, Yang Y, Liu Z, Jin S, Shen F, Gaipl U, Ma H, Zhou J
+    journal: MedComm
+    month: '11'
+    type: journal-article
+    description: ''
+    doi: 10.1002/mco2.70452
+  - title: 'ggalign: Bridging the Grammar of Graphics and Biological Multilayered Complexity'
+    authors: Peng Y, Jiang S, Song Y, Luo P, Li J, Hu D, Zhou J, Yu G, Xu T, Wang S
+    journal: Advanced Science
+    month: '11'
+    type: journal-article
+    description: ''
+    doi: 10.1002/advs.202507799
+  - title: 'Integrated Multi-Omics Analysis for Molecular Subtyping in NSCLC: A Cohort Study'
+    authors: Yan B, Wang Z, Peng Y, Liu K, Zhou J, Wang S
+    journal: ''
+    month: 09
+    type: preprint
+    description: ''
+    doi: 10.1101/2025.09.05.674586
+  - title: 'Awareness, Needs, and Curriculum Preferences Regarding Artificial Intelligence and Medical Big Data among Clinical Medical Undergraduates in China: A Cross-Sectional Study (Preprint)'
+    authors: Li Q, Zhou J, Ma H, Ma H, Yang W, Li X, Li X, Li Y, Cai Y, Jin S
+    journal: ''
+    month: 09
+    type: preprint
+    description: ''
+    doi: 10.2196/preprints.83441
+  - title: 'Association between pretreatment emotional distress and survival outcomes in patients with advanced non–small-cell lung cancer: an individual patient data meta-analysis of 4632 patients in seven trials'
+    authors: Li X, Li Q, Jin S, Chen X, Shen J, Ma H, Zhou J
+    journal: Therapeutic Advances in Medical Oncology
+    month: 09
+    type: journal-article
+    description: ''
+    doi: 10.1177/17588359251371826
+  - title: 'ImmunoFusion: A Unified Platform for Investigating RNA-seq-Derived Gene Fusions in Cancer and Immunotherapy'
+    authors: Zhao Y, Wang S, Li S, Chen M, Jin S, Gaipl U, Ma H, Zhou J
+    journal: ''
+    month: '06'
+    type: preprint
+    description: ''
+    doi: 10.1101/2025.06.05.658082
+  - title: Orosomucoid 1 is a Potential Prognostic Biomarker for Uterine Sarcoma
+    authors: Yuan D, Huang Y, Cai Y, Zhang C, Wang J, Zhou J
+    journal: Technology in Cancer Research & Treatment
+    month: '06'
+    type: journal-article
+    description: ''
+    doi: 10.1177/15330338251343487
+  - title: '<i>iMeta</i> Conference 2025: Creating high‐impact international journals'
+    authors: Zhu Z, Zhang L, Yao X, Zeng M, Wang Y, Luo H, Zhou Y, Zhang T, Xun J, Bai D
+    journal: iMeta
+    month: '10'
+    type: journal-article
+    description: ''
+    doi: 10.1002/imt2.70086
+  - title: 'bregr: An R Package for Streamlined Batch Processing and Visualization of Biomedical Regression Models'
+    authors: Wang S, Peng Y, Shu C, Wang C, Yang Y, Zhao Y, Cui Y, Hu D, Zhou J
+    journal: Med Research
+    month: 09
+    type: journal-article
+    description: ''
+    doi: 10.1002/mdr2.70028
+  - title: A synthetic cohort analysis of postoperative management of primary cardiac angiosarcoma and a case report
+    authors: Cai Y, Yang H, Yuan D, Jin S, Xu J, Hu W, Bai Y, Li X, Wang Z, Zhang D
+    journal: Frontiers in Oncology
+    month: 09
+    type: journal-article
+    description: ''
+    doi: 10.3389/fonc.2025.1625049
+  - title: 'CircRNAs: functions and emerging roles in cancer and immunotherapy'
+    authors: Wang Y, Cui Y, Li X, Jin S, Wang H, Gaipl U, Ma H, Wang S, Zhou J
+    journal: BMC Medicine
+    month: 08
+    type: journal-article
+    description: ''
+    doi: 10.1186/s12916-025-04306-5
+  - title: 'ImmunoCheckDB: A Comprehensive Platform for Evaluating Cancer Immunotherapy Biomarkers Through Meta‐Analyses and Multiomic Profiling'
+    authors: Lu C, Li M, Yang H, Liu Z, Zhang J, Cheng Q, Lin A, Wang S, Luo P
+    journal: MedComm – Future Medicine
+    month: '06'
+    type: journal-article
+    description: ''
+    doi: 10.1002/mef2.70025
+  - title: 'Individualized metagenomic network model for colorectal cancer diagnosis: insights into viral regulation of gut microecology'
+    authors: Qian L, Wang S, Zhou W, Qin Z, Wang Y, Zhao Q, Xu R
+    journal: Briefings in Bioinformatics
+    month: '05'
+    type: journal-article
+    description: ''
+    doi: 10.1093/bib/bbaf208
+  - title: 'Sintilimab + Nab-PP Combined with Recombinant Human Vascular Endothelial Inhibitor for Locally Advanced/Advanced and Recurrent Metastatic Squamous Non-Small Cell Lung Cancer: Study Protocol for a Single-Arm, Multi-Centre Phase II Clinical Study'
+    authors: Xu J, Meng M, He S, Wang S, Peng J, Yao B, Li Y, Hu Y, Qian X, Wang T
+    journal: Technology in Cancer Research &amp; Treatment
+    month: '05'
+    type: journal-article
+    description: ''
+    doi: 10.1177/15330338251345913
+  - title: 'Bizard: A Community-Driven Platform for Accelerating and Enhancing Biomedical Data Visualization'
+    authors: ''
+    journal: ''
+    month: ''
+    type: preprint
+    description: ''
+    doi: 10.48550/ARXIV.2503.06845
+  '2024':
+  - title: 'Association Between Pretreatment Emotional Distress and Survival Outcomes in Patients With Advanced Non-Small-Cell Lung Cancer: an individual patient data meta-analysis of 4632 patients in 7 trials'
+    authors: Zhou J, Li X, Li Q, Jin S, Chen X, Shen J, Ma H
+    journal: ''
+    month: '12'
+    type: preprint
+    description: ''
+    doi: 10.21203/rs.3.rs-5448848/v1
+  - title: Machine learning based on blood test biomarkers predicts fast progression in advanced NSCLC patients treated with immunotherapy
+    authors: Zhou J, Yang J, Wang H, Wong A, Tan F, Chen X, He S, Shen G, Wang Y, Frey B
+    journal: BMJ Oncology
+    month: '02'
+    type: journal-article
+    description: ''
+    doi: 10.1136/bmjonc-2023-000128
+  - title: A Single-Arm Multi-Center Phase II Clinical Trial of Cadonilimab (anti-PD-1/CTLA-4) in Combination with or without Conventional Second-Line Treatment for Patients with Extensive Stage Small Cell Lung Cancer
+    authors: Chen C, Chen M, Bai Y, Li Y, Peng J, Yao B, Feng J, Zhou J, Ma H
+    journal: Technology in Cancer Research & Treatment
+    month: '01'
+    type: journal-article
+    description: ''
+    doi: 10.1177/15330338241249690
+  - title: Fibroblast Growth Factor 23 is a Potential Prognostic Biomarker in Uterine Sarcoma
+    authors: Yang L, Cai Y, Wang Y, Huang Y, Zhang C, Ma H, Zhou J
+    journal: Technology in Cancer Research & Treatment
+    month: '01'
+    type: journal-article
+    description: ''
+    doi: 10.1177/15330338241245924
+  - title: Enhancing immuno-oncology investigations through multidimensional decoding of tumor microenvironment with IOBR 2.0
+    authors: Zeng D, Fang Y, Qiu W, Luo P, Wang S, Shen R, Gu W, Huang X, Mao Q, Wang G
+    journal: Cell Reports Methods
+    month: '12'
+    type: journal-article
+    description: ''
+    doi: 10.1016/j.crmeth.2024.100910
+  - title: Facilitating integrative and personalized oncology omics analysis with UCSCXenaShiny
+    authors: Li S, Peng Y, Chen M, Zhao Y, Xiong Y, Li J, Luo P, Wang H, Zhao F, Zhao Q
+    journal: Communications Biology
+    month: 09
+    type: journal-article
+    description: ''
+    doi: 10.1038/s42003-024-06891-2
+  - title: 'STAGER checklist: Standardized testing and assessment guidelines for evaluating generative artificial intelligence reliability'
+    authors: Chen J, Zhu L, Mou W, Lin A, Zeng D, Qi C, Liu Z, Jiang A, Tang B, Shi W
+    journal: iMetaOmics
+    month: 09
+    type: journal-article
+    description: ''
+    doi: 10.1002/imo2.7
+  - title: Machine learning-based extrachromosomal DNA identification in large-scale cohorts reveals its clinical implications in cancer
+    authors: Wang S, Wu C, He M, Yong J, Chen Y, Qian L, Zhang J, Zeng Z, Xu R, Wang F
+    journal: Nature Communications
+    month: '02'
+    type: journal-article
+    description: ''
+    doi: 10.1038/s41467-024-45479-6
+  - title: 'TCCIA: a comprehensive resource for exploring CircRNA in cancer immunotherapy'
+    authors: Wang S, Xiong Y, Zhang Y, Wang H, Chen M, Li J, Luo P, Luo Y, Hecht M, Frey B
+    journal: Journal for ImmunoTherapy of Cancer
+    month: '01'
+    type: journal-article
+    description: ''
+    doi: 10.1101/2023.08.24.554049
+  '2023':
+  - title: Identification of immunological bioprocesses involved in peri‐implantitis using weighted gene co‐expression network analysis
+    authors: Chen L, Jin S, Lu Q, Zhou J, Liu J, Guan X, Xia H, He H
+    journal: Journal of Periodontology
+    month: 09
+    type: journal-article
+    description: ''
+    doi: 10.1002/JPER.22-0405
+  - title: FGF23 is a potential prognostic biomarker in uterine sarcoma
+    authors: Yang L, Cai Y, Wang Y, Huang Y, Zhang C, Ma H, Zhou J
+    journal: ''
+    month: 08
+    type: preprint
+    description: ''
+    doi: 10.1101/2023.08.20.23294198
+  - title: Identification and characterization of circular RNAs as novel putative biomarkers to predict anti-PD-1 monotherapy response in metastatic melanoma patients – Knowledge from two independent international studies
+    authors: Zhou J, Liang R, Wang H, Jin S, Hu W, Frey B, Fietkau R, Hecht M, Ma H, Gaipl U
+    journal: Neoplasia
+    month: '03'
+    type: journal-article
+    description: ''
+    doi: 10.1016/j.neo.2023.100877
+  - title: Accurate prediction of pan-cancer types using machine learning with minimal number of DNA methylation sites
+    authors: Ning W, Wu T, Wu C, Wang S, Tao Z, Wang G, Zhao X, Diao K, Wang J, Chen J
+    journal: Journal of Molecular Cell Biology
+    month: 08
+    type: journal-article
+    description: ''
+    doi: 10.1093/jmcb/mjad023
+  - title: 'Unveiling the interplay between mutational signatures and tumor microenvironment: a pan-cancer analysis'
+    authors: Luo L, Li S, Wei C, Ma J, Qian L, Chen Y, Wang S, Zhao Q
+    journal: Frontiers in Immunology
+    month: '05'
+    type: journal-article
+    description: ''
+    doi: 10.3389/fimmu.2023.1186357
+  - title: The repertoire of copy number alteration signatures in human cancer
+    authors: Tao Z, Wang S, Wu C, Wu T, Zhao X, Ning W, Wang G, Wang J, Chen J, Diao K
+    journal: Briefings in Bioinformatics
+    month: '03'
+    type: journal-article
+    description: ''
+    doi: 10.1101/2022.11.14.516412
+  '2022':
+  - title: 'Identification of an endogenous retroviral signature to predict anti-PD1 response in advanced clear cell renal cell carcinoma: an integrated analysis of three clinical trials'
+    authors: Zhou J, Zeng Y, Wang H, Jin S, Wang Y, He S, Frey B, Fietkau R, Hecht M, Ma H
+    journal: Therapeutic Advances in Medical Oncology
+    month: '01'
+    type: journal-article
+    description: ''
+    doi: 10.1177/17588359221126154
+  - title: Deciphering clonal dynamics and metastatic routines in a rare patient of synchronous triple-primary tumors and multiple metastases with MPTevol
+    authors: Chen Q, Wu Q, Rong Y, Wang S, Zuo Z, Bai L, Zhang B, Yuan S, Zhao Q
+    journal: Briefings in Bioinformatics
+    month: 09
+    type: journal-article
+    description: ''
+    doi: 10.1093/bib/bbac175
+  - title: 'Hiplot: a comprehensive and easy-to-use web service for boosting publication-ready biomedical data visualization'
+    authors: Li J, Miao B, Wang S, Dong W, Xu H, Si C, Wang W, Duan S, Lou J, Bao Z
+    journal: Briefings in Bioinformatics
+    month: '07'
+    type: journal-article
+    description: ''
+    doi: 10.1093/bib/bbac261
+  - title: Quantification of Neoantigen-Mediated Immunoediting in Cancer Evolution
+    authors: Wu T, Wang G, Wang X, Wang S, Zhao X, Wu C, Ning W, Tao Z, Chen F, Liu X
+    journal: Cancer Research
+    month: '06'
+    type: journal-article
+    description: ''
+    doi: 10.1158/0008-5472.CAN-21-3717
+  - title: 'Onlinemeta: A Web Server for Meta-Analysis Based on Shiny Framework'
+    authors: Dai W, Yi Y, Lin A, Zhou C, Zhang J, Wang S, Sun M, Luo P
+    journal: ''
+    month: '04'
+    type: preprint
+    description: ''
+    doi: 10.1101/2022.04.13.488126
+  - title: Pan-cancer quantification of neoantigen-mediated immunoediting in cancer evolution
+    authors: Wu T, Wang G, Wang X, Wang S, Zhao X, Wu C, Ning W, Tao Z, Chen F, Liu X
+    journal: ''
+    month: '04'
+    type: preprint
+    description: ''
+    doi: 10.1101/2022.04.08.487711
+  - title: 'Hiplot: a comprehensive and easy-to-use web service boosting publication-ready biomedical data visualization'
+    authors: Li J, Miao B, Wang S, Dong W, Xu H, Si C, Wang W, Duan S, Lou J, Bao Z
+    journal: ''
+    month: '03'
+    type: preprint
+    description: ''
+    doi: 10.1101/2022.03.16.484681
+  - title: 'UCSCXenaShiny: an R/CRAN package for interactive analysis of UCSC Xena data'
+    authors: Wang S, Xiong Y, Zhao L, Gu K, Li Y, Zhao F, Li J, Wang M, Wang H, Tao Z
+    journal: Bioinformatics
+    month: '01'
+    type: journal-article
+    description: ''
+    doi: 10.1093/bioinformatics/btab561
+  '2021':
+  - title: 'Definition of a new blood cell count (BCT) score for early survival prediction for non-small cell lung cancer patients treated with atezolizumab: Integrated analysis of 4 multicenter clinical trials'
+    authors: Zhou J, Wong A, Wang H, Jin S, Tan F, Chen Y, He S, Shen G, Frey B, Fietkau R
+    journal: ''
+    month: 08
+    type: other
+    description: ''
+    doi: 10.1101/2021.08.28.21262770
+  - title: Identification of 15 lncRNAs Signature for Predicting Survival Benefit of Advanced Melanoma Patients Treated with Anti-PD-1 Monotherapy
+    authors: Zhou J, Liang B, Liu J, Jin S, He S, Frey B, Gu N, Fietkau R, Hecht M, Ma H
+    journal: Cells
+    month: '04'
+    type: journal-article
+    description: ''
+    doi: 10.3390/cells10050977
+  - title: Prospective development and validation of a liquid immune profile-based signature (LIPS) to predict response of patients with recurrent/metastatic cancer to immune checkpoint inhibitors
+    authors: Zhou J, Donaubauer A, Frey B, Becker I, Rutzner S, Eckstein M, Sun R, Ma H, Schubert P, Schweizer C
+    journal: Journal for ImmunoTherapy of Cancer
+    month: '02'
+    type: journal-article
+    description: ''
+    doi: 10.1136/jitc-2020-001845
+  - title: Establishment and Validation of a Prognostic Immune Signature in Neuroblastoma
+    authors: Yu Y, Zeng Y, Xia X, Zhou J, Cao F
+    journal: Cancer Control
+    month: '01'
+    type: journal-article
+    description: ''
+    doi: 10.1177/10732748211033751
+  - title: Association of CSMD1 with Tumor Mutation Burden and Other Clinical Outcomes in Gastric Cancer
+    authors: Wang X, Wang S, Han Y, Xu M, Li P, Ke M, Teng Z, Huang P, Diao Z, Yan Y
+    journal: International Journal of General Medicine
+    month: '11'
+    type: journal-article
+    description: ''
+    doi: 10.2147/ijgm.s325910
+  - title: Ggct (γ‐glutamyl cyclotransferase) plays an important role in erythrocyte antioxidant defense and red blood cell survival
+    authors: He Z, Sun X, Wang S, Bai D, Zhao X, Han Y, Hao P, Liu X
+    journal: British Journal of Haematology
+    month: 08
+    type: journal-article
+    description: ''
+    doi: 10.1111/bjh.17775
+  - title: Essential role for Ggct in erythrocyte antioxidant defense
+    authors: He Z, Sun X, Wang S, Bai D, Zhao X, Han Y, Hao P, Liu X
+    journal: ''
+    month: '06'
+    type: other
+    description: ''
+    doi: 10.1101/2021.06.21.449332
+  - title: Copy number signature analysis tool and its application in prostate cancer reveals distinct mutational processes and clinical outcomes
+    authors: Wang S, Li H, Song M, Tao Z, Wu T, He Z, Zhao X, Wu K, Liu X
+    journal: PLOS Genetics
+    month: '05'
+    type: journal-article
+    description: ''
+    doi: 10.1371/journal.pgen.1009557
+  - title: Pan-cancer noncoding genomic analysis identifies functional CDC20 promoter mutation hotspots
+    authors: He Z, Wu T, Wang S, Zhang J, Sun X, Tao Z, Zhao X, Li H, Wu K, Liu X
+    journal: iScience
+    month: '04'
+    type: journal-article
+    description: ''
+    doi: 10.1016/j.isci.2021.102285
+  '2020':
+  - title: 'Low Dose Radiation Therapy, Particularly with 0.5 Gy, Improves Pain in Degenerative Joint Disease of the Fingers: Results of a Retrospective Analysis'
+    authors: Donaubauer A, Zhou J, Ott O, Putz F, Fietkau R, Keilholz L, Gaipl U, Frey B, Weissmann T
+    journal: International Journal of Molecular Sciences
+    month: 08
+    type: journal-article
+    description: ''
+    doi: 10.3390/ijms21165854
+  - title: Development of a Flow Cytometry-Based Whole-Blood Prognostic Immune Signature in Metastatic Cancer Patients treated with immune checkpoint inhibitors
+    authors: Zhou J, Donaubauer A, Frey B, Becker I, Rutzner S, Eckstein M, Sun R, Ma H, Schubert P, Schweizer C
+    journal: ''
+    month: 08
+    type: other
+    description: ''
+    doi: 10.1101/2020.08.03.20167163
+  - title: Identification of novel key lncRNAs involved in periodontitis by weighted gene co‐expression network analysis
+    authors: Jin S, Zhou R, Guan X, Zhou J, Liu J
+    journal: Journal of Periodontal Research
+    month: '01'
+    type: journal-article
+    description: ''
+    doi: 10.1111/jre.12693
+  - title: 'Olanzapine combined with 5-hydroxytryptamine type 3 receptor antagonist (5-HT3 RA) plus dexamethasone for prevention and treatment of chemotherapy-induced nausea and vomiting in high and moderate emetogenic chemotherapy: a systematic review and meta-analysis of randomised controlled trials'
+    authors: Zhou J, Huang L, Jin S, Xu C, Frey B, Ma H, Gaipl U
+    journal: ESMO Open
+    month: ''
+    type: journal-article
+    description: ''
+    doi: 10.1136/esmoopen-2019-000621
+  - title: 'Sigflow: an automated and comprehensive pipeline for cancer genome mutational signature analysis'
+    authors: Wang S, Tao Z, Wu T, Liu X
+    journal: ''
+    month: 08
+    type: preprint
+    description: ''
+    doi: 10.1101/2020.08.12.247528
+  - title: 'UCSCXenaShiny: An R Package for Exploring and Analyzing UCSC Xena Public Datasets in Web Browser'
+    authors: Wang S, Xiong Y, Gu K, Zhao L, Li Y, Zhao F, Li X, Liu X
+    journal: ''
+    month: '07'
+    type: other
+    description: ''
+    doi: 10.20944/preprints202007.0179.v1
+  - title: Revisiting neoantigen depletion signal in the untreated cancer genome
+    authors: Wang S, Wang X, Wu T, He Z, Li H, Sun X, Liu X
+    journal: ''
+    month: '05'
+    type: preprint
+    description: ''
+    doi: 10.1101/2020.05.11.089540
+  - title: Copy number signature analyses in prostate cancer reveal distinct etiologies and clinical outcomes
+    authors: Wang S, Li H, Song M, He Z, Wu T, Wang X, Tao Z, Wu K, Liu X
+    journal: ''
+    month: '04'
+    type: other
+    description: ''
+    doi: 10.1101/2020.04.27.20082404

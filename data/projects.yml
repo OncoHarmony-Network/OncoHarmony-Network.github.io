@@ -1,6 +1,7 @@
 # Featured Projects
 featured_projects:
-  - name: "OncoHarmony Framework"
+  - id: "oncoharmony-framework"
+    name: "OncoHarmony Framework"
     type: "Computational Tool"
     description: "A comprehensive computational framework that integrates multi-omics data to model tumor-immune interactions and predict immunotherapy response. This open-source tool provides researchers with a powerful platform to analyze complex cancer datasets."
     icon: "code-branch"
@@ -9,11 +10,16 @@ featured_projects:
       - "R"
       - "Machine Learning"
       - "Multi-omics"
+    tags:
+      - "Computational Tools"
+      - "Multi-omics Integration"
+      - "Tumor-Immune Modeling"
     links:
       github: "https://github.com/OncoHarmony-Network"
       documentation: "#"
 
-  - name: "Cancer Immunotherapy Atlas"
+  - id: "cancer-immunotherapy-atlas"
+    name: "Cancer Immunotherapy Atlas"
     type: "Data Resource"
     description: "A comprehensive atlas of multi-omics data from cancer patients treated with immunotherapy. This resource integrates genomics, transcriptomics, proteomics, and clinical data to facilitate biomarker discovery and therapeutic development."
     icon: "database"
@@ -22,62 +28,92 @@ featured_projects:
       - "Multi-omics"
       - "Clinical Data"
       - "Open Access"
+    tags:
+      - "Multi-omics Integration"
+      - "Immunotherapy Biomarkers"
     links:
       website: "#"
       download: "#"
 
 # All Projects
 all_projects:
-  - name: "Single-Cell Immunotherapy Profiling"
+  - id: "oncoharmony-framework"
+    name: "OncoHarmony Framework"
+    description: "A comprehensive computational framework that integrates multi-omics data to model tumor-immune interactions and predict immunotherapy response. This open-source tool provides researchers with a powerful platform to analyze complex cancer datasets."
+    icon: "code-branch"
+    category: "Computational Tool"
+    tags:
+      - "Computational Tools"
+      - "Multi-omics Integration"
+      - "Tumor-Immune Modeling"
+    link: "#"
+
+  - id: "cancer-immunotherapy-atlas"
+    name: "Cancer Immunotherapy Atlas"
+    description: "A comprehensive atlas of multi-omics data from cancer patients treated with immunotherapy. This resource integrates genomics, transcriptomics, proteomics, and clinical data to facilitate biomarker discovery and therapeutic development."
+    icon: "database"
+    category: "Data Resource"
+    tags:
+      - "Multi-omics Integration"
+      - "Immunotherapy Biomarkers"
+    link: "#"
+
+  - id: "single-cell-immunotherapy-profiling"
+    name: "Single-Cell Immunotherapy Profiling"
     description: "Profiling tumor-infiltrating lymphocytes at single-cell resolution to understand mechanisms of immunotherapy response and resistance."
     icon: "microscope"
     category: "Single-Cell Immunology"
     tags:
-      - "Single-Cell"
-      - "Immunology"
+      - "Immunotherapy Biomarkers"
+      - "Multi-omics Integration"
     link: "#"
 
-  - name: "Immunotherapy Response Prediction"
+  - id: "immunotherapy-response-prediction"
+    name: "Immunotherapy Response Prediction"
     description: "Developing machine learning models to predict patient response to immune checkpoint inhibitors using multi-omics data."
     icon: "chart-line"
     category: "Machine Learning Biomarkers"
     tags:
-      - "Machine Learning"
-      - "Biomarkers"
+      - "Computational Tools"
+      - "Immunotherapy Biomarkers"
     link: "#"
 
-  - name: "Neoantigen Prediction Pipeline"
+  - id: "neoantigen-prediction-pipeline"
+    name: "Neoantigen Prediction Pipeline"
     description: "A computational pipeline for predicting tumor neoantigens and their immunogenicity to guide personalized cancer vaccines."
     icon: "dna"
     category: "Pipeline Neoantigens"
     tags:
-      - "Pipeline"
-      - "Neoantigens"
+      - "Computational Tools"
+      - "Immunotherapy Biomarkers"
     link: "#"
 
-  - name: "Gut Microbiome & Immunotherapy"
+  - id: "gut-microbiome-immunotherapy"
+    name: "Gut Microbiome & Immunotherapy"
     description: "Investigating the role of gut microbiome in modulating immunotherapy response and developing microbiome-based interventions."
     icon: "bacteria"
     category: "Microbiome Immunotherapy"
     tags:
-      - "Microbiome"
-      - "Immunotherapy"
+      - "Immunotherapy Biomarkers"
+      - "Multi-omics Integration"
     link: "#"
 
-  - name: "Tumor-Immune Network Analysis"
+  - id: "tumor-immune-network-analysis"
+    name: "Tumor-Immune Network Analysis"
     description: "Constructing and analyzing tumor-immune interaction networks to identify key regulators of anti-tumor immunity."
     icon: "network-wired"
     category: "Network Analysis Systems Biology"
     tags:
-      - "Network Analysis"
-      - "Systems Biology"
+      - "Tumor-Immune Modeling"
+      - "Multi-omics Integration"
     link: "#"
 
-  - name: "AI-Driven Immunotherapy Design"
+  - id: "ai-driven-immunotherapy-design"
+    name: "AI-Driven Immunotherapy Design"
     description: "Using artificial intelligence to design novel immunotherapeutic strategies, including bispecific antibodies and CAR-T cell therapies."
     icon: "robot"
     category: "AI Drug Design"
     tags:
-      - "AI"
-      - "Drug Design"
+      - "Computational Tools"
+      - "Tumor-Immune Modeling"
     link: "#"
