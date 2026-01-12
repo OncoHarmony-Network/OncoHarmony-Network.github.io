@@ -11,18 +11,32 @@ class DataLoader {
     // Detect the base URL for loading files
     detectBaseUrl() {
         const pathname = window.location.pathname;
+        const hostname = window.location.hostname;
+        
+        console.log('detectBaseUrl called');
+        console.log('Hostname:', hostname);
+        console.log('Pathname:', pathname);
+        
         // Check if running on GitHub Pages with repo name in path
         if (pathname.includes('/OncoHarmony-website/')) {
             return '/OncoHarmony-website/';
         }
-        // Check if running on GitHub Pages with custom domain
-        if (window.location.hostname.includes('github.io')) {
-            // Extract repo name from pathname
-            const repoName = pathname.split('/')[1];
-            if (repoName) {
+        
+        // Check if running on GitHub Pages
+        if (hostname.includes('github.io')) {
+            // Handle organization/user pages like oncoharmony-network.github.io
+            if (hostname === 'oncoharmony-network.github.io') {
+                return './';
+            }
+            
+            // Handle project pages like username.github.io/repo-name
+            const pathParts = pathname.split('/').filter(Boolean);
+            if (pathParts.length > 0) {
+                const repoName = pathParts[0];
                 return `/${repoName}/`;
             }
         }
+        
         // Default to relative path for local development
         return './';
     }
@@ -128,6 +142,9 @@ class DataLoader {
     getNews() {
         return this.data.news || {};
     }
+    
+    // No need for a separate public method - the loadProjectDetails method is already public
+    // The method is defined on the class prototype and is available to all instances
     
     getGeneral() {
         const general = this.data.general || {};
@@ -251,7 +268,7 @@ class DataLoader {
         return count > 0 ? `${count}+` : "20+";
     }
     
-    // Load project details
+    // Load project details - FIXED for GitHub Pages
     async loadProjectDetails(projectId) {
         try {
             console.log('Loading project details for:', projectId);
@@ -260,9 +277,18 @@ class DataLoader {
             console.log('Window pathname:', window.location.pathname);
             console.log('Window hostname:', window.location.hostname);
             
+            // Test different path approaches to handle GitHub Pages
+            const baseUrl = this.baseUrl;
             const paths = [
-                `${this.baseUrl}data/projects/${projectId}.yml`,
-                `${this.baseUrl}data/projects/${projectId}.md`
+                // Path with baseUrl
+                `${baseUrl}data/projects/${projectId}.yml`,
+                `${baseUrl}data/projects/${projectId}.md`,
+                // Fallback paths without baseUrl
+                `data/projects/${projectId}.yml`,
+                `data/projects/${projectId}.md`,
+                // Absolute paths for GitHub Pages
+                `/data/projects/${projectId}.yml`,
+                `/data/projects/${projectId}.md`
             ];
             
             console.log('Attempting to load from paths:', paths);
@@ -287,6 +313,7 @@ class DataLoader {
                     }
                 } catch (error) {
                     console.error(`Error loading project details from ${path}:`, error);
+                    // Continue to next path
                 }
             }
             console.error('Failed to load project details from all paths');
