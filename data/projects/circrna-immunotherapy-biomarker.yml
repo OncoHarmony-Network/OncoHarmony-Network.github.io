@@ -1,0 +1,36 @@
+# CircRNA-based Immunotherapy Response Biomarkers
+name: "CircRNA-based Immunotherapy Response Biomarkers"
+category: "RNA Research"
+icon: "circle-notch"
+
+# Project Overview
+overview: |
+  This research project focuses on identifying and validating circular RNA (circRNA) signatures as predictive biomarkers for immunotherapy response in cancer patients. CircRNAs are stable, tissue-specific non-coding RNAs that play crucial roles in tumor-immune interactions.
+
+# Background
+background: |
+  Circular RNAs (circRNAs) are a class of non-coding RNAs with covalently closed loop structures, making them highly stable and resistant to degradation. Emerging evidence suggests circRNAs play crucial roles in tumor-immune interactions and may serve as reliable biomarkers for predicting immunotherapy response. Their stability in body fluids also makes them attractive candidates for non-invasive biomarker development.
+
+# Objectives
+objectives:
+  - "Identify circRNA signatures that accurately predict patient response to immune checkpoint inhibitors"
+  - "Validate these signatures in independent patient cohorts"
+  - "Elucidate the molecular mechanisms linking circRNAs to tumor-immune microenvironment modulation"
+  - "Develop circRNA-based diagnostic assays for clinical use"
+
+# Research Content
+content: |
+  Systematic profiling of circRNA expression in immunotherapy-treated patients, identification of response-associated circRNAs using machine learning approaches, functional validation of candidate circRNAs in vitro and in vivo, development of circRNA-based predictive models, and clinical validation in prospective cohorts.
+
+# Expected Outcomes
+outcomes:
+  - "A validated circRNA signature panel for immunotherapy response prediction"
+  - "Mechanistic insights into circRNA-mediated immune regulation"
+  - "Potential therapeutic targets for improving immunotherapy outcomes"
+
+# Roadmap
+roadmap:
+  - "Retrospective cohort analysis"
+  - "Signature identification and validation"
+  - "Mechanistic studies"
+  - "Clinical validation"

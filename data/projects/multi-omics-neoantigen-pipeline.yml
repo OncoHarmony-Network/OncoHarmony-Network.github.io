@@ -1,0 +1,38 @@
+# Multi-omics Neoantigen Prediction Pipeline
+name: "Multi-omics Neoantigen Prediction Pipeline"
+category: "Algorithm Development"
+icon: "cogs"
+
+# Project Overview
+overview: |
+  This project develops integrated DNA/RNA multi-omics algorithms and standardized workflows for neoantigen prediction to improve accuracy and efficiency in immunotherapy response prediction. Current approaches often rely on DNA data alone, missing important information from RNA expression, splicing, and post-transcriptional modifications.
+
+# Background
+background: |
+  Current neoantigen prediction approaches often rely on DNA data alone, missing important information from RNA expression, splicing, and post-transcriptional modifications. Integrating multi-omics data can significantly improve prediction accuracy. This project aims to develop comprehensive multi-omics neoantigen prediction algorithms and user-friendly pipelines.
+
+# Objectives
+objectives:
+  - "Develop integrated multi-omics neoantigen prediction algorithms"
+  - "Construct standardized analysis workflows"
+  - "Evaluate clinical utility in immunotherapy response prediction"
+  - "Make tools available to the research community"
+
+# Research Content
+content: |
+  Integration of WGS/WES, RNA-seq, and proteomics data, development of machine learning algorithms for neoantigen prioritization, construction of user-friendly pipelines, and clinical validation studies.
+
+# Expected Outcomes
+outcomes:
+  - "Comprehensive multi-omics neoantigen prediction pipeline"
+  - "Improved prediction accuracy"
+  - "Validated clinical utility for immunotherapy decision-making"
+  - "Open-source software tools"
+  - "Publication of 3-4 high-impact papers"
+
+# Roadmap
+roadmap:
+  - "Algorithm development"
+  - "Pipeline implementation"
+  - "Validation studies"
+  - "Clinical deployment"

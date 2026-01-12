@@ -6,7 +6,7 @@
                     <img src="images/logo-footer.png" alt="OncoHarmony Logo" class="h-20 w-20 object-contain">
                     <span class="text-xl font-bold">OncoHarmony</span>
                 </div>
-                <p class="text-gray-400 mb-4">
+                <p class="text-gray-400 mb-4" id="footer-description">
                     Advancing Immuno-oncology through collaborative multi-omics research.
                 </p>
                 <div class="flex space-x-4">
@@ -41,7 +41,7 @@
                 <ul class="space-y-2">
                     <li class="flex items-start">
                         <i class="fas fa-envelope text-purple-400 mr-3 mt-1"></i>
-                        <span class="text-gray-400">contact@oncoharmony.org</span>
+                        <span class="text-gray-400">wangshx@csu.edu.cn</span>
                     </li>
                     <li class="flex items-start">
                         <i class="fas fa-map-marker-alt text-purple-400 mr-3 mt-1"></i>
@@ -52,11 +52,13 @@
             
             <div>
                 <h3 class="text-lg font-semibold mb-4">Institutions</h3>
-                <ul class="space-y-2">
+                <ul class="space-y-2" id="footer-institutions">
+                    <!-- Default institutions list - will be updated dynamically -->
                     <li><a href="https://zhoulab.ac.cn/" class="text-gray-400 hover:text-white transition-colors">Zhou Lab</a></li>
-                    <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Partner Institution 1</a></li>
-                    <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Partner Institution 2</a></li>
-                    <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Partner Institution 3</a></li>
+                    <li><a href="https://faculty.csu.edu.cn/wangshixiang" class="text-gray-400 hover:text-white transition-colors">Wang Lab</a></li>
+                    <li><a href="https://faculty.csu.edu.cn/lixuejun/zh_CN/index.htm" class="text-gray-400 hover:text-white transition-colors">Xuejun Li Lab</a></li>
+                    <li><a href="https://genaimed.org/" class="text-gray-400 hover:text-white transition-colors">Robin Luo Lab</a></li>
+                    <li><a href="https://yulab-smu.top/" class="text-gray-400 hover:text-white transition-colors">Guangchuang Yu Lab</a></li>
                 </ul>
             </div>
         </div>
@@ -67,15 +69,81 @@
     </div>
 </footer>
 
+<!-- Add clustrmaps div directly -->
+<div id="clustrmaps-widget" style="width: 100%; height: 200px; margin-top: -20px;"></div>
+
 <script>
-    // Load footer component
-    fetch('components/footer.html')
-        .then(response => response.text())
-        .then(html => {
-            const footerContainer = document.getElementById('footer-container');
-            if (footerContainer) {
-                footerContainer.innerHTML = html;
-            }
-        })
-        .catch(error => console.error('Error loading footer:', error));
+    // Load clustrmaps script directly
+    (function() {
+        var script = document.createElement('script');
+        script.type = 'text/javascript';
+        script.id = 'clustrmaps';
+        script.async = true;
+        script.src = '//cdn.clustrmaps.com/map_v2.js?cl=ffffff&w=a&t=tt&d=EAHUiyENL7ZH5qYeVHnr5TyNq-1zKxollsI6RW1iSYw';
+        
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(script, s);
+        
+        console.log('Clustrmaps script loaded');
+    })();
+    
+    // Update footer data from general.yml if dataLoader is available
+    window.updateFooterFromDataLoader = function() {
+        console.log('updateFooterFromDataLoader called');
+        
+        if (typeof dataLoader !== 'undefined') {
+            console.log('dataLoader is available');
+            
+            dataLoader.load().then(function(data) {
+                console.log('Data loaded:', data);
+                
+                if (data.general && data.general.contact && data.general.contact.footer) {
+                    var footerData = data.general.contact.footer;
+                    console.log('Footer data:', footerData);
+                    
+                    // Update footer description
+                    var footerDescription = document.getElementById('footer-description');
+                    if (footerDescription && footerData.description) {
+                        footerDescription.textContent = footerData.description;
+                    }
+                    
+                    // Update institutions
+                    var institutionsContainer = document.getElementById('footer-institutions');
+                    if (institutionsContainer && footerData.institutions) {
+                        var institutions = footerData.institutions;
+                        console.log('Updating institutions:', institutions);
+                        
+                        institutionsContainer.innerHTML = '';
+                        
+                        if (Array.isArray(institutions)) {
+                            institutions.forEach(function(institution) {
+                                if (institution.name && institution.link) {
+                                    var li = document.createElement('li');
+                                    var a = document.createElement('a');
+                                    a.href = institution.link;
+                                    a.className = 'text-gray-400 hover:text-white transition-colors';
+                                    a.textContent = institution.name;
+                                    li.appendChild(a);
+                                    institutionsContainer.appendChild(li);
+                                }
+                            });
+                        }
+                    }
+                }
+            }).catch(function(error) {
+                console.error('Error loading data:', error);
+            });
+        } else {
+            console.error('dataLoader is not available');
+        }
+    };
+    
+    // Automatically try to update footer when the script loads
+    if (typeof window.updateFooterFromDataLoader === 'function') {
+        // Try to update footer immediately
+        window.updateFooterFromDataLoader();
+        
+        // Also set a timeout to ensure it runs after page loads
+        setTimeout(window.updateFooterFromDataLoader, 1000);
+    }
 </script>

@@ -8,6 +8,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/academicons@1.9.1/css/academicons.min.css">
     <script src="https://cdn.jsdelivr.net/npm/js-yaml@4.1.0/dist/js-yaml.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked@12.0.0/marked.min.js"></script>
     <script src="js/data-loader.js"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
@@ -212,8 +213,8 @@
                             </div>
                         </div>
                         <h2 class="text-3xl font-bold text-gray-800 mb-6">${article.title}</h2>
-                        <div class="text-gray-600">
-                            ${article.content}
+                        <div class="text-gray-600 prose prose-purple max-w-none">
+                            ${marked.parse(article.content)}
                         </div>
                     `;
                     
@@ -281,7 +282,12 @@
         }
         
         // Initialize
-        loadNewsArticle();
+        loadNewsArticle().then(() => {
+            // After data is loaded, initialize footer
+            if (typeof updateFooterFromDataLoader === 'function') {
+                updateFooterFromDataLoader();
+            }
+        });
     </script>
 </body>
 </html>

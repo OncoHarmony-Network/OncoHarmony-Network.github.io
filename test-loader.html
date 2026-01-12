@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Loader Test</title>
+    <script src="https://cdn.jsdelivr.net/npm/js-yaml@4.1.0/dist/js-yaml.min.js"></script>
+    <script src="js/data-loader.js"></script>
+</head>
+<body>
+    <h1>Data Loader Test</h1>
+    <div id="results">
+        <p>Loading data...</p>
+    </div>
+
+    <script>
+        console.log('Test page loaded');
+        console.log('typeof dataLoader:', typeof dataLoader);
+        
+        dataLoader.load().then(function(data) {
+            console.log('Data loaded:', data);
+            console.log('data.general:', data.general);
+            console.log('data.general.contact:', data.general ? data.general.contact : undefined);
+            console.log('data.general.contact.footer:', data.general && data.general.contact ? data.general.contact.footer : undefined);
+            
+            const resultsDiv = document.getElementById('results');
+            
+            if (data.general && data.general.contact && data.general.contact.footer) {
+                const footerData = data.general.contact.footer;
+                let html = '<h2>Footer Data Loaded Successfully!</h2>';
+                html += '<h3>Description:</h3>';
+                html += '<p>' + footerData.description + '</p>';
+                html += '<h3>Institutions:</h3>';
+                html += '<ul>';
+                footerData.institutions.forEach(function(inst) {
+                    html += '<li><a href="' + inst.link + '">' + inst.name + '</a></li>';
+                });
+                html += '</ul>';
+                resultsDiv.innerHTML = html;
+            } else {
+                resultsDiv.innerHTML = '<p style="color: red;">Footer data not found!</p>';
+                console.error('Footer data not found in loaded data');
+            }
+        }).catch(function(error) {
+            console.error('Error loading data:', error);
+            document.getElementById('results').innerHTML = '<p style="color: red;">Error loading data: ' + error.message + '</p>';
+        });
+    </script>
+</body>
+</html>

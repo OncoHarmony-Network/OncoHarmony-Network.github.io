@@ -1,176 +1,223 @@
 # Leadership Team
+# 负责人：按姓名拼音排序
 leadership_team:
+
   - name: "周建国 (Jian-Guo Zhou)"
-    role: "负责人"
-    institution: "Zhou Lab, <a href=\"https://zhoulab.ac.cn/\" class=\"text-purple-600 hover:underline\">zhoulab.ac.cn</a>"
-    description: "主要负责计算平台、资金、文稿和监管"
+    role: "负责人 (Supervisor)"
+    institution: "Zunyi Medical University"
     avatar: "images/members/Jian-Guo-Zhou.webp"
     avatar_type: "image"
     links:
-      google_scholar: "#"
-      researchgate: "#"
-      orcid: "#"
-      github: "#"
+      google_scholar: "https://scholar.google.com/citations?user=1CLZex8AAAAJ&hl=zh-CN"
+      researchgate: "https://www.researchgate.net/profile/Jian-Guo-Zhou"
+      orcid: "https://orcid.org/0000-0002-5021-3739"
+      github: "https://github.com/JianGuoZhou3"
 
   - name: "王诗翔 (Shixiang Wang)"
-    role: "负责人"
-    institution: "Leading University"
-    description: "主要负责项目管理、技术路线、部署运维"
+    role: "负责人 (Supervisor)" 
+    institution: "Central South University"
     avatar: "images/members/shixiangwang.jpg"
     avatar_type: "image"
     links:
-      google_scholar: "#"
-      researchgate: "#"
-      orcid: "#"
-      github: "#"
+      google_scholar: "https://scholar.google.com/citations?user=FvNp0NkAAAAJ&hl=en"
+      researchgate: "https://www.researchgate.net/profile/Wang-Shixiang-3"
+      orcid: "https://orcid.org/0000-0001-9855-7357"
+      github: "https://github.com/ShixiangWang"
 
 # Advisory Board
+# 顾问：按职位重要性（科学顾问>技术顾问）和姓名拼音排序
 advisory_board:
-  - name: "王海涛 (Haitao Wang)"
-    role: "科学顾问"
-    institution: "Partner Institution"
-    field: "Immuno-oncology"
+  - name: "崔炎濡 (Yanru Cui)"
+    role: "科学/技术顾问 (Scientific/Technical Advisor)"
+    institution: "Cornell University"
+    field: "Biology, Gene Editing and Biotechnology"
     avatar: "user-graduate"
     links:
       google_scholar: "#"
       researchgate: "#"
 
   - name: "罗鹏 (Peng Luo)"
-    role: "科学顾问"
-    institution: "Partner Institution"
+    role: "科学顾问 (Scientific Advisor)"
+    institution: "Southern Medical University"
     field: "Immuno-oncology"
     avatar: "user-graduate"
     links:
       google_scholar: "#"
       researchgate: "#"
 
-  - name: "赵飞 (Fei Zhao)"
-    role: "产业顾问"
-    institution: "Industry Partner"
-    field: "Biotechnology"
-    avatar: "user-graduate"
-    links:
-      google_scholar: "#"
-      researchgate: "#"
-
-  - name: "叶宁荣 (Ningrong Ye)"
-    role: "技术顾问"
-    institution: "Partner Institution"
-    field: "深度学习与医学影像"
-    avatar: "user-graduate"
-    links:
-      google_scholar: "#"
-      researchgate: "#"
-
-  - name: "崔炎濡 (Yanru Cui)"
-    role: "技术顾问"
-    institution: "Partner Institution"
-    field: "基因编辑"
-    avatar: "user-graduate"
-    links:
-      google_scholar: "#"
-      researchgate: "#"
-
-  - name: "熊逸 (Yi Xiong)"
-    role: "技术顾问"
-    institution: "Partner Institution"
-    field: "生信"
+  - name: "王海涛 (Haitao Wang)"
+    role: "科学顾问 (Scientific Advisor)"
+    institution: "Macau University/NCI"
+    field: "Biology and Immuno-oncology"
     avatar: "user-graduate"
     links:
       google_scholar: "#"
       researchgate: "#"
 
   - name: "刘尊鹏 (Zunpeng Liu)"
-    role: "技术顾问"
-    institution: "Partner Institution"
-    field: "ERV、生物学"
+    role: "技术顾问 (Technical Advisor)"
+    institution: "MIT and Broad Institute"
+    field: "ERV, Biology"
     avatar: "user-graduate"
     links:
       google_scholar: "#"
       researchgate: "#"
 
-# Students
-students:
+  - name: "彭云 (Yun Peng)"
+    role: "技术顾问 (Technical Advisor)"
+    institution: "People's Hospital of Peking University"
+    field: "Bioinformatics and Oncology"
+    avatar: "user-graduate"
+    links:
+      google_scholar: "#"
+      researchgate: "#"
+
+  - name: "熊逸 (Yi Xiong)"
+    role: "技术顾问 (Technical Advisor)"
+    institution: "Xiangya Hospital, Central South University"
+    field: "Genomics and Oncology"
+    avatar: "user-graduate"
+    links:
+      google_scholar: "#"
+      researchgate: "#"
+
+  - name: "叶宁荣 (Ningrong Ye)"
+    role: "技术顾问 (Technical Advisor)"
+    institution: "Xiangya Hospital, Central South University"
+    field: "Deep Learning and Medical Imaging"
+    avatar: "user-graduate"
+    links:
+      google_scholar: "#"
+      researchgate: "#"
+
+  - name: "赵飞 (Fei Zhao)"
+    role: "技术顾问 (Technical Advisor)"
+    institution: "Chinese Academy of Sciences"
+    field: "Bioinformatics and AI"
+    avatar: "user-graduate"
+    links:
+      google_scholar: "#"
+      researchgate: "#"
+
+
+# Graduate Students
+# 研究生：按学位（博士>硕士）和姓名拼音排序
+graduate_students:
   - name: "徐俊祝 (Junzhu Xu)"
-    role: "学生"
-    field: "Immuno-oncology"
+    role: "博士生"
+    field: "Clinical and Basic Research"
     avatar: "user-graduate"
 
   - name: "张益浩 (Yihao Zhang)"
-    role: "学生"
-    field: "Immuno-oncology"
-    avatar: "user-graduate"
-
-  - name: "李申锁 (Shensuo Li)"
-    role: "学生"
-    field: "Immuno-oncology"
-    avatar: "user-graduate"
-
-  - name: "李金辉 (Jinhui Li)"
-    role: "学生"
-    field: "Immuno-oncology"
-    avatar: "user-graduate"
-
-  - name: "赵加栋 (Jiadong Zhao)"
-    role: "学生"
-    field: "Immuno-oncology"
-    avatar: "user-graduate"
-
-  - name: "谌泯均 (Minjun Chen)"
-    role: "全日制研究生"
-    field: "Immuno-oncology"
+    role: "博士生"
+    field: "Clinical and Basic Research"
     avatar: "user-graduate"
 
   - name: "蔡颖 (Ying Cai)"
-    role: "全日制研究生"
-    field: "Immuno-oncology"
+    role: "硕士生"
+    field: "Clinical and Basic Research"
     avatar: "user-graduate"
 
-  - name: "李新 (Xin Li)"
-    role: "全日制研究生"
-    field: "Immuno-oncology"
-    avatar: "user-graduate"
-
-  - name: "王琰 (Yan Wang)"
-    role: "全日制研究生"
-    field: "Immuno-oncology"
-    avatar: "user-graduate"
-
-  - name: "王春阳 (Chunyang Wang)"
-    role: "全日制研究生"
-    field: "Immuno-oncology"
+  - name: "谌泯均 (Minjun Chen)"
+    role: "硕士生"
+    field: "Clinical and Basic Research"
     avatar: "user-graduate"
 
   - name: "舒晨阳 (Chenyang Shu)"
-    role: "全日制研究生"
-    field: "Immuno-oncology"
+    role: "硕士生"
+    field: "Bioinformatics"
     avatar: "user-graduate"
 
+  - name: "李新 (Xin Li)"
+    role: "硕士生"
+    field: "Clinical and Basic Research"
+    avatar: "user-graduate"
+
+  - name: "王琰 (Yan Wang)"
+    role: "硕士生"
+    field: "Clinical and Basic Research"
+    avatar: "user-graduate"
+
+  - name: "王春阳 (Chunyang Wang)"
+    role: "硕士生"
+    field: "Bioinformatics"
+    avatar: "user-graduate"
+
+  - name: "王章宇 (Zhangyu Wang)"
+    role: "硕士生"
+    field: "Bioinformatics"
+    avatar: "user-graduate"
+
+  - name: "严彬 (Bin Yan)"
+    role: "硕士生"
+    field: "Bioinformatics"
+    avatar: "user-graduate"
+
+
+# Undergraduate Students
+# 本科生：按姓名拼音排序
+undergraduate_students:
   - name: "赵彦昆 (Yankun Zhao)"
     role: "本科生"
-    field: "Immuno-oncology"
+    field: "Clinical and Basic Research"
     avatar: "user-graduate"
 
   - name: "阳钰熙 (Yuxi Yang)"
     role: "本科生"
-    field: "Immuno-oncology"
+    field: "Bioinformatics"
     avatar: "user-graduate"
 
-  - name: "严彬 (Bin Yan)"
+  - name: "乾洪倩 (Hongqian Qian)"
     role: "本科生"
-    field: "Immuno-oncology"
+    field: "Bioinformatics"
     avatar: "user-graduate"
 
-  - name: "王章宇 (Zhangyu Wang)"
+  - name: "杜丽萍 (Liping Du)"
     role: "本科生"
-    field: "Immuno-oncology"
+    field: "Bioinformatics"
+    avatar: "user-graduate"
+
+  - name: "韦若尘 (Ruchen Wei)"
+    role: "本科生"
+    field: "Bioinformatics"
+    avatar: "user-graduate"
+
+  - name: "王柏荃 (Boquan Wang)"
+    role: "本科生"
+    field: "Bioinformatics"
+    avatar: "user-graduate"
+
+  - name: "丁加 (Jia Ding)"
+    role: "本科生"
+    field: "Bioinformatics"
+    avatar: "user-graduate"
+
+  - name: "刘婉仪 (Wanyi Liu)"
+    role: "本科生"
+    field: "Bioinformatics"
+    avatar: "user-graduate"
+
+  - name: "唐未央 (Weiyang Tang)"
+    role: "本科生"
+    field: "Bioinformatics/Clinical Research"
     avatar: "user-graduate"
 
 # Others
+# 其他成员：按职位重要性和姓名拼音排序
 others:
   research_fellows:
     - name: "李剑峰 (Jianfeng Li)"
-      role: "Hiplot（ORG）协作者"
+      role: "Hiplot (ORG) 协作者"
+      field: "Bioinformatics"
+      avatar: "user-graduate"
+    
+    - name: "李金辉 (Jinhui Li)"
+      role: "海外博士生/技术成员"
+      field: "Bioinformatics"
+      avatar: "user-graduate"
+
+    - name: "赵加栋 (Jiadong Zhao)"
+      role: "工程师/技术成员"
       field: "Bioinformatics"
       avatar: "user-tie"
 
@@ -182,26 +229,10 @@ others:
     - name: "张驰 (Chi Zhang)"
       role: "其他参与和学习成员"
       field: "Immuno-oncology"
-      avatar: "user-tie"
+      avatar: "user-graduate"
 
-    - name: "赵加栋 (Jiadong Zhao)"
-      role: "其他参与和学习成员"
-      field: "Immuno-oncology"
-      avatar: "user-tie"
-
-  collaborators:
-    academic_institutions:
-      - "Leading University A"
-      - "Leading University B"
-      - "Leading University C"
-      - "Leading University D"
-
-    research_centers:
-      - "Cancer Research Institute A"
-      - "Immunology Center B"
-      - "Bioinformatics Institute C"
-
-    industry_partners:
-      - "Biotech Company A"
-      - "Pharmaceutical Company B"
-      - "Healthcare Technology C"
+    - name: "李申锁 (Shensuo Li)"
+      role: "博士生/技术成员"
+      field: "Bioinformatics"
+      avatar: "user-graduate"
+      institution: "Sichuan University"

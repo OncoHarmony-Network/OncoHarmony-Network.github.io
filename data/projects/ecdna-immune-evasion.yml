@@ -1,0 +1,37 @@
+# ecDNA in Immune Evasion and Immunotherapy Resistance
+name: "ecDNA in Immune Evasion and Immunotherapy Resistance"
+category: "DNA Research"
+icon: "project-diagram"
+
+# Project Overview
+overview: |
+  This project investigates the role of extrachromosomal DNA (ecDNA) in tumor immune evasion and its relationship with immunotherapy resistance. ecDNA are circular DNA molecules that carry oncogenes and contribute to tumor heterogeneity and evolution.
+
+# Background
+background: |
+  Extrachromosomal DNA (ecDNA) are circular DNA molecules that carry oncogenes and contribute to tumor heterogeneity and evolution. Emerging evidence suggests ecDNA may influence immune recognition and contribute to immunotherapy resistance. This project aims to characterize ecDNA landscapes and their impact on immune evasion.
+
+# Objectives
+objectives:
+  - "Characterize ecDNA landscapes in immunotherapy-resistant tumors"
+  - "Identify ecDNA-associated immune evasion mechanisms"
+  - "Develop strategies to overcome ecDNA-mediated resistance"
+  - "Validate ecDNA as a therapeutic target"
+
+# Research Content
+content: |
+  ecDNA detection and characterization using long-read sequencing, correlation with immune cell infiltration, functional studies of ecDNA-mediated immune evasion, and testing of combination therapies.
+
+# Expected Outcomes
+outcomes:
+  - "Mechanistic understanding of ecDNA-mediated immune evasion"
+  - "ecDNA biomarkers for immunotherapy resistance"
+  - "Novel therapeutic strategies targeting ecDNA"
+  - "Publication of 3-4 high-impact papers"
+
+# Roadmap
+roadmap:
+  - "ecDNA characterization"
+  - "Immune profiling"
+  - "Mechanistic studies"
+  - "Therapeutic development"

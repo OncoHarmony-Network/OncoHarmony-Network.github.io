@@ -270,7 +270,12 @@
         }
         
         // Initialize
-        loadAboutData();
+        loadAboutData().then(() => {
+            // After data is loaded, initialize footer
+            if (typeof updateFooterFromDataLoader === 'function') {
+                updateFooterFromDataLoader();
+            }
+        });
     </script>
 </body>
 </html>

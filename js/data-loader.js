@@ -199,9 +199,14 @@ class DataLoader {
             count += members.advisory_board.length;
         }
         
-        // Count students
-        if (members.students) {
-            count += members.students.length;
+        // Count graduate students
+        if (members.graduate_students) {
+            count += members.graduate_students.length;
+        }
+        
+        // Count undergraduate students
+        if (members.undergraduate_students) {
+            count += members.undergraduate_students.length;
         }
         
         // Count research fellows
@@ -249,18 +254,33 @@ class DataLoader {
     // Load project details
     async loadProjectDetails(projectId) {
         try {
+            console.log('Loading project details for:', projectId);
+            console.log('Base URL:', this.baseUrl);
+            console.log('Window location:', window.location.href);
+            console.log('Window pathname:', window.location.pathname);
+            console.log('Window hostname:', window.location.hostname);
+            
             const paths = [
                 `${this.baseUrl}data/projects/${projectId}.yml`,
                 `${this.baseUrl}data/projects/${projectId}.md`
             ];
             
+            console.log('Attempting to load from paths:', paths);
+            
             for (const path of paths) {
                 try {
+                    console.log('Trying to load from:', path);
                     const response = await fetch(path);
+                    console.log('Response status:', response.status);
+                    
                     if (response.ok) {
                         const content = await response.text();
+                        console.log('Content loaded successfully, length:', content.length);
+                        
                         if (path.endsWith('.yml')) {
-                            return jsyaml.load(content);
+                            const parsed = jsyaml.load(content);
+                            console.log('YAML parsed successfully:', parsed);
+                            return parsed;
                         } else if (path.endsWith('.md')) {
                             return { content };
                         }
@@ -269,6 +289,7 @@ class DataLoader {
                     console.error(`Error loading project details from ${path}:`, error);
                 }
             }
+            console.error('Failed to load project details from all paths');
             return null;
         } catch (error) {
             console.error('Error loading project details:', error);

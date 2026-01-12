@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Footer Test</title>
+    <script src="https://cdn.jsdelivr.net/npm/js-yaml@4.1.0/dist/js-yaml.min.js"></script>
+    <script src="js/data-loader.js"></script>
+</head>
+<body>
+    <h1>Footer Test</h1>
+    <div id="footer-container"></div>
+
+    <script>
+        // Test clustrmaps script
+        console.log('Testing clustrmaps script...');
+        const clustrmapsScript = document.createElement('script');
+        clustrmapsScript.type = 'text/javascript';
+        clustrmapsScript.id = 'clustrmaps';
+        clustrmapsScript.src = '//cdn.clustrmaps.com/map_v2.js?cl=ffffff&w=a&t=tt&d=EAHUiyENL7ZH5qYeVHnr5TyNq-1zKxollsI6RW1iSYw';
+        document.body.appendChild(clustrmapsScript);
+        clustrmapsScript.onload = function() {
+            console.log('Clustrmaps script loaded successfully');
+        };
+        clustrmapsScript.onerror = function() {
+            console.error('Error loading clustrmaps script');
+        };
+
+        // Test data loading
+        console.log('Testing data loading...');
+        fetch('data/general.yml')
+            .then(response => response.text())
+            .then(yamlContent => {
+                const data = jsyaml.load(yamlContent);
+                console.log('General.yml data:', data);
+                console.log('Footer data:', data.contact.footer);
+                console.log('Institutions:', data.contact.footer.institutions);
+            })
+            .catch(error => {
+                console.error('Error loading general.yml:', error);
+            });
+
+        // Load footer component
+        fetch('components/footer.html')
+            .then(response => response.text())
+            .then(html => {
+                document.getElementById('footer-container').innerHTML = html;
+                // Initialize footer
+                if (typeof updateFooterFromDataLoader === 'function') {
+                    console.log('Calling updateFooterFromDataLoader...');
+                    updateFooterFromDataLoader();
+                }
+            })
+            .catch(error => console.error('Error loading footer:', error));
+    </script>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Footer Fix Verification</title>
+    <script src="https://cdn.jsdelivr.net/npm/js-yaml@4.1.0/dist/js-yaml.min.js"></script>
+    <script src="js/data-loader.js"></script>
+</head>
+<body>
+    <h1>Footer Fix Verification</h1>
+    
+    <div id="status">
+        <h2>Status:</h2>
+        <div id="status-content"></div>
+    </div>
+    
+    <div id="footer-container"></div>
+    
+    <script>
+        function updateStatus(message) {
+            const statusContent = document.getElementById('status-content');
+            statusContent.innerHTML += `<p>${message}</p>`;
+            console.log(message);
+        }
+        
+        updateStatus('Starting footer fix verification...');
+        
+        // Check if dataLoader is available
+        setTimeout(() => {
+            updateStatus(`DataLoader available: ${typeof dataLoader !== 'undefined'}`);
+            
+            if (typeof dataLoader !== 'undefined') {
+                updateStatus('Loading data with dataLoader...');
+                
+                // Load data and check if general.yml is loaded correctly
+                dataLoader.load().then(data => {
+                    updateStatus('Data loading complete');
+                    updateStatus(`General data: ${JSON.stringify(data.general, null, 2)}`);
+                    updateStatus(`Footer data: ${JSON.stringify(data.general.contact.footer, null, 2)}`);
+                    
+                    // Load footer component
+                    updateStatus('Loading footer component...');
+                    fetch('components/footer.html')
+                        .then(response => response.text())
+                        .then(html => {
+                            updateStatus('Footer component loaded successfully');
+                            document.getElementById('footer-container').innerHTML = html;
+                            
+                            // Wait a moment for footer scripts to load
+                            setTimeout(() => {
+                                // Check if updateFooterFromDataLoader is available
+                                updateStatus(`updateFooterFromDataLoader available: ${typeof updateFooterFromDataLoader !== 'undefined'}`);
+                                
+                                if (typeof updateFooterFromDataLoader !== 'undefined') {
+                                    updateStatus('Calling updateFooterFromDataLoader...');
+                                    updateFooterFromDataLoader();
+                                }
+                                
+                                // Check if clustrmaps div exists
+                                setTimeout(() => {
+                                    const clustrmapsDiv = document.querySelector('#clustrmaps-widget');
+                                    updateStatus(`Clustrmaps widget available: ${clustrmapsDiv !== null}`);
+                                    if (clustrmapsDiv) {
+                                        updateStatus(`Clustrmaps widget HTML: ${clustrmapsDiv.outerHTML}`);
+                                    }
+                                }, 1000);
+                            }, 500);
+                        })
+                        .catch(error => {
+                            updateStatus(`Error loading footer: ${error}`);
+                        });
+                })
+                .catch(error => {
+                    updateStatus(`Error loading data: ${error}`);
+                });
+            } else {
+                updateStatus('DataLoader is not available');
+            }
+        }, 100);
+    </script>
+</body>
+</html>

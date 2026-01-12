@@ -1,0 +1,37 @@
+# Mutational Signatures and Immunotherapy Response
+name: "Mutational Signatures and Immunotherapy Response"
+category: "DNA Research"
+icon: "signature"
+
+# Project Overview
+overview: |
+  This project analyzes the association between tumor mutational signatures and response to immune checkpoint inhibitor therapy. Tumor mutational signatures reflect underlying mutagenic processes and can influence tumor immunogenicity.
+
+# Background
+background: |
+  Immunotherapy has revolutionized cancer treatment strategies, but low patient response rates remain a core challenge limiting its application. Revealing the mechanisms of immunotherapy response heterogeneity through tumor immuno-omics data mining and computational research has become a research frontier. DNA mutational signatures, as molecular fingerprints of tumor genome mutation processes, provide a new perspective for analyzing tumor-microenvironment interactions and predicting immunotherapy efficacy. However, their potential as molecular biomarkers, regulatory effects on tumor microenvironment, and underlying mechanisms remain unclear.
+
+# Objectives
+objectives:
+  - "Study the relationship between mutational signatures, tumor immune microenvironment, and immunotherapy response"
+  - "Develop computational methods and tools for mutational signature analysis"
+  - "Mine molecular biomarkers associated with immunotherapy response"
+  - "Construct predictive models for immunotherapy efficacy"
+
+# Research Content
+content: |
+  Mutational signature analysis using WGS/WES data, correlation with clinical response, integration with immune profiling, development of predictive models, and validation in independent cohorts.
+
+# Expected Outcomes
+outcomes:
+  - "Mutational signature biomarkers for immunotherapy response"
+  - "Mechanistic insights into mutagenesis-immune interactions"
+  - "Improved patient stratification strategies"
+  - "Publication of 2-3 high-impact papers"
+
+# Roadmap
+roadmap:
+  - "Signature analysis"
+  - "Clinical correlation"
+  - "Mechanistic studies"
+  - "Clinical validation"

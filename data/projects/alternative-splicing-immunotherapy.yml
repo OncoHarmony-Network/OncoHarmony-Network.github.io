@@ -1,0 +1,37 @@
+# Alternative Splicing Events and Immunotherapy Response
+name: "Alternative Splicing Events and Immunotherapy Response"
+category: "RNA Research"
+icon: "code-branch"
+
+# Project Overview
+overview: |
+  This project investigates the correlation between alternative splicing events and immunotherapy efficacy to identify novel biomarkers and therapeutic targets. Alternative splicing generates transcriptome diversity and plays critical roles in cancer progression and immune regulation.
+
+# Background
+background: |
+  Alternative splicing generates transcriptome diversity and plays critical roles in cancer progression and immune regulation. Dysregulated splicing events may influence tumor immunogenicity and response to immunotherapy. Understanding the splicing landscape in responders versus non-responders could reveal novel predictive biomarkers and therapeutic targets.
+
+# Objectives
+objectives:
+  - "Characterize alternative splicing landscapes in immunotherapy responders vs non-responders"
+  - "Identify splicing events associated with treatment outcomes"
+  - "Develop splicing-based predictive models"
+  - "Validate splicing biomarkers in independent cohorts"
+
+# Research Content
+content: |
+  Comprehensive analysis of RNA-seq data to identify differential splicing events, integration with clinical response data, functional annotation of splicing variants, development of splicing signatures, and validation in independent cohorts.
+
+# Expected Outcomes
+outcomes:
+  - "Alternative splicing signatures for immunotherapy response prediction"
+  - "Identification of novel splicing regulators as therapeutic targets"
+  - "Insights into splicing-mediated immune modulation"
+  - "Publication of 2-3 high-impact papers"
+
+# Roadmap
+roadmap:
+  - "Splicing landscape analysis"
+  - "Signature development"
+  - "Functional validation"
+  - "Clinical translation"

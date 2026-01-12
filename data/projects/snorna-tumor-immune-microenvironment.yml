@@ -1,0 +1,37 @@
+# snoRNA Regulation of Tumor Immune Microenvironment
+name: "snoRNA Regulation of Tumor Immune Microenvironment"
+category: "RNA Research"
+icon: "atom"
+
+# Project Overview
+overview: |
+  This project elucidates the roles and mechanisms of small nucleolar RNAs (snoRNAs) in regulating tumor immune microenvironment and immunotherapy response. snoRNAs are primarily known for guiding RNA modifications but also regulate gene expression and immune responses.
+
+# Background
+background: |
+  Small nucleolar RNAs (snoRNAs) are primarily known for guiding RNA modifications, but emerging evidence suggests they also regulate gene expression and immune responses. Their roles in tumor-immune interactions remain largely unexplored. This project aims to uncover the immunomodulatory functions of snoRNAs in the tumor microenvironment.
+
+# Objectives
+objectives:
+  - "Identify snoRNAs associated with immunotherapy response"
+  - "Characterize their functions in immune cell regulation"
+  - "Elucidate molecular mechanisms of snoRNA-mediated immune modulation"
+  - "Develop snoRNA-based biomarkers and therapeutic strategies"
+
+# Research Content
+content: |
+  Profiling of snoRNA expression in tumor and immune cells, functional screening of immunomodulatory snoRNAs, mechanistic studies of snoRNA targets and pathways, and validation in preclinical models.
+
+# Expected Outcomes
+outcomes:
+  - "Novel snoRNA biomarkers for immunotherapy"
+  - "Mechanistic understanding of snoRNA-mediated immune regulation"
+  - "Potential therapeutic strategies targeting snoRNAs"
+  - "Publication of 2-3 high-impact papers"
+
+# Roadmap
+roadmap:
+  - "Expression profiling"
+  - "Functional screening"
+  - "Mechanistic studies"
+  - "Preclinical validation"

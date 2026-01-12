@@ -181,13 +181,38 @@
         </div>
     </section>
 
-    <!-- Students Section -->
+    <!-- Graduate Students Section -->
     <section class="py-16 bg-white">
         <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">Students</h2>
+            <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">Graduate Students</h2>
             
-            <div id="students" class="grid md:grid-cols-4 gap-6">
-                <!-- Students will be inserted here by JavaScript -->
+            <div id="graduate-students" class="grid md:grid-cols-4 gap-6">
+                <!-- Graduate students will be inserted here by JavaScript -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden member-card">
+                    <div class="p-5">
+                        <div class="flex flex-col items-center text-center">
+                            <div class="w-24 h-24 bg-gray-200 rounded-full flex items-center justify-center mb-3">
+                                <i class="fas fa-user-graduate text-3xl text-purple-600"></i>
+                            </div>
+                            <h3 class="text-lg font-bold text-gray-800">Loading...</h3>
+                            <p class="text-purple-600 font-semibold mb-1 text-sm">Loading...</p>
+                            <p class="text-gray-600 text-sm">
+                                Loading...
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Undergraduate Students Section -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">Undergraduate Students</h2>
+            
+            <div id="undergraduate-students" class="grid md:grid-cols-4 gap-6">
+                <!-- Undergraduate students will be inserted here by JavaScript -->
                 <div class="bg-white rounded-xl shadow-md overflow-hidden member-card">
                     <div class="p-5">
                         <div class="flex flex-col items-center text-center">
@@ -211,17 +236,20 @@
         <div class="container mx-auto px-4">
             <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">Others</h2>
             
-            <div id="others" class="grid md:grid-cols-3 gap-8">
+            <div id="others" class="grid md:grid-cols-4 gap-6">
                 <!-- Others will be inserted here by JavaScript -->
-                <div class="bg-white rounded-xl shadow-md overflow-hidden card-hover">
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-gray-800 mb-4">Loading...</h3>
-                        <ul class="space-y-2">
-                            <li class="flex items-center">
-                                <i class="fas fa-university text-purple-600 mr-3"></i>
-                                <span class="text-gray-700">Loading...</span>
-                            </li>
-                        </ul>
+                <div class="bg-white rounded-xl shadow-md overflow-hidden member-card">
+                    <div class="p-5">
+                        <div class="flex flex-col items-center text-center">
+                            <div class="w-24 h-24 bg-gray-200 rounded-full flex items-center justify-center mb-3">
+                                <i class="fas fa-user-graduate text-3xl text-purple-600"></i>
+                            </div>
+                            <h3 class="text-lg font-bold text-gray-800">Loading...</h3>
+                            <p class="text-purple-600 font-semibold mb-1 text-sm">Loading...</p>
+                            <p class="text-gray-600 text-sm">
+                                Loading...
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -274,9 +302,7 @@
                             <h3 class="text-2xl font-bold text-gray-800">${member.name}</h3>
                             <p class="text-purple-600 font-semibold mb-2">${member.role}</p>
                             <p class="text-gray-600 mb-4">${member.institution}</p>
-                            <p class="text-gray-600 mb-4 max-w-md">
-                                ${member.description}
-                            </p>
+                            ${member.description ? `<p class="text-gray-600 mb-4 max-w-md">${member.description}</p>` : ''}
                             <div class="flex space-x-4">
                                 <a href="${member.links.google_scholar}" class="text-gray-500 hover:text-purple-600 transition-colors">
                                     <i class="ai ai-google-scholar text-xl"></i>
@@ -361,11 +387,11 @@
                 }
             });
             
-            // Load students
-            const studentsContainer = document.getElementById('students');
-            studentsContainer.innerHTML = membersData.students.map((member, index) => {
+            // Load graduate students
+            const graduateStudentsContainer = document.getElementById('graduate-students');
+            graduateStudentsContainer.innerHTML = membersData.graduate_students.map((member, index) => {
                 const avatarHtml = member.avatar_type === 'image' 
-                    ? `<div class="avatar-container w-24 h-24 rounded-full overflow-hidden mb-3" id="avatar-student-${index}">
+                    ? `<div class="avatar-container w-24 h-24 rounded-full overflow-hidden mb-3" id="avatar-graduate-${index}">
                         <img src="${member.avatar}" alt="${member.name}" onerror="this.parentElement.innerHTML='<i class=\\'fas fa-user-graduate text-3xl text-purple-600\\'></i>'">
                        </div>`
                     : `<div class="w-24 h-24 bg-gray-200 rounded-full flex items-center justify-center mb-3">
@@ -388,10 +414,48 @@
             `;
             }).join('');
             
-            // Process student avatar images for face detection
-            membersData.students.forEach((member, index) => {
+            // Process graduate student avatar images for face detection
+            membersData.graduate_students.forEach((member, index) => {
                 if (member.avatar_type === 'image') {
-                    const container = document.getElementById(`avatar-student-${index}`);
+                    const container = document.getElementById(`avatar-graduate-${index}`);
+                    const img = container.querySelector('img');
+                    if (img) {
+                        faceCropper.processAvatar(img, container);
+                    }
+                }
+            });
+
+            // Load undergraduate students
+            const undergraduateStudentsContainer = document.getElementById('undergraduate-students');
+            undergraduateStudentsContainer.innerHTML = membersData.undergraduate_students.map((member, index) => {
+                const avatarHtml = member.avatar_type === 'image' 
+                    ? `<div class="avatar-container w-24 h-24 rounded-full overflow-hidden mb-3" id="avatar-undergraduate-${index}">
+                        <img src="${member.avatar}" alt="${member.name}" onerror="this.parentElement.innerHTML='<i class=\'fas fa-user-graduate text-3xl text-purple-600\'></i>'">
+                       </div>`
+                    : `<div class="w-24 h-24 bg-gray-200 rounded-full flex items-center justify-center mb-3">
+                        <i class="fas fa-${member.avatar} text-3xl text-purple-600"></i>
+                       </div>`;
+                
+                return `
+                <div class="bg-white rounded-xl shadow-md overflow-hidden member-card">
+                    <div class="p-5">
+                        <div class="flex flex-col items-center text-center">
+                            ${avatarHtml}
+                            <h3 class="text-lg font-bold text-gray-800">${member.name}</h3>
+                            <p class="text-purple-600 font-semibold mb-1 text-sm">${member.role}</p>
+                            <p class="text-gray-600 text-sm">
+                                ${member.field}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            `;
+            }).join('');
+            
+            // Process undergraduate student avatar images for face detection
+            membersData.undergraduate_students.forEach((member, index) => {
+                if (member.avatar_type === 'image') {
+                    const container = document.getElementById(`avatar-undergraduate-${index}`);
                     const img = container.querySelector('img');
                     if (img) {
                         faceCropper.processAvatar(img, container);
@@ -399,53 +463,52 @@
                 }
             });
             
-            // Load others - collaborators only
+            // Load others - research fellows only
             const othersContainer = document.getElementById('others');
-            othersContainer.innerHTML = `
-                <div class="bg-white rounded-xl shadow-md overflow-hidden card-hover">
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-gray-800 mb-4">Academic Institutions</h3>
-                        <ul class="space-y-2">
-                            ${membersData.others.collaborators.academic_institutions.map(institution => `
-                                <li class="flex items-center">
-                                    <i class="fas fa-university text-purple-600 mr-3"></i>
-                                    <span class="text-gray-700">${institution}</span>
-                                </li>
-                            `).join('')}
-                        </ul>
+            othersContainer.innerHTML = membersData.others.research_fellows.map((member, index) => {
+                const avatarHtml = member.avatar_type === 'image' 
+                    ? `<div class="avatar-container w-24 h-24 rounded-full overflow-hidden mb-3" id="avatar-fellow-${index}">
+                        <img src="${member.avatar}" alt="${member.name}" onerror="this.parentElement.innerHTML='<i class=\'fas fa-${member.avatar} text-3xl text-purple-600\'></i>'">
+                       </div>`
+                    : `<div class="w-24 h-24 bg-gray-200 rounded-full flex items-center justify-center mb-3">
+                        <i class="fas fa-${member.avatar} text-3xl text-purple-600"></i>
+                       </div>`;
+                
+                return `
+                <div class="bg-white rounded-xl shadow-md overflow-hidden member-card">
+                    <div class="p-5">
+                        <div class="flex flex-col items-center text-center">
+                            ${avatarHtml}
+                            <h3 class="text-lg font-bold text-gray-800">${member.name}</h3>
+                            <p class="text-purple-600 font-semibold mb-1 text-sm">${member.role}</p>
+                            <p class="text-gray-600 text-sm">
+                                ${member.field}
+                            </p>
+                        </div>
                     </div>
                 </div>
-                <div class="bg-white rounded-xl shadow-md overflow-hidden card-hover">
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-gray-800 mb-4">Research Centers</h3>
-                        <ul class="space-y-2">
-                            ${membersData.others.collaborators.research_centers.map(center => `
-                                <li class="flex items-center">
-                                    <i class="fas fa-flask text-purple-600 mr-3"></i>
-                                    <span class="text-gray-700">${center}</span>
-                                </li>
-                            `).join('')}
-                        </ul>
-                    </div>
-                </div>
-                <div class="bg-white rounded-xl shadow-md overflow-hidden card-hover">
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-gray-800 mb-4">Industry Partners</h3>
-                        <ul class="space-y-2">
-                            ${membersData.others.collaborators.industry_partners.map(partner => `
-                                <li class="flex items-center">
-                                    <i class="fas fa-industry text-purple-600 mr-3"></i>
-                                    <span class="text-gray-700">${partner}</span>
-                                </li>
-                            `).join('')}
-                        </ul>
-                    </div>
-                </div>
-            `;
+                `;
+            }).join('');
+            
+            // Process research fellows avatar images for face detection
+            membersData.others.research_fellows.forEach((member, index) => {
+                if (member.avatar_type === 'image') {
+                    const container = document.getElementById(`avatar-fellow-${index}`);
+                    const img = container.querySelector('img');
+                    if (img) {
+                        faceCropper.processAvatar(img, container);
+                    }
+                }
+            });
         }
         
         // Initialize
-        loadMembers();
+        loadMembers().then(() => {
+            // After data is loaded, initialize footer
+            if (typeof updateFooterFromDataLoader === 'function') {
+                updateFooterFromDataLoader();
+            }
+        });
     </script>
 </body>
 </html>

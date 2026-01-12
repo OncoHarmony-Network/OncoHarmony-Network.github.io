@@ -1,36 +1,100 @@
 # News and Highlights
 news:
   - id: 1
-    title: "New Multi-Omics Database Released"
-    category: "News"
-    date: "2025-03-15"
-    description: "We are excited to announce the release of our comprehensive multi-omics database for Immuno-oncology research. This resource integrates genomics, transcriptomics, and proteomics data from thousands of cancer patients treated with immunotherapy."
-    content: "<p>The OncoHarmony Multi-Omics Database is now publicly available, providing researchers with access to high-quality, curated data for studying tumor-immune interactions. The database includes:</p><ul><li>Genomic and transcriptomic data from over 5,000 patients</li><li>Proteomic profiles from tumor and immune cells</li><li>Clinical outcomes data for various immunotherapies</li><li>Interactive visualization tools for data exploration</li></ul><p>This resource is expected to accelerate research in Immuno-oncology by enabling researchers to identify novel biomarkers and therapeutic targets.</p>"
+    title: "New Research Published in Advanced Science: ggalign for Multi-layered Biological Complexity"
+    category: "Publication"
+    date: "2025-11-15"
+    description: "Our team has published a new paper in Advanced Science introducing ggalign, an R package that bridges the Grammar of Graphics with biological multi-layered complexity analysis."
+    content: |
+      We are excited to announce the publication of our latest research in **Advanced Science**, titled 'ggalign: Bridging the Grammar of Graphics and Biological Multilayered Complexity.'
+
+      This work presents a novel R package that enables researchers to visualize and analyze complex multi-layered biological data using the familiar Grammar of Graphics framework. The tool provides:
+
+      - Intuitive visualization of multi-omics data layers
+      - Seamless integration with existing ggplot2 workflows
+      - Support for various biological data types including genomics, transcriptomics, and proteomics
+      - Advanced alignment and comparison capabilities for different data layers
+
+      The ggalign package is now available on CRAN and GitHub, providing the research community with a powerful tool for exploring the complexity of biological systems.
+
+      **DOI:** [10.1002/advs.202507799](https://doi.org/10.1002/advs.202507799)
 
   - id: 2
-    title: "Grant Funding Received for Immunotherapy Research"
-    category: "Achievement"
-    date: "2025-02-28"
-    description: "Our team has been awarded a major research grant to further our work in tumor-immune interaction modeling and personalized Immuno-oncology."
-    content: "<p>The OncoHarmony Network is pleased to announce that we have received a $2.5 million research grant from the National Institutes of Health (NIH) to support our ongoing work in developing computational models for predicting immunotherapy response.</p><p>The grant will fund a multi-institutional collaboration focused on:</p><ul><li>Developing advanced machine learning algorithms for multi-omics data integration</li><li>Validating predictive models in clinical cohorts</li><li>Creating user-friendly tools for clinicians and researchers</li></ul><p>This funding will allow us to expand our research team and accelerate the translation of our findings into clinical applications.</p>"
+    title: "CircRNA Signature Predicts Immunotherapy Response in NSCLC"
+    category: "Publication"
+    date: "2025-11-10"
+    description: "Our research team has identified a novel circRNA signature that can predict immunotherapy response in patients with advanced non-small cell lung cancer, published in Therapeutic Advances in Medical Oncology."
+    content: |
+      We are pleased to announce the publication of our study in **Therapeutic Advances in Medical Oncology** on circular RNA (circRNA) signatures as biomarkers for immunotherapy response in advanced non-small cell lung cancer (NSCLC).
+
+      This groundbreaking research demonstrates that specific circRNA expression patterns can serve as reliable predictors of patient response to immune checkpoint inhibitors. Key findings include:
+
+      - Identification of a circRNA signature with high predictive accuracy for immunotherapy response
+      - Validation of the signature in independent patient cohorts
+      - Insights into the molecular mechanisms linking circRNAs to tumor-immune interactions
+      - Potential for clinical application in personalized treatment selection
+
+      This work opens new avenues for improving immunotherapy outcomes through circRNA-based biomarker development.
+
+      **DOI:** [10.1177/17588359251395920](https://doi.org/10.1177/17588359251395920)
 
   - id: 3
-    title: "New Institutional Partnership Established"
-    category: "Collaboration"
-    date: "2025-01-10"
-    description: "We are pleased to welcome a new partner institution to the OncoHarmony Network, strengthening our collaborative research efforts in Immuno-oncology."
-    content: "<p>The OncoHarmony Network is excited to announce a new partnership with the prestigious Cancer Research Institute at Leading University. This collaboration will:</p><ul><li>Expand our access to clinical samples and patient data</li><li>Facilitate interdisciplinary research between computational biologists and immunologists</li><li>Enable joint training programs for students and postdocs</li><li>Accelerate the translation of our research into clinical trials</li></ul><p>We look forward to working with our new partners to advance the field of Immuno-oncology.</p>"
+    title: "Comprehensive Review on Human Endogenous Retroviruses and Diseases"
+    category: "Publication"
+    date: "2025-11-05"
+    description: "Our team has published a comprehensive review in MedComm exploring the roles of Human Endogenous Retroviruses (HERVs) in various diseases and their potential as therapeutic targets."
+    content: |
+      We are excited to share our latest comprehensive review published in **MedComm**, titled 'Human Endogenous Retroviruses and Diseases.'
+
+      This review provides an in-depth analysis of the emerging roles of Human Endogenous Retroviruses (HERVs) in health and disease. The article covers:
+
+      - The evolutionary history and biological functions of HERVs
+      - HERV involvement in cancer, autoimmune diseases, and neurological disorders
+      - Mechanisms of HERV activation and their impact on host gene expression
+      - Potential therapeutic strategies targeting HERVs
+      - Future directions for HERV research and clinical applications
+
+      This comprehensive review serves as a valuable resource for researchers interested in understanding the complex roles of HERVs in human diseases and exploring their potential as novel therapeutic targets.
+
+      **DOI:** [10.1002/mco2.70452](https://doi.org/10.1002/mco2.70452)
 
   - id: 4
-    title: "OncoHarmony Framework Version 2.0 Released"
-    category: "News"
-    date: "2024-12-05"
-    description: "We have released version 2.0 of the OncoHarmony computational framework, featuring improved algorithms and new functionalities for Immuno-oncology research."
-    content: "<p>The latest version of the OncoHarmony Framework includes several major enhancements:</p><ul><li>Improved multi-omics integration algorithms with better performance on large datasets</li><li>New modules for single-cell data analysis</li><li>Enhanced visualization tools for tumor-immune networks</li><li>Updated documentation and tutorials</li><li>Support for additional data types and formats</li></ul><p>The framework is available as open-source software on GitHub, with detailed documentation and example workflows to help researchers get started.</p>"
+    title: "New Tool Released: bregr for Biomedical Regression Models"
+    category: "Publication"
+    date: "2025-09-20"
+    description: "Our team has developed and released bregr, an R package for streamlined batch processing and visualization of biomedical regression models, published in Med Research."
+    content: |
+      We are pleased to announce the publication and release of **bregr**, a new R package designed to streamline batch processing and visualization of biomedical regression models, as published in **Med Research**.
+
+      The bregr package addresses the growing need for efficient tools to handle large-scale regression analyses in biomedical research. Key features include:
+
+      - Automated batch processing of multiple regression models
+      - Comprehensive visualization tools for model comparison and interpretation
+      - Support for various regression types including linear, logistic, and survival models
+      - Integration with popular R packages for statistical analysis
+      - User-friendly interface for researchers with varying levels of programming experience
+
+      bregr is now available on CRAN and GitHub, providing the biomedical research community with a powerful tool to enhance regression analysis workflows.
+
+      **DOI:** [10.1002/mdr2.70028](https://doi.org/10.1002/mdr2.70028)
 
   - id: 5
-    title: "Publication in Nature Immunology"
+    title: "CircRNAs in Cancer and Immunotherapy: Comprehensive Review"
     category: "Publication"
-    date: "2024-11-20"
-    description: "Our latest research on multi-omics biomarkers for immunotherapy response has been published in Nature Immunology, one of the top journals in the field."
-    content: "<p>Our study, titled 'Multi-omics Integration Reveals Novel Biomarkers for Immunotherapy Response in Melanoma,' presents a comprehensive analysis of genomics, transcriptomics, and proteomics data from melanoma patients treated with immune checkpoint inhibitors.</p><p>Key findings from the study include:</p><ul><li>Identification of 15 novel biomarkers associated with immunotherapy response</li><li>Development of a predictive model with 85% accuracy</li><li>Insights into the molecular mechanisms of resistance to checkpoint inhibitors</li><li>Validation of findings in independent patient cohorts</li></ul><p>This research provides valuable insights for developing personalized immunotherapy strategies for melanoma patients.</p>"
+    date: "2025-08-15"
+    description: "Our team has published a comprehensive review in BMC Medicine on the functions and emerging roles of circRNAs in cancer and immunotherapy."
+    content: |
+      We are excited to announce the publication of our comprehensive review in **BMC Medicine**, titled 'CircRNAs: functions and emerging roles in cancer and immunotherapy.'
+
+      This review provides a thorough examination of circular RNAs (circRNAs) and their increasingly recognized roles in cancer biology and immunotherapy. The article covers:
+
+      - Biogenesis and functional mechanisms of circRNAs
+      - CircRNA dysregulation in various cancer types
+      - Roles of circRNAs in tumor-immune microenvironment modulation
+      - CircRNAs as diagnostic and prognostic biomarkers
+      - Potential of circRNAs as therapeutic targets in cancer immunotherapy
+      - Current challenges and future perspectives in circRNA research
+
+      This comprehensive review serves as an essential resource for researchers and clinicians interested in understanding the multifaceted roles of circRNAs in cancer and their potential applications in immunotherapy.
+
+      **DOI:** [10.1186/s12916-025-04306-5](https://doi.org/10.1186/s12916-025-04306-5)

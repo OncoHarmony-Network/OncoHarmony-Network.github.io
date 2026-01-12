@@ -253,12 +253,6 @@
                                     `).join('')}
                                 </div>
                                 <div class="flex space-x-4">
-                                    ${project.links.github ? `<a href="${project.links.github}" class="flex items-center text-purple-600 hover:text-purple-800 transition-colors">
-                                        <i class="fab fa-github mr-2"></i> GitHub
-                                    </a>` : ''}
-                                    ${project.links.documentation ? `<a href="${project.links.documentation}" class="flex items-center text-gray-600 hover:text-purple-600 transition-colors">
-                                        <i class="fas fa-book mr-2"></i> Documentation
-                                    </a>` : ''}
                                     ${project.links.website ? `<a href="${project.links.website}" class="flex items-center text-purple-600 hover:text-purple-800 transition-colors">
                                         <i class="fas fa-globe mr-2"></i> Website
                                     </a>` : ''}
@@ -382,15 +376,27 @@
         
         // Load project details
         async function loadProjectDetails(projectId) {
+            console.log('loadProjectDetails called with projectId:', projectId);
+            
             // Show project details section
             document.getElementById('project-details').classList.remove('hidden');
             document.getElementById('featured-projects').parentElement.classList.add('hidden');
             document.getElementById('all-projects-section').classList.add('hidden');
             
-            // Load project details
-            const projectDetails = await dataLoader.loadProjectDetails(projectId);
+            // Show loading state
             const contentContainer = document.getElementById('project-details-content');
             const titleElement = document.getElementById('project-details-title');
+            titleElement.textContent = 'Loading...';
+            contentContainer.innerHTML = `
+                <div class="text-center py-12">
+                    <i class="fas fa-spinner fa-spin text-4xl text-purple-600 mb-4"></i>
+                    <p class="text-gray-600">Loading project details...</p>
+                </div>
+            `;
+            
+            // Load project details
+            const projectDetails = await dataLoader.loadProjectDetails(projectId);
+            console.log('Project details loaded:', projectDetails);
             
             if (projectDetails) {
                 titleElement.textContent = projectDetails.name || 'Project Details';
@@ -399,113 +405,251 @@
                 let html = `
                     <div class="bg-white rounded-xl shadow-md overflow-hidden">
                         <div class="p-8">
-                            <h3 class="text-2xl font-bold text-gray-800 mb-2">${projectDetails.name}</h3>
-                            <p class="text-purple-600 font-semibold mb-6">${projectDetails.type}</p>
-                            <p class="text-gray-600 mb-8">${projectDetails.description}</p>
+                            <div class="flex items-center space-x-4 mb-6">
+                                <div class="w-16 h-16 bg-purple-100 rounded-xl flex items-center justify-center">
+                                    <i class="fas fa-${projectDetails.icon || 'project-diagram'} text-3xl text-purple-600"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-3xl font-bold text-gray-800">${projectDetails.name || 'Project Details'}</h3>
+                                    <p class="text-purple-600 font-semibold">${projectDetails.type || projectDetails.category || 'Research Project'}</p>
+                                </div>
+                            </div>
                 `;
                 
                 // Add overview if available
                 if (projectDetails.overview) {
                     html += `
                         <div class="mb-8">
-                            <h4 class="text-xl font-bold text-gray-800 mb-4">Overview</h4>
-                            <p class="text-gray-600">${projectDetails.overview}</p>
+                            <h4 class="text-xl font-bold text-gray-800 mb-4 flex items-center">
+                                <i class="fas fa-eye text-purple-600 mr-2"></i> Overview
+                            </h4>
+                            <p class="text-gray-600 leading-relaxed">${projectDetails.overview}</p>
                         </div>
                     `;
                 }
                 
-                // Add features if available
-                if (projectDetails.features && projectDetails.features.length > 0) {
+                // Add background if available
+                if (projectDetails.background) {
                     html += `
                         <div class="mb-8">
-                            <h4 class="text-xl font-bold text-gray-800 mb-4">Features</h4>
-                            <ul class="space-y-2">
-                                ${projectDetails.features.map(feature => `
+                            <h4 class="text-xl font-bold text-gray-800 mb-4 flex items-center">
+                                <i class="fas fa-book text-purple-600 mr-2"></i> Background
+                            </h4>
+                            <p class="text-gray-600 leading-relaxed">${projectDetails.background}</p>
+                        </div>
+                    `;
+                }
+                
+                // Add objectives if available
+                if (projectDetails.objectives && (Array.isArray(projectDetails.objectives) || typeof projectDetails.objectives === 'string')) {
+                    html += `
+                        <div class="mb-8">
+                            <h4 class="text-xl font-bold text-gray-800 mb-4 flex items-center">
+                                <i class="fas fa-bullseye text-purple-600 mr-2"></i> Objectives
+                            </h4>
+                            <ul class="space-y-3">
+                                ${Array.isArray(projectDetails.objectives) ? projectDetails.objectives.map(obj => `
                                     <li class="flex items-start">
                                         <i class="fas fa-check-circle text-green-500 mr-3 mt-1"></i>
-                                        <span class="text-gray-600">${feature}</span>
+                                        <span class="text-gray-600">${obj}</span>
                                     </li>
-                                `).join('')}
+                                `).join('') : `<li class="flex items-start">
+                                    <i class="fas fa-check-circle text-green-500 mr-3 mt-1"></i>
+                                    <span class="text-gray-600">${projectDetails.objectives}</span>
+                                </li>`}
                             </ul>
                         </div>
                     `;
                 }
                 
-                // Add technical details if available
-                if (projectDetails.technical) {
+                // Add content if available
+                if (projectDetails.content) {
                     html += `
                         <div class="mb-8">
-                            <h4 class="text-xl font-bold text-gray-800 mb-4">Technical Details</h4>
+                            <h4 class="text-xl font-bold text-gray-800 mb-4 flex items-center">
+                                <i class="fas fa-flask text-purple-600 mr-2"></i> Research Content
+                            </h4>
+                            <p class="text-gray-600 leading-relaxed">${projectDetails.content}</p>
+                        </div>
                     `;
-                    
-                    if (projectDetails.technical.languages && projectDetails.technical.languages.length > 0) {
-                        html += `
-                            <div class="mb-4">
-                                <h5 class="font-semibold text-gray-700 mb-2">Languages</h5>
-                                <div class="flex flex-wrap gap-2">
-                                    ${projectDetails.technical.languages.map(lang => `
-                                        <span class="bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-xs font-medium">${lang}</span>
-                                    `).join('')}
-                                </div>
-                            </div>
-                        `;
-                    }
-                    
-                    if (projectDetails.technical.dependencies && projectDetails.technical.dependencies.length > 0) {
-                        html += `
-                            <div class="mb-4">
-                                <h5 class="font-semibold text-gray-700 mb-2">Dependencies</h5>
-                                <div class="flex flex-wrap gap-2">
-                                    ${projectDetails.technical.dependencies.map(dep => `
-                                        <span class="bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-xs font-medium">${dep}</span>
-                                    `).join('')}
-                                </div>
-                            </div>
-                        `;
-                    }
-                    
-                    if (projectDetails.technical.installation) {
-                        html += `
-                            <div class="mb-4">
-                                <h5 class="font-semibold text-gray-700 mb-2">Installation</h5>
-                                <pre class="bg-gray-100 p-4 rounded-lg text-sm text-gray-800 overflow-x-auto">${projectDetails.technical.installation}</pre>
-                            </div>
-                        `;
-                    }
-                    
+                }
+
+                // Add research areas if available
+                if (projectDetails.research_areas && projectDetails.research_areas.length > 0) {
                     html += `
+                        <div class="mb-8">
+                            <h4 class="text-xl font-bold text-gray-800 mb-4 flex items-center">
+                                <i class="fas fa-flask text-purple-600 mr-2"></i> Research Areas
+                            </h4>
+                            <div class="grid md:grid-cols-2 gap-4">
+                                ${projectDetails.research_areas.map(area => `
+                                    <div class="bg-gray-50 rounded-lg p-4">
+                                        <h5 class="font-semibold text-gray-800 mb-2">${area.name}</h5>
+                                        <p class="text-gray-600 text-sm mb-2">${area.description}</p>
+                                        <span class="inline-block bg-purple-100 text-purple-800 px-2 py-1 rounded text-xs font-medium">${area.status}</span>
+                                    </div>
+                                `).join('')}
+                            </div>
                         </div>
                     `;
                 }
                 
-                // Add usage examples if available
-                if (projectDetails.usage && projectDetails.usage.basic_example) {
+                // Add methodology if available
+                if (projectDetails.methodology && (Array.isArray(projectDetails.methodology) || typeof projectDetails.methodology === 'string')) {
                     html += `
                         <div class="mb-8">
-                            <h4 class="text-xl font-bold text-gray-800 mb-4">Usage Example</h4>
-                            <pre class="bg-gray-100 p-4 rounded-lg text-sm text-gray-800 overflow-x-auto">${projectDetails.usage.basic_example}</pre>
-                        </div>
-                    `;
-                }
-                
-                // Add publications if available
-                if (projectDetails.publications && projectDetails.publications.length > 0) {
-                    html += `
-                        <div class="mb-8">
-                            <h4 class="text-xl font-bold text-gray-800 mb-4">Publications</h4>
-                            <ul class="space-y-4">
-                                ${projectDetails.publications.map(pub => `
+                            <h4 class="text-xl font-bold text-gray-800 mb-4 flex items-center">
+                                <i class="fas fa-cogs text-purple-600 mr-2"></i> Methodology
+                            </h4>
+                            <ul class="space-y-3">
+                                ${Array.isArray(projectDetails.methodology) ? projectDetails.methodology.map(method => `
                                     <li class="flex items-start">
-                                        <i class="fas fa-file-alt text-blue-500 mr-3 mt-1"></i>
-                                        <div>
-                                            <p class="font-medium text-gray-800">${pub.title}</p>
-                                            <p class="text-gray-600 text-sm">${pub.authors}</p>
-                                            <p class="text-gray-600 text-sm">${pub.journal}, ${pub.year}</p>
-                                            ${pub.doi ? `<a href="https://doi.org/${pub.doi}" class="text-blue-600 hover:text-blue-800 text-sm mt-1 inline-block">DOI: ${pub.doi}</a>` : ''}
-                                        </div>
+                                        <i class="fas fa-arrow-right text-purple-500 mr-3 mt-1"></i>
+                                        <span class="text-gray-600">${method}</span>
                                     </li>
-                                `).join('')}
+                                `).join('') : `<li class="flex items-start">
+                                    <i class="fas fa-arrow-right text-purple-500 mr-3 mt-1"></i>
+                                    <span class="text-gray-600">${projectDetails.methodology}</span>
+                                </li>`}
                             </ul>
+                        </div>
+                    `;
+                }
+                
+                // Add expected outcomes if available
+                if (projectDetails.outcomes && (Array.isArray(projectDetails.outcomes) || typeof projectDetails.outcomes === 'string')) {
+                    html += `
+                        <div class="mb-8">
+                            <h4 class="text-xl font-bold text-gray-800 mb-4 flex items-center">
+                                <i class="fas fa-trophy text-purple-600 mr-2"></i> Expected Outcomes
+                            </h4>
+                            <ul class="space-y-3">
+                                ${Array.isArray(projectDetails.outcomes) ? projectDetails.outcomes.map(outcome => `
+                                    <li class="flex items-start">
+                                        <i class="fas fa-star text-yellow-500 mr-3 mt-1"></i>
+                                        <span class="text-gray-600">${outcome}</span>
+                                    </li>
+                                `).join('') : `<li class="flex items-start">
+                                    <i class="fas fa-star text-yellow-500 mr-3 mt-1"></i>
+                                    <span class="text-gray-600">${projectDetails.outcomes}</span>
+                                </li>`}
+                            </ul>
+                        </div>
+                    `;
+                }
+                
+                // Add roadmap if available
+                if (projectDetails.roadmap && (Array.isArray(projectDetails.roadmap) || typeof projectDetails.roadmap === 'string')) {
+                    html += `
+                        <div class="mb-8">
+                            <h4 class="text-xl font-bold text-gray-800 mb-4 flex items-center">
+                                <i class="fas fa-road text-purple-600 mr-2"></i> Roadmap
+                            </h4>
+                            <div class="space-y-4">
+                                ${Array.isArray(projectDetails.roadmap) ? projectDetails.roadmap.map((item, index) => {
+                                    if (typeof item === 'string') {
+                                        return `
+                                            <div class="bg-gray-50 rounded-lg p-4">
+                                                <div class="flex items-start">
+                                                    <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-xs font-medium mr-3">Phase ${index + 1}</span>
+                                                    <p class="text-gray-600">${item}</p>
+                                                </div>
+                                            </div>
+                                        `;
+                                    } else if (item.phase) {
+                                        return `
+                                            <div class="bg-gray-50 rounded-lg p-4">
+                                                <h5 class="font-semibold text-gray-800 mb-2">${item.phase}</h5>
+                                                <p class="text-purple-600 text-sm mb-2">${item.duration}</p>
+                                                ${item.milestones ? `<ul class="space-y-1">
+                                                    ${item.milestones.map(milestone => `
+                                                        <li class="text-gray-600 text-sm flex items-start">
+                                                            <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                                                            ${milestone}
+                                                        </li>
+                                                    `).join('')}
+                                                </ul>` : ''}
+                                            </div>
+                                        `;
+                                    }
+                                    return '';
+                                }).join('') : `<div class="bg-gray-50 rounded-lg p-4">
+                                    <p class="text-gray-600">${projectDetails.roadmap}</p>
+                                </div>`}
+                            </div>
+                        </div>
+                    `;
+                }
+                
+                // Add timeline if available (alternative format)
+                if (projectDetails.timeline && projectDetails.timeline.length > 0) {
+                    html += `
+                        <div class="mb-8">
+                            <h4 class="text-xl font-bold text-gray-800 mb-4 flex items-center">
+                                <i class="fas fa-calendar-alt text-purple-600 mr-2"></i> Timeline
+                            </h4>
+                            <div class="space-y-4">
+                                ${projectDetails.timeline.map(item => `
+                                    <div class="bg-gray-50 rounded-lg p-4">
+                                        <h5 class="font-semibold text-gray-800 mb-2">${item.phase}</h5>
+                                        <p class="text-purple-600 text-sm mb-2">${item.duration}</p>
+                                        <ul class="space-y-1">
+                                            ${item.milestones.map(milestone => `
+                                                <li class="text-gray-600 text-sm flex items-start">
+                                                    <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                                                    ${milestone}
+                                                </li>
+                                            `).join('')}
+                                        </ul>
+                                    </div>
+                                `).join('')}
+                            </div>
+                        </div>
+                    `;
+                }
+                
+                // Add collaborations if available
+                if (projectDetails.collaborations && projectDetails.collaborations.length > 0) {
+                    html += `
+                        <div class="mb-8">
+                            <h4 class="text-xl font-bold text-gray-800 mb-4 flex items-center">
+                                <i class="fas fa-handshake text-purple-600 mr-2"></i> Collaborations
+                            </h4>
+                            <div class="space-y-4">
+                                ${projectDetails.collaborations.map(collab => `
+                                    <div class="bg-gray-50 rounded-lg p-4">
+                                        <h5 class="font-semibold text-gray-800 mb-2">${collab.type}</h5>
+                                        <ul class="space-y-1">
+                                            ${collab.partners.map(partner => `
+                                                <li class="text-gray-600 text-sm flex items-start">
+                                                    <i class="fas fa-building text-blue-500 mr-2 mt-1"></i>
+                                                    ${partner}
+                                                </li>
+                                            `).join('')}
+                                        </ul>
+                                    </div>
+                                `).join('')}
+                            </div>
+                        </div>
+                    `;
+                }
+                
+                // Add funding if available
+                if (projectDetails.funding && projectDetails.funding.length > 0) {
+                    html += `
+                        <div class="mb-8">
+                            <h4 class="text-xl font-bold text-gray-800 mb-4 flex items-center">
+                                <i class="fas fa-dollar-sign text-purple-600 mr-2"></i> Funding
+                            </h4>
+                            <div class="space-y-3">
+                                ${projectDetails.funding.map(fund => `
+                                    <div class="bg-green-50 rounded-lg p-4 border-l-4 border-green-500">
+                                        <h5 class="font-semibold text-gray-800">${fund.source}</h5>
+                                        <p class="text-green-600 font-bold">${fund.amount}</p>
+                                        <p class="text-gray-600 text-sm">${fund.period}</p>
+                                    </div>
+                                `).join('')}
+                            </div>
                         </div>
                     `;
                 }
@@ -514,37 +658,85 @@
                 if (projectDetails.team && projectDetails.team.length > 0) {
                     html += `
                         <div class="mb-8">
-                            <h4 class="text-xl font-bold text-gray-800 mb-4">Team</h4>
-                            <ul class="space-y-2">
+                            <h4 class="text-xl font-bold text-gray-800 mb-4 flex items-center">
+                                <i class="fas fa-users text-purple-600 mr-2"></i> Team
+                            </h4>
+                            <div class="grid md:grid-cols-2 gap-4">
                                 ${projectDetails.team.map(member => `
-                                    <li class="flex items-start">
-                                        <i class="fas fa-user text-gray-500 mr-3 mt-1"></i>
-                                        <div>
-                                            <p class="font-medium text-gray-800">${member.name}</p>
-                                            <p class="text-gray-600 text-sm">${member.role}</p>
+                                    <div class="bg-gray-50 rounded-lg p-4 flex items-center">
+                                        <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mr-4">
+                                            <i class="fas fa-user text-purple-600"></i>
                                         </div>
-                                    </li>
+                                        <div>
+                                            <p class="font-semibold text-gray-800">${member.name}</p>
+                                            <p class="text-purple-600 text-sm">${member.role}</p>
+                                        </div>
+                                    </div>
                                 `).join('')}
-                            </ul>
+                            </div>
                         </div>
                     `;
                 }
                 
-                // Add links if available
-                if (projectDetails.external_links) {
+                // Add publications if available
+                if (projectDetails.publications && projectDetails.publications.length > 0) {
+                    html += `
+                        <div class="mb-8">
+                            <h4 class="text-xl font-bold text-gray-800 mb-4 flex items-center">
+                                <i class="fas fa-file-alt text-purple-600 mr-2"></i> Publications
+                            </h4>
+                            <div class="space-y-4">
+                                ${projectDetails.publications.map(pub => `
+                                    <div class="bg-blue-50 rounded-lg p-4 border-l-4 border-blue-500">
+                                        <h5 class="font-semibold text-gray-800 mb-1">${pub.title}</h5>
+                                        <p class="text-gray-600 text-sm mb-1">${pub.journal}, ${pub.year}</p>
+                                        ${pub.doi ? `<a href="https://doi.org/${pub.doi}" class="text-blue-600 hover:text-blue-800 text-sm">DOI: ${pub.doi}</a>` : ''}
+                                    </div>
+                                `).join('')}
+                            </div>
+                        </div>
+                    `;
+                }
+                
+                // Add resources if available
+                if (projectDetails.resources && projectDetails.resources.length > 0) {
+                    html += `
+                        <div class="mb-8">
+                            <h4 class="text-xl font-bold text-gray-800 mb-4 flex items-center">
+                                <i class="fas fa-server text-purple-600 mr-2"></i> Resources
+                            </h4>
+                            <div class="space-y-3">
+                                ${projectDetails.resources.map(resource => `
+                                    <div class="bg-gray-50 rounded-lg p-4">
+                                        <h5 class="font-semibold text-gray-800 mb-1">${resource.type}</h5>
+                                        <p class="text-gray-600 text-sm">${resource.description}</p>
+                                    </div>
+                                `).join('')}
+                            </div>
+                        </div>
+                    `;
+                }
+                
+                // Add contact if available
+                if (projectDetails.contact) {
                     html += `
                         <div class="mb-4">
-                            <h4 class="text-xl font-bold text-gray-800 mb-4">External Links</h4>
-                            <div class="flex flex-wrap gap-4">
-                                ${projectDetails.external_links.github ? `<a href="${projectDetails.external_links.github}" class="flex items-center text-blue-600 hover:text-blue-800 transition-colors">
-                                    <i class="fab fa-github mr-2"></i> GitHub
-                                </a>` : ''}
-                                ${projectDetails.external_links.documentation ? `<a href="${projectDetails.external_links.documentation}" class="flex items-center text-blue-600 hover:text-blue-800 transition-colors">
-                                    <i class="fas fa-book mr-2"></i> Documentation
-                                </a>` : ''}
-                                ${projectDetails.external_links.doi ? `<a href="https://doi.org/${projectDetails.external_links.doi}" class="flex items-center text-blue-600 hover:text-blue-800 transition-colors">
-                                    <i class="fas fa-link mr-2"></i> DOI
-                                </a>` : ''}
+                            <h4 class="text-xl font-bold text-gray-800 mb-4 flex items-center">
+                                <i class="fas fa-envelope text-purple-600 mr-2"></i> Contact
+                            </h4>
+                            <div class="bg-gray-50 rounded-lg p-4 space-y-2">
+                                ${projectDetails.contact.email ? `<p class="flex items-center text-gray-600">
+                                    <i class="fas fa-envelope text-purple-600 mr-3"></i>
+                                    ${projectDetails.contact.email}
+                                </p>` : ''}
+                                ${projectDetails.contact.phone ? `<p class="flex items-center text-gray-600">
+                                    <i class="fas fa-phone text-purple-600 mr-3"></i>
+                                    ${projectDetails.contact.phone}
+                                </p>` : ''}
+                                ${projectDetails.contact.address ? `<p class="flex items-start text-gray-600">
+                                    <i class="fas fa-map-marker-alt text-purple-600 mr-3 mt-1"></i>
+                                    ${projectDetails.contact.address}
+                                </p>` : ''}
                             </div>
                         </div>
                     `;
@@ -557,6 +749,7 @@
                 
                 contentContainer.innerHTML = html;
             } else {
+                console.error('Project details not found for:', projectId);
                 titleElement.textContent = 'Project Not Found';
                 contentContainer.innerHTML = `
                     <div class="text-center py-12">
@@ -572,7 +765,12 @@
         }
         
         // Initialize
-        loadProjects();
+        loadProjects().then(() => {
+            // After data is loaded, initialize footer
+            if (typeof updateFooterFromDataLoader === 'function') {
+                updateFooterFromDataLoader();
+            }
+        });
     </script>
 </body>
 </html>

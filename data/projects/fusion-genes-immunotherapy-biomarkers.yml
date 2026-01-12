@@ -1,0 +1,37 @@
+# Fusion Genes as Immunotherapy Response Predictors
+name: "Fusion Genes as Immunotherapy Response Predictors"
+category: "RNA Research"
+icon: "link"
+
+# Project Overview
+overview: |
+  This project identifies and validates fusion genes as predictive biomarkers for immunotherapy response in cancer patients. Gene fusions are common in cancer and can generate novel protein products with immunogenic potential.
+
+# Background
+background: |
+  Gene fusions are common in cancer and can generate novel protein products with immunogenic potential. Fusion-derived neoantigens may serve as biomarkers for immunotherapy response and targets for personalized therapies. This project aims to comprehensively identify fusion genes in immunotherapy-treated patients and evaluate their association with treatment outcomes.
+
+# Objectives
+objectives:
+  - "Comprehensively identify fusion genes in immunotherapy-treated patients"
+  - "Evaluate their association with treatment outcomes"
+  - "Assess the immunogenicity of fusion-derived neoantigens"
+  - "Develop fusion gene-based predictive models"
+
+# Research Content
+content: |
+  RNA-seq analysis for fusion detection, integration with clinical response data, neoantigen prediction for fusion proteins, immunogenicity assessment, and validation in independent cohorts.
+
+# Expected Outcomes
+outcomes:
+  - "Fusion gene signatures for immunotherapy response prediction"
+  - "Validated fusion-derived neoantigens"
+  - "Potential targets for personalized immunotherapy"
+  - "Publication of 2-3 high-impact papers"
+
+# Roadmap
+roadmap:
+  - "Fusion detection and analysis"
+  - "Neoantigen prediction"
+  - "Immunogenicity validation"
+  - "Clinical translation"

@@ -1,0 +1,36 @@
+# WGS/WES-based Neoantigen Identification
+name: "WGS/WES-based Neoantigen Identification"
+category: "DNA Research"
+icon: "microscope"
+
+# Project Overview
+overview: |
+  This project identifies tumor neoantigens through whole genome and exome sequencing and analyzes their immunogenicity in the context of immunotherapy. Comprehensive identification of neoantigens through WGS/WES provides the foundation for personalized immunotherapy approaches.
+
+# Background
+background: |
+  Tumor neoantigens arise from somatic mutations and can elicit anti-tumor immune responses. Comprehensive identification of neoantigens through WGS/WES provides the foundation for personalized immunotherapy approaches. This project aims to systematically identify and validate neoantigens using high-throughput sequencing technologies.
+
+# Objectives
+objectives:
+  - "Systematically identify neoantigens using WGS/WES data"
+  - "Evaluate their immunogenicity"
+  - "Assess their association with immunotherapy response and clinical outcomes"
+  - "Develop neoantigen-based personalized immunotherapy strategies"
+
+# Research Content
+content: |
+  WGS/WES analysis of tumor-normal pairs, neoantigen prediction using bioinformatics pipelines, immunogenicity assessment using MHC binding assays, correlation with clinical response, and validation in independent cohorts.
+
+# Expected Outcomes
+outcomes:
+  - "Comprehensive neoantigen catalogs"
+  - "Validated immunogenic neoantigens"
+  - "Neoantigen signatures for immunotherapy response prediction"
+
+# Roadmap
+roadmap:
+  - "Sequencing and analysis"
+  - "Neoantigen prediction"
+  - "Immunogenicity validation"
+  - "Clinical correlation"

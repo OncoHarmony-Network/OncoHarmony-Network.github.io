@@ -1,0 +1,74 @@
+# Immunotherapy Response Prediction Project
+name: "Immunotherapy Response Prediction"
+type: "Research Program"
+icon: "chart-line"
+
+# Project Overview
+overview: |
+  This comprehensive research program aims to develop robust predictive models for immunotherapy response through multi-omics analysis. By integrating RNA and DNA biomarkers, neoantigen identification, and AI-driven approaches, we seek to enable personalized immunotherapy strategies for cancer patients.
+
+# Background
+background: |
+  Immunotherapy, particularly immune checkpoint inhibitors (ICIs), has revolutionized cancer treatment. However, only a subset of patients responds to these therapies, highlighting the critical need for predictive biomarkers. Current approaches rely on limited biomarkers such as PD-L1 expression and tumor mutational burden (TMB), which have limited predictive accuracy. Our program takes a holistic approach by integrating multiple layers of genomic, transcriptomic, and proteomic data to develop comprehensive predictive models.
+
+# Objectives
+objectives:
+  - "Develop multi-omics biomarker panels for immunotherapy response prediction"
+  - "Identify novel RNA and DNA biomarkers associated with treatment outcomes"
+  - "Create AI/ML models for accurate patient stratification"
+  - "Validate predictive models in prospective clinical cohorts"
+  - "Establish clinical decision support tools for immunotherapy selection"
+
+# Key Research Areas
+research_areas:
+  - name: "RNA Biomarkers"
+    description: "Identification of circRNA, miRNA, lncRNA, and mRNA signatures predictive of immunotherapy response"
+    status: "Active"
+    
+  - name: "DNA Biomarkers"
+    description: "Analysis of mutational signatures, fusion genes, and neoantigen landscapes"
+    status: "Active"
+    
+  - name: "Neoantigen Prediction"
+    description: "Development of integrated DNA/RNA neoantigen prediction pipelines"
+    status: "Active"
+    
+  - name: "AI/ML Models"
+    description: "Machine learning and deep learning approaches for multi-omics integration"
+    status: "Active"
+
+# Methodology
+methodology:
+  - "Retrospective cohort analysis of immunotherapy-treated patients"
+  - "Comprehensive multi-omics profiling (WGS, WES, RNA-seq, proteomics)"
+  - "Bioinformatics pipeline development for biomarker discovery"
+  - "Machine learning model training and validation"
+  - "Functional validation of candidate biomarkers"
+  - "Prospective clinical validation studies"
+
+# Expected Outcomes
+outcomes:
+  - "Validated multi-omics biomarker panels for immunotherapy response prediction"
+  - "AI-powered predictive models with >80% accuracy"
+  - "Clinical decision support system for personalized immunotherapy"
+
+# Timeline
+timeline:
+  - phase: "Phase 1: Data Collection and Analysis"
+    milestones:
+      - "Retrospective cohort assembly"
+      - "Multi-omics profiling completion"
+      - "Initial biomarker discovery"
+      - "Preliminary model development"
+      
+  - phase: "Phase 2: Model Development and Validation"
+    milestones:
+      - "AI/ML model training"
+      - "Cross-validation and optimization"
+      - "Independent cohort validation"
+      
+  - phase: "Phase 3: Clinical Translation"
+    milestones:
+      - "Prospective clinical trial design"
+      - "Clinical validation study"
+      - "Decision support system development"

@@ -1,0 +1,37 @@
+# RNA-based Neoantigen Prediction and Immunotherapy
+name: "RNA-based Neoantigen Prediction and Immunotherapy"
+category: "RNA Research"
+icon: "dna"
+
+# Project Overview
+overview: |
+  This project develops methods for predicting tumor neoantigens from RNA sequencing data and analyzes their association with immunotherapy response. RNA-based neoantigen prediction provides complementary information to DNA-based approaches by incorporating expression data and alternative splicing events.
+
+# Background
+background: |
+  Neoantigens derived from tumor-specific mutations are critical for anti-tumor immune responses. RNA-based neoantigen prediction provides complementary information to DNA-based approaches by incorporating expression data and alternative splicing events. This project aims to develop improved neoantigen prediction algorithms using RNA data.
+
+# Objectives
+objectives:
+  - "Develop RNA-based neoantigen prediction algorithms"
+  - "Integrate RNA expression and splicing data"
+  - "Evaluate the association between RNA-predicted neoantigens and immunotherapy response"
+  - "Validate predictions using mass spectrometry data"
+
+# Research Content
+content: |
+  Development of RNA neoantigen prediction pipeline, integration with DNA neoantigen prediction, validation using mass spectrometry data, correlation with immunotherapy outcomes, and optimization of prediction accuracy.
+
+# Expected Outcomes
+outcomes:
+  - "Improved neoantigen prediction algorithms"
+  - "Comprehensive neoantigen databases"
+  - "Validated neoantigen signatures for immunotherapy response prediction"
+  - "Publication of 3-4 high-impact papers"
+
+# Roadmap
+roadmap:
+  - "Algorithm development"
+  - "Pipeline implementation"
+  - "Validation studies"
+  - "Clinical application"
