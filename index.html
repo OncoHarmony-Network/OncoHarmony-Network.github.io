@@ -32,15 +32,177 @@
             color: var(--text-dark);
             background-color: var(--bg-light);
             line-height: 1.6;
+            position: relative;
+            overflow-x: hidden;
+        }
+        
+        /* Tech background for index page */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 10% 20%, rgba(106, 17, 203, 0.15) 0%, transparent 25%),
+                radial-gradient(circle at 90% 30%, rgba(37, 117, 252, 0.15) 0%, transparent 25%),
+                radial-gradient(circle at 50% 80%, rgba(0, 121, 107, 0.15) 0%, transparent 25%),
+                linear-gradient(45deg, transparent 48%, rgba(106, 17, 203, 0.12) 49%, rgba(106, 17, 203, 0.12) 51%, transparent 52%),
+                linear-gradient(-45deg, transparent 48%, rgba(37, 117, 252, 0.12) 49%, rgba(37, 117, 252, 0.12) 51%, transparent 52%);
+            background-size: 100% 100%, 100% 100%, 100% 100%, 15px 15px, 15px 15px;
+            background-position: 0 0, 0 0, 0 0, 0 0, 0 0;
+            z-index: -1;
+            animation: techBackgroundMove 20s linear infinite;
+        }
+        
+        /* DNA helix pattern */
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%236a11cb' fill-opacity='0.08'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            background-size: 60px 60px;
+            z-index: -1;
+            animation: dnaMove 20s linear infinite;
         }
         
         .hero-gradient {
             background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+            position: relative;
+            overflow: hidden;
         }
         
+        /* Hero section tech particles */
+        .hero-gradient::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(255,255,255,0.15) 0%, transparent 8%),
+                radial-gradient(circle at 80% 70%, rgba(255,255,255,0.15) 0%, transparent 8%),
+                radial-gradient(circle at 40% 80%, rgba(255,255,255,0.15) 0%, transparent 8%),
+                radial-gradient(circle at 70% 20%, rgba(255,255,255,0.15) 0%, transparent 8%),
+                radial-gradient(circle at 30% 50%, rgba(255,255,255,0.1) 0%, transparent 6%),
+                radial-gradient(circle at 60% 30%, rgba(255,255,255,0.1) 0%, transparent 6%);
+            background-size: 100% 100%;
+            animation: particlesFloat 15s ease-in-out infinite;
+            z-index: 0;
+        }
+        
+        .hero-gradient > * {
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* Animations */
+        @keyframes techBackgroundMove {
+            0% {
+                background-position: 0 0, 0 0, 0 0, 0 0, 0 0;
+            }
+            100% {
+                background-position: 0 0, 0 0, 0 0, 20px 20px, -20px -20px;
+            }
+        }
+        
+        @keyframes dnaMove {
+            0% {
+                background-position: 0 0;
+            }
+            100% {
+                background-position: 60px 60px;
+            }
+        }
+        
+        @keyframes particlesFloat {
+            0%, 100% {
+                transform: translateY(0) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-10px) rotate(1deg);
+            }
+        }
+        
+        /* Section backgrounds with subtle tech effects */
+        section {
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* Introduction section tech elements */
+        section:nth-child(3)::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 10% 50%, rgba(106, 17, 203, 0.06) 0%, transparent 30%),
+                radial-gradient(circle at 90% 50%, rgba(37, 117, 252, 0.06) 0%, transparent 30%),
+                radial-gradient(circle at 50% 50%, rgba(0, 121, 107, 0.04) 0%, transparent 40%);
+            z-index: -1;
+        }
+        
+        /* Add more tech elements to highlight sections */
+        section:nth-child(4)::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 20%, rgba(106, 17, 203, 0.04) 0%, transparent 25%),
+                radial-gradient(circle at 80% 80%, rgba(37, 117, 252, 0.04) 0%, transparent 25%);
+            z-index: -1;
+        }
+        
+        /* Add subtle glow effect to cards */
         .card-hover {
+            position: relative;
+            overflow: hidden;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             border: 1px solid var(--border-color);
+        }
+        
+        .card-hover::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(106, 17, 203, 0.05), transparent);
+            transform: rotate(45deg);
+            animation: cardGlow 6s ease-in-out infinite;
+            opacity: 0;
+            z-index: 0;
+        }
+        
+        .card-hover:hover::before {
+            opacity: 1;
+        }
+        
+        .card-hover > * {
+            position: relative;
+            z-index: 1;
+        }
+        
+        @keyframes cardGlow {
+            0% {
+                transform: translateX(-100%) rotate(45deg);
+            }
+            100% {
+                transform: translateX(100%) rotate(45deg);
+            }
         }
         
         .card-hover:hover {
