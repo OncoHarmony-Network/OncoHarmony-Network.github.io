@@ -100,6 +100,7 @@ contact:
       description: "We offer research opportunities for graduate students and postdoctoral fellows interested in Immuno-oncology."
   footer:
     description: "Advancing Immuno-oncology through collaborative multi-omics research."
+    # 不work，需要直接去改 footer.html
     institutions:
       - name: "Zhou Lab"
         link: "https://zhoulab.ac.cn/"
