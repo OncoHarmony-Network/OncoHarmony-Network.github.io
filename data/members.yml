@@ -202,6 +202,16 @@ undergraduate_students:
     field: "Bioinformatics/Clinical Research"
     avatar: "user-graduate"
 
+  - name: "柳依涵 (Yihan Liu)"
+    role: "本科生"
+    field: "Bioinformatics/Clinical Research"
+    avatar: "user-graduate"
+
+  - name: "潘叶 (Ye Pan)"
+    role: "本科生"
+    field: "Bioinformatics/Clinical Research"
+    avatar: "user-graduate"
+
 # Others
 # 其他成员：按职位重要性和姓名拼音排序
 others:
