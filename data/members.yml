@@ -108,6 +108,11 @@ graduate_students:
     field: "Clinical and Basic Research"
     avatar: "user-graduate"
 
+  - name: "李思思 (Sisi Li)"
+    role: "博士生"
+    field: "Clinical and Basic Research"
+    avatar: "user-graduate"
+
   - name: "张益浩 (Yihao Zhang)"
     role: "博士生"
     field: "Clinical and Basic Research"
@@ -152,6 +157,16 @@ graduate_students:
     role: "硕士生"
     field: "Bioinformatics"
     avatar: "user-graduate"
+
+  - name: "汪玄 (Xuan Wang)"
+    role: "硕士生"
+    field: "Clinical and Basic Research"
+    avatar: "user-graduate"
+
+  - name: "温琳琳 (Linlin Wen)"
+    role: "硕士生"
+    field: "Clinical and Basic Research"
+    avatar: "user-graduate"  
 
 
 # Undergraduate Students
@@ -212,6 +227,16 @@ undergraduate_students:
     field: "Bioinformatics/Clinical Research"
     avatar: "user-graduate"
 
+  - name: "李子墨 (Zimo Li)"
+    role: "本科生"
+    field: "Clinical and Basic Research"
+    avatar: "user-graduate"
+
+  - name: "贾劼 (Jie Jia)"
+    role: "本科生"
+    field: "Clinical and Basic Research"
+    avatar: "user-graduate"
+    
 # Others
 # 其他成员：按职位重要性和姓名拼音排序
 others:
