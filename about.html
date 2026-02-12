@@ -8,183 +8,142 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/academicons@1.9.1/css/academicons.min.css">
     <script src="https://cdn.jsdelivr.net/npm/js-yaml@4.1.0/dist/js-yaml.min.js"></script>
+    <link rel="stylesheet" href="css/styles.css">
     <script src="js/data-loader.js"></script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-        
-        body {
-            font-family: 'Inter', sans-serif;
-        }
-        
-        .hero-gradient {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        }
-        
-        .card-hover {
-            transition: all 0.3s ease;
-        }
-        
-        .card-hover:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-        }
-        
-        .nav-link {
-            position: relative;
-        }
-        
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -4px;
-            left: 0;
-            background-color: #667eea;
-            transition: width 0.3s ease;
-        }
-        
-        .nav-link:hover::after {
-            width: 100%;
-        }
-    </style>
 </head>
-<body class="bg-gray-50 text-gray-900">
-    <!-- Navigation -->
-    <nav class="bg-white shadow-md fixed w-full z-50">
-        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
-            <a href="index.html" class="flex items-center space-x-2">
-                <img src="images/logo-nav.png" alt="OncoHarmony Logo" class="h-12 w-12 object-contain">
-                <span class="text-xl font-bold text-gray-800">OncoHarmony</span>
+<body>
+    <nav class="nav-bar" id="navbar">
+        <div class="container nav-content">
+            <a href="index.html" class="nav-brand">
+                <img src="images/logo-nav.png" alt="OncoHarmony Logo" class="nav-brand-logo">
+                <span class="nav-brand-text">OncoHarmony</span>
             </a>
             
-            <!-- Desktop Navigation -->
-            <div class="hidden md:flex space-x-8">
-                <a href="index.html" class="nav-link text-gray-700 hover:text-purple-600 font-medium">Home</a>
-                <a href="about.html" class="nav-link text-purple-600 font-medium">About</a>
-                <a href="members.html" class="nav-link text-gray-700 hover:text-purple-600 font-medium">Members</a>
-                <a href="publications.html" class="nav-link text-gray-700 hover:text-purple-600 font-medium">Publications</a>
-                <a href="projects.html" class="nav-link text-gray-700 hover:text-purple-600 font-medium">Projects</a>
-                <a href="contact.html" class="nav-link text-gray-700 hover:text-purple-600 font-medium">Contact</a>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="about.html" class="nav-link active">About</a>
+                <a href="members.html" class="nav-link">Members</a>
+                <a href="publications.html" class="nav-link">Publications</a>
+                <a href="projects.html" class="nav-link">Projects</a>
+                <a href="news.html" class="nav-link">News</a>
+                <a href="contact.html" class="nav-link">Contact</a>
             </div>
             
-            <!-- Mobile Menu Button -->
-            <button class="md:hidden text-gray-700" id="mobile-menu-button">
+            <button class="mobile-menu-btn" id="mobile-menu-button">
                 <i class="fas fa-bars text-xl"></i>
             </button>
         </div>
         
-        <!-- Mobile Navigation -->
-        <div class="md:hidden hidden bg-white border-t" id="mobile-menu">
-            <div class="container mx-auto px-4 py-3 space-y-3">
-                <a href="index.html" class="block py-2 text-gray-700 hover:text-purple-600 font-medium">Home</a>
-                <a href="about.html" class="block py-2 text-purple-600 font-medium">About</a>
-                <a href="members.html" class="block py-2 text-gray-700 hover:text-purple-600 font-medium">Members</a>
-                <a href="publications.html" class="block py-2 text-gray-700 hover:text-purple-600 font-medium">Publications</a>
-                <a href="projects.html" class="block py-2 text-gray-700 hover:text-purple-600 font-medium">Projects</a>
-                <a href="contact.html" class="block py-2 text-gray-700 hover:text-purple-600 font-medium">Contact</a>
+        <div class="mobile-nav" id="mobile-menu">
+            <div class="container">
+                <a href="index.html" class="mobile-nav-link">Home</a>
+                <a href="about.html" class="mobile-nav-link active">About</a>
+                <a href="members.html" class="mobile-nav-link">Members</a>
+                <a href="publications.html" class="mobile-nav-link">Publications</a>
+                <a href="projects.html" class="mobile-nav-link">Projects</a>
+                <a href="news.html" class="mobile-nav-link">News</a>
+                <a href="contact.html" class="mobile-nav-link">Contact</a>
             </div>
         </div>
     </nav>
 
-    <!-- Page Header -->
-    <header class="hero-gradient pt-24 pb-16 md:pt-32 md:pb-24">
-        <div class="container mx-auto px-4">
-            <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">About Us</h1>
-            <p class="text-xl text-white/90">
+    <header class="page-header">
+        <div class="container page-header-content">
+            <h1 class="page-title">About Us</h1>
+            <p class="page-subtitle">
                 Advancing Immuno-oncology through collaborative research
             </p>
         </div>
     </header>
 
-    <!-- About Content -->
-    <section class="py-16 bg-white">
-        <div class="container mx-auto px-4">
-            <div class="grid md:grid-cols-3 gap-12">
-                <div class="md:col-span-2">
-                    <h2 id="about-vision-title" class="text-3xl font-bold text-gray-800 mb-6">Loading...</h2>
-                    <p id="about-vision-desc1" class="text-gray-600 mb-6">Loading...</p>
-                    <p id="about-vision-desc2" class="text-gray-600 mb-6">Loading...</p>
-                    <p id="about-vision-desc3" class="text-gray-600">Loading...</p>
+    <section class="section section-white">
+        <div class="container">
+            <div class="about-vision-grid">
+                <div class="about-vision-content">
+                    <h2 id="about-vision-title" class="section-title">Loading...</h2>
+                    <p id="about-vision-desc1" class="about-vision-text">Loading...</p>
+                    <p id="about-vision-desc2" class="about-vision-text">Loading...</p>
+                    <p id="about-vision-desc3" class="about-vision-text">Loading...</p>
                 </div>
-                <div class="bg-gray-100 rounded-xl p-6">
-                    <h3 class="text-xl font-bold text-gray-800 mb-4">Key Focus Areas</h3>
-                    <ul id="about-focus-areas" class="space-y-3">
-                        <!-- Focus areas will be inserted here by JavaScript -->
-                        <li class="flex items-start">
-                            <i class="fas fa-check-circle text-purple-600 mr-3 mt-1"></i>
-                            <span class="text-gray-700">Loading...</span>
-                        </li>
-                    </ul>
+                <div class="about-focus-card">
+                    <div class="card" style="padding: 2rem;">
+                        <h3 class="about-focus-title">Key Focus Areas</h3>
+                        <ul id="about-focus-areas" class="about-focus-list">
+                            <li class="about-focus-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Loading...</span>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Leadership Section -->
-    <section class="py-16 bg-gray-50">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">Leadership</h2>
+    <section class="section section-light">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Leadership</h2>
+                <p class="section-subtitle">Our founding members driving the network forward</p>
+            </div>
             
-            <div id="about-leadership" class="grid md:grid-cols-2 gap-8">
-                <!-- Leadership members will be inserted here by JavaScript -->
-                <div class="bg-white rounded-xl shadow-md overflow-hidden card-hover">
-                    <div class="p-6">
-                        <div class="flex items-center space-x-4">
-                            <div class="w-20 h-20 bg-gray-200 rounded-full flex items-center justify-center">
-                                <i class="fas fa-user-md text-3xl text-purple-600"></i>
-                            </div>
-                            <div>
-                                <h3 class="text-xl font-bold text-gray-800">Loading...</h3>
-                                <p class="text-purple-600 font-semibold">Loading...</p>
-                            </div>
+            <div id="about-leadership" class="grid-2">
+                <div class="card">
+                    <div class="card-body" style="display: flex; gap: 1.5rem; align-items: flex-start;">
+                        <div class="member-avatar" style="flex-shrink: 0; width: 80px; height: 80px;">
+                            <i class="fas fa-user-md"></i>
                         </div>
-                        <p class="text-gray-600 mt-4">Loading...</p>
+                        <div>
+                            <h3 style="font-size: 1.25rem; font-weight: 700; color: var(--neutral-900); margin: 0 0 0.25rem;">Loading...</h3>
+                            <p style="color: var(--primary-600); font-weight: 600; margin: 0 0 0.75rem;">Loading...</p>
+                            <p style="color: var(--neutral-600); font-size: 0.9375rem; line-height: 1.7; margin: 0;">Loading...</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Values Section -->
-    <section class="py-16 bg-white">
-        <div class="container mx-auto px-4">
-            <h2 id="about-values-title" class="text-3xl font-bold text-gray-800 mb-6 text-center">Loading...</h2>
-            <p id="about-values-desc" class="text-gray-600 mb-8 text-center max-w-3xl mx-auto">Loading...</p>
+    <section class="section section-white">
+        <div class="container">
+            <div class="section-header">
+                <h2 id="about-values-title" class="section-title">Loading...</h2>
+                <p id="about-values-desc" class="section-subtitle">Loading...</p>
+            </div>
             
-            <div id="about-values" class="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-                <!-- Values will be inserted here by JavaScript -->
-                <div class="bg-gray-50 rounded-xl p-6 border border-gray-200">
-                    <div class="flex items-start">
-                        <i class="fas fa-check-circle text-purple-600 mr-3 mt-1"></i>
-                        <span class="text-gray-700">Loading...</span>
+            <div id="about-values" class="grid-2" style="max-width: 900px; margin: 0 auto;">
+                <div class="card">
+                    <div class="card-body" style="display: flex; align-items: flex-start; gap: 0.75rem;">
+                        <i class="fas fa-check-circle" style="color: var(--primary-600); margin-top: 0.25rem;"></i>
+                        <span style="color: var(--neutral-700);">Loading...</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Collaboration Section -->
-    <section class="py-16 bg-white">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">Our Collaborative Network</h2>
+    <section class="section section-light">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Our Collaborative Network</h2>
+                <p class="section-subtitle">Building partnerships across institutions and disciplines</p>
+            </div>
             
-            <div id="about-collaboration" class="grid md:grid-cols-4 gap-6">
-                <!-- Collaboration items will be inserted here by JavaScript -->
-                <div class="bg-gray-100 rounded-xl p-6 text-center card-hover">
-                    <i class="fas fa-university text-4xl text-purple-600 mb-4"></i>
-                    <h3 class="text-lg font-semibold text-gray-800 mb-2">Loading...</h3>
-                    <p class="text-gray-600">Loading...</p>
+            <div id="about-collaboration" class="grid-4">
+                <div class="card" style="text-align: center; padding: 2rem;">
+                    <div style="width: 64px; height: 64px; border-radius: var(--radius-lg); background: linear-gradient(135deg, var(--primary-100), var(--primary-200)); display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem;">
+                        <i class="fas fa-university" style="font-size: 1.75rem; color: var(--primary-600);"></i>
+                    </div>
+                    <h3 style="font-size: 1.125rem; font-weight: 700; color: var(--neutral-900); margin: 0 0 0.5rem;">Loading...</h3>
+                    <p style="color: var(--neutral-500); font-size: 0.875rem; margin: 0;">Loading...</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
     <div id="footer-container"></div>
 
     <script>
-        // Load footer component
         fetch('components/footer.html')
             .then(response => response.text())
             .then(html => {
@@ -194,84 +153,82 @@
     </script>
 
     <script>
-        // Mobile menu toggle
         const mobileMenuButton = document.getElementById('mobile-menu-button');
         const mobileMenu = document.getElementById('mobile-menu');
         
         mobileMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
+            mobileMenu.classList.toggle('active');
         });
         
-        // Load about page data
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 10) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+        
         async function loadAboutData() {
             await dataLoader.load();
             const generalData = dataLoader.getGeneral();
             const aboutData = generalData.about;
             
-            // Load vision data
             document.getElementById('about-vision-title').textContent = aboutData.vision.title;
             document.getElementById('about-vision-desc1').textContent = aboutData.vision.description;
             document.getElementById('about-vision-desc2').textContent = aboutData.vision.description2;
             document.getElementById('about-vision-desc3').textContent = aboutData.vision.description3;
             
-            // Load focus areas
             const focusAreasContainer = document.getElementById('about-focus-areas');
             focusAreasContainer.innerHTML = aboutData.focus_areas.map(area => `
-                <li class="flex items-start">
-                    <i class="fas fa-check-circle text-purple-600 mr-3 mt-1"></i>
-                    <span class="text-gray-700">${area}</span>
+                <li class="about-focus-item">
+                    <i class="fas fa-check-circle"></i>
+                    <span>${area}</span>
                 </li>
             `).join('');
             
-            // Load leadership
             const leadershipContainer = document.getElementById('about-leadership');
             leadershipContainer.innerHTML = aboutData.leadership.map(member => `
-                <div class="bg-white rounded-xl shadow-md overflow-hidden card-hover">
-                    <div class="p-6">
-                        <div class="flex items-center space-x-4">
-                            <div class="w-20 h-20 bg-gray-200 rounded-full flex items-center justify-center">
-                                <i class="fas fa-user-md text-3xl text-purple-600"></i>
-                            </div>
-                            <div>
-                                <h3 class="text-xl font-bold text-gray-800">${member.name}</h3>
-                                <p class="text-purple-600 font-semibold">${member.role}</p>
-                            </div>
+                <div class="card fade-in">
+                    <div class="card-body leadership-card">
+                        <div class="member-avatar">
+                            <i class="fas fa-user-md"></i>
                         </div>
-                        <p class="text-gray-600 mt-4">
-                            ${member.description}
-                        </p>
+                        <div>
+                            <h3 style="font-size: 1.25rem; font-weight: 700; color: var(--neutral-900); margin: 0 0 0.25rem;">${member.name}</h3>
+                            <p style="color: var(--primary-600); font-weight: 600; margin: 0 0 0.75rem;">${member.role}</p>
+                            <p style="color: var(--neutral-600); font-size: 0.9375rem; line-height: 1.7; margin: 0;">${member.description}</p>
+                        </div>
                     </div>
                 </div>
             `).join('');
             
-            // Load values
             document.getElementById('about-values-title').textContent = aboutData.values.title;
             document.getElementById('about-values-desc').textContent = aboutData.values.description;
             
             const valuesContainer = document.getElementById('about-values');
             valuesContainer.innerHTML = aboutData.values.items.map(value => `
-                <div class="bg-gray-50 rounded-xl p-6 border border-gray-200">
-                    <div class="flex items-start">
-                        <i class="fas fa-check-circle text-purple-600 mr-3 mt-1"></i>
-                        <span class="text-gray-700">${value}</span>
+                <div class="card fade-in">
+                    <div class="card-body value-card">
+                        <i class="fas fa-check-circle"></i>
+                        <span>${value}</span>
                     </div>
                 </div>
             `).join('');
             
-            // Load collaboration network
             const collaborationContainer = document.getElementById('about-collaboration');
             collaborationContainer.innerHTML = aboutData.collaboration.map(item => `
-                <div class="bg-gray-100 rounded-xl p-6 text-center card-hover">
-                    <i class="fas fa-${item.icon} text-4xl text-purple-600 mb-4"></i>
-                    <h3 class="text-lg font-semibold text-gray-800 mb-2">${item.title}</h3>
-                    <p class="text-gray-600">${item.description}</p>
+                <div class="card fade-in collaboration-card">
+                    <div class="collaboration-icon">
+                        <i class="fas fa-${item.icon}"></i>
+                    </div>
+                    <h3 class="collaboration-title">${item.title}</h3>
+                    <p class="collaboration-desc">${item.description}</p>
                 </div>
             `).join('');
         }
         
-        // Initialize
         loadAboutData().then(() => {
-            // After data is loaded, initialize footer
             if (typeof updateFooterFromDataLoader === 'function') {
                 updateFooterFromDataLoader();
             }

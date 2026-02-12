@@ -9,146 +9,95 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/academicons@1.9.1/css/academicons.min.css">
     <script src="https://cdn.jsdelivr.net/npm/js-yaml@4.1.0/dist/js-yaml.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/marked@12.0.0/marked.min.js"></script>
+    <link rel="stylesheet" href="css/styles.css">
     <script src="js/data-loader.js"></script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-        
-        body {
-            font-family: 'Inter', sans-serif;
-        }
-        
-        .hero-gradient {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        }
-        
-        .card-hover {
-            transition: all 0.3s ease;
-        }
-        
-        .card-hover:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-        }
-        
-        .nav-link {
-            position: relative;
-        }
-        
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -4px;
-            left: 0;
-            background-color: #667eea;
-            transition: width 0.3s ease;
-        }
-        
-        .nav-link:hover::after {
-            width: 100%;
-        }
-    </style>
 </head>
-<body class="bg-gray-50 text-gray-900">
-    <!-- Navigation -->
-    <nav class="bg-white shadow-md fixed w-full z-50">
-        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
-            <a href="index.html" class="flex items-center space-x-2">
-                <img src="images/logo-nav.png" alt="OncoHarmony Logo" class="h-12 w-12 object-contain">
-                <span class="text-xl font-bold text-gray-800">OncoHarmony</span>
+<body>
+    <nav class="nav-bar" id="navbar">
+        <div class="container nav-content">
+            <a href="index.html" class="nav-brand">
+                <img src="images/logo-nav.png" alt="OncoHarmony Logo" class="nav-brand-logo">
+                <span class="nav-brand-text">OncoHarmony</span>
             </a>
             
-            <!-- Desktop Navigation -->
-            <div class="hidden md:flex space-x-8">
-                <a href="index.html" class="nav-link text-gray-700 hover:text-purple-600 font-medium">Home</a>
-                <a href="about.html" class="nav-link text-gray-700 hover:text-purple-600 font-medium">About</a>
-                <a href="members.html" class="nav-link text-gray-700 hover:text-purple-600 font-medium">Members</a>
-                <a href="publications.html" class="nav-link text-gray-700 hover:text-purple-600 font-medium">Publications</a>
-                <a href="projects.html" class="nav-link text-gray-700 hover:text-purple-600 font-medium">Projects</a>
-                <a href="news.html" class="nav-link text-purple-600 font-medium">News</a>
-                <a href="contact.html" class="nav-link text-gray-700 hover:text-purple-600 font-medium">Contact</a>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="members.html" class="nav-link">Members</a>
+                <a href="publications.html" class="nav-link">Publications</a>
+                <a href="projects.html" class="nav-link">Projects</a>
+                <a href="news.html" class="nav-link active">News</a>
+                <a href="contact.html" class="nav-link">Contact</a>
             </div>
             
-            <!-- Mobile Menu Button -->
-            <button class="md:hidden text-gray-700" id="mobile-menu-button">
+            <button class="mobile-menu-btn" id="mobile-menu-button">
                 <i class="fas fa-bars text-xl"></i>
             </button>
         </div>
         
-        <!-- Mobile Navigation -->
-        <div class="md:hidden hidden bg-white border-t" id="mobile-menu">
-            <div class="container mx-auto px-4 py-3 space-y-3">
-                <a href="index.html" class="block py-2 text-gray-700 hover:text-purple-600 font-medium">Home</a>
-                <a href="about.html" class="block py-2 text-gray-700 hover:text-purple-600 font-medium">About</a>
-                <a href="members.html" class="block py-2 text-gray-700 hover:text-purple-600 font-medium">Members</a>
-                <a href="publications.html" class="block py-2 text-gray-700 hover:text-purple-600 font-medium">Publications</a>
-                <a href="projects.html" class="block py-2 text-gray-700 hover:text-purple-600 font-medium">Projects</a>
-                <a href="news.html" class="block py-2 text-purple-600 font-medium">News</a>
-                <a href="contact.html" class="block py-2 text-gray-700 hover:text-purple-600 font-medium">Contact</a>
+        <div class="mobile-nav" id="mobile-menu">
+            <div class="container">
+                <a href="index.html" class="mobile-nav-link">Home</a>
+                <a href="about.html" class="mobile-nav-link">About</a>
+                <a href="members.html" class="mobile-nav-link">Members</a>
+                <a href="publications.html" class="mobile-nav-link">Publications</a>
+                <a href="projects.html" class="mobile-nav-link">Projects</a>
+                <a href="news.html" class="mobile-nav-link active">News</a>
+                <a href="contact.html" class="mobile-nav-link">Contact</a>
             </div>
         </div>
     </nav>
 
-    <!-- Page Header -->
-    <header class="hero-gradient pt-24 pb-16 md:pt-32 md:pb-24">
-        <div class="container mx-auto px-4">
-            <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">News & Highlights</h1>
-            <p class="text-xl text-white/90">
+    <header class="page-header">
+        <div class="container page-header-content">
+            <h1 class="page-title">News & Highlights</h1>
+            <p class="page-subtitle">
                 Latest updates and achievements from the OncoHarmony Network
             </p>
         </div>
     </header>
 
-    <!-- News Content Section -->
-    <section class="py-16 bg-white">
-        <div class="container mx-auto px-4">
-            <div class="grid md:grid-cols-3 gap-12">
-                <!-- Main News Content -->
-                <div class="md:col-span-2">
-                    <!-- News Article will be inserted here by JavaScript -->
-                    <div id="news-article" class="bg-white rounded-xl shadow-md p-8">
-                        <div class="flex items-center mb-4">
-                            <div class="bg-purple-100 text-purple-800 px-4 py-1 rounded-full text-sm font-semibold mr-3">
-                                <i class="fas fa-newspaper mr-1"></i> Loading...
+    <section class="section section-white">
+        <div class="container">
+            <div style="display: grid; grid-template-columns: 1fr; gap: 3rem;">
+                <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 3rem;">
+                    <div id="news-article" class="card">
+                        <div class="card-body" style="padding: 2.5rem;">
+                            <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+                                <span class="publication-type research">
+                                    <i class="fas fa-newspaper"></i> Loading...
+                                </span>
+                                <span style="color: var(--neutral-500); font-size: 0.875rem;">Loading date...</span>
                             </div>
-                            <div class="text-gray-500 text-sm">
-                                Loading date...
-                            </div>
-                        </div>
-                        <h2 class="text-3xl font-bold text-gray-800 mb-6">Loading news article...</h2>
-                        <div class="text-gray-600">
-                            <p>Please wait while we load the news article content...</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Related News -->
-                <div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-6">Related News</h3>
-                    <div id="related-news" class="space-y-4">
-                        <!-- Related news items will be inserted here by JavaScript -->
-                        <div class="bg-gray-50 rounded-lg p-4">
-                            <p class="text-gray-600">Loading related news...</p>
+                            <h2 style="font-size: 1.75rem; font-weight: 700; color: var(--neutral-900); margin-bottom: 1.5rem;">Loading news article...</h2>
+                            <p style="color: var(--neutral-600); line-height: 1.8;">Please wait while we load the news article content...</p>
                         </div>
                     </div>
                     
-                    <!-- Back to All News -->
-                    <div class="mt-8">
-                        <a href="news.html" class="block bg-purple-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-purple-700 transition-colors text-center">
-                            <i class="fas fa-list mr-2"></i> View All News
-                        </a>
+                    <div>
+                        <h3 style="font-size: 1.25rem; font-weight: 700; color: var(--neutral-900); margin-bottom: 1.5rem;">Related News</h3>
+                        <div id="related-news" style="display: flex; flex-direction: column; gap: 1rem;">
+                            <div class="card">
+                                <div class="card-body">
+                                    <p style="color: var(--neutral-600);">Loading related news...</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div style="margin-top: 2rem;">
+                            <a href="news.html" class="btn btn-primary" style="width: 100%;">
+                                <i class="fas fa-list"></i> View All News
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
     <div id="footer-container"></div>
 
     <script>
-        // Load footer component
         fetch('components/footer.html')
             .then(response => response.text())
             .then(html => {
@@ -158,15 +107,22 @@
     </script>
 
     <script>
-        // Mobile menu toggle
         const mobileMenuButton = document.getElementById('mobile-menu-button');
         const mobileMenu = document.getElementById('mobile-menu');
         
         mobileMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
+            mobileMenu.classList.toggle('active');
         });
         
-        // Get URL parameters
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 10) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+        
         function getUrlParams() {
             const params = {};
             const urlParams = new URLSearchParams(window.location.search);
@@ -176,7 +132,6 @@
             return params;
         }
         
-        // Format date
         function formatDate(dateString) {
             const date = new Date(dateString);
             return date.toLocaleDateString('en-US', {
@@ -186,7 +141,6 @@
             });
         }
         
-        // Load news article
         async function loadNewsArticle() {
             const params = getUrlParams();
             const newsId = params.id ? parseInt(params.id) : null;
@@ -198,82 +152,74 @@
             const relatedNewsContainer = document.getElementById('related-news');
             
             if (newsId) {
-                // Load single news article
                 const article = newsData.find(item => item.id === newsId);
                 
                 if (article) {
-                    // Render main article
                     newsArticleContainer.innerHTML = `
-                        <div class="flex items-center mb-4">
-                            <div class="bg-purple-100 text-purple-800 px-4 py-1 rounded-full text-sm font-semibold mr-3">
-                                <i class="fas fa-${article.category.toLowerCase() === 'news' ? 'newspaper' : article.category.toLowerCase() === 'achievement' ? 'award' : 'users'} mr-1"></i> ${article.category}
+                        <div class="card-body fade-in" style="padding: 2.5rem;">
+                            <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+                                <span class="publication-type ${article.category.toLowerCase() === 'news' ? 'research' : 'review'}">
+                                    <i class="fas fa-${article.category.toLowerCase() === 'news' ? 'newspaper' : article.category.toLowerCase() === 'achievement' ? 'award' : 'users'}"></i> ${article.category}
+                                </span>
+                                <span style="color: var(--neutral-500); font-size: 0.875rem;">${formatDate(article.date)}</span>
                             </div>
-                            <div class="text-gray-500 text-sm">
-                                ${formatDate(article.date)}
+                            <h2 style="font-size: 1.75rem; font-weight: 700; color: var(--neutral-900); margin-bottom: 1.5rem;">${article.title}</h2>
+                            <div style="color: var(--neutral-600); line-height: 1.8;">
+                                ${marked.parse(article.content)}
                             </div>
-                        </div>
-                        <h2 class="text-3xl font-bold text-gray-800 mb-6">${article.title}</h2>
-                        <div class="text-gray-600 prose prose-purple max-w-none">
-                            ${marked.parse(article.content)}
                         </div>
                     `;
                     
-                    // Render related news
                     const relatedNews = newsData.filter(item => item.id !== newsId).slice(0, 3);
                     relatedNewsContainer.innerHTML = relatedNews.map(item => `
-                        <div class="bg-gray-50 rounded-lg p-4 card-hover">
-                            <div class="flex items-center mb-2">
-                                <div class="bg-purple-100 text-purple-800 px-3 py-0.5 rounded-full text-xs font-semibold mr-2">
-                                    ${item.category}
+                        <div class="card fade-in" style="cursor: pointer;" onclick="window.location.href='news.html?id=${item.id}'">
+                            <div class="card-body" style="padding: 1.25rem;">
+                                <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.75rem;">
+                                    <span style="background: var(--primary-100); color: var(--primary-700); padding: 0.25rem 0.5rem; border-radius: 9999px; font-size: 0.6875rem; font-weight: 600;">${item.category}</span>
+                                    <span style="color: var(--neutral-400); font-size: 0.75rem;">${formatDate(item.date)}</span>
                                 </div>
-                                <div class="text-gray-500 text-xs">
-                                    ${formatDate(item.date)}
-                                </div>
+                                <h4 style="font-weight: 600; color: var(--neutral-900); margin: 0 0 0.5rem; font-size: 0.9375rem;">${item.title}</h4>
+                                <p style="color: var(--neutral-500); font-size: 0.8125rem; margin: 0 0 0.75rem; line-height: 1.6;">${item.description}</p>
+                                <a href="news.html?id=${item.id}" class="project-link" style="font-size: 0.8125rem;">
+                                    Read More <i class="fas fa-arrow-right"></i>
+                                </a>
                             </div>
-                            <h4 class="font-bold text-gray-800 mb-1">${item.title}</h4>
-                            <p class="text-gray-600 text-sm mb-3">${item.description}</p>
-                            <a href="news.html?id=${item.id}" class="text-purple-600 text-sm font-medium hover:underline">
-                                Read More <i class="fas fa-arrow-right ml-1"></i>
-                            </a>
                         </div>
                     `).join('');
                 } else {
-                    // Article not found
                     newsArticleContainer.innerHTML = `
-                        <div class="flex items-center mb-4">
-                            <div class="bg-red-100 text-red-800 px-4 py-1 rounded-full text-sm font-semibold mr-3">
-                                <i class="fas fa-exclamation-circle mr-1"></i> Error
-                            </div>
-                        </div>
-                        <h2 class="text-3xl font-bold text-gray-800 mb-6">News Article Not Found</h2>
-                        <div class="text-gray-600">
-                            <p>The requested news article could not be found. Please check the URL or return to the <a href="news.html" class="text-purple-600 hover:underline">news list</a>.</p>
+                        <div class="card-body" style="padding: 2.5rem; text-align: center;">
+                            <i class="fas fa-exclamation-circle" style="font-size: 3rem; color: var(--error-500); margin-bottom: 1rem;"></i>
+                            <h2 style="font-size: 1.5rem; font-weight: 700; color: var(--neutral-900); margin-bottom: 1rem;">News Article Not Found</h2>
+                            <p style="color: var(--neutral-500); margin-bottom: 1.5rem;">The requested news article could not be found.</p>
+                            <a href="news.html" class="btn btn-primary">Back to News</a>
                         </div>
                     `;
                     relatedNewsContainer.innerHTML = '';
                 }
             } else {
-                // Load all news articles
                 newsArticleContainer.innerHTML = `
-                    <h2 class="text-2xl font-bold text-gray-800 mb-6">All News</h2>
-                    <div class="space-y-6">
-                        ${newsData.map(item => `
-                            <div class="bg-gray-50 rounded-xl p-6 card-hover">
-                                <div class="flex items-center mb-3">
-                                    <div class="bg-purple-100 text-purple-800 px-4 py-1 rounded-full text-sm font-semibold mr-3">
-                                        <i class="fas fa-${item.category.toLowerCase() === 'news' ? 'newspaper' : item.category.toLowerCase() === 'achievement' ? 'award' : 'users'} mr-1"></i> ${item.category}
-                                    </div>
-                                    <div class="text-gray-500 text-sm">
-                                        ${formatDate(item.date)}
+                    <div class="card-body" style="padding: 2.5rem;">
+                        <h2 style="font-size: 1.5rem; font-weight: 700; color: var(--neutral-900); margin-bottom: 2rem;">All News</h2>
+                        <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+                            ${newsData.map(item => `
+                                <div class="card fade-in" style="cursor: pointer;" onclick="window.location.href='news.html?id=${item.id}'">
+                                    <div class="card-body" style="padding: 1.5rem;">
+                                        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                                            <span class="publication-type ${item.category.toLowerCase() === 'news' ? 'research' : 'review'}">
+                                                <i class="fas fa-${item.category.toLowerCase() === 'news' ? 'newspaper' : item.category.toLowerCase() === 'achievement' ? 'award' : 'users'}"></i> ${item.category}
+                                            </span>
+                                            <span style="color: var(--neutral-500); font-size: 0.875rem;">${formatDate(item.date)}</span>
+                                        </div>
+                                        <h3 style="font-size: 1.125rem; font-weight: 700; color: var(--neutral-900); margin-bottom: 0.75rem;">${item.title}</h3>
+                                        <p style="color: var(--neutral-600); margin-bottom: 1rem; line-height: 1.7;">${item.description}</p>
+                                        <a href="news.html?id=${item.id}" class="project-link">
+                                            Read More <i class="fas fa-arrow-right"></i>
+                                        </a>
                                     </div>
                                 </div>
-                                <h3 class="text-xl font-bold text-gray-800 mb-3">${item.title}</h3>
-                                <p class="text-gray-600 mb-4">${item.description}</p>
-                                <a href="news.html?id=${item.id}" class="text-purple-600 font-medium hover:underline">
-                                    Read More <i class="fas fa-arrow-right ml-1"></i>
-                                </a>
-                            </div>
-                        `).join('')}
+                            `).join('')}
+                        </div>
                     </div>
                 `;
                 
@@ -281,9 +227,7 @@
             }
         }
         
-        // Initialize
         loadNewsArticle().then(() => {
-            // After data is loaded, initialize footer
             if (typeof updateFooterFromDataLoader === 'function') {
                 updateFooterFromDataLoader();
             }

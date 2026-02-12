@@ -9,258 +9,158 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/academicons@1.9.1/css/academicons.min.css">
     <script src="https://cdn.jsdelivr.net/npm/js-yaml@4.1.0/dist/js-yaml.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@vladmandic/face-api@1.7.12/dist/face-api.min.js"></script>
+    <link rel="stylesheet" href="css/styles.css">
     <script src="js/data-loader.js"></script>
     <script src="js/face-cropper.js"></script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-        
-        body {
-            font-family: 'Inter', sans-serif;
-        }
-        
-        .hero-gradient {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        }
-        
-        .card-hover {
-            transition: all 0.3s ease;
-        }
-        
-        .card-hover:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-        }
-        
-        .nav-link {
-            position: relative;
-        }
-        
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -4px;
-            left: 0;
-            background-color: #667eea;
-            transition: width 0.3s ease;
-        }
-        
-        .nav-link:hover::after {
-            width: 100%;
-        }
-        
-        .member-card {
-            transition: all 0.3s ease;
-        }
-        
-        .member-card:hover {
-            transform: translateY(-8px);
-        }
-        
-        .avatar-container {
-            position: relative;
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .avatar-container img {
-            object-fit: cover;
-            object-position: center top;
-            width: 100%;
-            height: 100%;
-            transition: transform 0.3s ease;
-        }
-        
-        .avatar-container:hover img {
-            transform: scale(1.1);
-        }
-    </style>
 </head>
-<body class="bg-gray-50 text-gray-900">
-    <!-- Navigation -->
-    <nav class="bg-white shadow-md fixed w-full z-50">
-        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
-            <a href="index.html" class="flex items-center space-x-2">
-                <i class="fas fa-dna text-2xl text-purple-600"></i>
-                <span class="text-xl font-bold text-gray-800">OncoHarmony</span>
+<body>
+    <nav class="nav-bar" id="navbar">
+        <div class="container nav-content">
+            <a href="index.html" class="nav-brand">
+                <img src="images/logo-nav.png" alt="OncoHarmony Logo" class="nav-brand-logo">
+                <span class="nav-brand-text">OncoHarmony</span>
             </a>
             
-            <!-- Desktop Navigation -->
-            <div class="hidden md:flex space-x-8">
-                <a href="index.html" class="nav-link text-gray-700 hover:text-purple-600 font-medium">Home</a>
-                <a href="about.html" class="nav-link text-gray-700 hover:text-purple-600 font-medium">About</a>
-                <a href="members.html" class="nav-link text-purple-600 font-medium">Members</a>
-                <a href="publications.html" class="nav-link text-gray-700 hover:text-purple-600 font-medium">Publications</a>
-                <a href="projects.html" class="nav-link text-gray-700 hover:text-purple-600 font-medium">Projects</a>
-                <a href="news.html" class="nav-link text-gray-700 hover:text-purple-600 font-medium">News</a>
-                <a href="contact.html" class="nav-link text-gray-700 hover:text-purple-600 font-medium">Contact</a>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="members.html" class="nav-link active">Members</a>
+                <a href="publications.html" class="nav-link">Publications</a>
+                <a href="projects.html" class="nav-link">Projects</a>
+                <a href="news.html" class="nav-link">News</a>
+                <a href="contact.html" class="nav-link">Contact</a>
             </div>
             
-            <!-- Mobile Menu Button -->
-            <button class="md:hidden text-gray-700" id="mobile-menu-button">
+            <button class="mobile-menu-btn" id="mobile-menu-button">
                 <i class="fas fa-bars text-xl"></i>
             </button>
         </div>
         
-        <!-- Mobile Navigation -->
-        <div class="md:hidden hidden bg-white border-t" id="mobile-menu">
-            <div class="container mx-auto px-4 py-3 space-y-3">
-                <a href="index.html" class="block py-2 text-gray-700 hover:text-purple-600 font-medium">Home</a>
-                <a href="about.html" class="block py-2 text-gray-700 hover:text-purple-600 font-medium">About</a>
-                <a href="members.html" class="block py-2 text-purple-600 font-medium">Members</a>
-                <a href="publications.html" class="block py-2 text-gray-700 hover:text-purple-600 font-medium">Publications</a>
-                <a href="projects.html" class="block py-2 text-gray-700 hover:text-purple-600 font-medium">Projects</a>
-                <a href="news.html" class="block py-2 text-gray-700 hover:text-purple-600 font-medium">News</a>
-                <a href="contact.html" class="block py-2 text-gray-700 hover:text-purple-600 font-medium">Contact</a>
+        <div class="mobile-nav" id="mobile-menu">
+            <div class="container">
+                <a href="index.html" class="mobile-nav-link">Home</a>
+                <a href="about.html" class="mobile-nav-link">About</a>
+                <a href="members.html" class="mobile-nav-link active">Members</a>
+                <a href="publications.html" class="mobile-nav-link">Publications</a>
+                <a href="projects.html" class="mobile-nav-link">Projects</a>
+                <a href="news.html" class="mobile-nav-link">News</a>
+                <a href="contact.html" class="mobile-nav-link">Contact</a>
             </div>
         </div>
     </nav>
 
-    <!-- Page Header -->
-    <header class="hero-gradient pt-24 pb-16 md:pt-32 md:pb-24">
-        <div class="container mx-auto px-4">
-            <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">Our Team</h1>
-            <p class="text-xl text-white/90">
+    <header class="page-header">
+        <div class="container page-header-content">
+            <h1 class="page-title">Our Team</h1>
+            <p class="page-subtitle">
                 Meet the talented researchers and collaborators driving our mission
             </p>
         </div>
     </header>
 
-    <!-- Leadership Team Section -->
-    <section class="py-16 bg-white">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">Leadership Team</h2>
+    <section class="section section-white">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Leadership Team</h2>
+                <p class="section-subtitle">Principal investigators guiding our research direction</p>
+            </div>
             
-            <div id="leadership-team" class="grid md:grid-cols-2 gap-8">
-                <!-- Leadership team members will be inserted here by JavaScript -->
-                <div class="bg-white rounded-xl shadow-md overflow-hidden member-card">
-                    <div class="p-6">
-                        <div class="flex flex-col items-center text-center">
-                            <div class="w-32 h-32 bg-gray-200 rounded-full flex items-center justify-center mb-4">
-                                <i class="fas fa-user-md text-5xl text-purple-600"></i>
-                            </div>
-                            <h3 class="text-2xl font-bold text-gray-800">Loading...</h3>
-                            <p class="text-purple-600 font-semibold mb-2">Loading...</p>
-                            <p class="text-gray-600 mb-4">Loading...</p>
-                            <p class="text-gray-600 mb-4 max-w-md">
-                                Loading member information...
-                            </p>
-                        </div>
+            <div id="leadership-team" class="grid-2">
+                <div class="member-card">
+                    <div class="member-avatar">
+                        <i class="fas fa-user-md"></i>
                     </div>
+                    <h3 class="member-name">Loading...</h3>
+                    <p class="member-role">Loading...</p>
+                    <p class="member-institution">Loading...</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Advisory Board Section -->
-    <section class="py-16 bg-gray-50">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">Advisory Board</h2>
+    <section class="section section-light">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Advisory Board</h2>
+                <p class="section-subtitle">Expert advisors supporting our research initiatives</p>
+            </div>
             
-            <div id="advisory-board" class="grid md:grid-cols-3 gap-8">
-                <!-- Advisory board members will be inserted here by JavaScript -->
-                <div class="bg-white rounded-xl shadow-md overflow-hidden member-card">
-                    <div class="p-6">
-                        <div class="flex flex-col items-center text-center">
-                            <div class="w-28 h-28 bg-gray-200 rounded-full flex items-center justify-center mb-4">
-                                <i class="fas fa-user-graduate text-4xl text-purple-600"></i>
-                            </div>
-                            <h3 class="text-xl font-bold text-gray-800">Loading...</h3>
-                            <p class="text-purple-600 font-semibold mb-2">Loading...</p>
-                            <p class="text-gray-600 mb-3">Loading...</p>
-                            <p class="text-gray-600 mb-4 text-sm">
-                                Loading...
-                            </p>
-                        </div>
+            <div id="advisory-board" class="grid-3">
+                <div class="member-card">
+                    <div class="member-avatar">
+                        <i class="fas fa-user-graduate"></i>
                     </div>
+                    <h3 class="member-name">Loading...</h3>
+                    <p class="member-role">Loading...</p>
+                    <p class="member-institution">Loading...</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Graduate Students Section -->
-    <section class="py-16 bg-white">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">Graduate Students</h2>
+    <section class="section section-white">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Graduate Students</h2>
+                <p class="section-subtitle">Doctoral and master's students conducting cutting-edge research</p>
+            </div>
             
-            <div id="graduate-students" class="grid md:grid-cols-4 gap-6">
-                <!-- Graduate students will be inserted here by JavaScript -->
-                <div class="bg-white rounded-xl shadow-md overflow-hidden member-card">
-                    <div class="p-5">
-                        <div class="flex flex-col items-center text-center">
-                            <div class="w-24 h-24 bg-gray-200 rounded-full flex items-center justify-center mb-3">
-                                <i class="fas fa-user-graduate text-3xl text-purple-600"></i>
-                            </div>
-                            <h3 class="text-lg font-bold text-gray-800">Loading...</h3>
-                            <p class="text-purple-600 font-semibold mb-1 text-sm">Loading...</p>
-                            <p class="text-gray-600 text-sm">
-                                Loading...
-                            </p>
-                        </div>
+            <div id="graduate-students" class="grid-4">
+                <div class="member-card">
+                    <div class="member-avatar">
+                        <i class="fas fa-user-graduate"></i>
                     </div>
+                    <h3 class="member-name">Loading...</h3>
+                    <p class="member-role">Loading...</p>
+                    <p class="member-institution">Loading...</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Undergraduate Students Section -->
-    <section class="py-16 bg-gray-50">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">Undergraduate Students</h2>
+    <section class="section section-light">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Undergraduate Students</h2>
+                <p class="section-subtitle">Emerging researchers contributing to our projects</p>
+            </div>
             
-            <div id="undergraduate-students" class="grid md:grid-cols-4 gap-6">
-                <!-- Undergraduate students will be inserted here by JavaScript -->
-                <div class="bg-white rounded-xl shadow-md overflow-hidden member-card">
-                    <div class="p-5">
-                        <div class="flex flex-col items-center text-center">
-                            <div class="w-24 h-24 bg-gray-200 rounded-full flex items-center justify-center mb-3">
-                                <i class="fas fa-user-graduate text-3xl text-purple-600"></i>
-                            </div>
-                            <h3 class="text-lg font-bold text-gray-800">Loading...</h3>
-                            <p class="text-purple-600 font-semibold mb-1 text-sm">Loading...</p>
-                            <p class="text-gray-600 text-sm">
-                                Loading...
-                            </p>
-                        </div>
+            <div id="undergraduate-students" class="grid-4">
+                <div class="member-card">
+                    <div class="member-avatar">
+                        <i class="fas fa-user-graduate"></i>
                     </div>
+                    <h3 class="member-name">Loading...</h3>
+                    <p class="member-role">Loading...</p>
+                    <p class="member-institution">Loading...</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Others Section -->
-    <section class="py-16 bg-gray-50">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">Others</h2>
+    <section class="section section-white">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Research Fellows & Collaborators</h2>
+                <p class="section-subtitle">Technical members and research collaborators</p>
+            </div>
             
-            <div id="others" class="grid md:grid-cols-4 gap-6">
-                <!-- Others will be inserted here by JavaScript -->
-                <div class="bg-white rounded-xl shadow-md overflow-hidden member-card">
-                    <div class="p-5">
-                        <div class="flex flex-col items-center text-center">
-                            <div class="w-24 h-24 bg-gray-200 rounded-full flex items-center justify-center mb-3">
-                                <i class="fas fa-user-graduate text-3xl text-purple-600"></i>
-                            </div>
-                            <h3 class="text-lg font-bold text-gray-800">Loading...</h3>
-                            <p class="text-purple-600 font-semibold mb-1 text-sm">Loading...</p>
-                            <p class="text-gray-600 text-sm">
-                                Loading...
-                            </p>
-                        </div>
+            <div id="others" class="grid-4">
+                <div class="member-card">
+                    <div class="member-avatar">
+                        <i class="fas fa-user-graduate"></i>
                     </div>
+                    <h3 class="member-name">Loading...</h3>
+                    <p class="member-role">Loading...</p>
+                    <p class="member-institution">Loading...</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
     <div id="footer-container"></div>
 
     <script>
-        // Load footer component
         fetch('components/footer.html')
             .then(response => response.text())
             .then(html => {
@@ -270,60 +170,61 @@
     </script>
 
     <script>
-        // Mobile menu toggle
         const mobileMenuButton = document.getElementById('mobile-menu-button');
         const mobileMenu = document.getElementById('mobile-menu');
         
         mobileMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
+            mobileMenu.classList.toggle('active');
         });
         
-        // Load members data
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 10) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+        
         async function loadMembers() {
             await dataLoader.load();
             const membersData = dataLoader.getMembers();
             
-            // Load leadership team
             const leadershipTeamContainer = document.getElementById('leadership-team');
             leadershipTeamContainer.innerHTML = membersData.leadership_team.map((member, index) => {
                 const avatarHtml = member.avatar_type === 'image' 
-                    ? `<div class="avatar-container w-32 h-32 rounded-full overflow-hidden mb-4" id="avatar-leadership-${index}">
-                        <img src="${member.avatar}" alt="${member.name}" onerror="this.parentElement.innerHTML='<i class=\\'fas fa-user-md text-5xl text-purple-600\\'></i>'">
+                    ? `<div class="member-avatar" id="avatar-leadership-${index}">
+                        <img src="${member.avatar}" alt="${member.name}" onerror="this.parentElement.innerHTML='<i class=\\'fas fa-user-md\\'></i>'">
                        </div>`
-                    : `<div class="w-32 h-32 bg-gray-200 rounded-full flex items-center justify-center mb-4">
-                        <i class="fas fa-${member.avatar} text-5xl text-purple-600"></i>
+                    : `<div class="member-avatar">
+                        <i class="fas fa-${member.avatar}"></i>
                        </div>`;
                 
                 return `
-                <div class="bg-white rounded-xl shadow-md overflow-hidden member-card">
-                    <div class="p-6">
-                        <div class="flex flex-col items-center text-center">
-                            ${avatarHtml}
-                            <h3 class="text-2xl font-bold text-gray-800">${member.name}</h3>
-                            <p class="text-purple-600 font-semibold mb-2">${member.role}</p>
-                            <p class="text-gray-600 mb-4">${member.institution}</p>
-                            ${member.description ? `<p class="text-gray-600 mb-4 max-w-md">${member.description}</p>` : ''}
-                            <div class="flex space-x-4">
-                                <a href="${member.links.google_scholar}" class="text-gray-500 hover:text-purple-600 transition-colors">
-                                    <i class="ai ai-google-scholar text-xl"></i>
-                                </a>
-                                <a href="${member.links.researchgate}" class="text-gray-500 hover:text-purple-600 transition-colors">
-                                    <i class="fab fa-researchgate text-xl"></i>
-                                </a>
-                                <a href="${member.links.orcid}" class="text-gray-500 hover:text-purple-600 transition-colors">
-                                    <i class="fab fa-orcid text-xl"></i>
-                                </a>
-                                <a href="${member.links.github}" class="text-gray-500 hover:text-purple-600 transition-colors">
-                                    <i class="fab fa-github text-xl"></i>
-                                </a>
-                            </div>
-                        </div>
+                <div class="member-card fade-in">
+                    ${avatarHtml}
+                    <h3 class="member-name">${member.name}</h3>
+                    <p class="member-role">${member.role}</p>
+                    <p class="member-institution">${member.institution}</p>
+                    ${member.description ? `<p style="color: var(--neutral-500); font-size: 0.875rem; margin-top: 0.75rem; line-height: 1.6;">${member.description}</p>` : ''}
+                    <div class="member-links">
+                        <a href="${member.links.google_scholar}" class="member-link" title="Google Scholar">
+                            <i class="ai ai-google-scholar"></i>
+                        </a>
+                        <a href="${member.links.researchgate}" class="member-link" title="ResearchGate">
+                            <i class="fab fa-researchgate"></i>
+                        </a>
+                        <a href="${member.links.orcid}" class="member-link" title="ORCID">
+                            <i class="fab fa-orcid"></i>
+                        </a>
+                        <a href="${member.links.github}" class="member-link" title="GitHub">
+                            <i class="fab fa-github"></i>
+                        </a>
                     </div>
                 </div>
             `;
             }).join('');
             
-            // Process avatar images for face detection
             membersData.leadership_team.forEach((member, index) => {
                 if (member.avatar_type === 'image') {
                     const container = document.getElementById(`avatar-leadership-${index}`);
@@ -334,49 +235,33 @@
                 }
             });
             
-            // Load advisory board
             const advisoryBoardContainer = document.getElementById('advisory-board');
             advisoryBoardContainer.innerHTML = membersData.advisory_board.map((member, index) => {
                 const avatarHtml = member.avatar_type === 'image' 
-                    ? `<div class="avatar-container w-28 h-28 rounded-full overflow-hidden mb-4" id="avatar-advisory-${index}">
-                        <img src="${member.avatar}" alt="${member.name}" onerror="this.parentElement.innerHTML='<i class=\\'fas fa-user-graduate text-4xl text-purple-600\\'></i>'">
+                    ? `<div class="member-avatar" id="avatar-advisory-${index}">
+                        <img src="${member.avatar}" alt="${member.name}" onerror="this.parentElement.innerHTML='<i class=\\'fas fa-user-graduate\\'></i>'">
                        </div>`
-                    : `<div class="w-28 h-28 bg-gray-200 rounded-full flex items-center justify-center mb-4">
-                        <i class="fas fa-${member.avatar} text-4xl text-purple-600"></i>
+                    : `<div class="member-avatar">
+                        <i class="fas fa-${member.avatar}"></i>
                        </div>`;
                 
                 return `
-                <div class="bg-white rounded-xl shadow-md overflow-hidden member-card">
-                    <div class="p-6">
-                        <div class="flex flex-col items-center text-center">
-                            ${avatarHtml}
-                            <h3 class="text-xl font-bold text-gray-800">${member.name}</h3>
-                            <p class="text-purple-600 font-semibold mb-2">${member.role}</p>
-                            <p class="text-gray-600 mb-3">${member.institution}</p>
-                            <p class="text-gray-600 mb-4 text-sm">
-                                ${member.field}
-                            </p>
-                            <div class="flex space-x-3">
-                                ${member.links.google_scholar ? `<a href="${member.links.google_scholar}" class="text-gray-500 hover:text-purple-600 transition-colors">
-                                    <i class="ai ai-google-scholar"></i>
-                                </a>` : ''}
-                                ${member.links.researchgate ? `<a href="${member.links.researchgate}" class="text-gray-500 hover:text-purple-600 transition-colors">
-                                    <i class="fab fa-researchgate"></i>
-                                </a>` : ''}
-                                ${member.links.orcid ? `<a href="${member.links.orcid}" class="text-gray-500 hover:text-purple-600 transition-colors">
-                                    <i class="fab fa-orcid"></i>
-                                </a>` : ''}
-                                ${member.links.github ? `<a href="${member.links.github}" class="text-gray-500 hover:text-purple-600 transition-colors">
-                                    <i class="fab fa-github"></i>
-                                </a>` : ''}
-                            </div>
-                        </div>
+                <div class="member-card fade-in">
+                    ${avatarHtml}
+                    <h3 class="member-name">${member.name}</h3>
+                    <p class="member-role">${member.role}</p>
+                    <p class="member-institution">${member.institution}</p>
+                    ${member.field ? `<p style="color: var(--neutral-500); font-size: 0.8125rem; margin-top: 0.5rem;">${member.field}</p>` : ''}
+                    <div class="member-links">
+                        ${member.links.google_scholar ? `<a href="${member.links.google_scholar}" class="member-link" title="Google Scholar"><i class="ai ai-google-scholar"></i></a>` : ''}
+                        ${member.links.researchgate ? `<a href="${member.links.researchgate}" class="member-link" title="ResearchGate"><i class="fab fa-researchgate"></i></a>` : ''}
+                        ${member.links.orcid ? `<a href="${member.links.orcid}" class="member-link" title="ORCID"><i class="fab fa-orcid"></i></a>` : ''}
+                        ${member.links.github ? `<a href="${member.links.github}" class="member-link" title="GitHub"><i class="fab fa-github"></i></a>` : ''}
                     </div>
                 </div>
             `;
             }).join('');
             
-            // Process advisory board avatar images for face detection
             membersData.advisory_board.forEach((member, index) => {
                 if (member.avatar_type === 'image') {
                     const container = document.getElementById(`avatar-advisory-${index}`);
@@ -387,34 +272,26 @@
                 }
             });
             
-            // Load graduate students
             const graduateStudentsContainer = document.getElementById('graduate-students');
             graduateStudentsContainer.innerHTML = membersData.graduate_students.map((member, index) => {
                 const avatarHtml = member.avatar_type === 'image' 
-                    ? `<div class="avatar-container w-24 h-24 rounded-full overflow-hidden mb-3" id="avatar-graduate-${index}">
-                        <img src="${member.avatar}" alt="${member.name}" onerror="this.parentElement.innerHTML='<i class=\\'fas fa-user-graduate text-3xl text-purple-600\\'></i>'">
+                    ? `<div class="member-avatar" id="avatar-graduate-${index}">
+                        <img src="${member.avatar}" alt="${member.name}" onerror="this.parentElement.innerHTML='<i class=\\'fas fa-user-graduate\\'></i>'">
                        </div>`
-                    : `<div class="w-24 h-24 bg-gray-200 rounded-full flex items-center justify-center mb-3">
-                        <i class="fas fa-${member.avatar} text-3xl text-purple-600"></i>
+                    : `<div class="member-avatar">
+                        <i class="fas fa-${member.avatar}"></i>
                        </div>`;
                 
                 return `
-                <div class="bg-white rounded-xl shadow-md overflow-hidden member-card">
-                    <div class="p-5">
-                        <div class="flex flex-col items-center text-center">
-                            ${avatarHtml}
-                            <h3 class="text-lg font-bold text-gray-800">${member.name}</h3>
-                            <p class="text-purple-600 font-semibold mb-1 text-sm">${member.role}</p>
-                            <p class="text-gray-600 text-sm">
-                                ${member.field}
-                            </p>
-                        </div>
-                    </div>
+                <div class="member-card fade-in">
+                    ${avatarHtml}
+                    <h3 class="member-name">${member.name}</h3>
+                    <p class="member-role">${member.role}</p>
+                    ${member.field ? `<p style="color: var(--neutral-500); font-size: 0.8125rem;">${member.field}</p>` : ''}
                 </div>
             `;
             }).join('');
             
-            // Process graduate student avatar images for face detection
             membersData.graduate_students.forEach((member, index) => {
                 if (member.avatar_type === 'image') {
                     const container = document.getElementById(`avatar-graduate-${index}`);
@@ -425,34 +302,26 @@
                 }
             });
 
-            // Load undergraduate students
             const undergraduateStudentsContainer = document.getElementById('undergraduate-students');
             undergraduateStudentsContainer.innerHTML = membersData.undergraduate_students.map((member, index) => {
                 const avatarHtml = member.avatar_type === 'image' 
-                    ? `<div class="avatar-container w-24 h-24 rounded-full overflow-hidden mb-3" id="avatar-undergraduate-${index}">
-                        <img src="${member.avatar}" alt="${member.name}" onerror="this.parentElement.innerHTML='<i class=\'fas fa-user-graduate text-3xl text-purple-600\'></i>'">
+                    ? `<div class="member-avatar" id="avatar-undergraduate-${index}">
+                        <img src="${member.avatar}" alt="${member.name}" onerror="this.parentElement.innerHTML='<i class=\\'fas fa-user-graduate\\'></i>'">
                        </div>`
-                    : `<div class="w-24 h-24 bg-gray-200 rounded-full flex items-center justify-center mb-3">
-                        <i class="fas fa-${member.avatar} text-3xl text-purple-600"></i>
+                    : `<div class="member-avatar">
+                        <i class="fas fa-${member.avatar}"></i>
                        </div>`;
                 
                 return `
-                <div class="bg-white rounded-xl shadow-md overflow-hidden member-card">
-                    <div class="p-5">
-                        <div class="flex flex-col items-center text-center">
-                            ${avatarHtml}
-                            <h3 class="text-lg font-bold text-gray-800">${member.name}</h3>
-                            <p class="text-purple-600 font-semibold mb-1 text-sm">${member.role}</p>
-                            <p class="text-gray-600 text-sm">
-                                ${member.field}
-                            </p>
-                        </div>
-                    </div>
+                <div class="member-card fade-in">
+                    ${avatarHtml}
+                    <h3 class="member-name">${member.name}</h3>
+                    <p class="member-role">${member.role}</p>
+                    ${member.field ? `<p style="color: var(--neutral-500); font-size: 0.8125rem;">${member.field}</p>` : ''}
                 </div>
             `;
             }).join('');
             
-            // Process undergraduate student avatar images for face detection
             membersData.undergraduate_students.forEach((member, index) => {
                 if (member.avatar_type === 'image') {
                     const container = document.getElementById(`avatar-undergraduate-${index}`);
@@ -463,34 +332,27 @@
                 }
             });
             
-            // Load others - research fellows only
             const othersContainer = document.getElementById('others');
             othersContainer.innerHTML = membersData.others.research_fellows.map((member, index) => {
                 const avatarHtml = member.avatar_type === 'image' 
-                    ? `<div class="avatar-container w-24 h-24 rounded-full overflow-hidden mb-3" id="avatar-fellow-${index}">
-                        <img src="${member.avatar}" alt="${member.name}" onerror="this.parentElement.innerHTML='<i class=\'fas fa-${member.avatar} text-3xl text-purple-600\'></i>'">
+                    ? `<div class="member-avatar" id="avatar-fellow-${index}">
+                        <img src="${member.avatar}" alt="${member.name}" onerror="this.parentElement.innerHTML='<i class=\\'fas fa-${member.avatar}\\'></i>'">
                        </div>`
-                    : `<div class="w-24 h-24 bg-gray-200 rounded-full flex items-center justify-center mb-3">
-                        <i class="fas fa-${member.avatar} text-3xl text-purple-600"></i>
+                    : `<div class="member-avatar">
+                        <i class="fas fa-${member.avatar}"></i>
                        </div>`;
                 
                 return `
-                <div class="bg-white rounded-xl shadow-md overflow-hidden member-card">
-                    <div class="p-5">
-                        <div class="flex flex-col items-center text-center">
-                            ${avatarHtml}
-                            <h3 class="text-lg font-bold text-gray-800">${member.name}</h3>
-                            <p class="text-purple-600 font-semibold mb-1 text-sm">${member.role}</p>
-                            <p class="text-gray-600 text-sm">
-                                ${member.field}
-                            </p>
-                        </div>
-                    </div>
+                <div class="member-card fade-in">
+                    ${avatarHtml}
+                    <h3 class="member-name">${member.name}</h3>
+                    <p class="member-role">${member.role}</p>
+                    ${member.field ? `<p style="color: var(--neutral-500); font-size: 0.8125rem;">${member.field}</p>` : ''}
+                    ${member.institution ? `<p style="color: var(--neutral-400); font-size: 0.75rem; margin-top: 0.25rem;">${member.institution}</p>` : ''}
                 </div>
                 `;
             }).join('');
             
-            // Process research fellows avatar images for face detection
             membersData.others.research_fellows.forEach((member, index) => {
                 if (member.avatar_type === 'image') {
                     const container = document.getElementById(`avatar-fellow-${index}`);
@@ -502,9 +364,7 @@
             });
         }
         
-        // Initialize
         loadMembers().then(() => {
-            // After data is loaded, initialize footer
             if (typeof updateFooterFromDataLoader === 'function') {
                 updateFooterFromDataLoader();
             }
