@@ -49,6 +49,4 @@
     } else {
         loadFooter();
     }
-
-    window.loadFooter = loadFooter;
 })();
