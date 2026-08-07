@@ -160,14 +160,7 @@
 
     <div id="footer-container"></div>
 
-    <script>
-        fetch('components/footer.html')
-            .then(response => response.text())
-            .then(html => {
-                document.getElementById('footer-container').innerHTML = html;
-            })
-            .catch(error => console.error('Error loading footer:', error));
-    </script>
+    <script src="js/footer-loader.js"></script>
 
     <script>
         const mobileMenuButton = document.getElementById('mobile-menu-button');
